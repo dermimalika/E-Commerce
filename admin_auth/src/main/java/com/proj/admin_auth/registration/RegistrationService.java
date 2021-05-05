@@ -5,7 +5,7 @@ import com.proj.admin_auth.appuser.AppUser;
 import com.proj.admin_auth.appuser.AppUserRole;
 import com.proj.admin_auth.appuser.AppUserService;
 //import com.proj.admin_auth.email.EmailSender;
-import com.proj.admin_auth.email.EmailSender;
+//import com.proj.admin_auth.email.EmailSender;
 import com.proj.admin_auth.registration.token.ConfirmationToken;
 import com.proj.admin_auth.registration.token.ConfirmationTokenService;
 import lombok.AllArgsConstructor;
@@ -21,7 +21,7 @@ public class RegistrationService {
     private final AppUserService appUserService;
     private final EmailValidator emailValidator;
     private final ConfirmationTokenService confirmationTokenService;
-    private final EmailSender emailSender;
+   // private final EmailSender emailSender;
 
     public String register(RegistrationRequest request) {
         boolean isValidEmail = emailValidator.
@@ -42,10 +42,10 @@ public class RegistrationService {
                 )
         );
 
-        String link = "http://localhost:8080/api/v1/registration/confirm?token=" + token;
-        emailSender.send(
-                request.getEmail(),
-                buildEmail(request.getFirstName(), link));
+    //    String link = "http://localhost:8080/api/v1/registration/confirm?token=" + token;
+      //  emailSender.send(
+        //        request.getEmail(),
+          //      buildEmail(request.getFirstName(), link));
 
         return token;
     }
