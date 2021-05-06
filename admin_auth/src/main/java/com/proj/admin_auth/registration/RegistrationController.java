@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.*;
 @AllArgsConstructor
 public class RegistrationController {
 
-    @GetMapping("/dash")
-    public String Firstdash(AppUser superadmin) {
+    @GetMapping("/")
+    public String Firstdash() {
         return "Firstdash";
     }
 
