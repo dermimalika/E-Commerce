@@ -21,13 +21,19 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http
+        http.authorizeRequests()
+                    .antMatchers("/").permitAll()
+                    .antMatchers("/api/v*/registration/**").permitAll()
+                    .antMatchers("/admin").permitAll()
+                    .antMatchers("/admin/**").hasRole("ADMIN")
+                    .antMatchers("/sadmin").permitAll()
+                    .antMatchers("/sadmin/**").hasRole("SUPERADMIN")
+
+                   // .antMatchers("/api/v*/registration/**").permitAll()
+                    .anyRequest()
+                    .authenticated()
+                .and()
                 .csrf().disable()
-                .authorizeRequests()
-                    .antMatchers("/api/v*/registration/**")
-                    .permitAll()
-                .anyRequest()
-                .authenticated().and()
                 .formLogin();
 
     }

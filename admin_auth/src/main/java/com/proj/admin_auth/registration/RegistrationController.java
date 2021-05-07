@@ -9,10 +9,6 @@ import org.springframework.web.bind.annotation.*;
 @AllArgsConstructor
 public class RegistrationController {
 
-    @GetMapping("/")
-    public String Firstdash() {
-        return "Firstdash";
-    }
 
     private RegistrationService registrationService;
 

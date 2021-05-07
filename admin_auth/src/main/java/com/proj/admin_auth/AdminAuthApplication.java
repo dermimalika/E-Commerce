@@ -1,11 +1,12 @@
 package com.proj.admin_auth;
 
-import org.apache.catalina.filters.CorsFilter;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+import org.springframework.web.filter.CorsFilter;
 
 import java.util.Arrays;
 
@@ -15,6 +16,7 @@ public class AdminAuthApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(AdminAuthApplication.class, args);
 	}
+
 
 	@Bean
 	public CorsFilter corsFilter() {
@@ -29,12 +31,8 @@ public class AdminAuthApplication {
 		corsConfiguration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
 		UrlBasedCorsConfigurationSource urlBasedCorsConfigurationSource = new UrlBasedCorsConfigurationSource();
 		urlBasedCorsConfigurationSource.registerCorsConfiguration("/**", corsConfiguration);
-		return new CorsFilter(urlBasedCorsConfigurationSource);
+			return new CorsFilter(urlBasedCorsConfigurationSource);
 	}
-
-
-
-
 
 	}
 
