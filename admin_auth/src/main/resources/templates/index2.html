@@ -7,7 +7,9 @@
 <body>
 <h1> ADMIN DASHBOARD</h1>
 
-
+<ul>
+    <li sec:authorize="isAuthenticated()"><a th:href="@{/logout}">Logout</a></li>
+</ul>
 
 </body>
 
