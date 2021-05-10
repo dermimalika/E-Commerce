@@ -5,18 +5,7 @@
     <title>Title</title>
 </head>
 <body>
-<h1>SUPER ADMIN DASHBOARD</h1>
-
-<div>
-    <ul>
-        <li sec:authorize="isAuthenticated()"><a th:href="@{/logout}">Logout</a></li>
-    </ul>
-
-
-</div>
-<div sec:authorize="hasRole('SUPERADMIN')">
-    <h3>You will see this only if you are ADMIN</h3>
-</div>
+<h1>ADMIN DASHBOARD</h1>
 </body>
 
 
