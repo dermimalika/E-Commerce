@@ -14,6 +14,6 @@ import java.util.List;
 
 @RepositoryRestController
 public interface AdminRepository extends JpaRepository<Admin,Long> {
-    List<Admin> findAdminByNom(String n);
+    //List<Admin> findAdminByNom(String n);
 
 }

@@ -1,29 +1,30 @@
 package com.esi.first_part.entities;
 
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
-import net.minidev.json.annotate.JsonIgnore;
 
 import javax.persistence.*;
-import java.util.Collection;
+import java.io.Serializable;
 
 @Entity
-@Data@AllArgsConstructor@NoArgsConstructor
-public class Admin {
-
+@Data
+@AllArgsConstructor @NoArgsConstructor @ToString
+public class Admin implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idAdmin;
-
+    private Long id;
     private String nom;
-    private String prenom;
     private String email;
-    private String password;
+
+    private String phone;
 
 
-    @OneToMany(mappedBy = "admin")
-    private Collection<Store> stores;
+    @OneToOne(mappedBy = "admin")
+
+    private Store store;
 
 }

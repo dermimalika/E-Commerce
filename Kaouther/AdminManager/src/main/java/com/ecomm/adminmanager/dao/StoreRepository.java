@@ -1,4 +1,4 @@
-package com.esi.first_part.dao;
+package com.ecomm.adminmanager.dao;
 
 import com.esi.first_part.entities.Store;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -31,10 +31,5 @@ public interface StoreRepository extends JpaRepository<Store,Long> {
     @Transactional
     @Query("delete from Store s where s.idStore =:id")
     void delStore(@Param("id") Long id);
-
-    @Modifying
-    @Transactional
-    @Query("update Store s set s.arch=true where s.idStore=:id")
-    void archStore(@Param("id") Long id);
 
 }

@@ -22,7 +22,7 @@ public class FirstPartApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        adminRepository.findAdminByNom("abdou").forEach(System.out::println);
+        //adminRepository.findAdminByNom("abdou").forEach(System.out::println);
 
         storeRepository.findStoreByNom("Amel").forEach(System.out::println);
     }

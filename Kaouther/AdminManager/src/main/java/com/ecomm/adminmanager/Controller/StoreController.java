@@ -1,10 +1,9 @@
-package com.esi.first_part.controllers;
+package com.ecomm.adminmanager.Controller;
 
-import com.esi.first_part.dao.AdminRepository;
-import com.esi.first_part.dao.StoreRepository;
-import com.esi.first_part.entities.Admin;
-import com.esi.first_part.entities.Store;
-import com.esi.first_part.services.StoreService;
+import com.ecomm.adminmanager.dao.StoreRepository;
+
+import com.ecomm.adminmanager.entities.Store;
+import com.ecomm.adminmanager.Service.StoreService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,8 +13,7 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/api")
 public class StoreController {
-    @Autowired
-    AdminRepository adminRepository;
+
 
     @Autowired
     StoreRepository storeRepository;
@@ -23,15 +21,6 @@ public class StoreController {
     @Autowired
     StoreService storeService;
 
-    @GetMapping("/admin/all")       //"http://localhost:8082/api/admin/all"
-    public List<Admin> getAdmins(){
-        return  adminRepository.findAll();
-    }
-
-    @GetMapping("/admin/{id}")      //"http://localhost:8082/api/admin/1"
-    public Admin getAdminById(@PathVariable("id") Long id){
-        return adminRepository.findById(id).get();
-    }
 
     @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping("/store/all")       //"http://localhost:8082/api/store/all"
@@ -54,12 +43,6 @@ public class StoreController {
     public List<Store> delStore(@PathVariable("id") Long id){
         storeRepository.delStore(id);
         return storeRepository.findAll(); }
-    @CrossOrigin(origins = "http://localhost:4200")
-    @GetMapping("/archStore/{id}")      //"http://localhost:8082/api/archStore/3"
-    public List<Store> archStore(@PathVariable("id") Long id){
-        storeRepository.archStore(id);
-        return storeRepository.findAll(); }
-
 
     @CrossOrigin(origins = "http://localhost:4200")
     @PostMapping("/updStore/{id}")      //"http://localhost:8082/api/updStore/6"
