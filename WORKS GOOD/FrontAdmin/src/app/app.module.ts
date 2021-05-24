@@ -5,6 +5,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
+import { AuthGuard2Service } from './service/auth-guard2.service';
+import { AuthenticationService } from './service/authentication.service';
 import { AppComponent } from './app.component';
 
 import { LoginComponent } from './login/login.component';
@@ -45,7 +47,9 @@ import { StoreService } from './service/store.service';
     {
       provide:HTTP_INTERCEPTORS, useClass:BasicAuthHtppInterceptorService, multi:true
     },
-    StoreService
+    StoreService,
+    AuthGuard2Service,
+    AuthenticationService
 
   ],
   bootstrap: [AppComponent]

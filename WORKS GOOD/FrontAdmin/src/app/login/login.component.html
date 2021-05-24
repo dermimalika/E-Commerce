@@ -7,34 +7,26 @@
   </button>
 </div> -->
 
-<mat-card>
-    <mat-card-header>
-        <mat-card-title>Login</mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-        <form>
-            <table class="example-full-width" cellspacing="0">
-                <tr>
-                    <td>
-                        <mat-form-field class="example-full-width">
-                            <input matInput placeholder="Username" [(ngModel)]="username" name="username" required>
-                        </mat-form-field>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <mat-form-field class="example-full-width">
-                            <input matInput placeholder="Password" [(ngModel)]="password" type="password" name="password" required>
-                        </mat-form-field>
-                    </td>
-                </tr>
-                <p *ngIf="error" class="error">
-                    {{ error }}
-                </p>
-            </table>
-        </form>
-    </mat-card-content>
-    <mat-card-actions>
-        <button mat-raised-button (click)="checkLogin()" color="primary">Login</button>
-    </mat-card-actions>
-</mat-card>
+
+
+<div class="wrapper fadeInDown">
+    <div id="formContent">
+      <!-- Tabs Titles -->
+  
+      <!-- Icon -->
+      <div class="fadeIn first">
+        <img src="..\..\assets\images\E-meuble.png" id="icon" alt="User Icon" />
+      </div>
+  
+      <!-- Login Form -->
+      <form>
+        <input type="text" id="login" class="fadeIn second"   placeholder="Username" [(ngModel)]="username" name="username" required>
+        <input type="password" id="password" class="fadeIn third" name="login" placeholder="password" placeholder="Password" [(ngModel)]="password"  name="password" required>
+        <button  class="fadeIn fourth" value="Log In" (click)="checkLogin()">login</button>
+      </form>
+  
+      <!-- Remind Passowrd -->
+      
+  
+    </div>
+  </div>

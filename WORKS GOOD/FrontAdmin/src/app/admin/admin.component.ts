@@ -1,5 +1,6 @@
 import { Component, Inject, OnInit } from "@angular/core";
 import { HttpClientService } from "../service/httpclient.service";
+import { AuthenticationService } from "../service/authentication.service";
 import  {Admin} from "../Admin";
 import { DOCUMENT } from "@angular/common";
 
@@ -10,12 +11,17 @@ import { DOCUMENT } from "@angular/common";
 })
 export class AdminComponent implements OnInit {
   admins: Admin[];
+  super:any;
   displayedColumns: string[] = ["name", "phone", "delete"];
 
-  constructor(private httpClientService: HttpClientService,  @Inject (DOCUMENT) private document:Document) {}
+  constructor(
+    private httpClientService: HttpClientService,  
+    @Inject (DOCUMENT) private document:Document,
+    private authService:AuthenticationService,) {}
 
   ngOnInit() {
-    this.getAdmins()
+    this.getAdmins();
+    this.super=this.authService.isRoleSuper();
   }
  
   getAdmins(){
@@ -23,7 +29,8 @@ export class AdminComponent implements OnInit {
     
     this.httpClientService
       .getAdmins()
-      .subscribe(response => this.handleSuccessfulResponse(response));
+      .subscribe(response => {this.handleSuccessfulResponse(response);
+      });
   }
 
   handleSuccessfulResponse(response) {

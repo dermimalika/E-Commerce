@@ -16,6 +16,8 @@ public interface AdminDao extends JpaRepository<Admin,Long> {
 
     Optional<Admin> findAdminById(Long id);
 
+    Admin findAdminByUsername(String username);
+
     @Query("SELECT u from Admin u Where u.username = :username")
     public Admin getUserByUsername(@Param("username") String username);
 

@@ -22,6 +22,10 @@ public class AdminAPI {
         public  AdminAPI(AdminService adminService, AdminDao adminDao){this.adminService= adminService;
             this.adminDao = adminDao;
         }
+    //Afficher All Admins
+    @CrossOrigin(origins = "http://localhost:4200")
+    @GetMapping("/username/{username}")
+    public Admin getAdmin(@PathVariable("username") String username ) {return adminDao.findAdminByUsername(username);}
 
         //Afficher All Admins
         @CrossOrigin(origins = "http://localhost:4200")
