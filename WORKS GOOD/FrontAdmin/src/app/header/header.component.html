@@ -1,12 +1,39 @@
-<mat-toolbar color="primary">
+<div *ngIf="super">
+<mat-toolbar *ngIf="isLoggedIn()" color="primary">
     <mat-toolbar-row>
-        <span><a mat-button href="https://www.techgeeknext.com" style="font-size: larger;">E-Meuble</a></span>
+        <span *ngIf="isLoggedIn()"><a  mat-button href="https://www.techgeeknext.com" style="font-size: larger;">E-Meuble</a></span>
+        <span *ngIf="isLoggedIn()" class="example-fill-remaining-space"></span>
+        <span *ngIf="isLoggedIn()" class="align-center"></span>
+        <span *ngIf="isLoggedIn()" class="example-spacer"></span>
+       <!--- <a mat-button *ngIf="!isLoggedIn()" routerLink="/login" class="nav-link">Login</a>-->
         <span class="example-fill-remaining-space"></span>
         <span class="align-center"></span>
         <span class="example-spacer"></span>
-        <a mat-button *ngIf="!isLoggedIn()" routerLink="/login" class="nav-link">Login</a>
+       
         <a mat-button *ngIf="isLoggedIn()" routerLink="/" class="nav-link">View Admins</a>
         <a mat-button *ngIf="isLoggedIn()" routerLink="/addadmin" class="nav-link">Add New Admin</a>
         <a mat-button *ngIf="isLoggedIn()" routerLink="/logout" class="nav-link">LogOut</a>
     </mat-toolbar-row>
 </mat-toolbar>
+</div>
+
+<div *ngIf="!super">
+    <mat-toolbar *ngIf="isLoggedIn()" color="primary">
+        <mat-toolbar-row>
+            <span *ngIf="isLoggedIn()"><a  mat-button href="https://www.techgeeknext.com" style="font-size: larger;">E-Meuble</a></span>
+            <span *ngIf="isLoggedIn()" class="example-fill-remaining-space"></span>
+            <span *ngIf="isLoggedIn()" class="align-center"></span>
+            <span *ngIf="isLoggedIn()" class="example-spacer"></span>
+           <!--- <a mat-button *ngIf="!isLoggedIn()" routerLink="/login" class="nav-link">Login</a>-->
+            <span class="example-fill-remaining-space"></span>
+            <span class="align-center"></span>
+            <span class="example-spacer"></span>
+            <a mat-button *ngIf="isLoggedIn()" routerLink="/admin/categorys" class="nav-link">View Categories</a>
+            <a mat-button *ngIf="isLoggedIn()" routerLink="/admin/products" class="nav-link">View Products</a>
+            <a mat-button *ngIf="isLoggedIn()" routerLink="/logout" class="nav-link">LogOut</a>
+        </mat-toolbar-row>
+    </mat-toolbar>
+    </div>
+    
+    
+

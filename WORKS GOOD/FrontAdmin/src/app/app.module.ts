@@ -20,6 +20,12 @@ import { HeaderComponent } from './header/header.component';
 import {FooterComponent} from './footer/footer.component';
 import { StoreComponent } from './store/store.component';
 import { StoreService } from './service/store.service';
+import { CategorysComponent } from './admin/categorys/categorys.component';
+import { ViewcategoryComponent } from './admin/categorys/viewcategory/viewcategory.component';
+import { AddcategoryComponent } from './admin/categorys/addcategory/addcategory.component';
+import { ProductsComponent } from './admin/products/products.component';
+import { AddproductComponent } from './admin/products/addproduct/addproduct.component';
+import { ViewproductComponent } from './admin/products/viewproduct/viewproduct.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +37,12 @@ import { StoreService } from './service/store.service';
     LogoutComponent,
     AdminComponent,
     AddAdminComponent,
+    CategorysComponent,
+    ViewcategoryComponent,
+    AddcategoryComponent,
+    ProductsComponent,
+    AddproductComponent,
+    ViewproductComponent,
     StoreComponent
   ],
   imports: [

@@ -1,0 +1,34 @@
+table, th, td {
+    padding: 10px;
+    border: 1px solid black; 
+    border-collapse: collapse;
+    }
+
+.detail {
+    float: right;
+    position: relative;
+    top: -352px;
+    left: 86px;
+}
+.detail img{
+    height: 260px;
+    width: 220px;
+}
+table,tr,td{
+    padding: 10px;
+    border: 1px solid black;
+    border-collapse: collapse;
+    border: dashed;
+    width: 60%;
+    height: 50px;
+    border-color: #525252;
+}
+.btn-warning{
+    margin-left: 30px;
+}
+._ngcontent-kic-c2{
+    padding: 20px;
+}
+.btn-primary:hover{
+    background-color: #fff;
+}

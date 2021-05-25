@@ -7,9 +7,13 @@ import { AuthenticationService } from '../service/authentication.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
+  super: any;
 
-  constructor(private loginService:AuthenticationService){ }
+  constructor(private loginService:AuthenticationService,    
+    private authService:AuthenticationService,
+    ){ }
   ngOnInit() {
+    this.super=this.authService.isRoleSuper();
 
 
   }
