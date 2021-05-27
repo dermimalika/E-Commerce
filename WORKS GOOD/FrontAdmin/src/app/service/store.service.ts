@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import {  environment } from "../../environments/environment"
+import { HttpClientService } from './httpclient.service';
 
 
 @Injectable({
@@ -33,9 +34,13 @@ export class StoreService {
       }
       return this.http.post(this.urlBack + "addStore", data)
     }
-    //
+    // Archiver Store
     archStore(id:any):Observable<any>{
       return this.http.get(this.urlBack+"archStore/"+id);
+    }
+    // Restore Store
+    restoreStore(id:any):Observable<any>{
+      return this.http.get(this.urlBack+"restoreStore/"+id);
     }
     // Delete Store  
     delete(id: any): Observable<any> {
