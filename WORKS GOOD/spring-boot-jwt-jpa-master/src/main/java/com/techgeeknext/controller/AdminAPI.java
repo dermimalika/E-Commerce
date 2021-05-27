@@ -2,9 +2,12 @@ package com.techgeeknext.controller;
 
 
 import com.techgeeknext.dao.AdminDao;
+import com.techgeeknext.entities.Store;
 import com.techgeeknext.service.AdminService;
 import com.techgeeknext.entities.Admin;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -40,7 +43,18 @@ public class AdminAPI {
             return adminDao.findAll();
         }
 
-        //Add Admin
+
+
+
+    @CrossOrigin(origins = "http://localhost:4200")
+    @PostMapping("/update/{id}")
+    public List<Admin> updAdmin(@PathVariable("id") Long id,@RequestBody Admin admin){
+        //Optional<Store> s = storeRepository.findById(id);
+        adminService.updateAdmin(id,admin);
+        return adminDao.findAll(); }
+
+
+    //Add Admin
     /*
         @CrossOrigin(origins = "http://localhost:4200")
         @PostMapping("/addadmin")

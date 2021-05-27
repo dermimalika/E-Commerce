@@ -1,0 +1,47 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+    integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css">
+
+
+<div class="container">
+    <h1>Product Details</h1>
+</div>
+<table>
+    <tr>
+        <td>Product Id</td>
+        <td>{{product.id}}</td>
+    </tr>
+    <tr>
+        <td>Product Category</td>
+        <td>{{product.category}}</td>
+    </tr>
+    <tr>
+        <td>Product Name</td>
+        <td>{{product.name}}</td>
+    </tr>
+
+    <tr>
+        <td>Product Price</td>
+        <td>{{product.price}}$</td>
+    </tr>
+    <tr>
+        <td>Product Weight</td>
+        <td>{{product.weight}}Kg</td>
+    </tr>
+    <tr>
+        <td>Product Quantity</td>
+        <td>{{product.quantity}}</td>
+    </tr>
+    <tr>
+        <td>Product Description</td>
+        <td>{{product.description}}</td>
+    </tr>
+</table>
+<br>
+<div class="detail">
+    <img class="w3-card-2 w3-hover-shadow w3-center" src="{{product.retrievedImage}}" height="200" width="200">
+    <br><br>
+
+    <a class="btn btn-small btn-warning" (click)="editProduct()">edit</a>&nbsp;&nbsp;&nbsp;
+    <a class="btn btn-small btn-danger" (click)="deleteProduct()">delete</a>
+</div>
