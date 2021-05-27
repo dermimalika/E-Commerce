@@ -78,5 +78,16 @@ public class Admin {
         return role;
     }
 
+    public Boolean getArch() {
+        return arch;
+    }
+
+    public void setArch(Boolean arch) {
+        this.arch = arch;
+    }
+
+    public void setRole(Role role) {
+        this.role = role.NORMAL;
+    }
 }
 

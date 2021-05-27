@@ -1,10 +1,15 @@
 package com.techgeeknext.model;
 
+import com.techgeeknext.entities.Role;
+
 public class UserDto {
     private String username;
     private String password;
     private String phone;
     private String name;
+    private Role role;
+    private Boolean arch;
+
 
 
     public String getUsername() {
@@ -38,5 +43,20 @@ public class UserDto {
         this.name = name;
     }
 
+    public Role getRole() {
+        return role;
+    }
+
+    public Boolean getArch() {
+        return arch;
+    }
+
+    public void setArch(Boolean arch) {
+        this.arch = arch;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
+    }
 
 }

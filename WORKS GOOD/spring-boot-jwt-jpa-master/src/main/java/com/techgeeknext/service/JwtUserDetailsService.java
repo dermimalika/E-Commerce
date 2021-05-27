@@ -1,6 +1,7 @@
 package com.techgeeknext.service;
 
 import com.techgeeknext.entities.Admin;
+import com.techgeeknext.entities.Role;
 import com.techgeeknext.model.UserDto;
 import com.techgeeknext.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,6 +37,8 @@ public class JwtUserDetailsService implements UserDetailsService {
 		newUser.setName(user.getName());
 		newUser.setPhone(user.getPhone());
 		newUser.setPassword(bcryptEncoder.encode(user.getPassword()));
+		newUser.setRole(Role.NORMAL);
+		newUser.setArch(false);
 		return userDao.save(newUser);
 	}
 }

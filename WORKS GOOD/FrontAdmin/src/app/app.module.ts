@@ -7,7 +7,6 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AuthGuard2Service } from './service/auth-guard2.service';
 import { AuthenticationService } from './service/authentication.service';
-import { RecycleService } from './service/recycle.service';
 import { AppComponent } from './app.component';
 
 import { LoginComponent } from './login/login.component';
@@ -65,7 +64,6 @@ import { RecycleComponent } from './recycle/recycle.component';
     StoreService,
     AuthGuard2Service,
     AuthenticationService,
-    RecycleService
 
   ],
   bootstrap: [AppComponent]

@@ -41,6 +41,17 @@ export class HttpClientService {
   public createAdmin(user : Object): Observable<Object> {
     return this.httpClient.post(this.urlBack+"register",user);
     }
+  
+    //UPDATE ADMIN
+    updateAdmin(id:any,data: any): Observable<any> {
+      data={
+        name:data.name,
+        phone:data.phone,
+        username:data.username
+      }
+      return this.httpClient.post( "http://localhost:8080/admins/update/"+id, data)
+    }
+  
   // Archiver Admin
    public archAdmin( id:any ):Observable<any>{
       return this.httpClient.get(this.urlBack+"admins/archAdmin/"+id);
