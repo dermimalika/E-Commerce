@@ -1,0 +1,152 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+<!-- ===================== Cards Display =============================== -->
+<div *ngIf="mode=='main'">
+    <div class="row">
+        <!-- Condition super Admin -->
+        <div *ngIf="super">
+        <div class="col-sm-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Special title treatment</h5>
+              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+              <a  class="btn btn-primary" (click)="mode='Stores'">Stores</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Special title treatment</h5>
+              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+              <a  class="btn btn-primary" (click)="mode='Admins'">Admins</a>
+            </div>
+          </div>
+        </div>
+      </div>  
+      <!-- Condition super Admin End -->
+        <div class="col-sm-6">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Special title treatment</h5>
+                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                <a  class="btn btn-primary" (click)="mode='Products'">Products</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Special title treatment</h5>
+                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                <a  class="btn btn-primary" (click)="mode='Categories'">Categories</a>
+              </div>
+            </div>
+          </div>
+
+      </div>
+</div>
+<!-- ================================================================= -->
+<!-- Condition super Admin -->
+<div *ngIf="super">
+
+<!-- ==================== Stores  Section ============================ -->
+<div *ngIf="mode=='Stores'">
+
+    <table class="table table-hover">
+        <thead class="">
+            <th>ID</th>
+            <th>Name</th>
+            <th>Restore</th>
+            <th>Delete</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let s of stores">
+                <div *ngIf="s.arch">
+                    <td>{{s.idStore}}</td>
+                    <td>{{s.nom}}</td>
+                    <td><button class="btn btn-success text-center" (click)="restoreStore(s.idStore)">Restore Store</button></td>
+                    <td><button class="btn btn-danger text-center" (click)="delStore(s.idStore)"><i class="fa fa-trash fa-lg" aria-hidden="true">Delete Store</i></button></td>
+                </div>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+<!-- =================================================================== -->
+
+<!-- ========================= Admins Section ========================== -->
+<div *ngIf="mode=='Admins'">
+
+    <table class="table table-hover">
+        <thead class="">
+            <th>ID</th>
+            <th>Name</th>
+            <th>Restore</th>
+            <th>Delete</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let a of admins">
+                <div *ngIf="a.arch">
+                    <td>{{a.id}}</td>
+                    <td>{{a.name}}</td>
+                    <td><button class="btn btn-success text-center" (click)="restoreAdmin(a.id)">Restore Admin</button></td>
+                    <td><button class="btn btn-danger text-center" (click)="delAdmin(a.id)"><i class="fa fa-trash fa-lg" aria-hidden="true">Delete Admin</i></button></td>
+                </div>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+<!-- =================================================================== -->
+</div><!-- Condition super Admin End-->
+<!-- ========================= Products Section ======================== -->
+<div *ngIf="mode=='Products'">
+
+    <table class="table table-hover">
+        <thead class="">
+            <th>ID</th>
+            <th>Name</th>
+            <th>Restore</th>
+            <th>Delete</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let p of products">
+                <div *ngIf="p.arch">
+                    <td>{{p.id}}</td>
+                    <td>{{p.name}}</td>
+                    <td><button class="btn btn-success text-center" (click)="restoreProduct(p.id)">Restore Product</button></td>
+                    <td><button class="btn btn-danger text-center" (click)="delProduct(p.id)"><i class="fa fa-trash fa-lg" aria-hidden="true">Delete Product</i></button></td>
+                </div>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+<!-- =================================================================== -->
+
+<!-- ======================== Categories Section ======================= -->
+<div *ngIf="mode=='Categories'">
+
+    <table class="table table-hover">
+        <thead class="">
+            <th>ID</th>
+            <th>Name</th>
+            <th>Restore</th>
+            <th>Delete</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let c of categories">
+                <div *ngIf="c.arch">
+                    <td>{{c.id}}</td>
+                    <td>{{c.name}}</td>
+                    <td><button class="btn btn-success text-center" (click)="restoreCategory(c.id)">Restore Store</button></td>
+                    <td><button class="btn btn-danger text-center" (click)="delCategory(c.id)"><i class="fa fa-trash fa-lg" aria-hidden="true">Delete Admin</i></button></td>
+                </div>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+<!-- =================================================================== -->

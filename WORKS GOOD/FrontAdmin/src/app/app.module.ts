@@ -5,6 +5,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
+import { AuthGuard2Service } from './service/auth-guard2.service';
+import { AuthenticationService } from './service/authentication.service';
+import { RecycleService } from './service/recycle.service';
 import { AppComponent } from './app.component';
 
 import { LoginComponent } from './login/login.component';
@@ -18,6 +21,13 @@ import { HeaderComponent } from './header/header.component';
 import {FooterComponent} from './footer/footer.component';
 import { StoreComponent } from './store/store.component';
 import { StoreService } from './service/store.service';
+import { CategorysComponent } from './admin/categorys/categorys.component';
+import { ViewcategoryComponent } from './admin/categorys/viewcategory/viewcategory.component';
+import { AddcategoryComponent } from './admin/categorys/addcategory/addcategory.component';
+import { ProductsComponent } from './admin/products/products.component';
+import { AddproductComponent } from './admin/products/addproduct/addproduct.component';
+import { ViewproductComponent } from './admin/products/viewproduct/viewproduct.component';
+import { RecycleComponent } from './recycle/recycle.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +39,14 @@ import { StoreService } from './service/store.service';
     LogoutComponent,
     AdminComponent,
     AddAdminComponent,
-    StoreComponent
+    CategorysComponent,
+    ViewcategoryComponent,
+    AddcategoryComponent,
+    ProductsComponent,
+    AddproductComponent,
+    ViewproductComponent,
+    StoreComponent,
+    RecycleComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +62,10 @@ import { StoreService } from './service/store.service';
     {
       provide:HTTP_INTERCEPTORS, useClass:BasicAuthHtppInterceptorService, multi:true
     },
-    StoreService
+    StoreService,
+    AuthGuard2Service,
+    AuthenticationService,
+    RecycleService
 
   ],
   bootstrap: [AppComponent]

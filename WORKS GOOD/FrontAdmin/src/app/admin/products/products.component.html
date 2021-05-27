@@ -1,0 +1,37 @@
+<div class="cont">
+  <h1>Product CRUD</h1>
+  <a class="btn btn-primary mb-3" (click)="addProduct()">Add New Product</a>
+</div>
+<div class="container row">
+  <div class="col-md-6">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Product Category</th>
+          <th>Product Name</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of products">
+          <div *ngIf="product.arch; else elseBlock"></div>
+          <ng-template #elseBlock>
+          <td>{{product.id}}</td>
+          <td>{{product.category}}</td>
+          <td>{{product.name}}</td>
+          <td>
+            <button type="button" class="btn btn-primary" (click)="viewProduct(product.id)"> Show Details</button>
+          </td>
+          </ng-template>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="col-md-6">
+    <app-addproduct *ngIf="action === 'edit' ||action === 'add'" [product]="selectedProduct"
+      (bookAddedEvent)="refreshData()">
+    </app-addproduct>
+    <app-viewproduct *ngIf="action === 'view'" [product]="selectedProduct" (bookDeletedEvent)="refreshData()">
+    </app-viewproduct>
+  </div>
+</div>

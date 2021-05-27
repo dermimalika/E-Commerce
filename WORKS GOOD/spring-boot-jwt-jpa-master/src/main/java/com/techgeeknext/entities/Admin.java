@@ -1,12 +1,14 @@
 package com.techgeeknext.entities;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import javax.persistence.*;
 
 @Entity
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
@@ -19,8 +21,16 @@ public class Admin {
     private String username;
     @Column
     private String name;
+
+    @Column (columnDefinition = "boolean default false ")
+    private Boolean arch;
+
     @Column
     private String phone;
+
+    @Enumerated(EnumType.STRING)
+    @Column (columnDefinition = "varchar(255) default 'NORMAL'")
+    private Role role;
     @Column
     @JsonIgnore
     private String password;
@@ -64,7 +74,9 @@ public class Admin {
         this.id = id;
     }
 
-
+    public Role getRole() {
+        return role;
+    }
 
 }
 

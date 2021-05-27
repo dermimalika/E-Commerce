@@ -1,0 +1,23 @@
+.container{
+    padding: 30px;
+}
+.detail {
+    float: right;
+    position: relative;
+    top: -257px;
+    left: 86px;
+}
+table{
+    padding: 10px;
+    border: 1px solid black;
+    border-collapse: collapse;
+    border: dashed;
+    width: 60%;
+    height: 50px;
+}
+.req{
+    color: red;
+}
+input.ng-dirty.ng-invalid {
+  color: red
+}

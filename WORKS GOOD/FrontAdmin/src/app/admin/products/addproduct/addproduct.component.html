@@ -1,0 +1,60 @@
+<div class="container">
+  <h1>{{product.id == null ? 'Add' : 'Edit'}} Product - {{product.id}}</h1>
+
+  <form>
+
+    <label for="category">Category</label>
+    <input type="text" class="form-control" required #ucategory="ngModel" id="category" placeholder="category"
+      name="category" [(ngModel)]="product.category">
+    <div class="req" *ngIf="ucategory.invalid">
+      Category is required.
+    </div>
+
+    <label for="name">Name</label>
+    <input type="text" class="form-control" required #uname="ngModel" id="name" placeholder="Product Name"
+      [(ngModel)]="product.name" name="name">
+    <div class="req" *ngIf="uname.invalid">
+      Name is required.
+    </div>
+
+    <label for="price">Price</label>
+    <input type="number" class="form-control" required #uprice="ngModel" id="price" placeholder="price" name="price"
+      [(ngModel)]="product.price">
+    <div class="req" *ngIf="uprice.invalid">
+      Price is required.
+    </div>
+
+    <label for="name">Quantity</label>
+    <input type="number" class="form-control" required #uqnt="ngModel" id="quantity" placeholder="Product quantity"
+      [(ngModel)]="product.quantity" name="quantity">
+    <div class="req" *ngIf="uqnt.invalid">
+      Quantity is required.
+    </div>
+
+    <label for="name">Weight</label>
+    <input type="number" class="form-control" required #uweight="ngModel" id="weight" placeholder="Product weight"
+      [(ngModel)]="product.weight" name="weight">
+    <div class="req" *ngIf="uweight.invalid">
+      Weight is required.
+    </div>
+
+    <label for="name">Description</label>
+    <input type="text" class="form-control" required #udesc="ngModel" id="description" placeholder="Product description"
+      [(ngModel)]="product.description" name="description">
+    <div class="req" *ngIf="udesc.invalid">
+      Description is required.
+    </div>
+    <div class="form-group" *ngIf="product.id == null">
+      <!-- only show this field on adding a book -->
+      <br>
+      <input required type="file" (change)="onFileChanged($event)">
+      <img [src]="imgURL" height="200" width="200" *ngIf="imgURL">
+    </div>
+    <br><br>
+    <button type="button" class="btn btn-success" (click)="saveProduct()">Save Product</button>
+  </form>
+</div>
+
+<div class="req" *ngIf="">
+  Ce produit existe déja.
+</div>

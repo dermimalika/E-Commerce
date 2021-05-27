@@ -16,6 +16,8 @@ public interface AdminDao extends JpaRepository<Admin,Long> {
 
     Optional<Admin> findAdminById(Long id);
 
+    Admin findAdminByUsername(String username);
+
     @Query("SELECT u from Admin u Where u.username = :username")
     public Admin getUserByUsername(@Param("username") String username);
 
@@ -23,5 +25,15 @@ public interface AdminDao extends JpaRepository<Admin,Long> {
     @Transactional
     @Query("delete from Admin a where a.id=:id")
     void delAdmin(@Param("id") Long id);
+
+    @Modifying
+    @Transactional
+    @Query("update Admin a set a.arch=true where a.id=:id")
+    void archAdmin(@Param("id") Long id);
+
+    @Modifying
+    @Transactional
+    @Query("update Admin a set a.arch=false where a.id=:id")
+    void restoreAdmin(@Param("id") Long id);
 
 }

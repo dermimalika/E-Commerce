@@ -22,6 +22,10 @@ public class AdminAPI {
         public  AdminAPI(AdminService adminService, AdminDao adminDao){this.adminService= adminService;
             this.adminDao = adminDao;
         }
+    //Afficher All Admins
+    @CrossOrigin(origins = "http://localhost:4200")
+    @GetMapping("/username/{username}")
+    public Admin getAdmin(@PathVariable("username") String username ) {return adminDao.findAdminByUsername(username);}
 
         //Afficher All Admins
         @CrossOrigin(origins = "http://localhost:4200")
@@ -35,6 +39,17 @@ public class AdminAPI {
             adminDao.delAdmin(id);
             return adminDao.findAll();
         }
+
+        @CrossOrigin(origins = "http://localhost:4200")
+        @GetMapping("/archAdmin/{id}")
+        public List<Admin> archAdmin(@PathVariable("id") Long id){
+            adminDao.archAdmin(id);
+            return adminDao.findAll(); }
+    @CrossOrigin(origins = "http://localhost:4200")
+    @GetMapping("/restoreAdmin/{id}")
+    public List<Admin> restoreAdmin(@PathVariable("id") Long id){
+        adminDao.restoreAdmin(id);
+        return adminDao.findAll(); }
 
         //Add Admin
     /*
