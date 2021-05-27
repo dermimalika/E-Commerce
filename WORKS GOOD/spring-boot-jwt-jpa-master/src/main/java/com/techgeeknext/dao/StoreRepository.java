@@ -35,4 +35,9 @@ public interface StoreRepository extends JpaRepository<Store,Long> {
     @Query("update Store s set s.arch=true where s.idStore=:id")
     void archStore(@Param("id") Long id);
 
+    @Modifying
+    @Transactional
+    @Query("update Store s set s.arch=false where s.idStore=:id")
+    void restoreStore(@Param("id") Long id);
+
 }

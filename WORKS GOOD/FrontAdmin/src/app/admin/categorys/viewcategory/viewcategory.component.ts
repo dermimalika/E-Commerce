@@ -20,9 +20,9 @@ export class ViewcategoryComponent implements OnInit {
 
   ngOnInit() {
   }
-
+  
   deleteCategory() {
-    this.httpClientService.deleteCategory(this.category.id).subscribe(
+    this.httpClientService.archCategory(this.category.id).subscribe(
       (category) => {
         this.userDeletedEvent.emit();
         this.router.navigate(['admin', 'categorys']);

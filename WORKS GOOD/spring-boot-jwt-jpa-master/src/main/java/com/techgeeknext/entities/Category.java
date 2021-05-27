@@ -16,6 +16,9 @@ public class Category {
     @Column(name = "id_category")
     private Long id;
 
+    @Column (columnDefinition = "boolean default false ")
+    private Boolean arch;
+
     @Column(name = "name")
     private String name;
 

@@ -53,4 +53,12 @@ public class StoreController {
         //Optional<Store> s = storeRepository.findById(id);
         storeService.updateStore(id,store);
         return storeRepository.findAll(); }
+
+
+    @CrossOrigin(origins = "http://localhost:4200")
+    @GetMapping("/restoreStore/{id}")
+    public List<Store> restoreStore(@PathVariable("id") Long id){
+
+        storeRepository.restoreStore(id);
+        return storeRepository.findAll(); }
 }

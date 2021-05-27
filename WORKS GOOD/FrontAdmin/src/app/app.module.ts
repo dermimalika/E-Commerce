@@ -7,6 +7,7 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AuthGuard2Service } from './service/auth-guard2.service';
 import { AuthenticationService } from './service/authentication.service';
+import { RecycleService } from './service/recycle.service';
 import { AppComponent } from './app.component';
 
 import { LoginComponent } from './login/login.component';
@@ -26,6 +27,7 @@ import { AddcategoryComponent } from './admin/categorys/addcategory/addcategory.
 import { ProductsComponent } from './admin/products/products.component';
 import { AddproductComponent } from './admin/products/addproduct/addproduct.component';
 import { ViewproductComponent } from './admin/products/viewproduct/viewproduct.component';
+import { RecycleComponent } from './recycle/recycle.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +45,8 @@ import { ViewproductComponent } from './admin/products/viewproduct/viewproduct.c
     ProductsComponent,
     AddproductComponent,
     ViewproductComponent,
-    StoreComponent
+    StoreComponent,
+    RecycleComponent
   ],
   imports: [
     BrowserModule,
@@ -61,7 +64,8 @@ import { ViewproductComponent } from './admin/products/viewproduct/viewproduct.c
     },
     StoreService,
     AuthGuard2Service,
-    AuthenticationService
+    AuthenticationService,
+    RecycleService
 
   ],
   bootstrap: [AppComponent]

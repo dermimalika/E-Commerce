@@ -26,4 +26,14 @@ public interface AdminDao extends JpaRepository<Admin,Long> {
     @Query("delete from Admin a where a.id=:id")
     void delAdmin(@Param("id") Long id);
 
+    @Modifying
+    @Transactional
+    @Query("update Admin a set a.arch=true where a.id=:id")
+    void archAdmin(@Param("id") Long id);
+
+    @Modifying
+    @Transactional
+    @Query("update Admin a set a.arch=false where a.id=:id")
+    void restoreAdmin(@Param("id") Long id);
+
 }

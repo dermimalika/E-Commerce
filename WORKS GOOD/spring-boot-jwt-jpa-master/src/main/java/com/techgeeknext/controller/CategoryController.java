@@ -3,6 +3,7 @@ package com.techgeeknext.controller;
 
 import com.techgeeknext.entities.Category;
 import com.techgeeknext.dao.CategoryRepository;
+import com.techgeeknext.entities.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -32,11 +33,23 @@ public class CategoryController {
         categoryRepository.save(category);;
     }
 
-    @DeleteMapping(path = {"/{id}"})
+    @DeleteMapping(path = {"/delCategory/{id}"})
     public Category deleteCategory(@PathVariable("id") long id) {
         Category category = categoryRepository.getOne(id);
         categoryRepository.deleteById(id);
         return category;
     }
+
+    @CrossOrigin(origins = "http://localhost:4200")
+    @GetMapping("/archCategory/{id}")
+    public List<Category> archProduct(@PathVariable("id") Long id){
+        categoryRepository.archCategory(id);
+        return categoryRepository.findAll(); }
+
+    @CrossOrigin(origins = "http://localhost:4200")
+    @GetMapping("/restoreCategory/{id}")
+    public List<Category> restoreProduct(@PathVariable("id") Long id){
+        categoryRepository.restoreCategory(id);
+        return categoryRepository.findAll(); }
 
 }

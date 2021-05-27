@@ -21,8 +21,13 @@ public class Admin {
     private String username;
     @Column
     private String name;
+
+    @Column (columnDefinition = "boolean default false ")
+    private Boolean arch;
+
     @Column
     private String phone;
+
     @Enumerated(EnumType.STRING)
     @Column (columnDefinition = "varchar(255) default 'NORMAL'")
     private Role role;

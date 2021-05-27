@@ -38,6 +38,9 @@ public class Product {
     @Column(name = "description")
     private String description;
 
+    @Column (columnDefinition = "boolean default false ")
+    private Boolean arch;
+
     public Long getId() {
         return id;
     }

@@ -22,7 +22,7 @@ export class ViewproductComponent implements OnInit {
   }
 
   deleteProduct() {
-    this.httpClientService.deleteProduct(this.product.id).subscribe(
+    this.httpClientService.archProduit(this.product.id).subscribe(
       (product) => {
         this.bookDeletedEvent.emit();
         this.router.navigate(['admin', 'products']);

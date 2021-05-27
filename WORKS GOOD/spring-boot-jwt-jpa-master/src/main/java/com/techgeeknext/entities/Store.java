@@ -19,7 +19,10 @@ public class Store {
 
     private String nom;
 
+    @Column (columnDefinition = "boolean default false ")
     private Boolean arch;
+
+    private String description;
 
     @ToString.Exclude
     @JsonIgnore

@@ -9,6 +9,7 @@ import { AddAdminComponent } from './add-admin/add-admin.component';
 import { StoreComponent } from './store/store.component';
 import { CategorysComponent } from './admin/categorys/categorys.component';
 import { ProductsComponent } from './admin/products/products.component';
+import { RecycleComponent } from './recycle/recycle.component';
 
 const routes: Routes = [
   { path: '', component: AdminComponent,canActivate:[AuthGardService] },
@@ -17,7 +18,8 @@ const routes: Routes = [
   { path: 'store' , component:StoreComponent,canActivate:[AuthGuard2Service,AuthGardService],},
   { path: 'logout', component: LogoutComponent,canActivate:[AuthGardService] },
   { path: 'admin/categorys', component: CategorysComponent,canActivate:[AuthGardService] },
-  { path: 'admin/products', component: ProductsComponent,canActivate:[AuthGardService] }
+  { path: 'admin/products', component: ProductsComponent,canActivate:[AuthGardService] },
+  { path: 'recycle', component: RecycleComponent,canActivate:[AuthGardService] },
 ];
 
 @NgModule({

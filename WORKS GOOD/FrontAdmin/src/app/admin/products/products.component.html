@@ -14,12 +14,15 @@
       </thead>
       <tbody>
         <tr *ngFor="let product of products">
+          <div *ngIf="product.arch; else elseBlock"></div>
+          <ng-template #elseBlock>
           <td>{{product.id}}</td>
           <td>{{product.category}}</td>
           <td>{{product.name}}</td>
           <td>
             <button type="button" class="btn btn-primary" (click)="viewProduct(product.id)"> Show Details</button>
           </td>
+          </ng-template>
         </tr>
       </tbody>
     </table>

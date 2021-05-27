@@ -1,7 +1,15 @@
+<!-- <div class="container">
+    <div>
+        User Name : <input type="text" name="username" [(ngModel)]="username"> Password : <input type="password" name="password" [(ngModel)]="password">
+    </div>
+    <button (click)=checkLogin() class="btn btn-success">
+    Login
+  </button>
+</div> -->
 
 
-<body>
-  <div class="wrapper fadeInDown">
+
+<div class="wrapper fadeInDown">
     <div id="formContent">
       <!-- Tabs Titles -->
   
@@ -12,12 +20,9 @@
   
       <!-- Login Form -->
       <form>
-        <input type="text" id="login" class="fadeIn second"   placeholder="Email" [(ngModel)]="username" name="username" required>
+        <input type="text" id="login" class="fadeIn second"   placeholder="Username" [(ngModel)]="username" name="username" required>
         <input type="password" id="password" class="fadeIn third" name="login" placeholder="password" placeholder="Password" [(ngModel)]="password"  name="password" required>
-        <button  id="btncheck" class="fadeIn fourth" value="Log In" (click)="checkLogin()">login</button>
-        <p *ngIf="error" class="alert alert-danger" role="alert">
-        <!--  {{ error }}-->Cannot Login
-      </p>
+        <button  class="fadeIn fourth" value="Log In" (click)="checkLogin()">login</button>
       </form>
   
       <!-- Remind Passowrd -->
@@ -25,4 +30,3 @@
   
     </div>
   </div>
-</body>
