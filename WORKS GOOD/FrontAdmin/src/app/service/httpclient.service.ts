@@ -41,16 +41,16 @@ export class HttpClientService {
   public createAdmin(user : Object): Observable<Object> {
     return this.httpClient.post(this.urlBack+"register",user);
     }
-  
-    //UPDATE ADMIN
-    updateAdmin(id:any,data: any): Observable<any> {
-      data={
-        name:data.name,
-        phone:data.phone,
-        username:data.username
+      //UPDATE ADMIN
+      updateAdmin(id:any,data: any): Observable<any> {
+        data={
+          name:data.name,
+          phone:data.phone,
+          username:data.username
+        }
+        return this.httpClient.post( "http://localhost:8080/admins/update/"+id, data)
       }
-      return this.httpClient.post( "http://localhost:8080/admins/update/"+id, data)
-    }
+    
   
   // Archiver Admin
    public archAdmin( id:any ):Observable<any>{
@@ -58,7 +58,7 @@ export class HttpClientService {
     }  
   // Restore Admin
    public restoreAdmin(id:any):Observable<any>{
-      return this.httpClient.get(this.urlBack+"restoreAdmin/"+id);
+      return this.httpClient.get(this.urlBack+"admins/restoreAdmin/"+id);
     }
 
   //============================================================================
@@ -77,7 +77,7 @@ export class HttpClientService {
 
   // Delete Category
   deleteCategory(id : any) {
-    return this.httpClient.delete<Category>(this.urlBack+'categorys/delCategory' + id);
+    return this.httpClient.delete<Category>(this.urlBack+'categorys/delCategory/' + id);
   }
   
   // Archiver Category
@@ -86,7 +86,7 @@ export class HttpClientService {
   }
   // Restore Category
   public restoreCategory(id:any):Observable<any>{
-     return this.httpClient.get(this.urlBack+"restoreCategory/"+id);
+     return this.httpClient.get(this.urlBack+"categorys/restoreCategory/"+id);
   }
   //======  
   //=====================================================================
@@ -109,7 +109,7 @@ export class HttpClientService {
 
   //Delete Product
   deleteProduct(id) {
-    return this.httpClient.delete<Product>(this.urlBack+'products/delProduct' + id);
+    return this.httpClient.delete<Product>(this.urlBack+'products/delProduct/'+ id);
   }
 
   //Update Product
@@ -119,12 +119,12 @@ export class HttpClientService {
 
   // Archiver Produit
   public archProduit( id:any ):Observable<any>{
-    return this.httpClient.get(this.urlBack+"products/archAdmin/"+id);
+    return this.httpClient.get(this.urlBack+"products/archProduct/"+id);
   } 
   
   // Restore Product
   public restoreProduct(id:any):Observable<any>{
-      return this.httpClient.get(this.urlBack+"restoreProduct/"+id);
+      return this.httpClient.get(this.urlBack+"products/restoreProduct/"+id);
   }
   //======
   //================================================================================

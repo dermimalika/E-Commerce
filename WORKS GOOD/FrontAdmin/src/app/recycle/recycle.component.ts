@@ -1,6 +1,7 @@
 import { DOCUMENT } from '@angular/common';
 import { Component, Inject, OnInit } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
+import { Product } from '../model/Product';
 import { AuthenticationService } from '../service/authentication.service';
 import { HttpClientService } from '../service/httpclient.service';
 import { StoreService } from '../service/store.service';
@@ -17,6 +18,7 @@ export class RecycleComponent implements OnInit {
   products:any[]                      //List of Products
   categories:any[]                    //List of categories
   super:any
+  products1: any;
 
   constructor(private storeService: StoreService,
     private httpClientService: HttpClientService,
@@ -24,9 +26,14 @@ export class RecycleComponent implements OnInit {
     private authService:AuthenticationService,) { }
 
   ngOnInit(): void {
-    this.getStores();
-    this.getAdmins();
     this.super=this.authService.isRoleSuper();
+    if(this.super){
+      this.getStores();
+      this.getAdmins();
+    }
+    this.getProducts();
+    this.getCategories();
+
     }
     // ----------------> Store <-------------------------------- 
     //-> Get All Stores
@@ -99,7 +106,7 @@ export class RecycleComponent implements OnInit {
               }
     //================
     //-> Delete Admin
-    archAdmin(id: any) {
+    delAdmin(id: any) {
       if(confirm("Are you sure ?")){
         return this.httpClientService.deleteAdmin(id).subscribe(data => {
           if(data){
@@ -116,18 +123,36 @@ export class RecycleComponent implements OnInit {
     
     //----------------------------- Products ---------------------------------------
      //-> Get All Products
-    //  getAdmins(){
-    //   console.log("get admins");
-    //   this.httpClientService
-    //     .getAdmins()
-    //     .subscribe(response => {this.handleSuccessfulResponse(response);
-    //     });
-        
-    // }
-    
-    // handleSuccessfulResponse(response) {
-    //     this.admins = response;
-    // }
+
+     getProducts() {
+      this.httpClientService.getProducts().subscribe(
+        response => this.handleSuccessfulResponseProduct(response)
+      );
+    }
+  
+  
+    handleSuccessfulResponseProduct(response) {
+      this.products = new Array<Product>();
+      this.products1 = response;
+      for (const product of this.products1) {
+        const product2 = new Product();
+        product2.id = product.id;
+        product2.name = product.name;
+        product2.retrievedImage = 'data:image/jpeg;base64,' + product.picByte;
+        product2.category = product.category;
+        product2.price = product.price;
+        product2.quantity = product.quantity;
+        product2.weight = product.weight;
+        product2.description = product.description;
+        product2.picByte = product.picByte;
+        this.products.push(product2);
+      }
+
+      console.log("Products1 :=> ",this.products1);
+      console.log("Products :=> ",this.products);
+      
+      
+    }
     //=================
     //->Restore Product
       restoreProduct(id:any){
@@ -156,18 +181,15 @@ export class RecycleComponent implements OnInit {
     
     //----------------------------- Categories ---------------------------------------
      //-> Get All Categories
-    //  getCategories(){
-    //   console.log("get admins");
-    //   this.httpClientService
-    //     .getAdmins()
-    //     .subscribe(response => {this.handleSuccessfulResponse(response);
-    //     });
-        
-    // }
+     getCategories(){
+        this.httpClientService.getCategorys().subscribe(
+          response => this.handleSuccessfulResponseCategory(response),
+        );
+      }
     
-    // handleSuccessfulResponse(response) {
-    //     this.admins = response;
-    // }
+      handleSuccessfulResponseCategory(response) {
+        this.categories = response;
+      }
     //=================
     //->Restore Category
       restoreCategory(id:any){

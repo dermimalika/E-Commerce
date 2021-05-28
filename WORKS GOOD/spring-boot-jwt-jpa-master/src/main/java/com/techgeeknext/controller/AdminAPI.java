@@ -65,5 +65,21 @@ public class AdminAPI {
 
 
 
+    @CrossOrigin(origins = "http://localhost:4200")
+    @GetMapping("/archAdmin/{id}")
+    public List<Admin> archAdmin(@PathVariable("id") Long id){
+        adminDao.archAdmin(id);
+        return adminDao.findAll(); }
+
+
+    @CrossOrigin(origins = "http://localhost:4200")
+    @GetMapping("/restoreAdmin/{id}")
+    public List<Admin> restoreAdmin(@PathVariable("id") Long id){
+        adminDao.restoreAdmin(id);
+        return adminDao.findAll(); }
+
+
+
+
     }
 

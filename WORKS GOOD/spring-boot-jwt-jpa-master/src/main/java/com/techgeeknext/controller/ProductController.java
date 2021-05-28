@@ -44,6 +44,8 @@ public class ProductController {
         productRepository.save(product);;
     }
 
+
+    @CrossOrigin(origins = "http://localhost:4200")
     @DeleteMapping(path = {"/delProduct/{id}"})
     public Product deleteProduct(@PathVariable("id") long id) {
         Product product = productRepository.getOne(id);

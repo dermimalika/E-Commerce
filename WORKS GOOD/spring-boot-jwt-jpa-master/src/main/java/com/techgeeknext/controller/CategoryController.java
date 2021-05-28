@@ -33,6 +33,8 @@ public class CategoryController {
         categoryRepository.save(category);;
     }
 
+
+    @CrossOrigin(origins = "http://localhost:4200")
     @DeleteMapping(path = {"/delCategory/{id}"})
     public Category deleteCategory(@PathVariable("id") long id) {
         Category category = categoryRepository.getOne(id);

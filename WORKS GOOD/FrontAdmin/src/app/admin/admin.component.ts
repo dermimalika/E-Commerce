@@ -1,6 +1,5 @@
 import { Component, Inject, OnInit } from "@angular/core";
 import { HttpClientService } from "../service/httpclient.service";
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { AuthenticationService } from "../service/authentication.service";
 import  {Admin} from "../Admin";
 import { DOCUMENT } from "@angular/common";
@@ -21,11 +20,10 @@ export class AdminComponent implements OnInit {
 
   idUpd=0;
 
-
   constructor(
     private httpClientService: HttpClientService,  
     @Inject (DOCUMENT) private document:Document,
-    private authService:AuthenticationService,private http: HttpClient) {}
+    private authService:AuthenticationService) {}
 
   ngOnInit() {
     this.getAdmins();
@@ -45,21 +43,21 @@ export class AdminComponent implements OnInit {
     this.admins = response;
   }
 
-  deleteAdmin(id: any) {
+  archAdmin(id: any) {
     if(confirm("Are you sure ?")){
-      return this.httpClientService.deleteAdmin(id).subscribe(data => {
+      return this.httpClientService.archAdmin(id).subscribe(data => {
         if(data){
-          console.log("delete fct : ");
+          console.log("Archiver fct : ");
           this.getAdmins();
           this.document.location.reload();
-          
         }
       })
     }
      return true;
-    
   }
 
+
+  
 
   loadUpd(id:number,name:string,phone:string,username:string){
     this.idUpd=id;
@@ -87,7 +85,4 @@ export class AdminComponent implements OnInit {
     });
 
   }
-
-
 }
-
