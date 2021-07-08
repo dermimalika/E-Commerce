@@ -13,11 +13,13 @@ export class HeaderComponent implements OnInit {
   constructor(private loginService:AuthenticationService,    
     private authService:AuthenticationService,
     @Inject(DOCUMENT) private document: Document
-    ){ }
+    ){
+      this.super=this.authService.super;
+      this.authService.isSuper();}
   ngOnInit() {
-
-    this.super=this.authService.isRoleSuper();
-
+    
+    this.authService.isSuper();
+    this.super=this.authService.super;
   }
 
   isLoggedIn(){

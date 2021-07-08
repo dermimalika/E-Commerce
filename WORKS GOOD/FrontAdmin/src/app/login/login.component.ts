@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '../service/authentication.service';
+import { HeaderComponent } from '../header/header.component';
 
 @Component({
   selector: 'app-login',
@@ -16,15 +17,17 @@ export class LoginComponent implements OnInit {
   @Input() error: string | null;
 
   constructor(private router: Router,
-    private loginservice: AuthenticationService) { }
+    private loginservice: AuthenticationService,
+    ) { }
 
   ngOnInit() {
   }
 
   checkLogin() {
     (this.loginservice.authenticate(this.username, this.password).subscribe(
-      data => {
-        this.router.navigate([''])
+      (data:any) => {
+        this.loginservice.isSuper();
+        this.router.navigate(['']);
         this.invalidLogin = false
       },
       error => {

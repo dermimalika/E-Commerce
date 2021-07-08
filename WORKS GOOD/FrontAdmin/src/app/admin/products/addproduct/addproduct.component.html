@@ -4,11 +4,15 @@
   <form>
 
     <label for="category">Category</label>
-    <input type="text" class="form-control" required #ucategory="ngModel" id="category" placeholder="category"
+    <!-- <input type="text" class="form-control" required #ucategory="ngModel" id="category" placeholder="category"
       name="category" [(ngModel)]="product.category">
     <div class="req" *ngIf="ucategory.invalid">
       Category is required.
-    </div>
+    </div> -->
+    <select class="form-control" aria-label="Default select example" required #ucategory="ngModel" id="category" placeholder="Select Category"
+    name="category" [(ngModel)]="product.category">
+      <option *ngFor="let c of categories" [value]="c.name">{{c.name}}</option>
+    </select>
 
     <label for="name">Name</label>
     <input type="text" class="form-control" required #uname="ngModel" id="name" placeholder="Product Name"

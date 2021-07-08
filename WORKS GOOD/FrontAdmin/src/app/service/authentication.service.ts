@@ -6,10 +6,13 @@ export class Admin {
   constructor(public status: string) {}
 }
 
+
+
 @Injectable({
   providedIn: "root"
 })
 export class AuthenticationService {
+  super:any=""
   constructor(private httpClient: HttpClient) {}
 // Provide username and password for authentication, and once authentication is successful, 
 //store JWT token in session
@@ -26,6 +29,7 @@ export class AuthenticationService {
           let tokenStr = "Bearer " + s[0];
           sessionStorage.setItem("token", tokenStr);
           sessionStorage.setItem("role", s[1]);
+          this.super=sessionStorage.getItem("role");
           return userData;
         })
       );
@@ -40,6 +44,10 @@ export class AuthenticationService {
   isRoleSuper(){
     let role = sessionStorage.getItem("role");
     if (role == 'SUPER') return true;
+  }
+
+  isSuper(){
+    this.super = sessionStorage.getItem("role");
   }
 
   
