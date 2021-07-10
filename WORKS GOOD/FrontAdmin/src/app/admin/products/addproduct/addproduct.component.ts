@@ -20,6 +20,7 @@ export class AddproductComponent implements OnInit {
 
   public selectedFile;
   imgURL: any;
+  categories:any=[];
 
   constructor(private httpClientService: HttpClientService,
     private activedRoute: ActivatedRoute,
@@ -27,6 +28,7 @@ export class AddproductComponent implements OnInit {
     private httpClient: HttpClient) { }
 
   ngOnInit() {
+    this.getCategory();
   }
 
   public onFileChanged(event) {
@@ -41,6 +43,16 @@ export class AddproductComponent implements OnInit {
     };
 
   }
+
+  //===========> Get Categories
+  getCategory() {
+    this.httpClientService.getCategorys().subscribe((data: any)=>{
+      this.categories=data;
+      console.log("in constructor in content-list :",this.categories);
+      console.log("categories in add product ",this.categories[0].name);
+    });
+  }
+  //============================
 
   saveProduct() {
     if (this.product.id == null) {

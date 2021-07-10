@@ -1,4 +1,4 @@
-<div *ngIf="super">
+<div *ngIf="super=='SUPER'">
 <mat-toolbar *ngIf="isLoggedIn()" color="primary">
     <mat-toolbar-row>
         <span *ngIf="isLoggedIn()"><a  mat-button href="https://www.techgeeknext.com" style="font-size: larger;">E-Meuble</a></span>
@@ -13,12 +13,12 @@
         <a mat-button *ngIf="isLoggedIn()" routerLink="/store" class="nav-link">View stores</a>
         <a mat-button *ngIf="isLoggedIn()" routerLink="/" class="nav-link">View Admins</a>
         <a mat-button *ngIf="isLoggedIn()" routerLink="/addadmin" class="nav-link">Add New Admin</a>
-        <a mat-button *ngIf="isLoggedIn()" routerLink="/logout" class="nav-link">LogOut</a>
+        <a mat-button *ngIf="isLoggedIn()" routerLink="/logout" (click)="super=''" class="nav-link">LogOut</a>
     </mat-toolbar-row>
 </mat-toolbar>
 </div>
 
-<div *ngIf="!super">
+<div *ngIf="super=='NORMAL'">
     <mat-toolbar *ngIf="isLoggedIn()" color="primary">
         <mat-toolbar-row>
             <span *ngIf="isLoggedIn()"><a  mat-button href="https://www.techgeeknext.com" style="font-size: larger;">E-Meuble</a></span>
@@ -31,7 +31,7 @@
             <span class="example-spacer"></span>
             <a mat-button *ngIf="isLoggedIn()" routerLink="/admin/categorys" class="nav-link">View Categories</a>
             <a mat-button *ngIf="isLoggedIn()" routerLink="/admin/products" class="nav-link">View Products</a>
-            <a mat-button *ngIf="isLoggedIn()" routerLink="/logout" class="nav-link">LogOut</a>
+            <a mat-button *ngIf="isLoggedIn()" routerLink="/logout" (click)="super=''" class="nav-link">LogOut</a>
         </mat-toolbar-row>
     </mat-toolbar>
     </div>

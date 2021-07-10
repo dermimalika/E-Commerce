@@ -8,8 +8,9 @@
 </div> -->
 
 
-
-<div class="wrapper fadeInDown">
+  <!-- ============ Login Screen ============= -->
+ <div *ngIf="mode=='login'"> 
+  <div class="wrapper fadeInDown">
     <div id="formContent">
       <!-- Tabs Titles -->
   
@@ -23,6 +24,7 @@
         <input type="text" id="login" class="fadeIn second"   placeholder="Username" [(ngModel)]="username" name="username" required>
         <input type="password" id="password" class="fadeIn third" name="login" placeholder="password" placeholder="Password" [(ngModel)]="password"  name="password" required>
         <button  class="fadeIn fourth" value="Log In" (click)="checkLogin()">login</button>
+        <a (click)="mode='forgot'">You forgot your password ?</a>
       </form>
   
       <!-- Remind Passowrd -->
@@ -30,3 +32,55 @@
   
     </div>
   </div>
+ </div>
+
+  <!-- ======================================= -->
+  <!-- ============ Forgot psw Screen ============= -->
+  <div *ngIf="mode=='forgot'">
+    <div class="wrapper fadeInDown">
+      <div id="formContent">
+        <!-- Tabs Titles -->
+    
+        <!-- Icon -->
+        <div class="fadeIn first">
+          <img src="..\..\assets\images\E-meuble.png" id="icon" alt="User Icon" />
+        </div>
+    
+        <!-- Forgot Form -->
+        <form>
+          <input type="text" id="forgot" class="fadeIn second"   placeholder="Your Email Address... " [(ngModel)]="mail" name="mail" required>
+          <button  class="fadeIn fourth" value="Log In" (click)="forgotPsw()">Next</button>
+        </form>
+    
+        <!-- Remind Passowrd -->
+        
+    
+      </div>
+    </div>
+  </div>
+  <!-- ======================================= -->
+  <!-- ============ Reset Screen ============= -->
+  <div *ngIf="mode=='reset'">
+    <div class="wrapper fadeInDown">
+      <div id="formContent">
+        <!-- Tabs Titles -->
+    
+        <!-- Icon -->
+        <div class="fadeIn first">
+          <img src="..\..\assets\images\E-meuble.png" id="icon" alt="User Icon" />
+        </div>
+    
+        <!-- Login Form -->
+        <form>
+          
+          <input type="password" id="psw" class="fadeIn third"  placeholder="New Password ..."  [(ngModel)]="psw"  name="psw" required>
+          <button  class="fadeIn fourth" value="Log In" (click)="resetPsw()">Reset</button>
+        </form>
+    
+        <!-- Remind Passowrd -->
+        
+    
+      </div>
+    </div>
+  </div>
+    <!-- ======================================= -->
