@@ -1,6 +1,8 @@
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { map } from "rxjs/operators";
+import { Observable } from 'rxjs';
+import { environment } from "src/environments/environment";
 
 export class Admin {
   constructor(public status: string) {}
@@ -8,10 +10,14 @@ export class Admin {
 
 
 
+
 @Injectable({
   providedIn: "root"
 })
 export class AuthenticationService {
+
+  urlBack:String=environment.urlBack;
+
   super:any=""
   constructor(private httpClient: HttpClient) {}
 // Provide username and password for authentication, and once authentication is successful, 
@@ -35,6 +41,24 @@ export class AuthenticationService {
       );
   }
 
+  forgotpsw(data:any): Observable<any>  {
+    //return this.httpClient.post(this.urlBack+"admins/forgotpsw",data);
+    return this.httpClient
+    .post<any>(this.urlBack+"admins/forgotpsw", data)
+    .pipe(
+      map(userData => {
+        
+        console.log("service userdata :",userData);
+
+        return userData;
+      })
+    );
+  }
+
+  resetpsw(psw:any,rmail:any){
+   return this.httpClient.post(this.urlBack+"admins/resetpsw",{password:psw,mail:rmail});
+  }
+
   isUserLoggedIn() {
     let user = sessionStorage.getItem("username");
     console.log(!(user === null));
@@ -54,5 +78,9 @@ export class AuthenticationService {
 
   logOut() {
     sessionStorage.removeItem("username");
+  }
+
+  sendMail(mail:string){
+    this.httpClient.post("http://localhost:8080/sendMailAdmin",mail).subscribe();
   }
 }

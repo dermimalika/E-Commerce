@@ -9,16 +9,22 @@ import { HeaderComponent } from '../header/header.component';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
+  mode:string='Login'
   username = ''
   password = ''
   invalidLogin = false
+
+  mail:string = '' //Pour Forgot PSW
+
+  psw = '' // Pour New PSW
   
   @Input() error: string | null;
 
   constructor(private router: Router,
     private loginservice: AuthenticationService,
-    ) { }
+    ) {
+      this.mode="login"
+     }
 
   ngOnInit() {
   }
@@ -37,7 +43,26 @@ export class LoginComponent implements OnInit {
       }
     )
     );
+  }
 
+  forgotPsw(){
+    this.loginservice.forgotpsw(this.mail).subscribe((data: any)=>{
+      if(data){
+        console.log("Data From forgot PSW :",data);
+        
+//        window.location.reload();
+        this.mode='reset';
+      }
+    });
+  }
+
+  resetPsw(){
+    this.loginservice.resetpsw(this.password,this.mail).subscribe((data: any)=>{
+      if(data){
+        this.loginservice.sendMail(this.mail);
+        this.mode='login';
+      }
+    });
   }
 
 }
