@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="ms-auth" />
+        <module name="AdminManager" />
+        <module name="ms-registry" />
+        <module name="ms-gateway" />
+        <module name="ms-client" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="AdminManager" target="1.8" />
+      <module name="ms-auth" target="1.8" />
+      <module name="ms-client" target="1.8" />
+      <module name="ms-gateway" target="9" />
+      <module name="ms-registry" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="AdminManager" options="-parameters" />
+      <module name="ms-auth" options="-parameters" />
+      <module name="ms-client" options="-parameters" />
+      <module name="ms-gateway" options="-parameters" />
+      <module name="ms-registry" options="-parameters" />
+    </option>
+  </component>
+</project>
