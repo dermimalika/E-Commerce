@@ -1,6 +1,5 @@
 package com.techgeeknext.entities;
 
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -14,4 +13,5 @@ public class AuthRequestLogin {
 
     private String email;
     private String password;
+
 }

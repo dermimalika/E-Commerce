@@ -36,7 +36,11 @@ public class User {
     @OneToOne(mappedBy = "user", fetch= FetchType.LAZY)
     private CAddress CAddress;
 
+    public <E> User(String email, String password, ArrayList<E> es) {
+    }
 
+    public User(String email, String password) {
+    }
 
 
     public Long getId() {

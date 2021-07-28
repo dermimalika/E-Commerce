@@ -40,5 +40,16 @@ public class AuthService {
 
     }
 
+    public AuthResponse login(AuthRequestLogin authRequest){
+        UserVO userVO  = restTemplate.postForObject("http://ms-client/users/login",authRequest,UserVO.class);
+        //String username = authRequest.getUsername();
+       // UserVO userVO= restTemplate.getForObject("http://ms-client/users/login",UserVO.class);
+        Assert.notNull(userVO,"FAILED TO LOGIN");
+        String accessToken = jwt.generate(userVO,"ACCESS");
+        String refreshToken = jwt.generate(userVO, "REFRESH");
+
+        return new AuthResponse(accessToken, refreshToken);
+    }
+
 
 }

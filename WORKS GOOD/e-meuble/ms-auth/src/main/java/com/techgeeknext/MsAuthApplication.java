@@ -3,6 +3,7 @@ package com.techgeeknext;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,15 +14,11 @@ import org.springframework.web.client.RestTemplate;
 
 @RestController
 @SpringBootApplication
+@EnableFeignClients
 public class MsAuthApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(MsAuthApplication.class, args);
-    }
-    @GetMapping("/auth/login")
-    public ResponseEntity<String> echo() {
-        return new ResponseEntity<String>("Working gateway Test Message " , HttpStatus.OK);
-
     }
 
     @Bean

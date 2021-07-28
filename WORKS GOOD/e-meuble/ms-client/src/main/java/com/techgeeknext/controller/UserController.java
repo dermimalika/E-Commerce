@@ -7,11 +7,11 @@ import com.techgeeknext.entities.User;
 import com.techgeeknext.repository.UserRepository;
 import com.techgeeknext.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@EnableFeignClients
 @RequestMapping(value ="/users")
 public class UserController {
 
@@ -26,9 +26,25 @@ public class UserController {
     }
 
 
+    /*@GetMapping(value = "/{id}")
+    public ResponseEntity findById(@RequestParam("id") Long idc)
+    {
+        return ResponseEntity.ok(userRepository.findById(idc));
+    }
 
+    */
+    /*@ResponseBody
+    public User findByUsername(@RequestParam("username") String username) {
+        return userRepository.findByUsername(username);
+    }*/
 
-
+    @PostMapping(value="/login")
+    public User getUserByEmail(@RequestBody AuthRequestLogin authRequestLogin) throws Exception
+    {
+        final User user = userService.loadUserByEmail(authRequestLogin.getEmail());
+        User user1 = userRepository.findByEmail(authRequestLogin.getEmail());
+        return  user;
+    }
 
     @GetMapping(value = "/secure")
     public String getSecure() {
