@@ -8,14 +8,16 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="ms-auth" />
-        <module name="AdminManager" />
-        <module name="ms-registry" />
-        <module name="ms-gateway" />
         <module name="ms-client" />
+        <module name="AdminManager" />
+        <module name="ms-gateway" />
+        <module name="ms-registry" />
+        <module name="AdminManager (1)" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="AdminManager" target="1.8" />
+      <module name="AdminManager (1)" target="1.8" />
       <module name="ms-auth" target="1.8" />
       <module name="ms-client" target="1.8" />
       <module name="ms-gateway" target="9" />
@@ -25,6 +27,7 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="AdminManager" options="-parameters" />
+      <module name="AdminManager (1)" options="-parameters" />
       <module name="ms-auth" options="-parameters" />
       <module name="ms-client" options="-parameters" />
       <module name="ms-gateway" options="-parameters" />

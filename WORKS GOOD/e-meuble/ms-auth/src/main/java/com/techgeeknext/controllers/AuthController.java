@@ -31,13 +31,31 @@ public class AuthController {
 
     @PostMapping(value = "/register")
     public ResponseEntity<AuthResponse> register(@RequestBody AuthRequest authRequest) {
+        System.out.println("Register auth request :");
+        System.out.println(authRequest);
         return ResponseEntity.ok(authService.register(authRequest));
     }
 
 
     @PostMapping(value = "/login")
     public ResponseEntity<AuthResponse> login(@RequestBody AuthRequestLogin authRequest) throws Exception{
+        System.out.println("auth request :");
+        System.out.println(authRequest);
         return ResponseEntity.ok(authService.login(authRequest));
+    }
+
+    //Forgot Psw Check if user Exist
+    @PostMapping(value = "/forgotpsw")
+    public ResponseEntity<Boolean> forgot(@RequestBody AuthRequestLogin authRequest) throws Exception{
+        System.out.println("forgotpsw request :");
+        System.out.println(authRequest);
+        return ResponseEntity.ok(authService.forgot(authRequest));
+    }
+    @PostMapping(value = "/resetpsw")
+    public ResponseEntity<AuthResponse> reset(@RequestBody AuthRequestLogin authRequest) throws Exception{
+        System.out.println("resetpsw request :");
+        System.out.println(authRequest);
+        return ResponseEntity.ok(authService.reset(authRequest));
     }
 
 }

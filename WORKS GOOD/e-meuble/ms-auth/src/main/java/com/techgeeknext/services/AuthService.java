@@ -51,5 +51,29 @@ public class AuthService {
         return new AuthResponse(accessToken, refreshToken);
     }
 
+    public Boolean forgot(AuthRequestLogin authRequest){
+        UserVO userVO  = restTemplate.postForObject("http://ms-client/users/forgotpsw",authRequest,UserVO.class);
+
+        Assert.notNull(userVO,"FAILED TO LOGIN");
+
+        return true;
+    }
+
+    public AuthResponse reset(AuthRequestLogin authRequest){
+        //do validation if user already exists
+        authRequest.setPassword(BCrypt.hashpw(authRequest.getPassword(), BCrypt.gensalt()));
+
+        UserVO userVO = restTemplate.postForObject("http://ms-client/users/resetpsw", authRequest, UserVO.class);
+        Assert.notNull(userVO, "Failed to reset Password user. Please try again later");
+
+        String accessToken = jwt.generate(userVO, "ACCESS");
+        String refreshToken = jwt.generate(userVO, "REFRESH");
+
+        return new AuthResponse(accessToken, refreshToken);
+
+
+
+    }
+
 
 }

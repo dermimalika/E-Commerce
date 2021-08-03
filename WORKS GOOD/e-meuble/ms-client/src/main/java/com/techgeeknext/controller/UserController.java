@@ -1,6 +1,7 @@
 package com.techgeeknext.controller;
 
 
+import com.techgeeknext.dao.UserDao;
 import com.techgeeknext.entities.AuthRequestLogin;
 import com.techgeeknext.entities.User;
 
@@ -17,6 +18,8 @@ public class UserController {
 
     @Autowired
     private UserService userService;
+    @Autowired
+    private UserDao userDao;
 
     @Autowired
     private UserRepository userRepository;
@@ -44,6 +47,21 @@ public class UserController {
         final User user = userService.loadUserByEmail(authRequestLogin.getEmail());
         User user1 = userRepository.findByEmail(authRequestLogin.getEmail());
         return  user;
+    }
+
+    @PostMapping(value="/forgotpsw")
+    public User forgotPassword(@RequestBody AuthRequestLogin authRequestLogin) throws Exception
+    {
+        final User user = userService.loadUserByEmail(authRequestLogin.getEmail());
+        User user1 = userRepository.findByEmail(authRequestLogin.getEmail());
+        return  user;
+    }
+
+    @PostMapping(value = "/resetpsw")
+    public User updatePsw(@RequestBody AuthRequestLogin authRequestLogin)throws Exception{
+        userDao.updatePSW(authRequestLogin.getPassword(),authRequestLogin.getEmail());
+        final User user = userService.loadUserByEmail(authRequestLogin.getEmail());
+        return user;
     }
 
     @GetMapping(value = "/secure")
