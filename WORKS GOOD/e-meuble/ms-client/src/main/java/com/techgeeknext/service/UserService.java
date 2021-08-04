@@ -20,6 +20,9 @@ import java.util.ArrayList;
 @Slf4j
 public class UserService {
 
+    @Autowired
+    UserRepository userRepository;
+
     private final UserRepository repository;
     private final RestTemplate restTemplate;
 
@@ -46,5 +49,25 @@ public class UserService {
     }
 
 
+    public User updateUser(Long id, User userUpdate) {
+
+        if (userRepository.findUserById(id) != null){
+            User existingUser = userRepository.findById(id).get();
+
+            existingUser.setFirstName(userUpdate.getFirstName());
+            existingUser.setLastName(userUpdate.getLastName());
+            existingUser.setEmail(userUpdate.getEmail());
+            existingUser.setUsername(userUpdate.getUsername());
+            existingUser.setPhone(userUpdate.getPhone());
+            existingUser.setAdr(userUpdate.getAdr());
+            existingUser.setGenre(userUpdate.getGenre());
+
+            User updatedUser= userRepository.save(existingUser);
+
+            return updatedUser;
+        }else{
+            return null;
+        }
+    }
 
 }

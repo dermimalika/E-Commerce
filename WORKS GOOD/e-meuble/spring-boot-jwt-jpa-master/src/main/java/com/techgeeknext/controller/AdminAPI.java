@@ -71,10 +71,12 @@ public class AdminAPI {
 
     @CrossOrigin(origins = "http://localhost:4200")
     @PostMapping("/update/{id}")
-    public List<Admin> updAdmin(@PathVariable("id") Long id,@RequestBody Admin admin){
+    public List<Admin> updAdmin(@PathVariable("id") Long id,@RequestBody Admin admin)
+    {
         //Optional<Store> s = storeRepository.findById(id);
         adminService.updateAdmin(id,admin);
-        return adminDao.findAll(); }
+        return adminDao.findAll();
+    }
 
 
     //Add Admin

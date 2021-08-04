@@ -35,6 +35,11 @@ public class User {
     private String password;
     @Column
     private String adr;
+    @Column
+    private String avatar;
+    @Column
+    @Enumerated(value = EnumType.STRING)
+    private Genre genre;
 
     public <E> User(String email, String password, ArrayList<E> es) {
     }

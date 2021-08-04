@@ -28,6 +28,9 @@ public class UserController {
     @Autowired
     private ProductRepository productRepository;
 
+
+    AuthRequestLogin authRequestLogin;
+
     @Autowired
     private UserRepository userRepository;
     @PostMapping(value = "/register")
@@ -82,6 +85,20 @@ public class UserController {
         return productRepository.getAll();
     }
 
+
+    @GetMapping(value = "/profile/{id}")
+    public User getProfile(@PathVariable("id") Long id)
+    {
+
+        return userRepository.findUserById(id);
+    }
+
+    @PostMapping("/update/{id}")
+    public User updateUser(@PathVariable("id") Long id,@RequestBody User user)
+    {
+        userService.updateUser(id,user);
+        return userRepository.findUserById(id);
+    }
 
 
 

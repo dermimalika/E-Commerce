@@ -1,6 +1,7 @@
 package com.techgeeknext.repository;
 
 import com.techgeeknext.entities.User;
+import com.techgeeknext.exception.UserNotFoundException;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
@@ -20,4 +21,6 @@ public interface UserRepository extends JpaRepository<User, Long> {
     @Query("SELECT u from User u Where u.username = :username")
     public User getUserByUsername(@Param("username") String username);
 
+
+    public User findUserById(Long id) ;
 }
