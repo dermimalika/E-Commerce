@@ -27,8 +27,11 @@ public class EmailController {
 
         message.setTo(authRequestLogin.getEmail());
         message.setSubject("E-Meuble");
-        if (authRequestLogin.getPassword()=="register"){message.setText(MyConstants.Client_EMAIL);}
-        else{message.setText(MyConstants.Client_ResetPSW_EMAIL);}
+        String s=authRequestLogin.getPassword();
+        System.out.println("mode in send mail :");
+        System.out.println(authRequestLogin.getPassword());
+        if (s.equals("register")){message.setText(MyConstants.Client_EMAIL);}
+        else if (s.equals("reset")){message.setText(MyConstants.Client_ResetPSW_EMAIL);}
 
 
         // Send Message!
