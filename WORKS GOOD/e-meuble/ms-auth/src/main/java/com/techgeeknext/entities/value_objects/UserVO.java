@@ -16,5 +16,6 @@ public class UserVO {
     private String email;
     private String password;
     private String role;
+    private String adr;
 
 }

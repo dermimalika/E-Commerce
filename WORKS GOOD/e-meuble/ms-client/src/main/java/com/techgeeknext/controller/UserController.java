@@ -5,11 +5,15 @@ import com.techgeeknext.dao.UserDao;
 import com.techgeeknext.entities.AuthRequestLogin;
 import com.techgeeknext.entities.User;
 
+import com.techgeeknext.model.Product;
+import com.techgeeknext.repository.ProductRepository;
 import com.techgeeknext.repository.UserRepository;
 import com.techgeeknext.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @EnableFeignClients
@@ -20,6 +24,9 @@ public class UserController {
     private UserService userService;
     @Autowired
     private UserDao userDao;
+
+    @Autowired
+    private ProductRepository productRepository;
 
     @Autowired
     private UserRepository userRepository;
@@ -69,6 +76,11 @@ public class UserController {
         return "Secure endpoint available";
     }
 
+
+    @GetMapping(value = "/products")
+    public List<Product> getProducts(){
+        return productRepository.getAll();
+    }
 
 
 

@@ -17,4 +17,5 @@ public class AuthRequest {
     private String lastName;
     private String phone;
     private String username;
+    private String adr;
 }

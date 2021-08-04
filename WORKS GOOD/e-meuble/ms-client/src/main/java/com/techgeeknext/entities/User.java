@@ -33,8 +33,8 @@ public class User {
     private String role;
     @Column
     private String password;
-    @OneToOne(mappedBy = "user", fetch= FetchType.LAZY)
-    private CAddress CAddress;
+    @Column
+    private String adr;
 
     public <E> User(String email, String password, ArrayList<E> es) {
     }
@@ -107,11 +107,5 @@ public class User {
         this.password = password;
     }
 
-    public com.techgeeknext.entities.CAddress getCAddress() {
-        return CAddress;
-    }
 
-    public void setCAddress(com.techgeeknext.entities.CAddress CAddress) {
-        this.CAddress = CAddress;
-    }
 }
