@@ -38,4 +38,10 @@ public interface AdminDao extends JpaRepository<Admin,Long> {
     @Query("update Admin a set a.arch=false where a.id=:id")
     void restoreAdmin(@Param("id") Long id);
 
+    @Modifying
+    @Transactional
+    @Query("update Admin a set a.password=:psw where a.username=:mail")
+    void updatePSW(@Param("psw") String psw,@Param("mail") String mail);
+
+
 }
