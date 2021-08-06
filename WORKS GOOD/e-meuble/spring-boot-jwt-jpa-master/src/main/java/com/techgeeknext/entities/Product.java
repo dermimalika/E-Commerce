@@ -3,6 +3,7 @@ package com.techgeeknext.entities;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.Collection;
 
 
 @Entity
@@ -37,6 +38,8 @@ public class Product {
 
     @Column(name = "description")
     private String description;
+
+
 
     @Column (columnDefinition = "boolean default false ")
     private Boolean arch;
