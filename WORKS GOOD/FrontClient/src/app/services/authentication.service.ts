@@ -22,12 +22,25 @@ authenticate(clientname:any, psw:any) :Observable<any> {
     //.post<any>(this.urlBack+"auth/login", { clientname, password },HTTP_OPTIONS)
     .pipe(
       map(clientData => {
-        let s = clientData.accessToken
-        
-        sessionStorage.setItem("clientname", clientname);
-        let tokenStr = "Bearer " + s;
-        sessionStorage.setItem("clienttoken", tokenStr);
-        return clientData;
+        let s = clientData
+        return this.httpClient.post("users/login", { email:clientname, password:psw }).subscribe((data: any)=>{
+          console.log("Client from users/login :",data);
+          var client={
+            id:data.id,
+            username:data.username,
+            firstName:data.firstName,
+            lastName:data.lastName,
+            phone:data.phone,
+            email:data.email,
+          }
+          
+          sessionStorage.setItem('client', JSON.stringify(client));
+          console.log("token : ",s.accessToken);
+          let tokenStr = s.accessToken;
+        // sessionStorage.setItem("clienttoken","Bearer "+ tokenStr);
+        sessionStorage.setItem("clienttoken",tokenStr);
+          
+        });
       })
     );
 }
@@ -45,11 +58,24 @@ register(client: any): Observable<any> {
   .pipe(
     map(clientData => {
       let s = clientData.accessToken
-      
-      sessionStorage.setItem("clientname",clients.username);
-      let tokenStr = "Bearer " + s;
-      sessionStorage.setItem("clienttoken", tokenStr);
-      return clientData;
+      return this.httpClient.post("users/login", { email:clients.email, password:"n'importe quoi" }).subscribe((data: any)=>{
+        console.log("Client from users/login register :",data);
+        var client={
+          id:data.id,
+          username:data.username,
+          firstName:data.firstName,
+          lastName:data.lastName,
+          phone:data.phone,
+          email:data.email,
+        }
+        
+        
+        sessionStorage.setItem('client', JSON.stringify(client));
+        let tokenStr = s;
+        // sessionStorage.setItem("clienttoken","Bearer "+ tokenStr);
+        sessionStorage.setItem("clienttoken",tokenStr);
+        
+      });
     })
   );
 }
@@ -72,6 +98,10 @@ resetpsw(data:any){
  return this.httpClient.post("auth/resetpsw",data);
 }
 
+clientId(){
+  return 
+}
+
 logOut() {
   sessionStorage.removeItem("clientname");
 }
@@ -83,7 +113,7 @@ sendMail(mail:string,mode:any){
 
 //Check if CLient Login
 isClientLoggedIn() {
-  let client = sessionStorage.getItem("clientname");
+  let client = sessionStorage.getItem("clienttoken");
   console.log(!(client === null));
   return !(client === null);
 }

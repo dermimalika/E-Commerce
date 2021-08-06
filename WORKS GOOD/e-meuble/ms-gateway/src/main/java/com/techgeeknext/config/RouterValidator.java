@@ -13,7 +13,8 @@ public class RouterValidator {
             "/auth/login",
             "/auth/sendMailClient",
             "/auth/forgotpsw",
-            "/auth/resetpsw"
+            "/auth/resetpsw",
+            "/users/login"
 
     );
 

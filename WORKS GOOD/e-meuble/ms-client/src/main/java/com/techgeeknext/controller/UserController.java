@@ -14,6 +14,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @EnableFeignClients
@@ -85,11 +86,19 @@ public class UserController {
         return productRepository.getAll();
     }
 
+    @GetMapping(value = "/produit/{id}")
+    public Optional<Product> getProduit(@PathVariable("id") Long id)
+    {
+        System.out.println("produit :");
+        System.out.println(productRepository.findById(id));
+        return productRepository.findById(id);
+    }
 
     @GetMapping(value = "/profile/{id}")
     public User getProfile(@PathVariable("id") Long id)
     {
-
+        System.out.println("Profile :");
+        System.out.println(userRepository.findUserById(id));
         return userRepository.findUserById(id);
     }
 
@@ -97,6 +106,8 @@ public class UserController {
     public User updateUser(@PathVariable("id") Long id,@RequestBody User user)
     {
         userService.updateUser(id,user);
+        System.out.println("update profile :");
+        System.out.println(user);
         return userRepository.findUserById(id);
     }
 
