@@ -1,0 +1,13 @@
+<button class="btn btn-danger" (click)="logout()">Log Out</button>
+<button class="btn btn-info" (click)="profile()">go to Profile</button>
+
+<div *ngFor="let p of products">
+ <div class="card" style="width: 18rem;">
+    <img src="p.picByte" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{p.name}}</h5>
+      <p class="card-text">{{p.description}}</p>
+      <a [routerLink]="['/produit', p.id]" class="btn btn-primary">More details</a>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/spring-boot-jwt-jpa-master/AdminManager.iml" filepath="$PROJECT_DIR$/spring-boot-jwt-jpa-master/AdminManager.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../spring-boot-jwt-jpa-master/AdminManager (1).iml" filepath="$PROJECT_DIR$/../spring-boot-jwt-jpa-master/AdminManager (1).iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/e-meuble.iml" filepath="$PROJECT_DIR$/.idea/e-meuble.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ms-auth/ms-auth.iml" filepath="$PROJECT_DIR$/ms-auth/ms-auth.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ms-client/ms-client.iml" filepath="$PROJECT_DIR$/ms-client/ms-client.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ms-gateway/ms-gateway.iml" filepath="$PROJECT_DIR$/ms-gateway/ms-gateway.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ms-registry/ms-registry.iml" filepath="$PROJECT_DIR$/ms-registry/ms-registry.iml" />
+    </modules>
+  </component>
+</project>
