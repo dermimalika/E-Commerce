@@ -23,6 +23,15 @@ public class Comment {
     @NotNull
     private String comment;
 
+    @Column
+    @NotNull
+    private String idClient;
+
+    @Column
+    @NotNull
+    private String pictureClient;
+
+
     @ManyToOne(fetch = FetchType.LAZY,optional = false)
     @JoinColumn(name = "id",nullable = false)
     @OnDelete(action = OnDeleteAction.CASCADE)

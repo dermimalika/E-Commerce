@@ -16,13 +16,15 @@ import { ProfileService } from './services/profile.service';
 import { ProduitService } from './services/produit.service';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
     AuthenticationComponent,
     HomeComponent,
     ProduitComponent,
-    ProfileComponent
+    ProfileComponent,
+  
   ],
   imports: [
     BrowserModule,

@@ -1,10 +1,383 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+    integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css">
 
 
-<h4>name : {{produit.name}}</h4> 
-<h4>category : {{produit.category}}</h4>
-<h4>price :{{produit.price}}</h4>
-<h4>weight :{{produit.weight}}</h4>
-<h4>quantity :{{produit.quantity}}</h4>
-<h4>description : {{produit.description}}</h4>
+<!-- Header -->
+<header class="header shop">
+    <div class="middle-inner">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-2 col-md-2 col-12">
+                    <!-- Logo -->
+                    <div class="logo">
+                        <a href="#">E-meuble</a>
+                    </div>
+                    <!--/ End Logo -->
+                    <!-- Search Form -->
+                    <div class="search-top">
+                        <div class="top-search"><a href="#0"><i class="ti-search"></i></a></div>
+                        <!-- Search Form -->
+                        <div class="search-top">
+                            <form class="search-form">
+                                <input type="text" placeholder="Search here..." name="search">
+                                <button value="search" type="submit"><i class="ti-search"></i></button>
+                            </form>
+                        </div>
+                        <!--/ End Search Form -->
+                    </div>
+                    <!--/ End Search Form -->
+                    <div class="mobile-nav"></div>
+                </div>
+                <div class="col-lg-8 col-md-7 col-12">
+                    <div class="search-bar-top">
+                        <div class="search-bar">
+                            <select>
+                                <option selected="selected">All Category</option>
+                                <option>table</option>
+                                <option>bureau</option>
+                                <option>salon</option>
+                            </select>
+                            <form>
+                                <input name="search" placeholder="Search Products Here....." type="search">
+                                <button class="btnn"><i class="ti-search"></i></button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-3 col-12">
+                    <div class="right-bar">
+                        <!-- Search Form -->
+                        <div class="sinlge-bar">
+                            <a href="#" class="single-icon"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
+                        </div>
+                        <div class="sinlge-bar">
+                            <a href="#" class="single-icon"><i class="fa fa-user-circle-o" aria-hidden="true"></i></a>
+                        </div>
+                        <div class="sinlge-bar shopping">
+                            <a href="#" class="single-icon"><i class="ti-bag"></i> <span
+                                    class="total-count">2</span></a>
+                            <!-- Shopping Item -->
+                            <div class="shopping-item">
+                                <div class="dropdown-cart-header">
+                                    <span>2 Items</span>
+                                    <a href="#">View Cart</a>
+                                </div>
+                                <ul class="shopping-list">
 
+                                </ul>
+                                <div class="bottom">
+                                    <div class="total">
+                                        <span>Total</span>
+                                        <span class="total-amount">$134.00</span>
+                                    </div>
+                                    <a href="#" class="btn animate">Checkout</a>
+                                </div>
+                            </div>
+                            <!--/ End Shopping Item -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Header Inner -->
+    <div class="header-inner">
+        <div class="container">
+            <div class="cat-nav-head">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="menu-area">
+                            <!-- Main Menu -->
+                            <nav class="navbar navbar-expand-lg">
+                                <div class="navbar-collapse">
+                                    <div class="nav-inner">
+                                        <ul class="nav main-menu menu navbar-nav">
+                                            <li><a href="#">Home</a></li>
+                                            <li><a href="#">Product</a></li>
+                                            <li><a href="#">Service</a></li>
+                                            <li><a href="#">Shop</a>
+                                                <ul class="dropdown">
+                                                    <li><a href="#">Shop Grid</a></li>
+                                                    <li><a href="#">Shop List</a></li>
+                                                    <li><a href="#">shop Single</a></li>
+                                                    <li><a href="#">Cart</a></li>
+                                                    <li><a href="#">Checkout</a></li>
+                                                </ul>
+                                            </li>
 
+                                            <li><a href="#">Contact Us</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </nav>
+                            <!--/ End Main Menu -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/ End Header Inner -->
+</header>
+<!--/ End Header -->
+
+<!-- Shop Single -->
+<section class="shop single section">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="row">
+                    <div class="col-lg-6 col-12">
+                        <!-- Product Slider -->
+                        <div class="product-gallery">
+                            <!-- Images slider -->
+                            <div class="flexslider-thumbnails">
+                                <img class="w3-card-2 w3-hover-shadow w3-center" src="{{produit.pic_byte}}" height="200"
+                                    width="200">
+                            </div>
+                            <!-- End Images slider -->
+                        </div>
+                        <!-- End Product slider -->
+                    </div>
+                    <div class="col-lg-6 col-12">
+                        <div class="product-des">
+                            <!-- Description -->
+                            <div class="short">
+                                <h4>{{produit.name}}</h4>
+                                <div class="rating-main">
+                                    <ul class="rating">
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star-half-o"></i></li>
+                                        <li class="dark"><i class="fa fa-star-o"></i></li>
+                                    </ul>
+                                    <a href="#" class="total-review">(102) Review</a>
+                                </div>
+                                <p class="price"><span class="discount">${{produit.price}}</span><s>$80.00</s> </p>
+                                <p class="description">{{produit.description}}</p>
+                                <p class="description">Weight : {{produit.weight}} Kg</p>
+                            </div>
+                            <!--/ End Description -->
+                            <!-- Color -->
+                            <div class="color">
+                                <h4>Available Options <span>Color</span></h4>
+                                <ul>
+                                    <li><a href="#" class="one"><i class="ti-check"></i></a></li>
+                                    <li><a href="#" class="two"><i class="ti-check"></i></a></li>
+                                    <li><a href="#" class="three"><i class="ti-check"></i></a></li>
+                                    <li><a href="#" class="four"><i class="ti-check"></i></a></li>
+                                </ul>
+                            </div>
+                            <!--/ End Color -->
+
+                            <!-- Product Buy -->
+                            <div class="product-buy">
+                                <div class="quantity">
+                                    <h6>Quantity :</h6>
+                                    <!-- Input Order -->
+                                    <div class="input-group">
+                                        <div class="button minus">
+                                            <button type="button" class="btn btn-primary btn-number" disabled="disabled"
+                                                data-type="minus" data-field="quant[1]">
+                                                <i class="ti-minus"></i>
+                                            </button>
+                                        </div>
+                                        <input type="text" name="quant[1]" class="input-number" data-min="1"
+                                            data-max="1000" value="1">
+                                        <div class="button plus">
+                                            <button type="button" class="btn btn-primary btn-number" data-type="plus"
+                                                data-field="quant[1]">
+                                                <i class="ti-plus"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <!--/ End Input Order -->
+                                </div>
+                                <div class="add-to-cart">
+                                    <a href="#" class="btn">Add to cart</a>
+                                    <a href="#" class="btn min"><i class="ti-heart"></i></a>
+                                </div>
+                                <p class="cat">Category :<a href="#">{{produit.category}}</a></p>
+                                <p class="availability">Availability : {{produit.quantity}} Products In Stock</p>
+                            </div>
+                            <!--/ End Product Buy -->
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="product-info">
+                            <div class="nav-main">
+                                <!-- Tab Nav -->
+                                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                    <li class="nav-item"><a class="nav-link active" data-toggle="tab"
+                                            href="#description" role="tab">Description</a></li>
+                                    <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#reviews"
+                                            role="tab">Reviews</a></li>
+                                </ul>
+                                <!--/ End Tab Nav -->
+                            </div>
+                            <div class="tab-content" id="myTabContent">
+                                <!-- Description Tab -->
+                                <div class="tab-pane fade show active" id="description" role="tabpanel">
+                                    <div class="tab-single">
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div class="single-des">
+                                                    <p>simply dummy text of the printing and typesetting industry. Lorem
+                                                        Ipsum has been the
+                                                        industry's standard dummy text ever since the 1500s, when an
+                                                        unknown printer took a galley
+                                                        of type and scrambled it to make a type specimen book. It has
+                                                        survived not only five
+                                                        centuries, but also the leap into electronic typesetting,
+                                                        remaining essentially unchanged.
+                                                        It was popularised in the 1960s with the release of Letraset
+                                                        sheets containing Lorem Ipsum
+                                                        passages, and more recently with deskto</p>
+                                                </div>
+                                                <div class="single-des">
+                                                    <p>Suspendisse consequatur voluptates lorem nobis accumsan natus
+                                                        mattis. Optio pede, optio qui
+                                                        metus, delectus! Ultricies impedit, minus tempor fuga, quasi,
+                                                        pede felis commodo bibendum
+                                                        voluptas nisi? Voluptatem risus tempore tempora. Quaerat
+                                                        aspernatur? Error praesent laoreet,
+                                                        cras in fames hac ea, massa montes diamlorem nec quaerat, quos
+                                                        occaecati leo nam aliquet
+                                                        corporis, ab recusandae parturient, etiam fermentum, a quasi
+                                                        possimus commodi, mollis
+                                                        voluptate mauris mollis, quisque donec</p>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--/ End Description Tab -->
+                                <!-- Reviews Tab -->
+                                <div class="tab-pane fade" id="reviews" role="tabpanel">
+                                    <div class="tab-single review-panel">
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div class="ratting-main">
+                                                    <div class="avg-ratting">
+                                                        <h4>4.5 <span>(Overall)</span></h4>
+                                                        <span>Based on 1 Comments</span>
+                                                    </div>
+                                                    <!-- Single Rating -->
+                                                    <div class="single-rating">
+                                                        <div class="rating-author">
+                                                            <img src="assets/images/comments1.jpg" alt="#">
+                                                        </div>
+                                                        <div class="rating-des">
+                                                            <h6>Jaasa</h6>
+                                                            <div class="ratings">
+                                                                <ul class="rating">
+                                                                    <li><i class="fa fa-star"></i></li>
+                                                                    <li><i class="fa fa-star"></i></li>
+                                                                    <li><i class="fa fa-star"></i></li>
+                                                                    <li><i class="fa fa-star-half-o"></i></li>
+                                                                    <li><i class="fa fa-star-o"></i></li>
+                                                                </ul>
+                                                                <div class="rate-count">(<span>3.5</span>)</div>
+                                                            </div>
+                                                            <p>Duis tincidunt mauris ac aliquet congue. Donec vestibulum
+                                                                consequat cursus. Aliquam
+                                                                pellentesque nulla dolor, in imperdiet.</p>
+                                                        </div>
+                                                    </div>
+                                                    <!--/ End Single Rating -->
+                                                    <!-- Single Rating -->
+                                                    <div class="single-rating">
+                                                        <div class="rating-author">
+                                                            <img src="assets/images/comments2.jpg" alt="#">
+                                                        </div>
+                                                        <div class="rating-des">
+                                                            <h6>Jassa</h6>
+                                                            <div class="ratings">
+                                                                <ul class="rating">
+                                                                    <li><i class="fa fa-star"></i></li>
+                                                                    <li><i class="fa fa-star"></i></li>
+                                                                    <li><i class="fa fa-star"></i></li>
+                                                                    <li><i class="fa fa-star"></i></li>
+                                                                    <li><i class="fa fa-star"></i></li>
+                                                                </ul>
+                                                                <div class="rate-count">(<span>5.0</span>)</div>
+                                                            </div>
+                                                            <p>Duis tincidunt mauris ac aliquet congue. Donec vestibulum
+                                                                consequat cursus. Aliquam
+                                                                pellentesque nulla dolor, in imperdiet.</p>
+                                                        </div>
+                                                    </div>
+                                                    <!--/ End Single Rating -->
+                                                </div>
+                                                <!-- Review -->
+                                                <div class="comment-review">
+                                                    <div class="add-review">
+                                                        <h5>Add A Review</h5>
+                                                        <p>Your email address will not be published. Required fields are
+                                                            marked</p>
+                                                    </div>
+                                                    <h4>Your Rating</h4>
+                                                    <div class="review-inner">
+                                                        <div class="ratings">
+                                                            <ul class="rating">
+                                                                <li><i class="fa fa-star"></i></li>
+                                                                <li><i class="fa fa-star"></i></li>
+                                                                <li><i class="fa fa-star"></i></li>
+                                                                <li><i class="fa fa-star"></i></li>
+                                                                <li><i class="fa fa-star"></i></li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!--/ End Review -->
+                                                <!-- Form -->
+                                                <form class="form" method="post" action="mail/mail.php">
+                                                    <div class="row">
+                                                        <div class="col-lg-6 col-12">
+                                                            <div class="form-group">
+                                                                <label>Your Name<span>*</span></label>
+                                                                <input type="text" name="name" required="required"
+                                                                    placeholder="">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-6 col-12">
+                                                            <div class="form-group">
+                                                                <label>Your Email<span>*</span></label>
+                                                                <input type="email" name="email" required="required"
+                                                                    placeholder="">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-12 col-12">
+                                                            <div class="form-group">
+                                                                <label>Write a review<span>*</span></label>
+                                                                <textarea name="message" rows="6"
+                                                                    placeholder=""></textarea>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-12 col-12">
+                                                            <div class="form-group button5">
+                                                                <button type="submit" class="btn">Submit</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                                <!--/ End Form -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--/ End Reviews Tab -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--/ End Shop Single -->
