@@ -1,100 +1,138 @@
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet"
+  integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+<div class="wrapper d-flex align-items-stretch">
 
-<div class="main-content">
-    <div *ngIf="mode=='list'">
-    <div class="container-fluid">
-        <div class="row">
+  <div id="content" class="p-4 p-md-5 pt-5">
+    <div class="main-content content2">
+      <div *ngIf="mode=='list'">
+        <div class="container-fluid">
+          <div class="row">
             <div class="col-md-12">
-                <div class="card card-plain">
-                    <div class="card-header card-header-danger">
-                        <h4 class="card-title mt-0"> Table Of Stores</h4>
-                        <p class="card-category"> Here is a subtitle for this table</p>
-                    </div>
-                    <div class="card-body">
-                        <div class="table-responsive">
-                            <table class="table table-hover">
-                                <thead class="">
-                                    <th>
-                                        ID
-                                    </th>
-                                    <th>
-                                        Name
-                                    </th>
-                                    <th>
-                                        ID Admin
-                                    </th>
-                                    <th>
-                                        Update
-                                    </th>
-                                    <th>
-                                        Delete
-                                    </th>
-                                </thead>
-                                <tbody>
-                                    <tr *ngFor="let s of list">
-                                        <div *ngIf="s.arch; else elseBlock"></div>
-                                      <ng-template #elseBlock>
-                                        <td>{{s.idStore}}</td>
-                                        <td>{{s.nom}}</td>
-                                        <td>{{s.id_admin}}</td>
-                                        <td><button class="btn btn-success text-center" (click)="mode='updStore';loadUpd(s.idStore,s.nom)">Update Store</button></td>
-                                        <td><button class="btn btn-danger text-center" (click)="archStore(s.idStore)"><i class="fa fa-trash fa-lg" aria-hidden="true">Delete Store</i></button></td>
-                                      </ng-template>
-                                    </tr>
-                                </tbody>
-                            </table>
-                           
-                        </div>
-                        <div class="text-center"><button class="btn btn-success text-center" (click)="mode='addStore'">Add New Store</button></div>
-                    </div>
+              <div class="card card-plain">
+                <div class="card-header card-header-danger">
+                  <h4 class="card-title mt-0"> Table of stores</h4>
+                  <p class="card-category"> Here is a subtitle for this table</p>
                 </div>
+                <div class="card-body">
+                  <div class="table-responsive">
+                    <table class="table table-hover">
+                      <thead class="">
+                        <th>
+                          ID
+                        </th>
+                        <th>
+                          Name
+                        </th>
+                        <th>
+                          ID Admin
+                        </th>
+                        <th>
+                          Update
+                        </th>
+                        <th>
+                          Delete
+                        </th>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let s of list">
+                          <div *ngIf="s.arch; else elseBlock"></div>
+                          <ng-template #elseBlock>
+                            <td>{{s.idStore}}</td>
+                            <td>{{s.nom}}</td>
+                            <td>{{s.id_admin}}</td>
+                            <td><button class="btn btn-success text-center btnadd"
+                                (click)="mode='updStore';loadUpd(s.idStore,s.nom)">Update Store</button></td>
+                            <td><button class="btn btn-danger text-center btndel" (click)="archStore(s.idStore)">Delete
+                                Store</button></td>
+                          </ng-template>
+                        </tr>
+                      </tbody>
+                    </table>
+
+                  </div>
+                  <div class="text-center btnadd"><button class="btn btn-success text-center"
+                      (click)="mode='addStore'">Add
+                      New
+                      Store</button></div>
+                </div>
+              </div>
             </div>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="mode=='addStore'">
+        <div class="container" style="height: 270px">
+          <div class="card card-register mx-auto mt-5">
+            <div class="card-header">Add New Store</div>
+            <div class="card-body">
+              <form (submit)="addStore()">
+                <div class="form-group">
+                  <div class="form-row">
+                    <div class="col-md-6">
+                      <label for="name">Name</label>
+                      <input class="form-control" type="name" [(ngModel)]="name" name="name" aria-describedby="nameHelp"
+                        id="name" placeholder="Name">
+                    </div>
+                  </div>
+                </div>
+                <button type="submit" class="btn btn-success btnadd">Add</button>
+                <a (click)="mode='list'" class="btnblue" style="color: #fff;">Back</a>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="mode=='updStore'">
+        <div class="container" style="height: 270px">
+          <div class="card card-register mx-auto mt-5">
+            <div class="card-header">Update Store</div>
+            <div class="card-body">
+              <form (submit)="updStore()">
+                <div class="form-group">
+                  <div class="form-row">
+                    <div class="col-md-6">
+                      <label for="name">Name</label>
+                      <input class="form-control" type="name" [(ngModel)]="name" name="name" aria-describedby="nameHelp"
+                        id="name" placeholder="{{name}}">
+                    </div>
+                  </div>
+                </div>
+                <button type="submit" class="btn btn-success btnadd">Update</button>
+                <a class="btn btnback" (click)="mode='list'" style="color: #fff;">Back</a>
+              </form>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-    <div *ngIf="mode=='addStore'">
-        <div class="container">
-            <div class="card card-register mx-auto mt-5">
-              <div class="card-header">Add New Store</div>
-              <div class="card-body">
-                <form (submit)="addStore()">
-                  <div class="form-group">
-                    <div class="form-row">
-                      <div class="col-md-6">
-                        <label for="name">Name</label>
-                        <input class="form-control" type="name" [(ngModel)]="name" name="name" aria-describedby="nameHelp" id="name" placeholder="Name">
-                      </div>
-                    </div>
-                  </div>
-                  <button type="submit" class="btn btn-success">Add</button>
-                  <a (click)="mode='list'" class="btn btn-primary btn-block">Back</a>
-                </form>
-              </div>
-            </div>
-          </div>
-    </div>
-    <div *ngIf="mode=='updStore'">
-        <div class="container">
-            <div class="card card-register mx-auto mt-5">
-              <div class="card-header">Update Store</div>
-              <div class="card-body">
-                <form (submit)="updStore()">
-                  <div class="form-group">
-                    <div class="form-row">
-                      <div class="col-md-6">
-                        <label for="name">Name</label>
-                        <input class="form-control" type="name" [(ngModel)]="name" name="name" aria-describedby="nameHelp" id="name" placeholder="{{name}}">
-                      </div>
-                    </div>
-                  </div>
-                  <button type="submit" class="btn btn-success">Update</button>
-                  <a (click)="mode='list'" class="btn btn-primary btn-block">Back</a>
-                </form>
-              </div>
-            </div>
-          </div>
-    </div>
   </div>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.min.js" integrity="sha384-lpyLfhYuitXl2zRZ5Bn2fqnhNAKOAaM/0Kr9laMspuaMiZfGmfwRNFh8HlMy49eQ" crossorigin="anonymous"></script>
-  
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+  integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.min.js"
+  integrity="sha384-lpyLfhYuitXl2zRZ5Bn2fqnhNAKOAaM/0Kr9laMspuaMiZfGmfwRNFh8HlMy49eQ" crossorigin="anonymous"></script>
+
+<style>
+  a {
+    text-decoration: none;
+  }
+
+  #sidebar {
+
+    background: #8E1B1B;
+  }
+
+  #sidebarCollapse {
+    background-color: #8e1b1b;
+  }
+
+  #sidebar .custom-menu .btn.btn-primary:after {
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+    background: #8e1b1b;
+    border-radius: 10px;
+  }
+</style>

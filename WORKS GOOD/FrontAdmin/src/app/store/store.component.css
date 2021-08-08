@@ -1,0 +1,95 @@
+a{
+    color: #8E1B1B;
+}
+.nav-link {
+    display: block;
+    padding: .5rem 1rem;
+    color: #fff;
+    text-decoration: none;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out;
+}
+._ngcontent-mbf-c115{
+    color: #fff;
+}
+  .content2 {
+                width: 83%;
+                position: relative;
+                top: -538px;
+                left: 235px;
+                box-shadow: 0px 5px 5px -3px rgb(0 0 0 / 20%), 0px 8px 10px 1px rgb(0 0 0 / 14%), 0px 3px 14px 2px rgb(0 0 0 / 12%);
+            }
+
+            
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: .25rem;
+    left: 1px;
+    top: 16px;
+}
+.updateSto{
+     top: -463px;
+    position: relative;
+    width: 102%;
+    left: -11px;
+}
+.btnadd{
+    width: 125px;
+}
+.btnback {
+    width: 125px;
+    color: white;
+    background-color: #3445b4;
+}
+
+.btnadd:hover{
+  background-color: #fff;
+  color: green;
+}
+.btnback:hover {
+   background-color: #fff;
+   color: #3445b4;
+   border: 1px solid#3445b4;
+}
+.btndel:hover{
+    background-color: #fff;
+    color: red;
+}
+.baack:hover{
+    color: blue;
+}
+
+
+.btnblue{
+    display: inline-block;
+    font-weight: 400;
+    color: #fff;
+    background-color: #3445b4;
+    text-align: center;
+    width: 125px;
+    height: 35px;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: #3445b4;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.btnblue:hover {
+   background-color: #fff;
+   color: #3445b4;
+   border: 1px solid #3445b4;
+ 
+}

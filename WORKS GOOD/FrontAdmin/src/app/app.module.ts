@@ -27,6 +27,7 @@ import { ProductsComponent } from './admin/products/products.component';
 import { AddproductComponent } from './admin/products/addproduct/addproduct.component';
 import { ViewproductComponent } from './admin/products/viewproduct/viewproduct.component';
 import { RecycleComponent } from './recycle/recycle.component';
+import {  ImageUploadService } from './service/image-upload.service';
 
 @NgModule({
   declarations: [
@@ -64,6 +65,7 @@ import { RecycleComponent } from './recycle/recycle.component';
     StoreService,
     AuthGuard2Service,
     AuthenticationService,
+    ImageUploadService,
 
   ],
   bootstrap: [AppComponent]

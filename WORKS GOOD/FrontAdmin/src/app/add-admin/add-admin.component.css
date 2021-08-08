@@ -1,0 +1,102 @@
+.btn-success {
+    color: #fff;
+    background-color: #A63636;
+    border-color: #fff;
+}
+
+.w3-card-4, .w3-hover-shadow:hover {
+    box-shadow: 0 4px 10px 0 rgb(0 0 0 / 20%), 0 4px 20px 0 rgb(0 0 0 / 19%);
+     width: 445px;
+    height: 455px;
+    margin-left: 506px;
+    margin-bottom: 40px;
+    margin-top: 38px;
+    position: relative;
+    top: -577px;
+
+}
+a{
+    color: #fff;
+}
+.nav-link {
+    display: block;
+    padding: .5rem 1rem;
+     color: #fff;
+    text-decoration: none;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out;
+}
+
+.w3-dark-grey, .w3-hover-dark-grey:hover, .w3-dark-gray, .w3-hover-dark-gray:hover {
+    color: #fff!important;
+    background-color: #B53B3B !important;
+    border-radius: 5px;
+    height: 40px;
+}
+
+.w3-dark-grey, .w3-hover-dark-grey, .w3-dark-gray, .w3-hover-dark-gray{
+    color: #fff!important;
+    background-color: #A63636 !important;
+    border-radius: 5px;
+}
+
+.w3-button:hover{
+    color: #A63636;
+    border: 2px solid  #A63636;
+    background-color: #fff;
+    border-radius: 5px;
+}
+
+.w3-dark-grey[_ngcontent-vss-c102], .w3-hover-dark-grey[_ngcontent-vss-c102], .w3-dark-gray[_ngcontent-vss-c102], .w3-hover-dark-gray[_ngcontent-vss-c102] {
+    color: #fff;
+    background-color: #A63636 ;
+    border-radius: 5px;
+}
+.w3-dark-grey[_ngcontent-vss-c102], .w3-hover-dark-grey[_ngcontent-vss-c102]:hover, .w3-dark-gray[_ngcontent-vss-c102], .w3-hover-dark-gray[_ngcontent-vss-c102]:hover {
+    color: #fff;
+    background-color: #B53B3B ;
+    border-radius: 5px;
+}
+.w3-dark-grey:hover, .w3-hover-dark-grey:hover, .w3-dark-gray:hover, .w3-hover-dark-gray:hover {
+    color: #B53B3B;
+    background-color: #fff;
+}
+.hov:hover{
+      background-color: #fff;
+    
+      color: #B53B3B ;
+}
+form{
+        padding: 25px;
+}
+
+.btndel:hover{
+    background-color: #fff;
+    color: red;
+}
+
+
+.btnblue{
+    display: inline-block;
+    font-weight: 400;
+    color: #fff;
+    background-color: #3445b4;
+    text-align: center;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: #3445b4;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.btnblue:hover {
+   background-color: #fff;
+   color: #3445b4;
+   border: 1px solid #3445b4;
+ 
+}

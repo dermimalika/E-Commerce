@@ -1,64 +1,107 @@
-<div class="container">
-  <h1>{{product.id == null ? 'Add' : 'Edit'}} Product - {{product.id}}</h1>
+<div class="card card-register mx-auto mt-5" style="    height: 841px;">
 
-  <form>
+  <div class="card-body">
+    <div class="container">
+      <h1>{{product.id == null ? 'Add' : 'Edit'}} Product - {{product.id}}</h1>
 
-    <label for="category">Category</label>
-    <!-- <input type="text" class="form-control" required #ucategory="ngModel" id="category" placeholder="category"
-      name="category" [(ngModel)]="product.category">
-    <div class="req" *ngIf="ucategory.invalid">
-      Category is required.
-    </div> -->
-    <select class="form-control" aria-label="Default select example" required #ucategory="ngModel" id="category" placeholder="Select Category"
-    name="category" [(ngModel)]="product.category">
-      <option *ngFor="let c of categories" [value]="c.name">{{c.name}}</option>
-    </select>
+      <form>
 
-    <label for="name">Name</label>
-    <input type="text" class="form-control" required #uname="ngModel" id="name" placeholder="Product Name"
-      [(ngModel)]="product.name" name="name">
-    <div class="req" *ngIf="uname.invalid">
-      Name is required.
+        <label for="category">Category</label>
+        <!-- <input type="text" class="form-control" required #ucategory="ngModel" id="category" placeholder="category"
+            name="category" [(ngModel)]="product.category">
+          <div class="req" *ngIf="ucategory.invalid">
+            Category is required.
+          </div> -->
+        <select class="form-control" aria-label="Default select example" required #ucategory="ngModel" id="category"
+          placeholder="Select Category" name="category" [(ngModel)]="product.category">
+          <option *ngFor="let c of categories" [value]="c.name">{{c.name}}</option>
+        </select>
+
+        <label for="name">Name</label>
+        <input type="text" class="form-control" required #uname="ngModel" id="name" placeholder="Product Name"
+          [(ngModel)]="product.name" name="name">
+        <div class="req" *ngIf="uname.invalid">
+          Name is required.
+        </div>
+
+        <label for="price">Price</label>
+        <input type="number" class="form-control" required #uprice="ngModel" id="price" placeholder="price" name="price"
+          [(ngModel)]="product.price">
+        <div class="req" *ngIf="uprice.invalid">
+          Price is required.
+        </div>
+
+        <label for="name">Quantity</label>
+        <input type="number" class="form-control" required #uqnt="ngModel" id="quantity" placeholder="Product quantity"
+          [(ngModel)]="product.quantity" name="quantity">
+        <div class="req" *ngIf="uqnt.invalid">
+          Quantity is required.
+        </div>
+
+        <label for="name">Weight</label>
+        <input type="number" class="form-control" required #uweight="ngModel" id="weight" placeholder="Product weight"
+          [(ngModel)]="product.weight" name="weight">
+        <div class="req" *ngIf="uweight.invalid">
+          Weight is required.
+        </div>
+
+        <label for="name">Description</label>
+        <input type="text" class="form-control" required #udesc="ngModel" id="description"
+          placeholder="Product description" [(ngModel)]="product.description" name="description">
+        <div class="req" *ngIf="udesc.invalid">
+          Description is required.
+        </div>
+        <!-- <div class="form-group" *ngIf="product.id == null">
+          <!-- only show this field on adding a book -->
+          <!-- <br>
+          <input required type="file" (change)="onFileChanged($event)">
+          <img [src]="imgURL" height="200" width="200" *ngIf="imgURL">
+        </div> --> 
+        <div class="row">
+          <div class="col-8">
+            <label class="btn btn-default p-0">
+              <input type="file" (change)="selectFile($event)" />
+            </label>
+          </div>
+        
+          <div class="col-4">
+            <button class="btn btn-success btn-sm" [disabled]="!selectedFiles" (click)="upload()">
+              Upload
+            </button>
+          </div>
+        </div>
+        
+        <div *ngIf="currentFile" class="progress my-3">
+          <div
+            class="progress-bar progress-bar-info progress-bar-striped"
+            role="progressbar"
+            attr.aria-valuenow="{{ progress }}"
+            aria-valuemin="0"
+            aria-valuemax="100"
+            [ngStyle]="{ width: progress + '%' }"
+          >
+            {{ progress }}%
+          </div>
+        </div>
+        
+        <div *ngIf="message" class="alert alert-secondary" role="alert">{{ message }}</div>
+        <br><br>
+        <div class="card mt-3">
+          <div class="card-header">List of Files</div>
+          <ul
+            class="list-group list-group-flush"
+            *ngFor="let file of fileInfos | async"
+          >
+            <li class="list-group-item">
+              <a href="{{ file.url }}">{{ file.name }}</a>
+            </li>
+          </ul>
+        </div>
+        <br><br>
+        <button type="button" class="btn btn-success btnadd" (click)="saveProduct()">Save Product</button>
+      </form>
     </div>
 
-    <label for="price">Price</label>
-    <input type="number" class="form-control" required #uprice="ngModel" id="price" placeholder="price" name="price"
-      [(ngModel)]="product.price">
-    <div class="req" *ngIf="uprice.invalid">
-      Price is required.
+    <div class="req" *ngIf="">
+      Ce produit existe déja.
     </div>
-
-    <label for="name">Quantity</label>
-    <input type="number" class="form-control" required #uqnt="ngModel" id="quantity" placeholder="Product quantity"
-      [(ngModel)]="product.quantity" name="quantity">
-    <div class="req" *ngIf="uqnt.invalid">
-      Quantity is required.
-    </div>
-
-    <label for="name">Weight</label>
-    <input type="number" class="form-control" required #uweight="ngModel" id="weight" placeholder="Product weight"
-      [(ngModel)]="product.weight" name="weight">
-    <div class="req" *ngIf="uweight.invalid">
-      Weight is required.
-    </div>
-
-    <label for="name">Description</label>
-    <input type="text" class="form-control" required #udesc="ngModel" id="description" placeholder="Product description"
-      [(ngModel)]="product.description" name="description">
-    <div class="req" *ngIf="udesc.invalid">
-      Description is required.
-    </div>
-    <div class="form-group" *ngIf="product.id == null">
-      <!-- only show this field on adding a book -->
-      <br>
-      <input required type="file" (change)="onFileChanged($event)">
-      <img [src]="imgURL" height="200" width="200" *ngIf="imgURL">
-    </div>
-    <br><br>
-    <button type="button" class="btn btn-success" (click)="saveProduct()">Save Product</button>
-  </form>
-</div>
-
-<div class="req" *ngIf="">
-  Ce produit existe déja.
-</div>
