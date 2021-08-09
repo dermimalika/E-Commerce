@@ -33,6 +33,14 @@ public class Product {
     @Column(name = "weight")
     private double weight;
 
+    @Column(nullable = true, length = 64)
+    private String fileUrl;
+    @Transient
+    public String getfileUrlImagePath(){
+        if(fileUrl == null || id == null) return null;
+        return "/product-photos/" + id + "/" + fileUrl;
+    }
+
     @Column(name = "quantity")
     private int quantity;
 

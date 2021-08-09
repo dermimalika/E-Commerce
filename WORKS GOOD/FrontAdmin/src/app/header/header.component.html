@@ -1,40 +1,72 @@
-<div *ngIf="super=='SUPER'">
-<mat-toolbar *ngIf="isLoggedIn()" color="primary">
-    <mat-toolbar-row>
-        <span *ngIf="isLoggedIn()"><a  mat-button href="https://www.techgeeknext.com" style="font-size: larger;">E-Meuble</a></span>
-        <span *ngIf="isLoggedIn()" class="example-fill-remaining-space"></span>
-        <span *ngIf="isLoggedIn()" class="align-center"></span>
-        <span *ngIf="isLoggedIn()" class="example-spacer"></span>
-       <!--- <a mat-button *ngIf="!isLoggedIn()" routerLink="/login" class="nav-link">Login</a>-->
-        <span class="example-fill-remaining-space"></span>
-        <span class="align-center"></span>
-        <span class="example-spacer"></span>
-       
-        <a mat-button *ngIf="isLoggedIn()" routerLink="/store" class="nav-link">View stores</a>
-        <a mat-button *ngIf="isLoggedIn()" routerLink="/" class="nav-link">View Admins</a>
-        <a mat-button *ngIf="isLoggedIn()" routerLink="/addadmin" class="nav-link">Add New Admin</a>
-        <a mat-button *ngIf="isLoggedIn()" routerLink="/logout" (click)="super=''" class="nav-link">LogOut</a>
-    </mat-toolbar-row>
-</mat-toolbar>
-</div>
+<div class="wrapper d-flex align-items-stretch">
+    <nav id="sidebar">
 
-<div *ngIf="super=='NORMAL'">
-    <mat-toolbar *ngIf="isLoggedIn()" color="primary">
-        <mat-toolbar-row>
-            <span *ngIf="isLoggedIn()"><a  mat-button href="https://www.techgeeknext.com" style="font-size: larger;">E-Meuble</a></span>
-            <span *ngIf="isLoggedIn()" class="example-fill-remaining-space"></span>
-            <span *ngIf="isLoggedIn()" class="align-center"></span>
-            <span *ngIf="isLoggedIn()" class="example-spacer"></span>
-           <!--- <a mat-button *ngIf="!isLoggedIn()" routerLink="/login" class="nav-link">Login</a>-->
-            <span class="example-fill-remaining-space"></span>
-            <span class="align-center"></span>
-            <span class="example-spacer"></span>
-            <a mat-button *ngIf="isLoggedIn()" routerLink="/admin/categorys" class="nav-link">View Categories</a>
-            <a mat-button *ngIf="isLoggedIn()" routerLink="/admin/products" class="nav-link">View Products</a>
-            <a mat-button *ngIf="isLoggedIn()" routerLink="/logout" (click)="super=''" class="nav-link">LogOut</a>
-        </mat-toolbar-row>
-    </mat-toolbar>
+    </nav>
+
+    <div *ngIf="super=='SUPER'">
+
+
+        <mat-toolbar class="navv" *ngIf="isLoggedIn()" color="primary">
+            <mat-toolbar-row>
+                <span class="title" *ngIf="isLoggedIn()"><a mat-button href="https://www.techgeeknext.com"
+                        style="font-size: larger;">E-Meuble
+                        <span class="dash">
+                            <h3 style="font-family: 'Tourney', cursive;
+">Admin Dashborad </h3>
+                        </span>
+                    </a></span>
+
+                <span *ngIf="isLoggedIn()" class="example-fill-remaining-space"></span>
+                <span *ngIf="isLoggedIn()" class="align-center"></span>
+                <span *ngIf="isLoggedIn()" class="example-spacer"></span>
+                <!--- <a mat-button *ngIf="!isLoggedIn()" routerLink="/login" class="nav-link">Login</a>-->
+                <span class="example-fill-remaining-space"></span>
+                <span class="align-center"></span>
+                <span class="example-spacer"></span>
+
+                <a class="socondtitle" style=" margin-top: 215px;" mat-button *ngIf="isLoggedIn()" routerLink="/store"
+                    class="nav-link">
+                    <i class="fa fa-eye" aria-hidden="true"> </i> View
+                    stores</a>
+                <a class="socondtitle" mat-button *ngIf="isLoggedIn()" routerLink="/addadmin" class="nav-link">
+                    <i class="fa fa-plus-square" aria-hidden="true"></i>
+                    Add New Admin</a>
+                <a class="socondtitle" mat-button *ngIf="isLoggedIn()" routerLink="/" class="nav-link">
+                    <i class="fa fa-eye" aria-hidden="true"></i> View Admins</a>
+
+                <a class="socondtitle" style="margin-top: 60px;" mat-button *ngIf="isLoggedIn()" routerLink="/logout"
+                    (click)="super=''" class="nav-link"><i class="fas fa-sign-out-alt"></i> LogOut</a>
+            </mat-toolbar-row>
+        </mat-toolbar>
     </div>
-    
-    
 
+    <div style="    margin-left: -285px;" *ngIf="super=='NORMAL'">
+        <mat-toolbar *ngIf="isLoggedIn()" color="primary">
+            <mat-toolbar-row>
+                <span class="title" *ngIf="isLoggedIn()"><a mat-button href="https://www.techgeeknext.com"
+                        style="font-size: larger;">E-Meuble
+                        <span class="dash">
+                            <h3 style="font-family: 'Tourney', cursive;
+                ">Admin Dashborad </h3>
+                        </span>
+                    </a></span>
+                <span *ngIf="isLoggedIn()" class="example-fill-remaining-space"></span>
+                <span *ngIf="isLoggedIn()" class="align-center"></span>
+                <span *ngIf="isLoggedIn()" class="example-spacer"></span>
+                <!--- <a mat-button *ngIf="!isLoggedIn()" routerLink="/login" class="nav-link">Login</a>-->
+                <span class="example-fill-remaining-space"></span>
+                <span class="align-center"></span>
+                <span class="example-spacer"></span>
+                <a mat-button *ngIf="isLoggedIn()" routerLink="/admin/categorys" class="nav-link">
+                    <i class="fa fa-eye" aria-hidden="true"> </i> View
+                    Categories</a>
+                <a mat-button *ngIf="isLoggedIn()" routerLink="/admin/products" class="nav-link">
+                    <i class="fa fa-eye" aria-hidden="true"> </i> View
+                    Products</a>
+                <a mat-button *ngIf="isLoggedIn()" routerLink="/logout" (click)="super=''" class="nav-link">
+                    <i class="fas fa-sign-out-alt"></i> LogOut</a>
+            </mat-toolbar-row>
+        </mat-toolbar>
+    </div>
+
+</div>

@@ -1,3 +1,75 @@
-table {
-    width: 100%;
+ .adminsliste {
+              background: #fff;
+    width: 75%;
+    position: relative;
+    top: -532px;
+    left: 288px;
+            }
+            .updateadmins{
+              width: 75%;
+    position: relative;
+    top: -532px;
+  left: 135px;  
+            }
+
+  .updateadmins[_ngcontent-rtb-c99] {
+    width: 77%;
+    position: relative;
+    top: -995px;
+    left: 135px;
+    height: 400px;
+}
+.updateSto {
+   top: -264px;
+    position: relative;
+}
+
+.btnadd{
+    width: 125px;
+}
+.btnback {
+    width: 125px;
+    color: white;
+    background-color: #3445b4;
+}
+
+.btnadd:hover{
+  background-color: #fff;
+  color: green;
+}
+.btnback:hover {
+   background-color: #fff;
+   color: #3445b4;
+ 
+}
+.btndel:hover{
+    background-color: #fff;
+    color: red;
+}
+
+
+.btnblue{
+    display: inline-block;
+    font-weight: 400;
+    color: #fff;
+    background-color: #3445b4;
+    text-align: center;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: #3445b4;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.btnblue:hover {
+   background-color: #fff;
+   color: #3445b4;
+   border: 1px solid #3445b4;
+ 
 }

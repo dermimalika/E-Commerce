@@ -1,105 +1,130 @@
+<!-- ============ Login Screen ============= -->
+<div *ngIf="mode=='login'">
+  <div class="wrapper fadeInDown">
+    <div id="formContent">
+      <!-- Tabs Titles -->
 
-
-  <!-- ============ Login Screen ============= -->
-  <div *ngIf="mode=='login'"> 
-    <div class="wrapper fadeInDown">
-      <div id="formContent">
-        <!-- Tabs Titles -->
-    
-        <!-- Icon -->
-        <div class="fadeIn first">
-          <img src="..\..\assets\images\E-meuble.png" id="icon" alt="User Icon" />
-        </div>
-    
-        <!-- Login Form -->
-        <form>
-          <input type="text" id="login" class="fadeIn second"   placeholder="Username" [(ngModel)]="username" name="username" required>
-          <input type="password" id="password" class="fadeIn third" name="login" placeholder="password" placeholder="Password" [(ngModel)]="password"  name="password" required>
-          <button  class="fadeIn fourth" value="Log In" (click)="checkLogin()">login</button>
-          <a (click)="mode='forgot'">You forgot your password ?</a>
-          <a (click)="mode='register'"><b>You Don't Have An Account </b></a>
-        </form>
-    
-        <!-- Remind Passowrd -->
-        
-    
+      <!-- Icon -->
+      <div class="fadeIn first">
+        <img src="..\..\assets\images\E-meuble.png" id="icon" alt="User Icon" />
       </div>
-    </div>
-   </div>
-  
-    <!-- ======================================= -->
 
-    <!-- ============ Register Screen ============= -->
+      <!-- Login Form -->
 
-  <div *ngIf="mode=='register'"> 
-    <div class="wrapper fadeInDown">
-      <div id="formContent">
-        <!-- Tabs Titles -->
-    
-        <!-- Icon -->
-        <div class="fadeIn first">
-          <img src="..\..\assets\images\E-meuble.png" id="icon" alt="User Icon" />
+      <form>
+        <input type="text" id="login" class="fadeIn second" placeholder="Username" [(ngModel)]="username"
+          name="username" required>
+        <input type="password" id="password" class="fadeIn third" name="login" placeholder="password"
+          placeholder="Password" [(ngModel)]="password" name="password" required>
+        <label class="float-left custom-control custom-checkbox remember"> <input type="checkbox"
+            class="custom-control-input" checked="">
+          <div class="custom-control-label"> Remember </div>
+        </label>
+
+        <a (click)="mode='forgot'" class="forgot" style="color: #1874d8;">Forgot password ?</a>
+        <div class="login">
+          <button style="width: 410px;margin-bottom: 4px;" class="fadeIn fourth"
+            style="width: 410px;margin-bottom: 4px;" value="Log In" (click)="checkLogin()">login</button>
         </div>
-    
-        <!-- Register Form -->
-        <form>
-            <input type="text" id="firstName" class="fadeIn second"   placeholder="Your First Name... " [(ngModel)]="firstName" name="firstName" required>
-            <input type="text" id="lastName" class="fadeIn second"   placeholder="Your Last Name... " [(ngModel)]="lastName" name="lastName" required>
-            <input type="text" id="username" class="fadeIn second"   placeholder="Your UserName... " [(ngModel)]="usename" name="usename" required>
-            <input type="number" id="phone" class="fadeIn second"   placeholder="Your Phone number... " [(ngModel)]="phone" name="phone" required>
-            <input type="text" id="register" class="fadeIn second"   placeholder="Your Email Address... " [(ngModel)]="email" name="email" required>
-            <input type="password" id="password" class="fadeIn second"   [(ngModel)]="passw" name="passw" required>
-            <button  class="fadeIn fourth" value="Log In" (click)="Register()">Register</button>
-            <a (click)="mode='login'"><b>Already Have a Account</b></a>
-        </form>
-    
-      </div>
-    </div>
-   </div>
-  
-    <!-- ======================================= -->
+        <p style="margin-bottom: 20px;" class="text-center mt-4">Don't have account? <a (click)="mode='register'"
+            style="color: #0070d2;">Sign
+            up</a></p>
+      </form>
 
-  <!-- ============ Forgot psw Screen ============= -->
-  <div *ngIf="mode=='forgot'">
-    <div class="wrapper fadeInDown">
-      <div id="formContent">
 
-    
-        <!-- Icon -->
-        <div class="fadeIn first">
-          <img src="..\..\assets\images\E-meuble.png" id="icon" alt="User Icon" />
-        </div>
-    
-        <!-- Forgot Form -->
-        <form>
-          <input type="text" id="forgot" class="fadeIn second"   placeholder="Your Email Address... " [(ngModel)]="mail" name="mail" required>
-          <button  class="fadeIn fourth" value="Log In" (click)="forgotPsw()">Next</button>
-        </form>
-    
-      </div>
+
+      <!-- Remind Passowrd -->
+
+
     </div>
   </div>
-  <!-- ======================================= -->
+</div>
 
-    <!-- ============ Reset Screen ============= -->
-    <div *ngIf="mode=='reset'">
-      <div class="wrapper fadeInDown">
-        <div id="formContent">
-          <!-- Tabs Titles -->
-      
-          <!-- Icon -->
-          <div class="fadeIn first">
-            <img src="..\..\assets\images\E-meuble.png" id="icon" alt="User Icon" />
-          </div>
-      
-          <form>
-            
-            <input type="password" id="psw" class="fadeIn third"  placeholder="New Password ..."  [(ngModel)]="psw"  name="psw" required>
-            <button  class="fadeIn fourth" value="Log In" (click)="resetPsw()">Reset</button>
-          </form>
-          
-      
-        </div>
+<!-- ======================================= -->
+
+<!-- ============ Register Screen ============= -->
+
+<div *ngIf="mode=='register'">
+  <div class="wrapper fadeInDown">
+    <div id="formContent">
+      <!-- Tabs Titles -->
+
+      <!-- Icon -->
+      <div class="fadeIn first">
+        <img src="..\..\assets\images\E-meuble.png" id="icon" alt="User Icon" />
       </div>
+
+      <!-- Register Form -->
+      <form>
+        <input type="text" id="firstName" class="fadeIn second" placeholder="First Name " [(ngModel)]="firstName"
+          name="firstName" required>
+        <input type="text" id="lastName" class="fadeIn second" placeholder="Last Name " [(ngModel)]="lastName"
+          name="lastName" required>
+        <input type="text" id="username" class="fadeIn second" placeholder="UserName " [(ngModel)]="usename"
+          name="usename" required>
+        <input type="number" id="phone" class="fadeIn second inphone" placeholder="Phone number " [(ngModel)]="phone"
+          name="phone" required>
+        <input type="text" id="register" class="fadeIn second" placeholder="Email Address " [(ngModel)]="email"
+          name="email" required>
+        <input type="password" id="password" class="fadeIn second" placeholder="Password " [(ngModel)]="passw"
+          name="passw" required>
+        <button style="width: 410px;margin-bottom: -10px;" class="fadeIn fourth" value="Log In"
+          (click)="Register()">Register</button>
+
+        <p style="margin-bottom: 20px;" class="text-center mt-4">Already Have a Account? <a (click)="mode='login'"
+            style="color: #0070d2;">Sign In</a></p>
+      </form>
+
     </div>
-      <!-- ======================================= -->
+  </div>
+</div>
+
+<!-- ======================================= -->
+
+<!-- ============ Forgot psw Screen ============= -->
+<div *ngIf="mode=='forgot'">
+  <div class="wrapper fadeInDown">
+    <div id="formContent">
+
+
+      <!-- Icon -->
+      <div class="fadeIn first">
+        <img src="..\..\assets\images\E-meuble.png" id="icon" alt="User Icon" />
+      </div>
+
+      <!-- Forgot Form -->
+      <form>
+        <input type="text" id="forgot" class="fadeIn second" placeholder="Your Email Address... " [(ngModel)]="mail"
+          name="mail" required>
+        <button style="width: 410px;margin-bottom: 4px;" class="fadeIn fourth" value="Log In"
+          (click)="forgotPsw()">Next</button>
+      </form>
+
+    </div>
+  </div>
+</div>
+<!-- ======================================= -->
+
+<!-- ============ Reset Screen ============= -->
+<div *ngIf="mode=='reset'">
+  <div class="wrapper fadeInDown">
+    <div id="formContent">
+      <!-- Tabs Titles -->
+
+      <!-- Icon -->
+      <div class="fadeIn first">
+        <img src="..\..\assets\images\E-meuble.png" id="icon" alt="User Icon" />
+      </div>
+
+      <form>
+
+        <input type="password" id="psw" class="fadeIn third" placeholder="New Password ..." [(ngModel)]="psw" name="psw"
+          required>
+        <button class="fadeIn fourth" value="Log In" (click)="resetPsw()">Reset</button>
+      </form>
+
+
+    </div>
+  </div>
+</div>
+<!-- ======================================= -->

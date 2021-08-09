@@ -8,11 +8,11 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="ms-auth" />
-        <module name="ms-client" />
         <module name="AdminManager" />
-        <module name="ms-gateway" />
         <module name="ms-registry" />
         <module name="AdminManager (1)" />
+        <module name="ms-gateway" />
+        <module name="ms-client" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>

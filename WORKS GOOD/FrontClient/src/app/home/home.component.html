@@ -1,13 +1,224 @@
-<button class="btn btn-danger" (click)="logout()">Log Out</button>
-<button class="btn btn-info" (click)="profile()">go to Profile</button>
-
-<div *ngFor="let p of products">
- <div class="card" style="width: 18rem;">
-    <img src="p.picByte" class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">{{p.name}}</h5>
-      <p class="card-text">{{p.description}}</p>
-      <a [routerLink]="['/produit', p.id]" class="btn btn-primary">More details</a>
+<!-- Header -->
+<header class="header shop">
+  <!-- Topbar -->
+  <div class="topbar">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 col-md-12 col-12">
+          <!-- Top Left -->
+          <div class="top-left">
+            <ul class="list-main">
+              <li><i class="ti-headphone-alt"></i> +000 (000) 000-000</li>
+              <li><i class="ti-email"></i> etudiant4@esi-sba.dz</li>
+            </ul>
+          </div>
+          <!--/ End Top Left -->
+        </div>
+        <div class="col-lg-6 col-md-12 col-12">
+          <!-- Top Right -->
+          <div class="right-content">
+            <ul class="list-main">
+              <li><i class="ti-location-pin"></i> Store location</li>
+              <li><i class="ti-alarm-clock"></i> <a href="#">Daily deal</a></li>
+              <li><i class="ti-user"></i> <a (click)="profile()">My account</a></li>
+              <li><i class="ti-power-off"></i><a (click)="logout()">Logout</a></li>
+            </ul>
+          </div>
+          <!-- End Top Right -->
+        </div>
+      </div>
     </div>
   </div>
-</div>
+  <!-- End Topbar -->
+  <div class="middle-inner">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-2 col-md-2 col-12">
+          <!-- Logo -->
+          <div class="logo">
+            <a href="#">E-meuble</a>
+          </div>
+          <!--/ End Logo -->
+          <!-- Search Form -->
+          <div class="search-top">
+            <div class="top-search"><a href="#0"><i class="ti-search"></i></a></div>
+            <!-- Search Form -->
+            <div class="search-top">
+              <form class="search-form">
+                <input type="text" placeholder="Search here..." name="search">
+                <button value="search" type="submit"><i class="ti-search"></i></button>
+              </form>
+            </div>
+            <!--/ End Search Form -->
+          </div>
+          <!--/ End Search Form -->
+          <div class="mobile-nav"></div>
+        </div>
+        <div class="col-lg-8 col-md-7 col-12">
+          <div class="search-bar-top">
+            <div class="search-bar">
+              <select>
+                <option selected="selected">All Category</option>
+                <option>table</option>
+                <option>bureau</option>
+                <option>salon</option>
+              </select>
+              <form>
+                <input name="search" placeholder="Search Products Here....." type="search">
+                <button class="btnn"><i class="ti-search"></i></button>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-3 col-12">
+          <div class="right-bar">
+            <!-- Search Form -->
+            <div class="sinlge-bar">
+              <a href="#" class="single-icon"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
+            </div>
+            <div class="sinlge-bar">
+              <a href="#" class="single-icon"><i class="fa fa-user-circle-o" aria-hidden="true"></i></a>
+            </div>
+            <div class="sinlge-bar shopping">
+              <a href="#" class="single-icon"><i class="ti-bag"></i> <span class="total-count">2</span></a>
+              <!-- Shopping Item -->
+              <div class="shopping-item">
+                <div class="dropdown-cart-header">
+                  <span>2 Items</span>
+                  <a href="#">View Cart</a>
+                </div>
+                <ul class="shopping-list">
+
+                </ul>
+                <div class="bottom">
+                  <div class="total">
+                    <span>Total</span>
+                    <span class="total-amount">$134.00</span>
+                  </div>
+                  <a href="#" class="btn animate">Checkout</a>
+                </div>
+              </div>
+              <!--/ End Shopping Item -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Header Inner -->
+  <div class="header-inner">
+    <div class="container">
+      <div class="cat-nav-head">
+        <div class="row">
+          <div class="col-12">
+            <div class="menu-area">
+              <!-- Main Menu -->
+              <nav class="navbar navbar-expand-lg">
+                <div class="navbar-collapse">
+                  <div class="nav-inner">
+                    <ul class="nav main-menu menu navbar-nav">
+                      <li><a href="#">Home</a></li>
+                      <li><a href="#">Product</a></li>
+                      <li><a href="#">Service</a></li>
+                      <li><a href="#">Shop</a>
+                        <ul class="dropdown">
+                          <li><a href="#">Shop Grid</a></li>
+                          <li><a href="#">Shop List</a></li>
+                          <li><a href="#">shop Single</a></li>
+                          <li><a href="#">Cart</a></li>
+                          <li><a href="#">Checkout</a></li>
+                        </ul>
+                      </li>
+
+                      <li><a href="#">Contact Us</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </nav>
+              <!--/ End Main Menu -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--/ End Header Inner -->
+</header>
+<!--/ End Header -->
+
+
+
+
+<!-- All Products -->
+<section class="section all-products" id="products">
+  <div class="top container">
+    <h1>All Products</h1>
+    <form>
+      <select>
+        <option value="1">Defualt Sorting</option>
+        <option value="2">Sort By Price</option>
+        <option value="3">Sort By Popularity</option>
+        <option value="4">Sort By Sale</option>
+        <option value="5">Sort By Rating</option>
+      </select>
+  
+    </form>
+  </div>
+
+  <!-- 
+  <div *ngFor="let p of products">
+    <div class="card" style="width: 18rem;">
+      <img src="{{p.retrievedImage}}" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">{{p.name}}</h5>
+        <p class="card-text">{{p.description}}</p>
+        <a [routerLink]="['/produit', p.id]" class="btn btn-primary">More details</a>
+      </div>
+    </div>
+  </div> -->
+
+  <div class="product-center container" *ngFor="let p of products">
+
+
+  <div class="row">
+      <div class="product">
+        <div class="product-header">
+          <img class="w3-card-2 w3-hover-shadow w3-center" src="{{p.pic_byte}}" height="200" width="200">
+          <ul class="icons">
+            <span><i class="bx bx-heart"></i></span>
+            <span><i class="bx bx-shopping-bag"></i></span>
+            <span><a [routerLink]="['/produit', p.id]"><i class="bx bx-search"></i></a></span>
+          </ul>
+        </div>
+        <div class="product-footer">
+          <h3>{{p.name}}</h3>
+          <p class="card-text">{{p.description}}</p>
+          <div class="rating">
+            <i class="bx bxs-star"></i>
+            <i class="bx bxs-star"></i>
+            <i class="bx bxs-star"></i>
+            <i class="bx bxs-star"></i>
+            <i class="bx bx-star"></i>
+          </div>
+          <h4 class="price">${{p.price}}</h4>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+
+
+</section>
+
+<section class="pagination">
+  <div class=" container">
+    <span>1</span>
+    <span>2</span>
+    <span>3</span>
+    <span>4</span>
+    <span><i class='bx bx-right-arrow-alt'></i></span>
+  </div>
+</section>

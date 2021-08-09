@@ -1,3 +1,78 @@
 .cont{
     padding: 20px;
 }
+
+.container{
+   position: relative;
+    top: -358px;
+    left: -24px;
+    width: 99%;
+}
+.card-body {
+    -ms-flex: 1 1 auto;
+ flex: 1 1 auto;
+    padding: 1.25rem;
+    position: relative;
+    top: 225px;
+    max-height: 505px;
+}
+
+.card {
+ border: none;
+    box-shadow: 0 1px 20px 20px rgb(0 0 0 / 5%);
+    margin-bottom: 30px;
+    width: 75%;
+    position: relative;
+    top: -596px;
+    left: 133px;
+}
+.btnadd{
+    width: 125px;
+}
+.btnback {
+    width: 125px;
+    color: white;
+    background-color: #3445b4;
+}
+
+.btnadd:hover{
+  background-color: #fff;
+  color: green;
+}
+.btnback:hover {
+   background-color: #fff;
+   color: #3445b4;
+   border: 1px solid#3445b4;
+}
+.btndel:hover{
+    background-color: #fff;
+    color: red;
+}
+
+    
+
+.btnblue{
+    display: inline-block;
+    font-weight: 400;
+    color: #fff;
+    background-color: #3445b4;
+    text-align: center;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: #3445b4;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.btnblue:hover {
+   background-color: #fff;
+   color: #3445b4;
+   border: 1px solid #3445b4;
+ 
+}
