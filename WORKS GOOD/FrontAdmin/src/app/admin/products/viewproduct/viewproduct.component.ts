@@ -2,6 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Product } from '../../../model/Product';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClientService } from 'src/app/service/httpclient.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-viewproduct',
@@ -14,11 +15,17 @@ export class ViewproductComponent implements OnInit {
   product: Product;
   @Output()
   bookDeletedEvent = new EventEmitter();
+  // This URL :=> http://localhost:8080/
+  urlBack:String="/assets";
+
 
   constructor(private httpClientService: HttpClientService, private router: Router
   ) { }
 
   ngOnInit() {
+    console.log("products in view :",this.product);
+
+    
   }
 
   deleteProduct() {

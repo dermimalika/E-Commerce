@@ -98,14 +98,16 @@ export class HttpClientService {
   }
 
   //Upload Images
-  addUploadData(selectedFile) {
-    return this.httpClient.post(this.urlBack+'products/upload', selectedFile);
-  }
+  // addUploadData(selectedFile) {
+  //   return this.httpClient.post(this.urlBack+'products/upload', selectedFile);
+  // }
 
-  // Add New Product
-  addProduct(newProduct) {
-    return this.httpClient.post<Product>(this.urlBack+'products/add', newProduct);
-  }
+  // // Add New Product
+  // addProduct(newProduct) {
+  //   console.log('we just pass here http client add product');
+    
+  //   return this.httpClient.post<Product>(this.urlBack+'products/add', newProduct);
+  // }
 
   //Delete Product
   deleteProduct(id) {

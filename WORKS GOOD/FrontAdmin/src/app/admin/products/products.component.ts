@@ -49,6 +49,8 @@ export class ProductsComponent implements OnInit {
   handleSuccessfulResponse(response) {
     this.products = new Array<Product>();
     this.products1 = response;
+    console.log("products from the back :",response);
+    
     for (const product of this.products1) {
 
       const product2 = new Product();
@@ -59,6 +61,7 @@ export class ProductsComponent implements OnInit {
       product2.price = product.price;
       product2.quantity = product.quantity;
       product2.weight = product.weight;
+      product2.fileUrlImagePath=product.fileUrlImagePath;
       product2.description = product.description;
       product2.picByte = product.picByte;
       this.products.push(product2);

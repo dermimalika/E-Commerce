@@ -38,7 +38,7 @@ public class Product {
     @Transient
     public String getfileUrlImagePath(){
         if(fileUrl == null || id == null) return null;
-        return "/product-photos/" + id + "/" + fileUrl;
+        return "/product-photos/" + fileUrl;
     }
 
     @Column(name = "quantity")
