@@ -5,6 +5,7 @@ export class Product {
     price: number;
     picByte: string;
     retrievedImage: string;
+    fileUrlImagePath: string;
     quantity;
     weight;
     description;

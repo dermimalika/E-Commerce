@@ -14,9 +14,15 @@ export class ImageUploadService {
   upload(file: File): Observable<HttpEvent<any>> {
     const formData: FormData = new FormData();
 
-    formData.append('file', file);
+    //=============================================================
+    console.log("selected File : ",file);
+    console.log("selected File Name: ",file.name);
+    
+    formData.append('file', file, file.name);
+    //=============================================================
 
-    const req = new HttpRequest('POST', `${this.baseUrl}/upload`, formData, {
+
+    const req = new HttpRequest('POST', `${this.baseUrl}products/upload`, formData, {
       reportProgress: true,
       responseType: 'json'
     });
@@ -25,7 +31,7 @@ export class ImageUploadService {
   }
 
   getFiles(): Observable<any> {
-    return this.http.get(`${this.baseUrl}/files`);
+    return this.http.get(`${this.baseUrl}products/files`);
   }
 
 }

@@ -6,6 +6,7 @@ import { HttpClientService } from 'src/app/service/httpclient.service';
 import { HttpEventType, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { ImageUploadService } from 'src/app/service/image-upload.service';
+import { environment } from 'src/environments/environment';
 
 
 @Component({
@@ -24,9 +25,12 @@ export class AddproductComponent implements OnInit {
   public selectedFile;
   imgURL: any;
   categories:any=[];
+    // This URL :=> http://localhost:8080/
+    urlBack:String=environment.urlBack;
+  
 
   //Var for Upload Images
-  selectedFiles?: FileList;
+  selectedFiles?: File;
   currentFile?: File;
   progress = 0;
   message = '';
@@ -44,63 +48,63 @@ export class AddproductComponent implements OnInit {
     this.fileInfos = this.uploadService.getFiles();
   }
 
-  public onFileChanged(event) {
-    console.log(event);
-    this.selectedFile = event.target.files[0];
+  // public onFileChanged(event) {
+  //   console.log(event);
+  //   this.selectedFiles = event.target.files[0];
 
-    // Below part is used to display the selected image
-    let reader = new FileReader();
-    reader.readAsDataURL(event.target.files[0]);
-    reader.onload = (event2) => {
-      this.imgURL = reader.result;
-    };
+  //   // Below part is used to display the selected image
+  //   let reader = new FileReader();
+  //   reader.readAsDataURL(event.target.files[0]);
+  //   reader.onload = (event2) => {
+  //     this.imgURL = reader.result;
+  //   };
 
 
 
-  }
+  // }
   //===========> Functs for Upload Images
   //https://www.bezkoder.com/angular-12-spring-boot-file-upload/
   selectFile(event: any): void {
-    this.selectedFiles = event.target.files;
+    this.selectedFiles = event.target.files[0];
+    console.log("selectedFiles :",this.selectedFiles);
+    
   }  
 
-  upload(): void {
-    this.progress = 0;
+  // upload(): void {
+  //   this.progress = 0;
 
-    if (this.selectedFiles) {
-      const file: File | null = this.selectedFiles.item(0);
+  //   if (this.selectedFiles) {
+  //     const file: File | null = this.selectedFiles;
 
-      if (file) {
-        this.currentFile = file;
+  //     if (file) {
+  //       this.currentFile = file;
 
-        this.uploadService.upload(this.currentFile).subscribe(
-          (event: any) => {
-            //progressing bar
-            if (event.type === HttpEventType.UploadProgress) {
-              this.progress = Math.round(100 * event.loaded / event.total);
-            } else if (event instanceof HttpResponse) {
-              this.message = event.body.message;
-              this.fileInfos = this.uploadService.getFiles();
-            }
-          },
-          (err: any) => {
-            console.log(err);
-            this.progress = 0;
+  //       // this.uploadService.upload(this.currentFile).subscribe(
+  //       //   (event: any) => {
+  //       //     //progressing bar
+  //       //     if (event.type === HttpEventType.UploadProgress) {
+  //       //       this.progress = Math.round(100 * event.loaded / event.total);
+  //       //     } else if (event instanceof HttpResponse) {
 
-            if (err.error && err.error.message) {
-              this.message = err.error.message;
-            } else {
-              this.message = 'Could not upload the file!';
-            }
+  //       //       this.fileInfos = this.uploadService.getFiles();
+  //       //     }
+  //       //   },
+  //       //   (err: any) => {
+  //       //     console.log(err);
+  //       //     this.progress = 0;
 
-            this.currentFile = undefined;
-          });
+  //       //     if (err.error ) {
+  //       //       this.message = 'Could not upload the file!';
+  //       //     }
 
-      }
+  //       //     this.currentFile = undefined;
+  //       //   });
 
-      this.selectedFiles = undefined;
-    }
-  }
+  //     }
+
+  //     // this.selectedFiles = undefined;
+  //   }
+  // }
   //===========> Get Categories
   getCategory() {
     this.httpClientService.getCategorys().subscribe((data: any)=>{
@@ -113,34 +117,37 @@ export class AddproductComponent implements OnInit {
 
   saveProduct() {
     if (this.product.id == null) {
+      console.log("in begin of save Product ");
+      
+      // const uploadData = new FormData();
+      // console.log("selected File : ",this.selectedFiles);
+      // console.log("selected File Name: ",this.selectedFiles.name);
+      
+      // uploadData.append('file', this.selectedFiles, this.selectedFiles.name);
+      this.uploadService.upload(this.selectedFiles).subscribe(
+        (response) => {
+            if (response) {
+              
+              console.log('Image uploaded successfully');
+              this.router.navigate(['admin', 'products']);
+            } else {
+              console.log('Image not uploaded successfully');
+            }
+            } 
+          );
+          console.log("after upload image of save Product ");
+      this.httpClient.post(this.urlBack+'products/add',this.product).subscribe() 
+      window.location.reload;
 
-      const uploadData = new FormData();
-      uploadData.append('imageFile', this.selectedFile, this.selectedFile.name);
-      this.selectedFile.imageName = this.selectedFile.name;
-
-      this.httpClient.post('http://localhost:8080/products/upload', uploadData, { observe: 'response' })
-        .subscribe((response) => {
-          if (response.status === 200) {
-            this.httpClientService.addProduct(this.product).subscribe(
-              (product) => {
-                this.bookAddedEvent.emit();
-                this.router.navigate(['admin', 'products']);
-              }
-            );
-            console.log('Image uploaded successfully');
-          } else {
-            console.log('Image not uploaded successfully');
-          }
-        }
-        );
-    } else {
-      this.httpClientService.updateProduct(this.product).subscribe(
-        (product) => {
-          this.bookAddedEvent.emit();
-          this.router.navigate(['admin', 'products']);
-        }
-      );
     }
+    // } else {
+    //   this.httpClientService.updateProduct(this.product).subscribe(
+    //     (product) => {
+    //       this.bookAddedEvent.emit();
+    //       this.router.navigate(['admin', 'products']);
+    //     }
+    //   );
+    // }
 
   }
 
