@@ -11,14 +11,14 @@ export class ImageUploadService {
 
   constructor(private http: HttpClient) { }
 
-  upload(file: File): Observable<HttpEvent<any>> {
+  upload(file: File,name:string): Observable<HttpEvent<any>> {
     const formData: FormData = new FormData();
 
     //=============================================================
     console.log("selected File : ",file);
     console.log("selected File Name: ",file.name);
     
-    formData.append('file', file, file.name);
+    formData.append('file', file, name);
     //=============================================================
 
 

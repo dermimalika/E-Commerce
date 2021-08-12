@@ -41,6 +41,8 @@ export class ProductsComponent implements OnInit {
           this.selectedProduct = this.products.find(product => {
             return product.id === +id;
           });
+          console.log("selectedProduct :",this.selectedProduct);
+          
         }
       }
     );

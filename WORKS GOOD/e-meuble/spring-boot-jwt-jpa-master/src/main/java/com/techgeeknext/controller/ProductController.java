@@ -1,7 +1,6 @@
 package com.techgeeknext.controller;
 
 import com.techgeeknext.dao.ProductRepository;
-import com.techgeeknext.entities.Admin;
 import com.techgeeknext.entities.Product;
 import com.techgeeknext.service.FileUploadUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,11 +8,8 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.sql.Date;
 import java.util.List;
 import java.util.Random;
 
@@ -36,8 +32,7 @@ public class ProductController {
 
     // To generate A String
     public static String generateRandomPassword(int len) {
-        String chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijk"
-                +"lmnopqrstuvwxyz!@#$%&";
+        String chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijk";
         Random rnd = new Random();
         StringBuilder sb = new StringBuilder(len);
         for (int i = 0; i < len; i++)
@@ -49,17 +44,17 @@ public class ProductController {
     @PostMapping("/upload")
     public void uploadImage(@RequestParam("file") MultipartFile multipartFile) throws IOException {
 
-        fileNameInController = generateRandomPassword(8)+"-"+StringUtils.cleanPath(multipartFile.getOriginalFilename());
+        String l=  StringUtils.cleanPath(multipartFile.getOriginalFilename());
+        System.out.println(l);
         String uploadDir="..\\FrontAdmin\\src\\assets\\product-photos\\";
-        FileUploadUtil.saveFile(uploadDir, fileNameInController, multipartFile);
+        FileUploadUtil.saveFile(uploadDir, l , multipartFile);
     }
 
     @CrossOrigin(origins = "http://localhost:4200")
     @PostMapping(value= "/add")
     public void createProduct(@RequestBody Product product) throws IOException {
         System.out.println("in add prodcts ");
-        product.setFileUrl(fileNameInController);
-
+        System.out.println(product.getFileUrl());
         product.setArch(false);
         Product savedProduct = productRepository.save(product);
     }
@@ -95,6 +90,14 @@ public class ProductController {
     @DeleteMapping(path = {"/delProduct/{id}"})
     public Product deleteProduct(@PathVariable("id") long id) {
         Product product = productRepository.getOne(id);
+
+        File file = new File("..\\FrontAdmin\\src\\assets\\"+product.getfileUrlImagePath());
+
+        if(file.delete()){
+            System.out.println(file.getName() + " is deleted!");
+        }else{
+            System.out.println("Delete operation is failed.");
+        }
         productRepository.deleteById(id);
         return product;
     }

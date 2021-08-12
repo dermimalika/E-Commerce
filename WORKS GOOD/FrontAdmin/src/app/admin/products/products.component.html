@@ -39,7 +39,7 @@
         <app-addproduct *ngIf="action === 'edit' ||action === 'add'" [product]="selectedProduct"
           (bookAddedEvent)="refreshData()">
         </app-addproduct>
-        <app-viewproduct *ngIf="action === 'view'" [product]="selectedProduct" (bookDeletedEvent)="refreshData()">
+        <app-viewproduct *ngIf="action === 'view'" (click)="refreshData()" [product]="selectedProduct" >
         </app-viewproduct>
       </div>
     </div>

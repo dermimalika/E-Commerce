@@ -1,7 +1,7 @@
 import { Product } from '../../../model/Product';
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams, HttpRequest } from '@angular/common/http';
 import { HttpClientService } from 'src/app/service/httpclient.service';
 import { HttpEventType, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -48,21 +48,16 @@ export class AddproductComponent implements OnInit {
     this.fileInfos = this.uploadService.getFiles();
   }
 
-  // public onFileChanged(event) {
-  //   console.log(event);
-  //   this.selectedFiles = event.target.files[0];
-
-  //   // Below part is used to display the selected image
-  //   let reader = new FileReader();
-  //   reader.readAsDataURL(event.target.files[0]);
-  //   reader.onload = (event2) => {
-  //     this.imgURL = reader.result;
-  //   };
-
-
-
-  // }
   //===========> Functs for Upload Images
+  // function to generate random name for image
+   makeRandom(lengthOfCode: number, possible: string) {
+    let text = "";
+    for (let i = 0; i < lengthOfCode; i++) {
+      text += possible.charAt(Math.floor(Math.random() * possible.length));
+    }
+      return text;
+  }
+
   //https://www.bezkoder.com/angular-12-spring-boot-file-upload/
   selectFile(event: any): void {
     this.selectedFiles = event.target.files[0];
@@ -70,41 +65,6 @@ export class AddproductComponent implements OnInit {
     
   }  
 
-  // upload(): void {
-  //   this.progress = 0;
-
-  //   if (this.selectedFiles) {
-  //     const file: File | null = this.selectedFiles;
-
-  //     if (file) {
-  //       this.currentFile = file;
-
-  //       // this.uploadService.upload(this.currentFile).subscribe(
-  //       //   (event: any) => {
-  //       //     //progressing bar
-  //       //     if (event.type === HttpEventType.UploadProgress) {
-  //       //       this.progress = Math.round(100 * event.loaded / event.total);
-  //       //     } else if (event instanceof HttpResponse) {
-
-  //       //       this.fileInfos = this.uploadService.getFiles();
-  //       //     }
-  //       //   },
-  //       //   (err: any) => {
-  //       //     console.log(err);
-  //       //     this.progress = 0;
-
-  //       //     if (err.error ) {
-  //       //       this.message = 'Could not upload the file!';
-  //       //     }
-
-  //       //     this.currentFile = undefined;
-  //       //   });
-
-  //     }
-
-  //     // this.selectedFiles = undefined;
-  //   }
-  // }
   //===========> Get Categories
   getCategory() {
     this.httpClientService.getCategorys().subscribe((data: any)=>{
@@ -115,40 +75,38 @@ export class AddproductComponent implements OnInit {
   }
   //============================
 
+  //========================================
   saveProduct() {
+  //Possible values for a name
+  let possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+  //Generate Random name to Image
+  let nameImage=this.makeRandom(4, possible)+this.selectedFiles.name;
+
+    let cond=false;
     if (this.product.id == null) {
       console.log("in begin of save Product ");
       
-      // const uploadData = new FormData();
-      // console.log("selected File : ",this.selectedFiles);
-      // console.log("selected File Name: ",this.selectedFiles.name);
-      
-      // uploadData.append('file', this.selectedFiles, this.selectedFiles.name);
-      this.uploadService.upload(this.selectedFiles).subscribe(
+      this.uploadService.upload(this.selectedFiles,nameImage).subscribe(
         (response) => {
             if (response) {
-              
+              console.log("response of upload image :",response);
+
               console.log('Image uploaded successfully');
-              this.router.navigate(['admin', 'products']);
+               
+              cond=true;
             } else {
               console.log('Image not uploaded successfully');
             }
             } 
           );
-          console.log("after upload image of save Product ");
-      this.httpClient.post(this.urlBack+'products/add',this.product).subscribe() 
-      window.location.reload;
+          
+      if(cond){
+        this.product.fileUrl=nameImage;
+        this.httpClient.post(this.urlBack+'products/add',this.product).subscribe() ;
 
+        this.router.navigate(['admin', 'products']);
+      }
     }
-    // } else {
-    //   this.httpClientService.updateProduct(this.product).subscribe(
-    //     (product) => {
-    //       this.bookAddedEvent.emit();
-    //       this.router.navigate(['admin', 'products']);
-    //     }
-    //   );
-    // }
-
   }
 
 }

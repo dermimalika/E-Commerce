@@ -17,17 +17,18 @@ export class ViewproductComponent implements OnInit {
   bookDeletedEvent = new EventEmitter();
   // This URL :=> http://localhost:8080/
   urlBack:String="/assets";
-
+  path="";
 
   constructor(private httpClientService: HttpClientService, private router: Router
-  ) { }
+  ) {}
 
   ngOnInit() {
     console.log("products in view :",this.product);
 
-    
   }
-
+  imagepath(){
+    this.path="/assets"+decodeURIComponent(this.product.fileUrlImagePath)
+  }
   deleteProduct() {
     this.httpClientService.archProduit(this.product.id).subscribe(
       (product) => {
