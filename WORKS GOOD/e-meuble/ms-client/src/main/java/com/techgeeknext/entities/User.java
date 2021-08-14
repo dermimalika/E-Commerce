@@ -1,6 +1,5 @@
 package com.techgeeknext.entities;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -48,11 +47,11 @@ public class User {
     }
 
 
-    public Long getId() {
+    public Long getIdC() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setIdC(Long idC) {
         this.id = id;
     }
 
