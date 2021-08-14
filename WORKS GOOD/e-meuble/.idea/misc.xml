@@ -4,10 +4,10 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/../spring-boot-jwt-jpa-master/pom.xml" />
-        <option value="$PROJECT_DIR$/ms-client/pom.xml" />
         <option value="$PROJECT_DIR$/spring-boot-jwt-jpa-master/pom.xml" />
-        <option value="$PROJECT_DIR$/ms-registry/pom.xml" />
         <option value="$PROJECT_DIR$/ms-gateway/pom.xml" />
+        <option value="$PROJECT_DIR$/ms-registry/pom.xml" />
+        <option value="$PROJECT_DIR$/ms-client/pom.xml" />
         <option value="$PROJECT_DIR$/ms-auth/pom.xml" />
       </list>
     </option>
