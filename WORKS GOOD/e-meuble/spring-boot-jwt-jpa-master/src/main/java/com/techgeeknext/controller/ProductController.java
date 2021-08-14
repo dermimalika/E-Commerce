@@ -1,7 +1,6 @@
 package com.techgeeknext.controller;
 
 import com.techgeeknext.dao.ProductRepository;
-import com.techgeeknext.entities.Admin;
 import com.techgeeknext.entities.Product;
 import com.techgeeknext.service.FileUploadUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,11 +8,8 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.sql.Date;
 import java.util.List;
 import java.util.Random;
 
@@ -34,44 +30,39 @@ public class ProductController {
         return productRepository.findAll();
     }
 
-    // To generate A String
-    public static String generateRandomPassword(int len) {
-        String chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijk"
-                +"lmnopqrstuvwxyz!@#$%&";
-        Random rnd = new Random();
-        StringBuilder sb = new StringBuilder(len);
-        for (int i = 0; i < len; i++)
-            sb.append(chars.charAt(rnd.nextInt(chars.length())));
-        return sb.toString();
-    }
-
     @CrossOrigin(origins = "http://localhost:4200")
     @PostMapping("/upload")
     public void uploadImage(@RequestParam("file") MultipartFile multipartFile) throws IOException {
 
-        fileNameInController = generateRandomPassword(8)+"-"+StringUtils.cleanPath(multipartFile.getOriginalFilename());
+        String l=  StringUtils.cleanPath(multipartFile.getOriginalFilename());
+        System.out.println(l);
         String uploadDir="..\\FrontAdmin\\src\\assets\\product-photos\\";
-        FileUploadUtil.saveFile(uploadDir, fileNameInController, multipartFile);
+        FileUploadUtil.saveFile(uploadDir, l , multipartFile);
     }
 
     @CrossOrigin(origins = "http://localhost:4200")
     @PostMapping(value= "/add")
     public void createProduct(@RequestBody Product product) throws IOException {
         System.out.println("in add prodcts ");
-        product.setFileUrl(fileNameInController);
-
+        System.out.println(product.getFileUrl());
         product.setArch(false);
         Product savedProduct = productRepository.save(product);
     }
 
     @CrossOrigin(origins = "http://localhost:4200")
-    @PutMapping("/update/{id}")
-    public Product updateProduct(@ModelAttribute Product product,@PathVariable("id") Long id,@RequestParam("file") MultipartFile multipartFile)throws IOException  {
-
+    @PostMapping("/update/{id}")
+    public Product updateProduct(@PathVariable("id") Long id,@RequestBody Product product)throws IOException  {
+        System.out.println("Product name :"+product.getName());
         if (productRepository.findById(id).isPresent()){
-            Product existingProduct = productRepository.findById(product.getId()).get();
-            String p ="" ;
-            p =StringUtils.cleanPath(multipartFile.getOriginalFilename());
+            Product existingProduct = productRepository.findById(id).get();
+            //Delete old image
+            File file = new File("..\\FrontAdmin\\src\\assets\\product-photos\\"+existingProduct.getFileUrl());
+
+            if(file.delete()){
+                System.out.println(file.getName() + " is deleted!");
+            }else{
+                System.out.println("Delete operation is failed.");
+            }
 
             existingProduct.setName(product.getName());
             existingProduct.setCategory(product.getCategory());
@@ -79,8 +70,8 @@ public class ProductController {
             existingProduct.setQuantity(product.getQuantity());
             existingProduct.setDescription(product.getDescription());
             existingProduct.setPrice(product.getPrice());
-            existingProduct.setFileUrl(p);
-
+            existingProduct.setFileUrl(product.getFileUrl());
+            System.out.println("existingProduct name :"+existingProduct.getName());
             Product updatedProduct = productRepository.save(existingProduct);
 
             return updatedProduct;
@@ -95,6 +86,14 @@ public class ProductController {
     @DeleteMapping(path = {"/delProduct/{id}"})
     public Product deleteProduct(@PathVariable("id") long id) {
         Product product = productRepository.getOne(id);
+
+        File file = new File("..\\FrontAdmin\\src\\assets\\"+product.getfileUrlImagePath());
+
+        if(file.delete()){
+            System.out.println(file.getName() + " is deleted!");
+        }else{
+            System.out.println("Delete operation is failed.");
+        }
         productRepository.deleteById(id);
         return product;
     }

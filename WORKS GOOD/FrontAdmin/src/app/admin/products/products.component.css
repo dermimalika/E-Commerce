@@ -18,13 +18,14 @@
 }
 
 .card {
- border: none;
+    border: none;
     box-shadow: 0 1px 20px 20px rgb(0 0 0 / 5%);
     margin-bottom: 30px;
     width: 75%;
     position: relative;
-    top: -596px;
+    top: -620px;
     left: 133px;
+    height: 555px;
 }
 .btnadd{
     width: 125px;
@@ -76,3 +77,4 @@
    border: 1px solid #3445b4;
  
 }
+

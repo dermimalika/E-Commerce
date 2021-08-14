@@ -1,124 +1,132 @@
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
 <!-- ===================== Cards Display =============================== -->
-<div *ngIf="mode=='main'">
+<div *ngIf="mode=='main'" class="body">
     <div class="row">
         <!-- Condition super Admin -->
         <div *ngIf="super">
-        <div class="col-sm-6">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Special title treatment</h5>
-              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-              <a  class="btn btn-primary" (click)="mode='Stores'">Stores</a>
+            <div class="col-sm-6 div1">
+                <div class="card">
+                    <div class="card-body">
+                        <h2 class="card-title">View archived stores</h2>
+                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                        <a class="btn btnback" (click)="mode='Stores'">Stores</a>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
 
-        <div class="col-sm-6">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Special title treatment</h5>
-              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-              <a  class="btn btn-primary" (click)="mode='Admins'">Admins</a>
+            <div class="col-sm-6 div2">
+                <div class="card">
+                    <div class="card-body">
+                        <h2 class="card-title">View archived admins</h2>
+                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                        <a class="btn btnback" (click)="mode='Admins'">Admins</a>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>  
-      <!-- Condition super Admin End -->
-      <div *ngIf="!super">
-        <div class="col-sm-6">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title">Special title treatment</h5>
-                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                <a  class="btn btn-primary" (click)="mode='Products'">Products</a>
-              </div>
+        <!-- Condition super Admin End -->
+        <div *ngIf="!super">
+            <div class="col-sm-6 div1">
+                <div class="card">
+                    <div class="card-body">
+                        <h2 class="card-title">View archived products</h2>
+                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                        <a class="btn btnback" (click)="mode='Products'">Products</a>
+                    </div>
+                </div>
             </div>
-          </div>
-          <div class="col-sm-6">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title">Special title treatment</h5>
-                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                <a  class="btn btn-primary" (click)="mode='Categories'">Categories</a>
-              </div>
+            <div class="col-sm-6 div2">
+                <div class="card">
+                    <div class="card-body">
+                        <h2 class="card-title">View archived categories</h2>
+                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                        <a class="btn btnback" (click)="mode='Categories'">Categories</a>
+                    </div>
+                </div>
             </div>
-          </div>
 
-      </div>
+        </div>
+    </div>
 </div>
 <!-- ================================================================= -->
 <!-- Condition super Admin -->
 <div *ngIf="super">
 
-<!-- ==================== Stores  Section ============================ -->
-<div *ngIf="mode=='Stores'">
+    <!-- ==================== Stores  Section ============================ -->
+    <div *ngIf="mode=='Stores'" class="stores">
 
-    <table class="table table-hover">
-        <thead class="">
-            <th>ID</th>
-            <th>Name</th>
-            <th>Restore</th>
-            <th>Delete</th>
-        </thead>
-        <tbody>
-            <tr *ngFor="let s of stores">
-                <div *ngIf="s.arch">
-                    <td>{{s.idStore}}</td>
-                    <td>{{s.nom}}</td>
-                    <td><button class="btn btn-success text-center" (click)="restoreStore(s.idStore)">Restore Store</button></td>
-                    <td><button class="btn btn-danger text-center" (click)="delStore(s.idStore)"><i class="fa fa-trash fa-lg" aria-hidden="true">Delete Store</i></button></td>
-                </div>
-            </tr>
-        </tbody>
-    </table>
 
-</div>
-<!-- =================================================================== -->
+        <table class="table table-hover">
+            <thead class="">
+                <th>ID</th>
+                <th class="leeft">Name</th>
+                <th class="leeft2">Restore</th>
+                <th class="leeft3">Delete</th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let s of stores">
+                    <div *ngIf="s.arch">
+                        <td>{{s.idStore}}</td>
+                        <td>{{s.nom}}</td>
+                        <td><button class="btn btnadd" (click)="restoreStore(s.idStore)">Restore
+                                Store</button></td>
+                        <td><button class="btn btndel" (click)="delStore(s.idStore)">Delete Store</button></td>
+                    </div>
+                </tr>
+            </tbody>
+        </table>
 
-<!-- ========================= Admins Section ========================== -->
-<div *ngIf="mode=='Admins'">
+    </div>
+    <!-- =================================================================== -->
 
-    <table class="table table-hover">
-        <thead class="">
-            <th>ID</th>
-            <th>Name</th>
-            <th>Restore</th>
-            <th>Delete</th>
-        </thead>
-        <tbody>
-            <tr *ngFor="let a of admins">
-                <div *ngIf="a.arch">
-                    <td>{{a.id}}</td>
-                    <td>{{a.name}}</td>
-                    <td><button class="btn btn-success text-center" (click)="restoreAdmin(a.id)">Restore Admin</button></td>
-                    <td><button class="btn btn-danger text-center" (click)="delAdmin(a.id)"><i class="fa fa-trash fa-lg" aria-hidden="true">Delete Admin</i></button></td>
-                </div>
-            </tr>
-        </tbody>
-    </table>
+    <!-- ========================= Admins Section ========================== -->
+    <div *ngIf="mode=='Admins'" class="stores">
 
-</div>
-<!-- =================================================================== -->
+        <table class="table table-hover">
+            <thead class="">
+                <th>ID</th>
+                <th class="leeft">Name</th>
+                <th class="leeft2">Restore</th>
+                <th class="leeft3">Delete</th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let a of admins">
+                    <div *ngIf="a.arch">
+                        <td>{{a.id}}</td>
+                        <td>{{a.name}}</td>
+                        <td><button class="btn btnadd" (click)="restoreAdmin(a.id)">Restore
+                                Admin</button></td>
+                        <td><button class="btn btndel " (click)="delAdmin(a.id)">
+                                Delete Admin</button></td>
+                    </div>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- =================================================================== -->
 </div><!-- Condition super Admin End-->
+
 <!-- ========================= Products Section ======================== -->
-<div *ngIf="mode=='Products'">
+<div *ngIf="mode=='Products'" class="stores">
 
     <table class="table table-hover">
         <thead class="">
             <th>ID</th>
-            <th>Name</th>
-            <th>Restore</th>
-            <th>Delete</th>
+            <th class="leeft">Name</th>
+            <th class="leeft2">Restore</th>
+            <th class="leeft3">Delete</th>
         </thead>
         <tbody>
             <tr *ngFor="let p of products1">
                 <div *ngIf="p.arch">
                     <td>{{p.id}}</td>
                     <td>{{p.name}}</td>
-                    <td><button class="btn btn-success text-center" (click)="restoreProduct(p.id)">Restore Product</button></td>
-                    <td><button class="btn btn-danger text-center" (click)="delProduct(p.id)"><i class="fa fa-trash fa-lg" aria-hidden="true">Delete Product</i></button></td>
+                    <td><button class="btn btnadd" (click)="restoreProduct(p.id)">Restore
+                            Product</button></td>
+                    <td><button class="btn btndel" (click)="delProduct(p.id)">Delete Product</button></td>
                 </div>
             </tr>
         </tbody>
@@ -128,22 +136,24 @@
 <!-- =================================================================== -->
 
 <!-- ======================== Categories Section ======================= -->
-<div *ngIf="mode=='Categories'">
+<div *ngIf="mode=='Categories'" class="stores">
+
 
     <table class="table table-hover">
         <thead class="">
             <th>ID</th>
-            <th>Name</th>
-            <th>Restore</th>
-            <th>Delete</th>
+            <th class="leeft">Name</th>
+            <th class="leeft2">Restore</th>
+            <th class="leeft3">Delete</th>
         </thead>
         <tbody>
             <tr *ngFor="let c of categories">
                 <div *ngIf="c.arch">
                     <td>{{c.id}}</td>
                     <td>{{c.name}}</td>
-                    <td><button class="btn btn-success text-center" (click)="restoreCategory(c.id)">Restore Store</button></td>
-                    <td><button class="btn btn-danger text-center" (click)="delCategory(c.id)"><i class="fa fa-trash fa-lg" aria-hidden="true">Delete Admin</i></button></td>
+                    <td><button class="btn btnadd" (click)="restoreCategory(c.id)">Restore
+                            Store</button></td>
+                    <td><button class="btn btndel" (click)="delCategory(c.id)">Delete Admin</button></td>
                 </div>
             </tr>
         </tbody>

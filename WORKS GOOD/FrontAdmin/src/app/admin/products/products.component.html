@@ -8,7 +8,8 @@
 
     <br><br><br><br><br>
     <div class="container row">
-      <div class="col-md-6">
+      <div class="col-md-6" style=" overflow: scroll;
+    max-height: 443px;">
         <table class="table">
           <thead>
             <tr>
@@ -39,7 +40,7 @@
         <app-addproduct *ngIf="action === 'edit' ||action === 'add'" [product]="selectedProduct"
           (bookAddedEvent)="refreshData()">
         </app-addproduct>
-        <app-viewproduct *ngIf="action === 'view'" [product]="selectedProduct" (bookDeletedEvent)="refreshData()">
+        <app-viewproduct *ngIf="action === 'view'" [product]="selectedProduct" (click)="refreshData()">
         </app-viewproduct>
       </div>
     </div>

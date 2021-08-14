@@ -1,0 +1,128 @@
+.body{    
+    position: relative;
+    left: 312px;
+    top: -534px;
+}
+.div2{
+    position: relative;
+    left: 200px;
+}
+.card {
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: .25rem;
+    width: 343px;
+        box-shadow: 0 4px 10px 0 rgb(0 0 0 / 20%), 0 4px 20px 0 rgb(0 0 0 / 19%);
+}
+
+.div2 {
+    position: relative;
+    left: 464px;
+    top: -205px;
+}
+h2{
+
+    text-align: center;
+
+}
+
+.btn {
+    width: 125px;
+    color: #fff;
+    background-color: #8E1B1B;
+    text-align: center;
+    margin-left: 86px;
+
+}
+.btnback {
+   color: #fff;
+   
+}
+.btnback:hover {
+   background-color: #fff;
+   border: 1px solid#8E1B1B;
+}
+.div1{
+margin-left: 40px;
+}
+
+.btnadd{
+    width: 125px;
+}
+
+
+.btnadd:hover{
+  background-color: #fff;
+  color: green;
+  border: 1px solid green;
+}
+
+.btndel:hover{
+    background-color: #fff;
+    color: red;
+    border: 1px solid red;
+}
+.btnadd{
+    background: green;
+}
+
+.btnblue{
+    display: inline-block;
+    font-weight: 400;
+    color: #fff;
+    background-color: #3445b4;
+    text-align: center;
+    width: 125px;
+    height: 35px;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: #3445b4;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.btnblue:hover {
+   background-color: #fff;
+   color: #3445b4;
+   border: 1px solid #3445b4;
+ 
+}
+
+.stores {
+      width: 74%;
+    position: relative;
+    left: 24%;
+    height: -300px;
+    top: -460px;
+    overflow: scroll;
+}
+
+.leeft{
+    position: relative;
+    left: -633px;
+}
+.leeft2 {
+    position: relative;
+    left: -551px;
+}
+.leeft3{
+    position: relative;
+    left: -402px;
+}

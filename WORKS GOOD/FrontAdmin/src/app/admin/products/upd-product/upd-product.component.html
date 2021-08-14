@@ -1,18 +1,22 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+    integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css">
 
-  <div class="card card-register mx-auto mt-5" style="    height: 841px;">
+<div class="card card-register mx-auto mt-5" style="    height: 841px;">
 
     <div class="card-body">
       <div class="container">
-        <h1>{{product.id == null ? 'Add' : 'Edit'}} Product - {{product.id}}</h1>
+        <h1>Edit Product </h1>
   
         <form>
   
+
           <label for="category">Category</label>
           <select class="form-control" aria-label="Default select example" required #ucategory="ngModel" id="category"
             placeholder="Select Category" name="category" [(ngModel)]="product.category">
-            <option *ngFor="let c of categories" [value]="c.name">{{c.name}}</option>
+            <option *ngFor="let c of categories" >{{c.name}}</option>
           </select>
-  
+    
           <label for="name">Name</label>
           <input type="text" class="form-control" required #uname="ngModel" id="name" placeholder="Product Name"
             [(ngModel)]="product.name" name="name">
@@ -56,16 +60,11 @@
             </div>
           
           </div>
-  
           
           <div *ngIf="message" class="alert alert-secondary" role="alert">{{ message }}</div>
           <br><br>
   
           <br><br>
-          <button type="button" class="btn btn-success btnadd" (click)="saveProduct()">Save Product</button>
+          <button type="button" class="btn btn-success btnadd" (click)="editProduct()">Edit Product</button>
         </form>
-      </div>
-  
-      <div class="req" *ngIf="">
-        Ce produit existe déja.
       </div>
