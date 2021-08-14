@@ -115,8 +115,8 @@ export class HttpClientService {
   }
 
   //Update Product
-  updateProduct(updatedProduct: Product) {
-    return this.httpClient.put<Product>(this.urlBack+"products/update", updatedProduct);
+  updateProduct(id:any,updatedProduct: Product):Observable<any> {    
+    return this.httpClient.post<Product>(this.urlBack+"products/update/"+id, updatedProduct);
   }
 
   // Archiver Produit

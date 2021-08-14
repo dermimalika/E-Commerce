@@ -28,6 +28,7 @@ import { AddproductComponent } from './admin/products/addproduct/addproduct.comp
 import { ViewproductComponent } from './admin/products/viewproduct/viewproduct.component';
 import { RecycleComponent } from './recycle/recycle.component';
 import {  ImageUploadService } from './service/image-upload.service';
+import { UpdProductComponent } from './admin/products/upd-product/upd-product.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import {  ImageUploadService } from './service/image-upload.service';
     AddproductComponent,
     ViewproductComponent,
     StoreComponent,
-    RecycleComponent
+    RecycleComponent,
+    UpdProductComponent
   ],
   imports: [
     BrowserModule,

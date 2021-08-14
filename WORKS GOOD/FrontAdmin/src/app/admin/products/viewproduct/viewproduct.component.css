@@ -86,3 +86,96 @@ table,tr,td{
    border: 1px solid #3445b4;
  
 }
+.container{
+    padding: 30px;
+}
+.detail {
+    float: right;
+    position: relative;
+    top: -257px;
+    left: 86px;
+}
+table{
+    padding: 10px;
+    border: 1px solid black;
+    border-collapse: collapse;
+    border: dashed;
+    width: 60%;
+    height: 50px;
+}
+.req{
+    color: red;
+}
+input.ng-dirty.ng-invalid {
+  color: red
+}
+
+.btnadd{
+    width: 125px;
+}
+.btnback {
+    width: 125px;
+    color: white;
+    background-color: #3445b4;
+}
+
+.btnadd:hover{
+  background-color: #fff;
+  color: green;
+}
+.btnback:hover {
+   background-color: #fff;
+   color: #3445b4;
+   border: 1px solid#3445b4;
+}
+.btndel:hover{
+    background-color: #fff;
+    color: red;
+}
+.baack:hover{
+    color: blue;
+}
+
+
+.card {
+    border: none;
+    box-shadow: 0 1px 11px 0px rgb(8 0 0 / 18%);
+    margin-bottom: 30px;
+    top: -43px;
+    position: relative;
+    left: 72px;
+
+}
+
+.cont[_ngcontent-gug-c109] {
+    padding: 20px;
+    position: relative;
+    
+}
+
+
+.btnblue{
+    display: inline-block;
+    font-weight: 400;
+    color: #fff;
+    background-color: #3445b4;
+    text-align: center;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: #3445b4;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.btnblue:hover {
+   background-color: #fff;
+   color: #3445b4;
+   border: 1px solid #3445b4;
+ 
+}

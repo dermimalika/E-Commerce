@@ -3,6 +3,7 @@ import { Product } from '../../../model/Product';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClientService } from 'src/app/service/httpclient.service';
 import { environment } from 'src/environments/environment';
+import { ImageUploadService } from 'src/app/service/image-upload.service';
 
 @Component({
   selector: 'app-viewproduct',
@@ -18,8 +19,14 @@ export class ViewproductComponent implements OnInit {
   // This URL :=> http://localhost:8080/
   urlBack:String="/assets";
   path="";
+  mode='view';
+    //Var for Upload Images
+    selectedFiles?: File;
 
-  constructor(private httpClientService: HttpClientService, private router: Router
+  constructor(
+    private httpClientService: HttpClientService,
+    private router: Router,
+    private uploadService: ImageUploadService,
   ) {}
 
   ngOnInit() {
@@ -37,9 +44,8 @@ export class ViewproductComponent implements OnInit {
       }
     );
   }
-
-  editProduct() {
-    this.router.navigate(['admin', 'products'], { queryParams: { action: 'edit', id: this.product.id } });
+  editProduct(){
+    this.router.navigate(['updproduct/'+this.product.id])
   }
-
+  
 }
