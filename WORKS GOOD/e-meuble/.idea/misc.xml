@@ -9,6 +9,7 @@
         <option value="$PROJECT_DIR$/ms-registry/pom.xml" />
         <option value="$PROJECT_DIR$/ms-client/pom.xml" />
         <option value="$PROJECT_DIR$/ms-auth/pom.xml" />
+        <option value="$PROJECT_DIR$/ms-order/pom.xml" />
       </list>
     </option>
   </component>
