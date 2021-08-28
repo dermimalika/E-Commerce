@@ -16,14 +16,12 @@ export class UpdProductComponent implements OnInit {
   product: Product;
   id:any;
   products: Array<Product>;
-  products1: Array<Product>;
-  selectedProduct: Product;
-  action: string;
   categories:any=[];
   message = '';
   super: any;
-      //Var for Upload Images
-      selectedFiles?: File;
+  //Var for Upload Images
+  selectedFiles?: File;
+  selected:any;
   
   constructor(    
     private httpClientService: HttpClientService,
@@ -33,6 +31,7 @@ export class UpdProductComponent implements OnInit {
     private activedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.selected=false;
     this.refreshData();
     this.getCategory();
     this.super=this.authService.isRoleSuper();
@@ -77,6 +76,7 @@ export class UpdProductComponent implements OnInit {
   //https://www.bezkoder.com/angular-12-spring-boot-file-upload/
   selectFile(event: any): void {
     this.selectedFiles = event.target.files[0];
+    this.selected=true;
     console.log("selectedFiles :",this.selectedFiles);   
   }  
 
@@ -84,25 +84,32 @@ export class UpdProductComponent implements OnInit {
   
   //Possible values for a name
   let possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
-  //Generate Random name to Image
-  let nameImage=this.makeRandom(4, possible)+this.selectedFiles.name;
+  let nameImage=""
 
     if (this.product.id) {
+      //If Admin Change the Picture
+      if(this.selected){
+          //Generate Random name to Image
+          nameImage=this.makeRandom(4, possible)+this.selectedFiles.name;
+        //Upload Image
+        this.uploadService.upload(this.selectedFiles,nameImage).subscribe(
+         (response) => {
+             if (response) {
+               console.log('Image uploaded successfully');
 
-      //Upload Image
-      this.uploadService.upload(this.selectedFiles,nameImage).subscribe(
-        (response) => {
-            if (response) {
-              console.log('Image uploaded successfully');
-
-            } else {
-              console.log('Image not uploaded successfully');
-            }
+              } else {
+               console.log('Image not uploaded successfully');
+              }
             } 
           );
+      }
 
-    //Init Variable fileURl with value      
-    this.product.fileUrl=nameImage;
+
+    //Init Variable fileURl with value 
+    if(nameImage!==""){
+      this.product.fileUrl=nameImage;
+    }     
+
     //Send Product to Back
     this.httpClientService.updateProduct(this.product.id,this.product).subscribe(
       (product)=>{

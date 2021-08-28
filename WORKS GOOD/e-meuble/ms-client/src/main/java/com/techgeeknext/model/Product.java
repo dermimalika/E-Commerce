@@ -19,7 +19,6 @@ public class Product {
     private String name;
     private String category;
     private double price;
-    private byte[] picByte;
     private double weight;
     private int quantity;
     private String description;

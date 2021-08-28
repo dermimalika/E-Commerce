@@ -53,9 +53,11 @@ public class CommentController {
         }
     }
 
-    @PostMapping("/products/{productId}/comments")
+    @PostMapping("/products/comments/{productId}")
     public Comment createComment(@PathVariable(value = "productId") Long productId,@Valid  @RequestBody Comment comment)
     {
+        System.out.println("Product ID :"+productId);
+        System.out.println("requestBody :"+comment.getComment());
         return productRepository.findById(productId).map(
                 product -> {comment.setProduct(product);
                 return commentRepository.save(comment) ;
