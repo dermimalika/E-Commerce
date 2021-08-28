@@ -4,6 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -34,6 +35,7 @@ import { ProduitService } from './services/produit.service';
     ReactiveFormsModule,
     ToastrModule.forRoot(), // ToastrModule added
     BrowserAnimationsModule,
+    NgxPaginationModule,
   ],
   providers: [AuthenticationService,
     ProfileService,

@@ -9,6 +9,7 @@ export class ProfileService {
   constructor(private http: HttpClient) { }
 
   getProfile(id:any){
+
     let token = sessionStorage.getItem("clienttoken");
     return this.http.get("users/profile/"+id, {headers: new HttpHeaders().set('Authorization', token!)});
   }

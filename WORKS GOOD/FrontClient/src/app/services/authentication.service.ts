@@ -104,7 +104,8 @@ clientId(){
 }
 
 logOut() {
-  sessionStorage.removeItem("clientname");
+  sessionStorage.removeItem("clienttoken");
+  sessionStorage.removeItem("client");
 }
 
 //Send Confirmation Mail

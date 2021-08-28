@@ -24,15 +24,9 @@ public class Comment {
     @NotNull
     private String comment;
 
-    /*
     @Column
     @NotNull
     private String idClient;
-
-    @Column
-    @NotNull
-    private String pictureClient;*/
-
 
     @ManyToOne(fetch = FetchType.LAZY,optional = false)
     @JoinColumn(name = "id",nullable = false)
@@ -40,12 +34,15 @@ public class Comment {
     @JsonIgnore
     private Product product;
 
+    /*
+    @Column
+    @NotNull
+    private String pictureClient;
+
     @ManyToOne(fetch = FetchType.LAZY,optional = false)
     @JoinColumn(name="id_client",referencedColumnName="id", nullable = false)
     @OnDelete(action = OnDeleteAction.CASCADE)
     @JsonIgnore
     private User user;
-
-
-
+*/
 }
