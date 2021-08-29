@@ -22,6 +22,13 @@ public class GatewayConfig {
                 .route("auth-service", r -> r.path("/auth/**")
                         .filters(f -> f.filter(filter))
                         .uri("lb://ms-auth"))
+
+                .route("order-service", r -> r.path("/order/**")
+                        .filters(f -> f.filter(filter))
+                        .uri("lb://ms-order"))
+                .route("panier-service", r -> r.path("/panier/**")
+                        .filters(f -> f.filter(filter))
+                        .uri("lb://ms-order"))
                 .build();
     }
 }

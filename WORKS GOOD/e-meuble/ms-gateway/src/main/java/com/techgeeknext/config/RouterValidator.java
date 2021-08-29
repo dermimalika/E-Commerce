@@ -16,6 +16,7 @@ public class RouterValidator {
             "/auth/resetpsw",
             "/users/login"
 
+
     );
 
     public Predicate<ServerHttpRequest> isSecured =
