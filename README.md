@@ -1,11 +1,11 @@
-# E-Commerce App using spring boot and Angular Framework.
-#Using micro-services architecture.
-#There are 5 micro-services:
-  . Ms-Auth
-  . Ms-Client
-  . Ms-Order
-  . ADMIN MANAGER
-and EDGE microservices:
-  .Ms-Registry
-  .Ms-Gateway
+# E-Commerce App using spring boot and Angular Framework.<br/>
+#Using micro-services architecture.<br/>
+#There are 5 micro-services:<br/>
+  . Ms-Auth<br/>
+  . Ms-Client<br/>
+  . Ms-Order<br/>
+  . ADMIN MANAGER<br/>
+and EDGE microservices:<br/>
+  .Ms-Registry</br>
+  .Ms-Gateway</br>
 	
