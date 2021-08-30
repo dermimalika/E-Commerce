@@ -95,7 +95,7 @@ public class UserController {
     }*/
     public ResponseEntity<List<Product>> getAllProducts(
             @RequestParam(defaultValue = "0") Integer page,
-            @RequestParam(defaultValue = "4") Integer pageSize,
+            @RequestParam(defaultValue = "12") Integer pageSize,
             @RequestParam(defaultValue = "id") String sortBy)
     {
         List<Product> list = userService.getAllProducts(page, pageSize, sortBy);
