@@ -5,16 +5,22 @@ import com.techgeeknext.dao.UserDao;
 import com.techgeeknext.entities.AuthRequestLogin;
 import com.techgeeknext.entities.User;
 
+import com.techgeeknext.model.Comment;
 import com.techgeeknext.model.Product;
 import com.techgeeknext.repository.ProductRepository;
 import com.techgeeknext.repository.UserRepository;
 import com.techgeeknext.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.openfeign.EnableFeignClients;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 @RestController
 @EnableFeignClients
@@ -81,11 +87,22 @@ public class UserController {
     }
 
 
-    @GetMapping(value = "/products")
-    public List<Product> getProducts(){
-        return productRepository.getAll();
-    }
 
+    ///////////////////////////AFFICHAGE DES PROD PAR PAGINATION//////////////////////////////////////
+    @GetMapping(value = "/products")
+   /* public List<Product> getProducts(){
+        return productRepository.getAll();
+    }*/
+    public ResponseEntity<List<Product>> getAllProducts(
+            @RequestParam(defaultValue = "0") Integer page,
+            @RequestParam(defaultValue = "4") Integer pageSize,
+            @RequestParam(defaultValue = "id") String sortBy)
+    {
+        List<Product> list = userService.getAllProducts(page, pageSize, sortBy);
+
+        return new ResponseEntity<List<Product>>(list, new HttpHeaders(), HttpStatus.OK);
+    }
+    //////////////////////////////////////////////////////////////////////////////////////////////////
     @GetMapping(value = "/produit/{id}")
     public Optional<Product> getProduit(@PathVariable("id") Long id)
     {
