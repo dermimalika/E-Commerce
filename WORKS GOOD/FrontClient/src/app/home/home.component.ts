@@ -75,8 +75,8 @@ export class HomeComponent implements OnInit {
     this.produitService.getAllProducts(params)
     .subscribe(
       response => {
-        this.products = response;
-        this.count = response.length;
+        this.products = response.Products;
+        this.count = response.totalItems;
         console.log(response);
       },
       error => {

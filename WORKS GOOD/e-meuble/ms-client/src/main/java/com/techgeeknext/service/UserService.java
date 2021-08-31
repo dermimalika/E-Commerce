@@ -80,7 +80,7 @@ public class UserService {
         }
     }
 
-
+/*
     public List<Product> getAllProducts(Integer page, Integer pageSize, String sortBy)
     {
         Pageable paging = PageRequest.of(page, pageSize, Sort.by(sortBy));
@@ -93,5 +93,6 @@ public class UserService {
             return new ArrayList<Product>();
         }
     }
+*/
 
 }
