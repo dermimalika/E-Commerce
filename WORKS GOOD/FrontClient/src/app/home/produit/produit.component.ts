@@ -6,9 +6,6 @@ import { ProduitService } from 'src/app/services/produit.service';
 import { ProfileService } from 'src/app/services/profile.service';
 
 
-
-
-
 @Component({
   selector: 'app-produit',
   templateUrl: './produit.component.html',
@@ -30,7 +27,10 @@ export class ProduitComponent implements OnInit {
   pageSize = 3;
   pageSizes = [3, 6, 9];
 
+
+
   urlImag='../../../assets/images/avatars/'
+  urlImagP='../../../assets/images/products/'
 
 
   //Add form Comments var
@@ -38,20 +38,22 @@ export class ProduitComponent implements OnInit {
   message:any;
 
 
-  constructor(private route:ActivatedRoute,
+  constructor(private route: ActivatedRoute,
     private produitService: ProduitService,
     private profileService: ProfileService ,
-    private auth: AuthenticationService,) { 
-      
-    }
+    private auth: AuthenticationService,) {
+
+  }
 
 
   ngOnInit(): void {
     this.id = this.route.snapshot.paramMap.get('id');
     this.getProduit();
     this.retrieveComments();
+
   }
 
+  //======================================= Comments
   afficher(){
     console.log("comments after retrieve comments :\n",this.comments);
   }
@@ -84,14 +86,14 @@ export class ProduitComponent implements OnInit {
     .subscribe(
       (response:any) => {
         // console.log("response in comments retrieve fct :",response);
-        
+
         this.comments = response;
         this.count = response.totalItems;
-        // console.log("comments.length :", Object.keys(this.comments.Comments).length);
-        
+        console.log("comments.length :", Object.keys(this.comments.Comments).length);
+
         for (let i = 0; i < Object.keys(this.comments.Comments).length ; i++) {
           const element = this.comments[i];
-          
+
           this.profileService.getProfile(this.comments.Comments[i].idClient).subscribe((data:any)=> {
 
               this.comments.Comments[i].avatarClient=data.avatar;
@@ -111,7 +113,36 @@ export class ProduitComponent implements OnInit {
     this.retrieveComments();
   }
 
+  // getComments(){
+  //   this.produitService.getComments(this.id).subscribe((data: any)=>{
+  //     this.comments=data;
+  //     console.log("comments :\n",this.comments);
+  //   });
+  // }
 
+  addComment(){
+    let request="Subject :"+this.subject+"\n"+this.message;
+    console.log("request in com");
+
+    this.produitService.addComments(this.id,request).subscribe(data=>{
+      window.location.reload;
+    });
+
+  }
+  updComment(){
+    this.produitService.updateComments(this.id,"id Comment");
+    window.location.reload;
+  }
+
+  deleteComment(idComment :any){
+    this.produitService.deleteComment(this.id,idComment).subscribe(data=>{
+      window.location.reload;
+    });
+
+  }
+//=================================================================================================
+//======================== Products
+ // Without Pagination
   getProduit(){
     this.produitService.getProduit(this.id).subscribe((data: any)=>{
       this.produit=data;
@@ -119,38 +150,15 @@ export class ProduitComponent implements OnInit {
     });
   }
 
-  getComments(){
-    this.produitService.getComments(this.id).subscribe((data: any)=>{
-      this.comments=data;
-      console.log("comments :\n",this.comments);
-    });
+
+//====================================================================================================
+  profile() {
+
   }
 
-  //Need Attributs of form 
-  addComment(){
-
-    let request="Subject :"+this.subject+"\n"+this.message;
-    console.log("request in com");
+  logout() {
+    this.auth.logOut();
     
-    this.produitService.addComments(this.id,request).subscribe(data=>{
-      window.location.reload;
-    });
-
-  }
-
-  //Need Attributs of form
-  //Need Id of comment
-  updComment(){
-    this.produitService.updateComments(this.id,"id Comment");
-    window.location.reload;
-  }
-
-  //Need Id of Comment
-  deleteComment(idComment :any){
-    this.produitService.deleteComment(this.id,idComment).subscribe(data=>{
-      window.location.reload;
-    });
-
   }
 
 }

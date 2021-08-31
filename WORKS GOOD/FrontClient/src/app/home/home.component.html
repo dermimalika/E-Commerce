@@ -1,224 +1,180 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300&display=swap" rel="stylesheet">
+
+
 <!-- Header -->
-<header class="header shop">
-  <!-- Topbar -->
-  <div class="topbar">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-6 col-md-12 col-12">
-          <!-- Top Left -->
-          <div class="top-left">
-            <ul class="list-main">
-              <li><i class="ti-headphone-alt"></i> +000 (000) 000-000</li>
-              <li><i class="ti-email"></i> etudiant4@esi-sba.dz</li>
-            </ul>
-          </div>
-          <!--/ End Top Left -->
-        </div>
-        <div class="col-lg-6 col-md-12 col-12">
-          <!-- Top Right -->
-          <div class="right-content">
-            <ul class="list-main">
-              <li><i class="ti-location-pin"></i> Store location</li>
-              <li><i class="ti-alarm-clock"></i> <a href="#">Daily deal</a></li>
-              <li><i class="ti-user"></i> <a (click)="profile()">My account</a></li>
-              <li><i class="ti-power-off"></i><a (click)="logout()">Logout</a></li>
-            </ul>
-          </div>
-          <!-- End Top Right -->
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- End Topbar -->
-  <div class="middle-inner">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-2 col-md-2 col-12">
-          <!-- Logo -->
-          <div class="logo">
-            <a href="#">E-meuble</a>
-          </div>
-          <!--/ End Logo -->
-          <!-- Search Form -->
-          <div class="search-top">
-            <div class="top-search"><a href="#0"><i class="ti-search"></i></a></div>
-            <!-- Search Form -->
-            <div class="search-top">
-              <form class="search-form">
-                <input type="text" placeholder="Search here..." name="search">
-                <button value="search" type="submit"><i class="ti-search"></i></button>
-              </form>
-            </div>
-            <!--/ End Search Form -->
-          </div>
-          <!--/ End Search Form -->
-          <div class="mobile-nav"></div>
-        </div>
-        <div class="col-lg-8 col-md-7 col-12">
-          <div class="search-bar-top">
-            <div class="search-bar">
-              <select>
-                <option selected="selected">All Category</option>
-                <option>table</option>
-                <option>bureau</option>
-                <option>salon</option>
-              </select>
-              <form>
-                <input name="search" placeholder="Search Products Here....." type="search">
-                <button class="btnn"><i class="ti-search"></i></button>
-              </form>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-2 col-md-3 col-12">
-          <div class="right-bar">
-            <!-- Search Form -->
-            <div class="sinlge-bar">
-              <a href="#" class="single-icon"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
-            </div>
-            <div class="sinlge-bar">
-              <a href="#" class="single-icon"><i class="fa fa-user-circle-o" aria-hidden="true"></i></a>
-            </div>
-            <div class="sinlge-bar shopping">
-              <a href="#" class="single-icon"><i class="ti-bag"></i> <span class="total-count">2</span></a>
-              <!-- Shopping Item -->
-              <div class="shopping-item">
-                <div class="dropdown-cart-header">
-                  <span>2 Items</span>
-                  <a href="#">View Cart</a>
-                </div>
-                <ul class="shopping-list">
 
-                </ul>
-                <div class="bottom">
-                  <div class="total">
-                    <span>Total</span>
-                    <span class="total-amount">$134.00</span>
-                  </div>
-                  <a href="#" class="btn animate">Checkout</a>
-                </div>
-              </div>
-              <!--/ End Shopping Item -->
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- Header Inner -->
-  <div class="header-inner">
-    <div class="container">
-      <div class="cat-nav-head">
-        <div class="row">
-          <div class="col-12">
-            <div class="menu-area">
-              <!-- Main Menu -->
-              <nav class="navbar navbar-expand-lg">
-                <div class="navbar-collapse">
-                  <div class="nav-inner">
-                    <ul class="nav main-menu menu navbar-nav">
-                      <li><a href="#">Home</a></li>
-                      <li><a href="#">Product</a></li>
-                      <li><a href="#">Service</a></li>
-                      <li><a href="#">Shop</a>
-                        <ul class="dropdown">
-                          <li><a href="#">Shop Grid</a></li>
-                          <li><a href="#">Shop List</a></li>
-                          <li><a href="#">shop Single</a></li>
-                          <li><a href="#">Cart</a></li>
-                          <li><a href="#">Checkout</a></li>
-                        </ul>
-                      </li>
+<header class="header-area">
 
-                      <li><a href="#">Contact Us</a></li>
-                    </ul>
-                  </div>
-                </div>
-              </nav>
-              <!--/ End Main Menu -->
-            </div>
+  <div class="container" style="margin-top: 16px;">
+    <div class="row">
+      <div class="col-lg-12">
+        <nav class="navbar navbar-expand-lg">
+          <a class="navbar-brand" href="index.html">
+            <img src="assets/images/E-meuble.png" alt="Logo" class="emeuble">
+          </a> <!-- Logo -->
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="bar-icon"></span>
+            <span class="bar-icon"></span>
+            <span class="bar-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul id="nav" class="navbar-nav ml-auto">
+              <li class="nav-item active">
+                <a data-scroll-nav="0" href="#home">Home</a>
+              </li>
+              <li class="nav-item">
+                <a data-scroll-nav="0" href="#product">Products</a>
+              </li>
+              <!-- <li class="nav-item">
+                <a data-scroll-nav="0" href="#service">Services</a>
+              </li>
+              <li class="nav-item">
+                <a data-scroll-nav="0" href="#contact">Contact</a>
+              </li> -->
+              <ul class="nav-item">
+                <i class="ti-user"></i> <a (click)="profile()">My account</a>
+              </ul>
+              <li class="nav-item">
+                <i class="ti-power-off"></i><a (click)="logout()">Logout</a>
+              </li>
+
+            </ul> <!-- navbar nav -->
           </div>
-        </div>
+        </nav> <!-- navbar -->
       </div>
-    </div>
-  </div>
-  <!--/ End Header Inner -->
+    </div> <!-- row -->
+  </div> <!-- container -->
 </header>
+
+
 <!--/ End Header -->
 
 
 
 
 <!-- All Products -->
-<section class="section all-products" id="products">
-  <div class="top container">
-    <h1>All Products</h1>
-    <form>
-      <select>
-        <option value="1">Defualt Sorting</option>
-        <option value="2">Sort By Price</option>
-        <option value="3">Sort By Popularity</option>
-        <option value="4">Sort By Sale</option>
-        <option value="5">Sort By Rating</option>
-      </select>
-  
-    </form>
-  </div>
+<section class="section all-products" id="products" >
 
-  <!-- 
-  <div *ngFor="let p of products">
-    <div class="card" style="width: 18rem;">
-      <img src="{{p.retrievedImage}}" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">{{p.name}}</h5>
-        <p class="card-text">{{p.description}}</p>
-        <a [routerLink]="['/produit', p.id]" class="btn btn-primary">More details</a>
+<!-- <div class="singleProduct" style="display: inline-flex;">
+    <div *ngFor="let p of products| paginate: {
+      itemsPerPage: pageSizeP,
+      currentPage: pageP,
+      totalItems: countP
+    }">
+      <div class="card" style="width: 12rem;">
+        <img [src]="urlImagP + p.file_url" class="card-img-top" alt="product image">
+
       </div>
+      <div class="card-body">
+        <h5 class="product-title"><a [routerLink]="['/produit', p.id]" tabindex="0">{{p.name}}</a></h5>
+        <p class="card-text">{{p.description}}</p>
+        <span class="regular-price">{{p.price}}.00$</span>
+        <span class="discount-price">$69.00</span>
+      </div>
+    </div>
+    <div class="col-md-12">
+      <pagination-controls
+          previousLabel="Prev"
+          nextLabel="Next"
+          [responsive]="true"
+          (pageChange)="handlePageChangeP($event)"
+      ></pagination-controls>
+    </div> -->
+
+
+  <!-- </div> -->
+
+
+
+
+  <!-- <div class="col-sm-4">
+
+
+
+
+    <div class="product-image-wrapper">
+      <div class="single-products">
+        <div class="prod">
+          <div *ngFor="let p of products">
+            <div class="row row2">
+              <div class="product">
+                <div class="product-header">
+                  <img class="w3-card-2 w3-hover-shadow w3-center" src="{{p.pic_byte}}" height="200" width="200">
+                  <ul class="icons">
+                    <span><i class="bx bx-heart"></i></span>
+                    <span><i class="bx bx-shopping-bag"></i></span>
+                    <span><a [routerLink]="['/produit', p.id]"><i class="bx bx-search"></i></a></span>
+                  </ul>
+                </div>
+                <div class="product-footer">
+                  <h3>{{p.name}}</h3>
+                  <p class="card-text">{{p.description}}</p>
+                  <div class="rating">
+                    <i class="bx bxs-star"></i>
+                    <i class="bx bxs-star"></i>
+                    <i class="bx bxs-star"></i>
+                    <i class="bx bxs-star"></i>
+                    <i class="bx bx-star"></i>
+                  </div>
+                  <h4 class="price">${{p.price}}</h4>
+
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
     </div>
   </div> -->
 
-  <div class="product-center container" *ngFor="let p of products">
+
+  <!-- <section class="pagination">
+    <div class=" container">
+      <span>1</span>
+      <span>2</span>
+      <span>3</span>
+      <span>4</span>
+      <span><i class='bx bx-right-arrow-alt'></i></span>
+    </div>
+  </section> -->
 
 
-  <div class="row">
-      <div class="product">
-        <div class="product-header">
-          <img class="w3-card-2 w3-hover-shadow w3-center" src="{{p.pic_byte}}" height="200" width="200">
-          <ul class="icons">
-            <span><i class="bx bx-heart"></i></span>
-            <span><i class="bx bx-shopping-bag"></i></span>
-            <span><a [routerLink]="['/produit', p.id]"><i class="bx bx-search"></i></a></span>
-          </ul>
-        </div>
-        <div class="product-footer">
-          <h3>{{p.name}}</h3>
-          <p class="card-text">{{p.description}}</p>
-          <div class="rating">
-            <i class="bx bxs-star"></i>
-            <i class="bx bxs-star"></i>
-            <i class="bx bxs-star"></i>
-            <i class="bx bxs-star"></i>
-            <i class="bx bx-star"></i>
+</section>
+      <!-- test -->
+      <div *ngFor="let p of products | paginate : {
+        itemsPerPage: pageSize,
+        currentPage: page,
+        totalItems: count
+      }">
+        <div class="single-rating">
+          <div class="card" style="width: 12rem;">
+            <img [src]="urlImagP + p.file_url" class="card-img-top" alt="product image">
           </div>
-          <h4 class="price">${{p.price}}</h4>
-
+  
+          <div class="card-body">
+            <h5 class="product-title"><a [routerLink]="['/produit', p.id]" tabindex="0">{{p.name}}</a></h5>
+            <p class="card-text">{{p.description}}</p>
+            <span class="regular-price">{{p.price}}.00$</span>
+            <span class="discount-price">$69.00</span>
+          </div>
         </div>
-      </div>
+    </div>
+  
+
+    <div class="col-md-12">
+      <pagination-controls
+        previousLabel="Prev"
+        nextLabel="Next"
+        [responsive]="true"
+        (pageChange)="handlePageChange($event)"
+      ></pagination-controls>
     </div>
 
-  </div>
-
-
-
-
-</section>
-
-<section class="pagination">
-  <div class=" container">
-    <span>1</span>
-    <span>2</span>
-    <span>3</span>
-    <span>4</span>
-    <span><i class='bx bx-right-arrow-alt'></i></span>
-  </div>
-</section>
+      <!-- End test -->
