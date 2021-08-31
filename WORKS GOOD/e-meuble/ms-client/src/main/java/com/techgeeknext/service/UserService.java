@@ -81,9 +81,9 @@ public class UserService {
     }
 
 
-    public List<Product> getAllProducts(Integer page, Integer pageSize, String sortBy)
+    /*public Page<Product> getAllProducts(int page, int pageSize)
     {
-        Pageable paging = PageRequest.of(page, pageSize, Sort.by(sortBy));
+        Pageable paging = PageRequest.of(page, pageSize);
 
         Page<Product> pagedResult = productRepository.findAll(paging);
 
@@ -92,6 +92,6 @@ public class UserService {
         } else {
             return new ArrayList<Product>();
         }
-    }
+    }*/
 
 }

@@ -90,19 +90,26 @@ public class UserController {
 
     ///////////////////////////AFFICHAGE DES PROD PAR PAGINATION//////////////////////////////////////
     @GetMapping(value = "/products")
-   /* public List<Product> getProducts(){
-        return productRepository.getAll();
-    }*/
-    public ResponseEntity<List<Product>> getAllProducts(
-            @RequestParam(defaultValue = "0") Integer page,
-            @RequestParam(defaultValue = "12") Integer pageSize,
-            @RequestParam(defaultValue = "id") String sortBy)
-    {
-        List<Product> list = userService.getAllProducts(page, pageSize, sortBy);
-
-        return new ResponseEntity<List<Product>>(list, new HttpHeaders(), HttpStatus.OK);
+    public ResponseEntity<Map<String,Object>> getAllProducts(
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "12") int size){
+    try {
+        List<Product> Products = new ArrayList<Product>();
+        Pageable paging = PageRequest.of(page, size);
+        Page<Product> pageProducts = productRepository.findAll(paging);
+        Products = pageProducts.getContent();
+        Map<String, Object> response = new HashMap<>();
+        response.put("Products", Products);
+        response.put("CurrentPage", pageProducts.getNumber());
+        response.put("totalItems", pageProducts.getTotalElements());
+        response.put("totalPages", pageProducts.getTotalPages());
+        return new ResponseEntity<>(response, HttpStatus.OK);
+    }catch (Exception e){
+        return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+    }
     }
     //////////////////////////////////////////////////////////////////////////////////////////////////
+
     @GetMapping(value = "/produit/{id}")
     public Optional<Product> getProduit(@PathVariable("id") Long id)
     {
