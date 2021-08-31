@@ -18,6 +18,7 @@ public class Product {
     private Long id;
     private String name;
     private String category;
+    private String file_url;
     private double price;
     private double weight;
     private int quantity;

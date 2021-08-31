@@ -1,54 +1,92 @@
-<div *ngIf="mode=='profile'">
-<h4>FirstName : {{profile.firstName}}</h4> 
-<h4>LastName : {{profile.lastName}}</h4>
-<h4>Phone : {{profile.phone}}</h4>
-<h4>Username : {{profile.username}}</h4>
-<h4>Email : {{profile.email}}</h4>
-<h4>Adr : {{profile.adr}}</h4>
-<h4>Genre : {{profile.genre}}</h4>
-<h4>Avatar : {{profile.avatar}}</h4>
-<button  class="fadeIn fourth" value="Log In" (click)="mode='update'">Update</button>
-</div>
+<div class="container">
+  <div class="main-body">
+    <div class="row">
 
-<!-- Update Form -->
-<div *ngIf="mode=='update'">
-    <div class="wrapper fadeInDown">
+      <div class="card">
+        <div class="card-body">
+          <div class="d-flex flex-column align-items-center text-center">
+            <img src="..\..\assets\images\avatars\man1.png" alt="Admin" class="rounded-circle p-1 bg-primary"
+              width="110">
+            <div *ngIf="mode=='profile'">
+              <h5>FirstName : {{profile.firstName}}</h5>
+              <div class="aSeparator"></div>
+              <h5>LastName : {{profile.lastName}}</h5>
+              <div class="aSeparator"></div>
+              <h5>Phone : {{profile.phone}}</h5>
+              <div class="aSeparator"></div>
+              <h5>Username : {{profile.username}}</h5>
+              <div class="aSeparator"></div>
+              <h5>Email : {{profile.email}}</h5>
+              <div class="aSeparator"></div>
+              <h5>Adr : {{profile.adr}}</h5>
+              <div class="aSeparator"></div>
+              <h5>Genre : {{profile.genre}}</h5>
+              <button class="fadeIn fourth" value="Log In" (click)="mode='update'">Update</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+    <!-- Update Form -->
+    <div *ngIf="mode=='update'">
+      <div class="wrapper fadeInDown">
         <div id="formContent">
           <!-- Tabs Titles -->
-      
+
           <!-- Icon -->
           <div class="fadeIn first">
             <img [src]="urlImag + profile.avatar" id="icon" alt="User Icon" />
           </div>
-      
+
           <!-- Register Form -->
           <form>
-              <input type="text" id="firstName" class="fadeIn second"   placeholder={{profile.firstName}} [(ngModel)]="firstName" name="firstName" required>
-              <input type="text" id="lastName" class="fadeIn second"   placeholder={{profile.lastName}} [(ngModel)]="lastName" name="lastName" required>
-              <input type="text" id="username" class="fadeIn second"   placeholder={{profile.username}} [(ngModel)]="usename" name="usename" required>
-              <input type="number" id="phone" class="fadeIn second"   placeholder={{profile.phone}}  [(ngModel)]="phone" name="phone" required>
-              <input type="text" id="register" class="fadeIn second"   placeholder={{profile.email}}  [(ngModel)]="email" name="email" required>
-              <input type="text" id="adr" class="fadeIn second"   placeholder={{profile.adr}} [(ngModel)]="adr" name="adr" required>
-              <input type="text" id="avatar" class="fadeIn second"   placeholder={{profile.avatar}} [(ngModel)]="avatar" name="avatar" required>
-              <select name="genre" [(ngModel)]="genre" >
-                <option [ngValue]="'H'">Male</option>
-                <option [ngValue]="'F'">Female</option>
-             </select>
-            
-              <select title="" class="selectpicker">
-                <option>Select...</option>
-                <option > <div><img src="..\..\assets\images\avatars\man1.png" id="icon" alt="User Icon" /></div></option>
-              </select>
+            <input type="text" id="firstName" class="fadeIn second" placeholder={{profile.firstName}}
+              [(ngModel)]="firstName" name="firstName" required>
+            <input type="text" id="lastName" class="fadeIn second" placeholder={{profile.lastName}}
+              [(ngModel)]="lastName" name="lastName" required>
+            <input type="text" id="username" class="fadeIn second" placeholder={{profile.username}}
+              [(ngModel)]="usename" name="usename" required>
+            <input type="number" id="phone" class="fadeIn second" placeholder={{profile.phone}} [(ngModel)]="phone"
+              name="phone" required>
+            <input type="text" id="register" class="fadeIn second" placeholder={{profile.email}} [(ngModel)]="email"
+              name="email" required>
+            <input type="text" id="adr" class="fadeIn second" placeholder={{profile.adr}} [(ngModel)]="adr" name="adr"
+              required>
+            <input type="text" id="avatar" class="fadeIn second" placeholder={{profile.avatar}} [(ngModel)]="avatar"
+              name="avatar" required>
+            <label class="gend" for="select1">Gender:</label>
+            <select class="nice-select open select1" name="genre" [(ngModel)]="genre">
+              <option [ngValue]="'H'">Male</option>
+              <option [ngValue]="'F'">Female</option>
+            </select>
+            <label class="avat" for="select1">Avatar:</label>
+            <select class=" selectpicker nice-select open select2" title="" >
+              <option>Select...</option>
+              <option>
+                <div><img src="..\..\assets\images\avatars\man1.png" id="icon" alt="User Icon" /></div>
+              </option>
+              <option>
+                <div><img src="..\..\assets\images\avatars\man1.png" id="icon" alt="User Icon" /></div>
+              </option>
+              <option>
+                <div><img src="..\..\assets\images\avatars\man1.png" id="icon" alt="User Icon" /></div>
+              </option>
               <div class="row">
                 <img src="..\..\assets\images\avatars\man1.png" id="icon" alt="User Icon" />
                 <img src="..\..\assets\images\avatars\man2.png" id="icon" alt="User Icon" />
                 <img src="..\..\assets\images\avatars\woman1.png" id="icon" alt="User Icon" />
                 <img src="..\..\assets\images\avatars\woman2.png" id="icon" alt="User Icon" />
               </div>
-              <button  class="fadeIn fourth" value="Log In" (click)="updateProfile()">Update</button>
-              <a (click)="mode='profile'"><b><- Back</b></a>
+            </select>
+
+            <button class="fadeIn fourth btnup" value="Log In" (click)="updateProfile()">Update</button>
+            <button (click)="mode='profile'" class="back"><a >Back</a></button>
           </form>
-      
+
         </div>
       </div>
-</div>
+    </div>

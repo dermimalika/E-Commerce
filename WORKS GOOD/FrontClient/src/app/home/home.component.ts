@@ -13,6 +13,17 @@ import { ProfileService } from '../services/profile.service';
 export class HomeComponent implements OnInit {
   products:any=[]
 
+  // currentTutorial?: Tutorial;
+  currentIndex = -1;
+  title = '';
+
+  page = 1;
+  count = 0;
+  pageSize = 12;
+  pageSizes = [3, 6, 9];
+
+
+  urlImagP='../../../assets/images/products/'
   constructor(private toastr: ToastrService,
     private produitService: ProduitService,
     private profileService: ProfileService,
@@ -21,16 +32,63 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.toastr.success('Hello !', 'Welcome again!');
-    this.getProducts();  
+    //this.getProducts(); 
+    this.retrieveProducts(); 
   }
 
 
-  getProducts(){
-    this.produitService.getProducts().subscribe((data: any)=>{
-      this.products=data;
-      console.log("Products :\n",this.products);
-    });
+//======================== Products
+  //Without Pagination
+  // getProduit(){
+  //   this.produitService.getProduit(this.id).subscribe((data: any)=>{
+  //     this.produit=data;
+  //     console.log("produit :\n",this.produit);
+  //   });
+  // }
+
+  // With Pagination
+  getRequestParams(searchTitle: string, page: number, pageSize: number): any {
+    // tslint:disable-next-line:prefer-const
+    let params = {
+      title:"",
+      page:0,
+      size:0
+    };
+
+    if (searchTitle) {
+      params.title = searchTitle;
+    }
+
+    if (page) {
+      params.page = page - 1;
+    }
+
+    if (pageSize) {
+      params.size = pageSize;
+    }
+
+    return params;
   }
+  retrieveProducts(): void {
+    const params = this.getRequestParams(this.title, this.page, this.pageSize);
+
+    this.produitService.getAllProducts(params)
+    .subscribe(
+      response => {
+        this.products = response.Products;
+        this.count = response.totalItems;
+        console.log(response);
+      },
+      error => {
+        console.log(error);
+      });
+  }
+
+  handlePageChange(event: number): void {
+    this.page = event;
+    this.retrieveProducts();
+  }
+//====================================================================================================
 
   profile(){
     
