@@ -3,10 +3,5 @@
         "target": "http://localhost:7777",
         "secure": false,
         "logLevel": "debug"
-    },
-    "/users/*":{
-        "target": "http://localhost:7777",
-        "secure": false,
-        "logLevel": "debug"
     }
 }

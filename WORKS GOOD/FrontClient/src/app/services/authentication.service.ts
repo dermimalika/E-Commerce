@@ -32,7 +32,6 @@ authenticate(clientname:any, psw:any) :Observable<any> {
             lastName:data.lastName,
             phone:data.phone,
             email:data.email,
-            avatar:data.avatar,
           }
           
           sessionStorage.setItem('client', JSON.stringify(client));
