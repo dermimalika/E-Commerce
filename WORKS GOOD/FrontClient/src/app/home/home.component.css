@@ -854,7 +854,8 @@ p {
   .header-area .navbar {
     padding: 0; }
     .header-area .navbar .navbar-brand {
-      padding-bottom: 10px; }
+      padding-bottom: 10px;
+    }
     .header-area .navbar .navbar-toggler .bar-icon {
       width: 30px;
       height: 2px;
@@ -921,7 +922,7 @@ p {
       .header-area .navbar .navbar-nav .nav-item.active a, .header-area .navbar .navbar-nav .nav-item:hover a {
         color: #ad3939; }
 .emeuble{
-  width: 95px; height: 91px; position: fixed; top: -8px; left: 34px;
+  width: 150px; height: 91px; position: fixed; top: -8px; left: 34px;
 }
 .header-area.sticky {
     position: fixed;
