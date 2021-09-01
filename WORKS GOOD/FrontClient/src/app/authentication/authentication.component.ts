@@ -62,7 +62,7 @@ export class AuthenticationComponent implements OnInit {
     }
     this.auth.register(client).subscribe((data: any)=>{
       if(data){
-        this.auth.sendMail(this.email,"register");
+        //this.auth.sendMail(this.email,"register");
         this.mode='login';
       }
     });

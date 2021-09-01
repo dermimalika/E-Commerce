@@ -30,7 +30,12 @@ export class ProduitComponent implements OnInit {
 
 
   urlImag='../../../assets/images/avatars/'
-  urlImagP='../../../assets/images/products/'
+
+  ////////////////////////////////////////////////////////////////////////////////////
+  ////  Link to Assets to get images 
+  ////  We must Change Localhost:4200 by Domaine Name
+  urlImagP='http://localhost:4200/assets/product-photos/'
+  /////////////////////////////////////////////////////////////////////////////////////  
 
 
   //Add form Comments var
