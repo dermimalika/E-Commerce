@@ -8,7 +8,8 @@ import { ProfileService } from '../services/profile.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.css' ]
+
 })
 export class HomeComponent implements OnInit {
   products:any=[]
@@ -22,8 +23,7 @@ export class HomeComponent implements OnInit {
   pageSize = 12;
   pageSizes = [3, 6, 9];
 
-
-  urlImagP='../../../assets/images/products/'
+  urlImagP='../../../../FrontAdmin/src/assets/product-photos/'
   constructor(private toastr: ToastrService,
     private produitService: ProduitService,
     private profileService: ProfileService,

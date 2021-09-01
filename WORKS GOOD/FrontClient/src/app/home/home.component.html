@@ -1,12 +1,19 @@
+<head>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300&display=swap" rel="stylesheet">
+<meta charset="utf-8">
 
+<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/owl.carousel.js"></script>
+<link rel="stylesheet" href="/assets/css/animate.css">
+<link rel="stylesheet" href="/assets/css/owl.carousel.min.css">
 
 <!-- Header -->
-
+</head>
 <header class="header-area">
-
   <div class="container" style="margin-top: 16px;">
     <div class="row">
       <div class="col-lg-12">
@@ -49,115 +56,95 @@
     </div> <!-- row -->
   </div> <!-- container -->
 </header>
-
-
 <!--/ End Header -->
-
-
-
-
-<!-- All Products -->
-<section class="section all-products" id="products" >
-
-<!-- <div class="singleProduct" style="display: inline-flex;">
-    <div *ngFor="let p of products| paginate: {
-      itemsPerPage: pageSizeP,
-      currentPage: pageP,
-      totalItems: countP
-    }">
-      <div class="card" style="width: 12rem;">
-        <img [src]="urlImagP + p.file_url" class="card-img-top" alt="product image">
-
-      </div>
-      <div class="card-body">
-        <h5 class="product-title"><a [routerLink]="['/produit', p.id]" tabindex="0">{{p.name}}</a></h5>
-        <p class="card-text">{{p.description}}</p>
-        <span class="regular-price">{{p.price}}.00$</span>
-        <span class="discount-price">$69.00</span>
-      </div>
-    </div>
-    <div class="col-md-12">
-      <pagination-controls
-          previousLabel="Prev"
-          nextLabel="Next"
-          [responsive]="true"
-          (pageChange)="handlePageChangeP($event)"
-      ></pagination-controls>
-    </div> -->
-
-
-  <!-- </div> -->
-
-
-
-
-  <!-- <div class="col-sm-4">
-
-
-
-
-    <div class="product-image-wrapper">
-      <div class="single-products">
-        <div class="prod">
-          <div *ngFor="let p of products">
-            <div class="row row2">
-              <div class="product">
-                <div class="product-header">
-                  <img class="w3-card-2 w3-hover-shadow w3-center" src="{{p.pic_byte}}" height="200" width="200">
-                  <ul class="icons">
-                    <span><i class="bx bx-heart"></i></span>
-                    <span><i class="bx bx-shopping-bag"></i></span>
-                    <span><a [routerLink]="['/produit', p.id]"><i class="bx bx-search"></i></a></span>
-                  </ul>
-                </div>
-                <div class="product-footer">
-                  <h3>{{p.name}}</h3>
-                  <p class="card-text">{{p.description}}</p>
-                  <div class="rating">
-                    <i class="bx bxs-star"></i>
-                    <i class="bx bxs-star"></i>
-                    <i class="bx bxs-star"></i>
-                    <i class="bx bxs-star"></i>
-                    <i class="bx bx-star"></i>
-                  </div>
-                  <h4 class="price">${{p.price}}</h4>
-
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-
-      </div>
-
-    </div>
-  </div> -->
-
-
-  <!-- <section class="pagination">
-    <div class=" container">
-      <span>1</span>
-      <span>2</span>
-      <span>3</span>
-      <span>4</span>
-      <span><i class='bx bx-right-arrow-alt'></i></span>
-    </div>
-  </section> -->
-
-
-</section>
+<div class="bg mt-5">
+  <div class="bg-product mt-5">
+    <div class="container product">
+      <div class="row">
+        <div id="sliderproduct" class="carousel slide " data-ride="carousel" data-interval="10000">
+          <ol class="carousel-indicators">
+            <li data-target="#sliderproduct" data-slide-to="0" class="active"></li>
+            <li data-target="#sliderproduct" data-slide-to="1"></li>
+            <li data-target="#sliderproduct" data-slide-to="2"></li>
+          </ol>
+          <div class="carousel-inner" role="listbox" data-interval="10000000">
+            <div class="carousel-item active">
+              <div class="container text-center">
+                <div class="row">
+                  <div class="col-sm-6 image">
+                    <div class="item">
+                      <h1>Today Deal</h1>
+                      <img class="img-fluid" src="assets/images/sf.jpg" alt="">
+                    </div><!--enditem-->
+                  </div><!--endcol-->
+                  <div class="col-sm-6">
+                    <div class="top d-flex justify-content-center">
+                      <a href=""><b>2</b> <br>days</a>
+                      <a href=""><b>20</b> <br> hours</a>
+                      <a href=""><b>15</b> <br>min</a>
+                      <a href=""><b>2</b> <br> sec</a>
+                    </div><!--endtop-->
+                    <div class="details">
+                      <h2 class="cr3">Creamy SOFA</h2>
+                      <p class="cr4">Cool leather couch</p>
+                     
+                      <p class="cr1">$ 3.55-$ 5.55</p>
+                  <a href="" class="btn btn-food">add to cart</a>
+                  </div><!--enddetails-->
+              </div><!--endcol-->
+            </div><!--endrow-->
+          </div><!--endcontainer-->
+        </div><!--endcarousel-item-->
+        <div class="carousel-item">
+          <div class="container text-center">
+            <div class="row">
+              <div class="col-sm-6 image">
+                <div class="item">
+                  <h1>Today Deal</h1>
+                  <img class="img-fluid" src="assets/images/hl.jpg" alt="">
+                </div><!--enditem-->
+              </div><!--endcol-->
+              <div class="col-sm-6">
+                <div class="top d-flex justify-content-center">
+                  <a href=""><b>2</b> <br>days</a>
+                  <a href=""><b>20</b> <br> hours</a>
+                  <a href=""><b>15</b> <br>min</a>
+                  <a href=""><b>2</b> <br> sec</a>
+                </div><!--endtop-->
+                <div class="details">
+                  <h2 class="cr3">Browny</h2>
+                  <p class="cr4">Article Couch of leather </p>
+                  <p class="cr1">$ 3.55-$ 5.55</p>
+              <a href="" class="btn btn-food">add to cart</a>
+            </div><!--enddetails-->
+          </div><!--endcol-->
+        </div><!--endrow-->
+      </div><!--endcontainer-->
+    </div><!--endcarousel-item-->
+    <a class="carousel-control-prev fa fa-angle-left" href="#sliderproduct" role="button" data-slide="prev">
+    </a>
+    <a class="carousel-control-next fa fa-angle-right" href="#sliderproduct" role="button" data-slide="next">
+    </a>
+  </div><!--endslidesliderproduct-->
+</div><!--endrow-->
+</div><!--endcontainer-->
+</div><!--endbg-product-->
+</div>
+</div>
+<h2>Discover our furnitures</h2>
+<div class="row">
       <!-- test -->
       <div *ngFor="let p of products | paginate : {
         itemsPerPage: pageSize,
         currentPage: page,
         totalItems: count
-      }">
+       }">
+       <div class="col">
+
         <div class="single-rating">
           <div class="card" style="width: 12rem;">
             <img [src]="urlImagP + p.file_url" class="card-img-top" alt="product image">
           </div>
-  
           <div class="card-body">
             <h5 class="product-title"><a [routerLink]="['/produit', p.id]" tabindex="0">{{p.name}}</a></h5>
             <p class="card-text">{{p.description}}</p>
@@ -165,8 +152,10 @@
             <span class="discount-price">$69.00</span>
           </div>
         </div>
+      </div>
     </div>
   
+  </div>
 
     <div class="col-md-12">
       <pagination-controls
@@ -176,5 +165,4 @@
         (pageChange)="handlePageChange($event)"
       ></pagination-controls>
     </div>
-
       <!-- End test -->
