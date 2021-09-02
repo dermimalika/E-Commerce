@@ -13,7 +13,8 @@ export class ProfileComponent implements OnInit {
 
   id:any
   profile:any=[]
-  urlImag='../../assets/images/avatars/'
+  
+  urlImag='../../../../FrontAdmin/src/assets/images/'
 
   mode:string='profile'
   //------- Register Var

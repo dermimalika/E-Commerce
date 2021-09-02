@@ -5,6 +5,7 @@ import { AuthenticationService } from '../services/authentication.service';
 import { ProduitService } from '../services/produit.service';
 import { ProfileService } from '../services/profile.service';
 
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -23,8 +24,13 @@ export class HomeComponent implements OnInit {
   pageSize = 12;
   pageSizes = [3, 6, 9];
 
-  urlImagP='../../../../FrontAdmin/src/assets/product-photos/'
-  constructor(private toastr: ToastrService,
+////////////////////////////////////////////////////////////////////////////////////
+////  Link to Assets to get images 
+////  We must Change Localhost:4200 by Domaine Name
+  urlImagP='http://localhost:4200/assets/product-photos/'
+/////////////////////////////////////////////////////////////////////////////////////  
+  
+constructor(private toastr: ToastrService,
     private produitService: ProduitService,
     private profileService: ProfileService,
     private auth: AuthenticationService,
