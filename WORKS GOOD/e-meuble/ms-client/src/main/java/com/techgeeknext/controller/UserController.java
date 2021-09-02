@@ -92,7 +92,7 @@ public class UserController {
     @GetMapping(value = "/products")
     public ResponseEntity<Map<String,Object>> getAllProducts(
             @RequestParam(defaultValue = "0") int page,
-            @RequestParam(defaultValue = "12") int size){
+            @RequestParam(defaultValue = "3") int size){
     try {
         List<Product> Products = new ArrayList<Product>();
         Pageable paging = PageRequest.of(page, size);
@@ -108,8 +108,57 @@ public class UserController {
         return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
     }
     }
-    //////////////////////////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////FILTER PRODUCT BY CATEGORY//////////////////////////////////////////////////////////
 
+    @GetMapping("/products/category")
+    public ResponseEntity<Map<String,Object>> getFilteredProducts(@RequestParam(required = false) String category,@RequestParam(defaultValue = "0") int page, @RequestParam(defaultValue = "3") int size){
+        try {
+            List<Product>Products= new ArrayList<>();
+            Pageable paging  = PageRequest.of(page,size);
+            Page<Product> pagecats;
+                pagecats = productRepository.findByCategory(category,paging);
+                Products = pagecats.getContent();
+                Map<String,Object> response = new HashMap<>();
+                response.put("Products of this Category", Products);
+                response.put("CurrentPage",pagecats.getNumber());
+                response.put("totalItems",pagecats.getTotalElements());
+                response.put("totalPages",pagecats.getTotalPages());
+                return new ResponseEntity<>(response,HttpStatus.OK);
+
+        } catch (Exception e){
+            return new ResponseEntity<>(null,HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    ///////////////////////////////////////////////////SERCH PRODUCT BY KEY WORD////////////////////////////////////////////////////////////////////////
+    @GetMapping("/products/search")
+    public ResponseEntity<Map<String,Object>> getSearchedProducts(@RequestParam(required = false) String name,@RequestParam(defaultValue = "0") int page, @RequestParam(defaultValue = "3") int size){
+        try {
+            List<Product>Products= new ArrayList<>();
+            Pageable paging  = PageRequest.of(page,size);
+            Page<Product> pagecats;
+            pagecats = productRepository.findByNameContaining(name,paging);
+            Products = pagecats.getContent();
+            Map<String,Object> response = new HashMap<>();
+            response.put("Products of this Category", Products);
+            response.put("CurrentPage",pagecats.getNumber());
+            response.put("totalItems",pagecats.getTotalElements());
+            response.put("totalPages",pagecats.getTotalPages());
+            return new ResponseEntity<>(response,HttpStatus.OK);
+
+        } catch (Exception e){
+            return new ResponseEntity<>(null,HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+
+
+
+
+
+
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     @GetMapping(value = "/produit/{id}")
     public Optional<Product> getProduit(@PathVariable("id") Long id)
     {
