@@ -15,6 +15,7 @@ import { ProduitComponent } from './home/produit/produit.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ProfileService } from './services/profile.service';
 import { ProduitService } from './services/produit.service';
+import { FilteringComponent } from './home/filtering/filtering.component';
 
 
 
@@ -25,6 +26,7 @@ import { ProduitService } from './services/produit.service';
     HomeComponent,
     ProduitComponent,
     ProfileComponent,
+    FilteringComponent,
   
   ],
   imports: [

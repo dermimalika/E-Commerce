@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>SofaHouse</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <!-- Font awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+    integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+    crossorigin="anonymous" />
+</head>
+
+<body>
+
+  <!-- header -->
+  <header class="header">
+    <div class="head-top">
+      <a href="index.html" class="brand-name">
+        <img class="logo" src="assets/images/logo.png">
+      </a>
+      <div>
+        <span class="head-icon">
+          <i class="fas fa-search"></i>
+        </span>        
+        <span class="head-icon">
+          <i class="fas fa-shopping-bag"></i>
+        </span>
+        <span class="head-icon">
+          <i class="fas fa-user-circle"></i>
+        </span>
+        <span class="head-icon">
+          <a (click)="logout()"><i class="fas fa-sign-out-alt"></i></a>
+         </span>
+      </div>
+    </div>
+    <div class="head-body container">
+        <div class="head-body-content">
+          <h4 class="head-title">
+            Voici les résultats de votre recherche:
+          </h4>
+          <div class="trend-grid">
+            <!-- item -->
+            <div class="trend-item" >
+            <img [src]="" class="card-img-top" alt="product image">
+            <div class="trend-item-content">
+            <h4><a [routerLink]="" tabindex="0">tetstetsts</a></h4>
+            <p class="card-text">zhdize</p>
+            <h5>{{10}}.00$</h5>
+            </div>
+            </div>
+             <!-- end of item -->
+             <!--<div class="col-md-12">
+            <pagination-controls class="pagination" previousLabel="Prev" nextLabel="Next" [responsive]="true" (pageChange)="handlePageChange($event)"></pagination-controls>
+            </div>-->
+          </div>
+        </div>  
+      </div>
+      <!-- filtered products -->  
+</header>
+<br/>
+<br/>
+
+<!-- footer -->
+<footer class="footer container">
+    <div class="footer-item">
+      <img src="assets/images/logo.png">
+      <p>social media accounts</p>
+      <ul class="footer-icons">
+        <li>
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+        </li>
+        <li>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+        </li>
+        <li>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+        </li>
+        <li>
+          <a href="#"><i class="fab fa-linkedin"></i></a>
+        </li>
+        <li>
+          <a href="#"><i class="fab fa-google-plus-g"></i></a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="footer-item">
+      <h3>links</h3>
+      <ul>
+        <li><a href="#">home</a></li>
+        <li><a href="#">download</a></li>
+        <li><a href="#">pricing</a></li>
+        <li><a href="#">about</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-item">
+      <h3>products</h3>
+      <ul>
+        <li><a href="#">chair</a></li>
+        <li><a href="#">sofa</a></li>
+        <li><a href="#">pillow</a></li>
+        <li><a href="#">cushion</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-item">
+      <h3>support</h3>
+      <ul>
+        <li><a href="#">FAQ</a></li>
+        <li><a href="#">how it works</a></li>
+        <li><a href="#">features</a></li>
+        <li><a href="#">contact</a></li>
+      </ul>
+    </div>
+  </footer>
+  <!-- end of footer -->
+</body>
+</html>

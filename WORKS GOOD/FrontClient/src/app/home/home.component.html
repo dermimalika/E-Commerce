@@ -1,169 +1,258 @@
+<!DOCTYPE html>
+<html>
+
 <head>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<meta charset="utf-8">
-
-<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/owl.carousel.js"></script>
-<link rel="stylesheet" href="/assets/css/animate.css">
-<link rel="stylesheet" href="/assets/css/owl.carousel.min.css">
-
-<!-- Header -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>SofaHouse</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <!-- Font awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+    integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+    crossorigin="anonymous" />
 </head>
-<header class="header-area">
-  <div class="container" style="margin-top: 16px;">
-    <div class="row">
-      <div class="col-lg-12">
-        <nav class="navbar navbar-expand-lg">
-          <a class="navbar-brand" href="index.html">
-            <img src="assets/images/logo.png" alt="Logo" class="emeuble">
-          </a> <!-- Logo -->
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="bar-icon"></span>
-            <span class="bar-icon"></span>
-            <span class="bar-icon"></span>
-          </button>
 
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul id="nav" class="navbar-nav ml-auto">
-              <li class="nav-item active">
-                <a data-scroll-nav="0" href="#home">Home</a>
-              </li>
-              <li class="nav-item">
-                <a data-scroll-nav="0" href="#product">Products</a>
-              </li>
-              <!-- <li class="nav-item">
-                <a data-scroll-nav="0" href="#service">Services</a>
-              </li>
-              <li class="nav-item">
-                <a data-scroll-nav="0" href="#contact">Contact</a>
-              </li> -->
-              <ul class="nav-item">
-                <i class="ti-user"></i> <a (click)="profile()">My account</a>
-              </ul>
-              <li class="nav-item">
-                <i class="ti-power-off"></i><a (click)="logout()">Logout</a>
-              </li>
+<body>
 
-            </ul> <!-- navbar nav -->
-          </div>
-        </nav> <!-- navbar -->
+  <!-- header -->
+  <header class="header">
+    <div class="head-top">
+      <a href="index.html" class="brand-name">
+        <img class="logo" src="assets/images/logo.png">
+      </a>
+      <div>
+        <span class="head-icon">
+          <i class="fas fa-search"></i>
+        </span>        
+        <span class="head-icon">
+          <i class="fas fa-shopping-bag"></i>
+        </span>
+        <span class="head-icon">
+          <i class="fas fa-user-circle"></i>
+        </span>
+        <span class="head-icon">
+            
+            <a (click)="logout()"><i class="fas fa-sign-out-alt"></i></a>
+          </span>
       </div>
-    </div> <!-- row -->
-  </div> <!-- container -->
-</header>
-<!--/ End Header -->
-<div class="bg mt-5">
-  <div class="bg-product mt-5">
-    <div class="container product">
-      <div class="row">
-        <div id="sliderproduct" class="carousel slide " data-ride="carousel" data-interval="10000">
-          <ol class="carousel-indicators">
-            <li data-target="#sliderproduct" data-slide-to="0" class="active"></li>
-            <li data-target="#sliderproduct" data-slide-to="1"></li>
-            <li data-target="#sliderproduct" data-slide-to="2"></li>
-          </ol>
-          <div class="carousel-inner" role="listbox" data-interval="10000000">
-            <div class="carousel-item active">
-              <div class="container text-center">
-                <div class="row">
-                  <div class="col-sm-6 image">
-                    <div class="item">
-                      <h1>Today Deal</h1>
-                      <img class="img-fluid" src="assets/images/sf.jpg" alt="">
-                    </div><!--enditem-->
-                  </div><!--endcol-->
-                  <div class="col-sm-6">
-                    <div class="top d-flex justify-content-center">
-                      <a href=""><b>2</b> <br>days</a>
-                      <a href=""><b>20</b> <br> hours</a>
-                      <a href=""><b>15</b> <br>min</a>
-                      <a href=""><b>2</b> <br> sec</a>
-                    </div><!--endtop-->
-                    <div class="details">
-                      <h2 class="cr3">Creamy SOFA</h2>
-                      <p class="cr4">Cool leather couch</p>
-                     
-                      <p class="cr1">$ 3.55-$ 5.55</p>
-                  <a href="" class="btn btn-food">add to cart</a>
-                  </div><!--enddetails-->
-              </div><!--endcol-->
-            </div><!--endrow-->
-          </div><!--endcontainer-->
-        </div><!--endcarousel-item-->
-        <div class="carousel-item">
-          <div class="container text-center">
-            <div class="row">
-              <div class="col-sm-6 image">
-                <div class="item">
-                  <h1>Today Deal</h1>
-                  <img class="img-fluid" src="assets/images/hl.jpg" alt="">
-                </div><!--enditem-->
-              </div><!--endcol-->
-              <div class="col-sm-6">
-                <div class="top d-flex justify-content-center">
-                  <a href=""><b>2</b> <br>days</a>
-                  <a href=""><b>20</b> <br> hours</a>
-                  <a href=""><b>15</b> <br>min</a>
-                  <a href=""><b>2</b> <br> sec</a>
-                </div><!--endtop-->
-                <div class="details">
-                  <h2 class="cr3">Browny</h2>
-                  <p class="cr4">Article Couch of leather </p>
-                  <p class="cr1">$ 3.55-$ 5.55</p>
-              <a href="" class="btn btn-food">add to cart</a>
-            </div><!--enddetails-->
-          </div><!--endcol-->
-        </div><!--endrow-->
-      </div><!--endcontainer-->
-    </div><!--endcarousel-item-->
-    <a class="carousel-control-prev fa fa-angle-left" href="#sliderproduct" role="button" data-slide="prev">
-    </a>
-    <a class="carousel-control-next fa fa-angle-right" href="#sliderproduct" role="button" data-slide="next">
-    </a>
-  </div><!--endslidesliderproduct-->
-</div><!--endrow-->
-</div><!--endcontainer-->
-</div><!--endbg-product-->
-</div>
-</div>
-<h2>Discover our furnitures</h2>
-<div class="row">
-      <!-- test -->
-      <div *ngFor="let p of products | paginate : {
-        itemsPerPage: pageSize,
-        currentPage: page,
-        totalItems: count
-       }">
-       <div class="col">
+    </div>
 
-        <div class="single-rating">
-          <div class="card" style="width: 12rem;">
-            <img [src]="urlImagP + p.file_url" class="card-img-top" alt="product image">
+    <div class="head-body container">
+      <div class="head-body-content">
+        <h1 class="head-title">
+          welcome to E-Meuble
+        </h1>
+        <p class="text">
+          Choisissez votre meuble en ligne, en toutes couleurs, types,  et beaucoup plus ...
+        </p>
+        <button type="button" class="btn">
+          shop now
+        </button>
+      </div>
+
+      <div class="head-body-img">
+        <img src="assets/images/round-chair.png" alt="header image">
+      </div>
+    </div>
+  </header>
+  <!-- end of header -->
+
+  <!-- trending product -->
+  <section class="trend">
+    <div class="container">
+      <div class="title">
+        <h4></h4>
+        <h2>Nos meubles</h2>
+        Ou Choisissez de 
+        <select>
+          <option>Filtrer par catégorie:</option>
+          <option>Tables</option>
+          <option>Armoires</option>
+          <option>Chaises</option>
+        </select>
+      </div>
+      
+      <div class="trend-grid">
+        <!-- item -->
+        <div class="trend-item" *ngFor="let p of products | paginate : { itemsPerPage: pageSize, currentPage: page, totalItems: count}">
+        <img [src]="urlImagP + p.file_url" class="card-img-top" alt="product image">
+        <div class="trend-item-content">
+        <h4><a [routerLink]="['/produit', p.id]" tabindex="0">{{p.name}}</a></h4>
+        <p class="card-text">{{p.description}}</p>
+        <h5>{{p.price}}.00$</h5>
+        </div>
+        </div>
+         <!-- end of item -->
+        
+
+      </div>
+    </div>
+    <div class="col-md-12">
+    <pagination-controls class="pagination" previousLabel="Prev" nextLabel="Next" [responsive]="true" (pageChange)="handlePageChange($event)"></pagination-controls>
+    </div>
+  </section>
+  <!-- end of trending product -->
+
+  <div class="underline"></div>
+
+  <!-- featured product -->
+  <section class="featured">
+    <div class="container">
+      <!-- item -->
+      <div class="featured-item">
+        <div class="featured-item-img">
+          <img src="assets/images/red-sofa-photo.png" alt="feature image">
+        </div>
+        <div class="featured-item-content">
+          <div class="title">
+            <h4>featured product </h4>
+            <h2>red sofa with pillows</h2>
+            <p class="item-price">$55.00</p>
           </div>
-          <div class="card-body">
-            <h5 class="product-title"><a [routerLink]="['/produit', p.id]" tabindex="0">{{p.name}}</a></h5>
-            <p class="card-text">{{p.description}}</p>
-            <p class="card-text">{{p.file_url}}</p>
-            <span class="regular-price">{{p.price}}.00$</span>
-            <span class="discount-price">$69.00</span>
+          <p class="text">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem quasi consequatur veniam, veritatis
+            necessitatibus rem voluptas pariatur doloremque id culpa, eveniet, ratione libero eos fuga.
+          </p>
+          <div class="featured-btns">
+            <button type="button" class="btn">Explore</button>
+            <button type="button" class="btn">Purchase</button>
           </div>
         </div>
       </div>
+      <!-- end of item -->
+      <!-- item -->
+      <div class="featured-item">
+        <div class="featured-item-img">
+          <img src="assets/images/single-comfort-sofa-chair.png" alt="feature image">
+        </div>
+        <div class="featured-item-content">
+          <div class="title">
+            <h4>featured product </h4>
+            <h2>single comfort sofa chair</h2>
+            <p class="item-price">$42.00</p>
+          </div>
+          <p class="text">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem quasi consequatur veniam, veritatis
+            necessitatibus rem voluptas pariatur doloremque id culpa, eveniet, ratione libero eos fuga.
+          </p>
+          <div class="featured-btns">
+            <button type="button" class="btn">Explore</button>
+            <button type="button" class="btn">Purchase</button>
+          </div>
+        </div>
+      </div>
+      <!-- end of item -->
+      
+      <!-- item -->
+      <div class="featured-item">
+        <div class="featured-item-img">
+          <img src="assets/images/wide-sofa.png" alt="feature image">
+        </div>
+        <div class="featured-item-content">
+          <div class="title">
+            <h4>featured product </h4>
+            <h2>wide comfortable sofa</h2>
+            <p class="item-price">$90.55</p>
+          </div>
+          <p class="text">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem quasi consequatur veniam, veritatis
+            necessitatibus rem voluptas pariatur doloremque id culpa, eveniet, ratione libero eos fuga.
+          </p>
+          <div class="featured-btns">
+            <button type="button" class="btn">Explore</button>
+            <button type="button" class="btn">Purchase</button>
+          </div>
+        </div>
+      </div>
+      <!-- end of item -->
     </div>
-  
-  </div>
+  </section>
+  <!-- end of featured product -->
 
-    <div class="col-md-12">
-      <pagination-controls
-        previousLabel="Prev"
-        nextLabel="Next"
-        [responsive]="true"
-        (pageChange)="handlePageChange($event)"
-      ></pagination-controls>
+
+  <!-- newsletter -->
+  <section class="newsletter">
+    <div class="container">
+      <div class="newsletter-content">
+        <div class="title">
+          <h4>subscribe to our newsletter</h4>
+          <h2>Newsletter</h2>
+        </div>
+
+        <form>
+          <div class="form-group">
+            <input type="email" class="form-control" placeholder="Enter your email address">
+            <button type="submit" class="subscribe-btn">
+              subscribe
+              <i class="fas fa-chevron-right"></i>
+            </button>
+          </div>
+        </form>
+
+        <div class="circle-box circle-1"></div>
+        <div class="circle-box circle-2"></div>
+      </div>
     </div>
-      <!-- End test -->
+  </section>
+  <!-- end of newsletter-->
+
+  <!-- footer -->
+  <footer class="footer container">
+    <div class="footer-item">
+      <img src="assets/images/logo.png">
+      <p>social media accounts</p>
+      <ul class="footer-icons">
+        <li>
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+        </li>
+        <li>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+        </li>
+        <li>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+        </li>
+        <li>
+          <a href="#"><i class="fab fa-linkedin"></i></a>
+        </li>
+        <li>
+          <a href="#"><i class="fab fa-google-plus-g"></i></a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="footer-item">
+      <h3>links</h3>
+      <ul>
+        <li><a href="#">home</a></li>
+        <li><a href="#">download</a></li>
+        <li><a href="#">pricing</a></li>
+        <li><a href="#">about</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-item">
+      <h3>products</h3>
+      <ul>
+        <li><a href="#">chair</a></li>
+        <li><a href="#">sofa</a></li>
+        <li><a href="#">pillow</a></li>
+        <li><a href="#">cushion</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-item">
+      <h3>support</h3>
+      <ul>
+        <li><a href="#">FAQ</a></li>
+        <li><a href="#">how it works</a></li>
+        <li><a href="#">features</a></li>
+        <li><a href="#">contact</a></li>
+      </ul>
+    </div>
+  </footer>
+  <!-- end of footer -->
+</body>
+
+</html>

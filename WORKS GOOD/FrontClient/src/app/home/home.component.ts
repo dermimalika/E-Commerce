@@ -21,16 +21,16 @@ export class HomeComponent implements OnInit {
 
   page = 1;
   count = 0;
-  pageSize = 12;
+  pageSize = 6;
   pageSizes = [3, 6, 9];
 
-////////////////////////////////////////////////////////////////////////////////////
-////  Link to Assets to get images 
-////  We must Change Localhost:4200 by Domaine Name
-  urlImagP='http://localhost:4200/assets/product-photos/'
-/////////////////////////////////////////////////////////////////////////////////////  
-  
-constructor(private toastr: ToastrService,
+  ////////////////////////////////////////////////////////////////////////////////////
+  ////  Link to Assets to get images 
+  ////  We must Change Localhost:4200 by Domaine Name
+    urlImagP='http://localhost:4200/assets/product-photos/'
+  /////////////////////////////////////////////////////////////////////////////////////  
+    
+ constructor(private toastr: ToastrService,
     private produitService: ProduitService,
     private profileService: ProfileService,
     private auth: AuthenticationService,
