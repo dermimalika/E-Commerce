@@ -23,6 +23,13 @@
         <img class="logo" src="assets/images/logo.png">
       </a>
       <div>
+        <span>        
+          <form class="form-inline my-2 my-lg-0" >
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"  name="filter" [(ngModel)]="filter">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit" [routerLink]="['/filter', 'fil/ '+filter]">Search</button>
+            </form>
+          </span>
+
         <span class="head-icon">
           <i class="fas fa-search"></i>
         </span>        
@@ -64,14 +71,17 @@
     <div class="container">
       <div class="title">
         <h4></h4>
+        <form>
         <h2>Nos meubles</h2>
-        Ou Choisissez de 
-        <select>
-          <option>Filtrer par catégorie:</option>
-          <option>Tables</option>
-          <option>Armoires</option>
-          <option>Chaises</option>
-        </select>
+          Ou Choisissez de 
+          <select class="form-control" aria-label="Default select example" required #ucategory="ngModel" id="category"
+              placeholder="Select Category" name="category" [(ngModel)]="category">
+            <option *ngFor="let c of categories" [value]="c.name">{{c.name}}</option>
+          </select>
+          <span class="head-icon">
+            <a [routerLink]="['/filter', category]"><i class="fas fa-search" ></i></a>
+          </span>
+        </form>
       </div>
       
       <div class="trend-grid">
