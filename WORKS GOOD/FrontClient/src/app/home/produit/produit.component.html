@@ -1,58 +1,47 @@
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
-    integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-<link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product details</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+ <!-- Font awesome -->
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+ integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+ crossorigin="anonymous" />
 
-<header class="header-area">
+</head>
+<body>
+  <!-- header -->
+  <header class="header">
+    <div class="head-top">
+      <a href="index.html" class="brand-name">
+        <img class="logo" src="assets/images/logo.png">
+      </a>
+      <div>
+        <span class="head-icon">
+          <i class="fas fa-search"></i>
+        </span>        
+        <span class="head-icon">
+          <i class="fas fa-shopping-bag"></i>
+        </span>
+        <span class="head-icon">
+          <i class="fas fa-user-circle"></i>
+        </span>
+        <span class="head-icon">
+            
+            <a (click)="logout()"><i class="fas fa-sign-out-alt"></i></a>
+          </span>
+      </div>
+    </div>
 
-    <div class="container" style="margin-top: 16px;">
-        <div class="row">
-            <div class="col-lg-12">
-                <nav class="navbar navbar-expand-lg">
-                    <a class="navbar-brand" href="index.html">
-                        <img src="assets/images/E-meuble.png" alt="Logo" class="emeuble">
-                    </a> <!-- Logo -->
-                    <button class="navbar-toggler" type="button" data-toggle="collapse"
-                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="bar-icon"></span>
-                        <span class="bar-icon"></span>
-                        <span class="bar-icon"></span>
-                    </button>
+   
+  </header>
+<!-- end of header -->
 
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul id="nav" class="navbar-nav ml-auto">
-                            <li class="nav-item active">
-                                <a data-scroll-nav="0" href="#home">Home</a>
-                            </li>
-                            <li class="nav-item">
-                                <a data-scroll-nav="0" href="#product">Products</a>
-                            </li>
-                            <!-- <li class="nav-item">
-                <a data-scroll-nav="0" href="#service">Services</a>
-              </li>
-              <li class="nav-item">
-                <a data-scroll-nav="0" href="#contact">Contact</a>
-              </li> -->
-                            <ul class="nav-item">
-                                <i class="ti-user"></i> <a (click)="profile()">My account</a>
-                            </ul>
-                            <li class="nav-item">
-                                <i class="ti-power-off"></i><a (click)="logout()">Logout</a>
-                            </li>
-
-                        </ul> <!-- navbar nav -->
-                    </div>
-                </nav> <!-- navbar -->
-            </div>
-        </div> <!-- row -->
-    </div> <!-- container -->
-</header>
-<!--/ End Header -->
-
+<br/>
+<br/>
 <!-- Shop Single -->
 <section class="shop single section" style="background: #f9f9f9;">
     <div class="container">
@@ -64,7 +53,7 @@
                         <div class="product-gallery">
                             <!-- Images slider -->
                             <div class="flexslider-thumbnails">
-                                <img [src]="urlImagP + produit.file_url" height="200" width="200">
+                                <img [src]="urlImagP + produit.file_url" height="400" width="400">
                             </div>
                             <!-- End Images slider -->
                         </div>
@@ -74,265 +63,157 @@
                         <div class="product-des">
                             <!-- Description -->
                             <div class="short">
-                                <h4>{{produit.name}}</h4>
-                                <div class="rating-main">
-                                    <ul class="rating">
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star-half-o"></i></li>
-                                        <li class="dark"><i class="fa fa-star-o"></i></li>
-                                    </ul>
-                                    <a href="#" class="total-review">(102) Review</a>
-                                </div>
-                                <p class="price"><span class="discount">${{produit.price}}</span><s>$80.00</s> </p>
+                                <br/>
+                                <br/>
+                                <h3 class="price"><span class="discount">{{produit.name}} | ${{produit.price}}</span> </h3>
+                                <br/>
                                 <p class="description">{{produit.description}}</p>
-                                <p class="description">Weight : {{produit.weight}} Kg</p>
+                                <br/>
+                                <br/>
+                                <p class="description"><b> Weight: </b>  {{produit.weight}} Kg</p>
+                                <p class="cat"><b> Category: </b>  <a href="#">{{produit.category}}</a></p>
+                                <p class="availability"><b> Availability: </b> {{produit.quantity}} Products In Stock</p>
                             </div>
                             <!--/ End Description -->
-                            <!-- Color -->
-                            <div class="color">
-                                <h4>Available Options <span>Color</span></h4>
-                                <ul>
-                                    <li><a href="#" class="one"><i class="ti-check"></i></a></li>
-                                    <li><a href="#" class="two"><i class="ti-check"></i></a></li>
-                                    <li><a href="#" class="three"><i class="ti-check"></i></a></li>
-                                    <li><a href="#" class="four"><i class="ti-check"></i></a></li>
-                                </ul>
-                            </div>
-                            <!--/ End Color -->
-
                             <!-- Product Buy -->
                             <div class="product-buy">
                                 <div class="quantity">
+                                    <br/>
+                                    <br/>
                                     <h6>Quantity :</h6>
                                     <!-- Input Order -->
-                                    <div class="input-group">
-                                        <div class="button minus">
-                                            <button type="button" class="btn btn-primary btn-number" disabled="disabled"
-                                                data-type="minus" data-field="quant[1]">
-                                                <i class="ti-minus"></i>
-                                            </button>
-                                        </div>
-                                        <input type="text" name="quant[1]" class="input-number" data-min="1"
-                                            data-max="1000" value="1">
-                                        <div class="button plus">
-                                            <button type="button" class="btn btn-primary btn-number" data-type="plus"
-                                                data-field="quant[1]">
-                                                <i class="ti-plus"></i>
-                                            </button>
-                                        </div>
-                                    </div>
+                                    <input type="number" default>&nbsp; <button class="btn btn-danger" style="background-color: #76323F;">BUY NOW</button>&nbsp; <button class="btn btn-primary" style="background-color: #C09F80;">ADD TO CART</button> 
+
+                                    <br/>
                                     <!--/ End Input Order -->
                                 </div>
-                                <div class="add-to-cart">
-                                    <a href="#" class="btn">Add to cart</a>
-                                    <a href="#" class="btn min"><i class="ti-heart"></i></a>
-                                </div>
-                                <p class="cat">Category :<a href="#">{{produit.category}}</a></p>
-                                <p class="availability">Availability : {{produit.quantity}} Products In Stock</p>
+                               
+                            
                             </div>
                             <!--/ End Product Buy -->
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-12">
-                        <div class="product-info">
-                            <div class="nav-main">
-                                <!-- Tab Nav -->
-                                <ul class="nav nav-tabs" id="myTab" role="tablist">
-                                    <li class="nav-item"><a class="nav-link active" data-toggle="tab"
-                                            href="#description" role="tab">Description</a></li>
-                                    <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#reviews"
-                                            role="tab">Reviews</a></li>
-                                </ul>
-                                <!--/ End Tab Nav -->
+                <br/>
+
+                <div class="container">
+                    <div class="be-comment-block">
+                        <h3>Comments </h3>
+                        <br/>
+                        <div *ngFor="let c of comments.Comments| paginate: {itemsPerPage: pageSize, currentPage: page, totalItems: count }" class="be-comment">
+                            <div class="be-img-comment">	
+                                <a href="blog-detail-2.html">
+                                    <img [src]="urlImag + c.avatarClient" id="icon" alt="User Icon" />
+                                </a>
                             </div>
-                            <div class="tab-content" id="myTabContent">
-                                <!-- Description Tab -->
-                                <div class="tab-pane fade show active" id="description" role="tabpanel">
-                                    <div class="tab-single">
-                                        <div class="row" style="border: 1px solid #ababab;
-    padding-bottom: 30px;
-    padding-left: 8px;
-    margin-top: 9px;">
-                                            <div class="col-12">
-                                                <div class="single-des">
-                                                    <p>simply dummy text of the printing and typesetting industry. Lorem
-                                                        Ipsum has been the
-                                                        industry's standard dummy text ever since the 1500s, when an
-                                                        unknown printer took a galley
-                                                        of type and scrambled it to make a type specimen book. It has
-                                                        survived not only five
-                                                        centuries, but also the leap into electronic typesetting,
-                                                        remaining essentially unchanged.
-                                                        It was popularised in the 1960s with the release of Letraset
-                                                        sheets containing Lorem Ipsum
-                                                        passages, and more recently with deskto</p>
-                                                </div>
-                                                <div class="single-des">
-                                                    <p>Suspendisse consequatur voluptates lorem nobis accumsan natus
-                                                        mattis. Optio pede, optio qui
-                                                        metus, delectus! Ultricies impedit, minus tempor fuga, quasi,
-                                                        pede felis commodo bibendum
-                                                        voluptas nisi? Voluptatem risus tempore tempora. Quaerat
-                                                        aspernatur? Error praesent laoreet,
-                                                        cras in fames hac ea, massa montes diamlorem nec quaerat, quos
-                                                        occaecati leo nam aliquet
-                                                        corporis, ab recusandae parturient, etiam fermentum, a quasi
-                                                        possimus commodi, mollis
-                                                        voluptate mauris mollis, quisque donec</p>
-                                                </div>
-
-                                            </div>
+                            <div  class="be-comment-content">
+                                
+                                    <span class="be-comment-name">
+                                        <a href="blog-detail-2.html">{{c.nomClient}}</a>
+                                        </span>
+                                    <span class="be-comment-time">
+                                        <i class="fa fa-clock-o"></i>
+                                        May 27, 2015 at 3:14am
+                                    </span>
+                    
+                                <p class="be-comment-text">
+                                    {{c.comment}}
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-12">
+                            <pagination-controls
+                                previousLabel="Prev"
+                                nextLabel="Next"
+                                [responsive]="true"
+                                (pageChange)="handlePageChange($event)"
+                            ></pagination-controls>
+                        </div>
+                        <br/>
+                        <br/>
+                        <h4>ADD A COMMENT</h4>
+                        <form class="form-block">
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-6">
+                                    <div class="form-group fl_icon">
+                                        <div class="icon"><i class="fa fa-comment"></i></div>
+                                        <div class="form-group">
+                                            <textarea class="form-input" required="" placeholder="Your text"></textarea>
                                         </div>
                                     </div>
                                 </div>
-                                <!--/ End Description Tab -->
-                                <!-- Reviews Tab -->
-                                <div class="tab-pane fade" id="reviews" role="tabpanel">
-                                    <div class="tab-single review-panel">
-                                        <div class="row">
-                                            <div class="col-12">
-                                                <div class="ratting-main">
-                                                    <div class="avg-ratting">
-                                                        <h4>4.5 <span>(Overall)</span></h4>
-                                                        <span>Based on 1 Comments</span>
-                                                    </div>
-                                                    <!-- Single Rating -->
-                                                    <div class="single-rating">
-                                                        <div class="rating-author">
-                                                            <img src="assets/images/comments1.jpg" alt="#">
-                                                        </div>
-                                                        <div class="rating-des">
-                                                            <h6>Jaasa</h6>
-                                                            <div class="ratings">
-                                                                <ul class="rating">
-                                                                    <li><i class="fa fa-star"></i></li>
-                                                                    <li><i class="fa fa-star"></i></li>
-                                                                    <li><i class="fa fa-star"></i></li>
-                                                                    <li><i class="fa fa-star-half-o"></i></li>
-                                                                    <li><i class="fa fa-star-o"></i></li>
-                                                                </ul>
-                                                                <div class="rate-count">(<span>3.5</span>)</div>
-                                                            </div>
-                                                            <p>Duis tincidunt mauris ac aliquet congue. Donec vestibulum
-                                                                consequat cursus. Aliquam
-                                                                pellentesque nulla dolor, in imperdiet.</p>
-                                                        </div>
-                                                    </div>
-                                                    <!--/ End Single Rating -->
-                                                    <!-- Single Rating -->
-                                                    <div class="single-rating">
-                                                        <div class="rating-author">
-                                                            <img src="assets/images/comments2.jpg" alt="#">
-                                                        </div>
-                                                        <div class="rating-des">
-                                                            <h6>Jassa</h6>
-                                                            <div class="ratings">
-                                                                <ul class="rating">
-                                                                    <li><i class="fa fa-star"></i></li>
-                                                                    <li><i class="fa fa-star"></i></li>
-                                                                    <li><i class="fa fa-star"></i></li>
-                                                                    <li><i class="fa fa-star"></i></li>
-                                                                    <li><i class="fa fa-star"></i></li>
-                                                                </ul>
-                                                                <div class="rate-count">(<span>5.0</span>)</div>
-                                                            </div>
-                                                            <p>Duis tincidunt mauris ac aliquet congue. Donec vestibulum
-                                                                consequat cursus. Aliquam
-                                                                pellentesque nulla dolor, in imperdiet.</p>
-                                                        </div>
-                                                    </div>
-                                                    <!--/ End Single Rating -->
-                                                      <!-- ============================= New Part ====================================================  -->
-                                                      <div *ngFor="let c of comments.Comments| paginate: {
-                                                        itemsPerPage: pageSize,
-                                                        currentPage: page,
-                                                        totalItems: count
-                                                      }">
-                                                        <div class="single-rating">
-                                                            <div class="rating-author">
-                                                                <img [src]="urlImag + c.avatarClient" id="icon" alt="User Icon" />
-                                                            </div>
-                                                            <div class="rating-des">
-                                                                <h6>{{c.nomClient}}</h6>
-                                                                <p>{{c.comment}}</p>
-                                                                <button class="btn btn-danger" (click)="deleteComment(c.idComment)">Delete</button>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="col-md-12">
-                                                        <pagination-controls
-                                                            previousLabel="Prev"
-                                                            nextLabel="Next"
-                                                            [responsive]="true"
-                                                            (pageChange)="handlePageChange($event)"
-                                                        ></pagination-controls>
-                                                    </div>
-                                                </div>
-                                            <!-- ================================================================================================= -->
-                                                </div>
-                                                <!-- Review -->
-                                                <div class="comment-review">
-                                                    <div class="add-review">
-                                                        <h5>Add A Review</h5>
-                                                        <p>Your email address will not be published. Required fields are
-                                                            marked</p>
-                                                    </div>
-                                                    <h4>Your Rating</h4>
-                                                    <div class="review-inner">
-                                                        <div class="ratings">
-                                                            <ul class="rating">
-                                                                <li><i class="fa fa-star"></i></li>
-                                                                <li><i class="fa fa-star"></i></li>
-                                                                <li><i class="fa fa-star"></i></li>
-                                                                <li><i class="fa fa-star"></i></li>
-                                                                <li><i class="fa fa-star"></i></li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                
-                                                <!--/ End Review -->
-                                                <!-- Form -->
-                                                <form class="form" method="post" (submit)="addComment()">
-                                                    <div class="row">
-                                                        <div class="col-lg-6 col-12">
-                                                            <div class="form-group">
-                                                                <label>Subject<span>*</span></label>
-                                                                <input type="text" id="subject" class="fadeIn second" placeholder="Subject Of FeedBack" [(ngModel)]="subject"
-                                                                name="subject" required>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-lg-12 col-12">
-                                                            <div class="form-group">
-                                                                <label>Write a review<span>*</span></label>
-                                                                <textarea name="message" rows="6" [(ngModel)]="message"
-                                                                    placeholder=""></textarea>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-lg-12 col-12">
-                                                            <div class="form-group button5">
-                                                                <button type="submit" class="btn">Submit</button>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </form>
-                                                <!--/ End Form -->
-                                            </div>
-                                        </div>
+                                <div class="col-xs-12 col-sm-6 fl_icon">
+                                    <div class="form-group fl_icon">
+                                        <button class="btn btn-primary" style="background-color: #76323F;"> Submit</button>
                                     </div>
                                 </div>
-                                <!--/ End Reviews Tab -->
+                            </div>
+                        </form>
+
+                    </div>
+                    </div>
+                                             
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-
-    </div>
 </section>
+
+  <!-- footer -->
+  <footer class="footer container">
+    <div class="footer-item">
+      <img src="assets/images/logo.png">
+      <p>social media accounts</p>
+      <ul class="footer-icons">
+        <li>
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+        </li>
+        <li>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+        </li>
+        <li>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+        </li>
+        <li>
+          <a href="#"><i class="fab fa-linkedin"></i></a>
+        </li>
+        <li>
+          <a href="#"><i class="fab fa-google-plus-g"></i></a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="footer-item">
+      <h3>links</h3>
+      <ul>
+        <li><a href="#">home</a></li>
+        <li><a href="#">download</a></li>
+        <li><a href="#">pricing</a></li>
+        <li><a href="#">about</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-item">
+      <h3>products</h3>
+      <ul>
+        <li><a href="#">chair</a></li>
+        <li><a href="#">sofa</a></li>
+        <li><a href="#">pillow</a></li>
+        <li><a href="#">cushion</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-item">
+      <h3>support</h3>
+      <ul>
+        <li><a href="#">FAQ</a></li>
+        <li><a href="#">how it works</a></li>
+        <li><a href="#">features</a></li>
+        <li><a href="#">contact</a></li>
+      </ul>
+    </div>
+  </footer>
+  <!-- end of footer -->
+</body>
+</html>
 <!--/ End Shop Single -->

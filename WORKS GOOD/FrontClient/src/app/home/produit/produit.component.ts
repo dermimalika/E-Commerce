@@ -105,6 +105,7 @@ export class ProduitComponent implements OnInit {
               this.comments.Comments[i].nomClient=data.firstName;
               this.comments.Comments[i].emailClient=data.email;
 
+
           })
         }
       },
