@@ -44,18 +44,22 @@
           </h4>
           <div class="trend-grid">
             <!-- item -->
-            <div class="trend-item" >
-            <img [src]="" class="card-img-top" alt="product image">
+            <div class="trend-item" *ngFor="let p of products | paginate : { itemsPerPage: pageSize, currentPage: page, totalItems: count}">
+            <img [src]="urlImagP + p.file_url" class="card-img-top" alt="product image">
             <div class="trend-item-content">
-            <h4><a [routerLink]="" tabindex="0">tetstetsts</a></h4>
-            <p class="card-text">zhdize</p>
-            <h5>{{10}}.00$</h5>
+            <h4><a [routerLink]="['/produit', p.id]" tabindex="0">{{p.name}}</a></h4>
+            <p class="card-text">{{p.description}}</p>
+            <h5>{{p.price}}.00$</h5>
             </div>
             </div>
              <!-- end of item -->
-             <!--<div class="col-md-12">
+            
+          </div>
+          <div class="col-md-12" *ngIf="category!=''">
             <pagination-controls class="pagination" previousLabel="Prev" nextLabel="Next" [responsive]="true" (pageChange)="handlePageChange($event)"></pagination-controls>
-            </div>-->
+          </div>
+          <div class="col-md-12" *ngIf="filter !=''">
+            <pagination-controls class="pagination" previousLabel="Prev" nextLabel="Next" [responsive]="true" (pageChange)="handlePageChangeFilter($event)"></pagination-controls>
           </div>
         </div>  
       </div>

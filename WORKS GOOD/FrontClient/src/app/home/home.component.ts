@@ -14,6 +14,7 @@ import { ProfileService } from '../services/profile.service';
 })
 export class HomeComponent implements OnInit {
   products:any=[]
+  categories:any=[]
 
   // currentTutorial?: Tutorial;
   currentIndex = -1;
@@ -22,6 +23,8 @@ export class HomeComponent implements OnInit {
   page = 1;
   count = 0;
   pageSize = 6;
+  category="";
+  filter="";
   pageSizes = [3, 6, 9];
 
   ////////////////////////////////////////////////////////////////////////////////////
@@ -38,11 +41,23 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.toastr.success('Hello !', 'Welcome again!');
+    this.getCategory();
     //this.getProducts(); 
     this.retrieveProducts(); 
   }
 
 
+  getCategory() {
+    this.produitService.getCategorys().subscribe((data: any)=>{
+      this.categories=data;
+      console.log("in constructor in content-list :",this.categories);
+      console.log("categories in add product ",this.categories[0].name);
+    });
+  }
+
+  filterCategory(){
+
+  }
 //======================== Products
   //Without Pagination
   // getProduit(){
@@ -52,6 +67,7 @@ export class HomeComponent implements OnInit {
   //   });
   // }
 
+  // With Pagination
   // With Pagination
   getRequestParams(searchTitle: string, page: number, pageSize: number): any {
     // tslint:disable-next-line:prefer-const
@@ -75,6 +91,7 @@ export class HomeComponent implements OnInit {
 
     return params;
   }
+  
   retrieveProducts(): void {
     const params = this.getRequestParams(this.title, this.page, this.pageSize);
 

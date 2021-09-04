@@ -13,7 +13,7 @@ const routes: Routes = [
   { path: '', component: HomeComponent,canActivate:[AuthGuardGuard] },
   { path: 'produit/:id', component: ProduitComponent,canActivate:[AuthGuardGuard] },
   { path: 'profile/:id', component: ProfileComponent,canActivate:[AuthGuardGuard] },
-  { path: 'filter', component:FilteringComponent,canActivate:[AuthGuardGuard]}
+  { path: 'filter/:category', component:FilteringComponent,canActivate:[AuthGuardGuard]}
 ];
 //,canActivate:[AuthGuardGuard]
 

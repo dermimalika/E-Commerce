@@ -5,8 +5,10 @@ import com.techgeeknext.dao.UserDao;
 import com.techgeeknext.entities.AuthRequestLogin;
 import com.techgeeknext.entities.User;
 
+import com.techgeeknext.model.Category;
 import com.techgeeknext.model.Comment;
 import com.techgeeknext.model.Product;
+import com.techgeeknext.repository.CategoryRepository;
 import com.techgeeknext.repository.ProductRepository;
 import com.techgeeknext.repository.UserRepository;
 import com.techgeeknext.service.UserService;
@@ -34,6 +36,9 @@ public class UserController {
 
     @Autowired
     private ProductRepository productRepository;
+
+    @Autowired
+    private CategoryRepository categoryRepository;
 
 
     AuthRequestLogin authRequestLogin;
@@ -108,18 +113,24 @@ public class UserController {
         return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
     }
     }
+    @GetMapping("/getCategorys")
+    public List<Category> getProducts() {
+        return categoryRepository.findAll();
+    }
     ////////////////////////////////////////FILTER PRODUCT BY CATEGORY//////////////////////////////////////////////////////////
 
-    @GetMapping("/products/category")
+    @GetMapping("/products/cat")
     public ResponseEntity<Map<String,Object>> getFilteredProducts(@RequestParam(required = false) String category,@RequestParam(defaultValue = "0") int page, @RequestParam(defaultValue = "3") int size){
         try {
+            System.out.println("category in the params of filtring request :"+category);
+            System.out.println("page in the params of filtring request :"+page);
             List<Product>Products= new ArrayList<>();
             Pageable paging  = PageRequest.of(page,size);
             Page<Product> pagecats;
                 pagecats = productRepository.findByCategory(category,paging);
                 Products = pagecats.getContent();
                 Map<String,Object> response = new HashMap<>();
-                response.put("Products of this Category", Products);
+                response.put("ProductsFilterCategory", Products);
                 response.put("CurrentPage",pagecats.getNumber());
                 response.put("totalItems",pagecats.getTotalElements());
                 response.put("totalPages",pagecats.getTotalPages());
@@ -132,15 +143,15 @@ public class UserController {
 
     ///////////////////////////////////////////////////SERCH PRODUCT BY KEY WORD////////////////////////////////////////////////////////////////////////
     @GetMapping("/products/search")
-    public ResponseEntity<Map<String,Object>> getSearchedProducts(@RequestParam(required = false) String name,@RequestParam(defaultValue = "0") int page, @RequestParam(defaultValue = "3") int size){
+    public ResponseEntity<Map<String,Object>> getSearchedProducts(@RequestParam(required = false) String filter,@RequestParam(defaultValue = "0") int page, @RequestParam(defaultValue = "3") int size){
         try {
             List<Product>Products= new ArrayList<>();
             Pageable paging  = PageRequest.of(page,size);
             Page<Product> pagecats;
-            pagecats = productRepository.findByNameContaining(name,paging);
+            pagecats = productRepository.findByNameContaining(filter,paging);
             Products = pagecats.getContent();
             Map<String,Object> response = new HashMap<>();
-            response.put("Products of this Category", Products);
+            response.put("ProductsFilterKeyWord", Products);
             response.put("CurrentPage",pagecats.getNumber());
             response.put("totalItems",pagecats.getTotalElements());
             response.put("totalPages",pagecats.getTotalPages());

@@ -25,9 +25,33 @@ export class ProduitService {
       return this.http.get("users/products?page="+params.page, {params,headers: new HttpHeaders().set('Authorization', token!)});
     }
 
+  //for Products Filter with Category
+    getAllProductCategory(params: any): Observable<any> {
+      let token = sessionStorage.getItem("clienttoken");
+      console.log("params in produit service products getallCategory :",params);
+      console.log("params in produit service Products getallCategory attribut category:",params.category);
+      
+      return this.http.get("users/products/cat?page="+params.page, {params,headers: new HttpHeaders().set('Authorization', token!)});
+    }
+  //for Products Filter with Key Word
+    getAllProductFilter(params: any): Observable<any> {
+      let token = sessionStorage.getItem("clienttoken");
+      console.log("params in produit service products getallCategory :",params);
+      console.log("params in produit service Products getallFilter attribut filter:",params.filter);
+      
+    return this.http.get("users/products/search?page="+params.page, {params,headers: new HttpHeaders().set('Authorization', token!)});
+  }  
+    
   getProduit(id:any){
     let token = sessionStorage.getItem("clienttoken");
     return this.http.get("users/produit/"+id, {headers: new HttpHeaders().set('Authorization', token!)});
+  }
+  //=======================================================================>
+  //============>  Category
+   // Get All categories
+   getCategorys() {
+    let token = sessionStorage.getItem("clienttoken");
+    return this.http.get('users/getCategorys', {headers: new HttpHeaders().set('Authorization', token!)});
   }
   //=======================================================================>
     //==========>  Comments
