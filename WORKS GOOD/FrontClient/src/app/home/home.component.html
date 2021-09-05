@@ -22,25 +22,24 @@
       <a href="index.html" class="brand-name">
         <img class="logo" src="assets/images/logo.png">
       </a>
+      <span class="head-icon">  
+        <form >
+          <i class="fas fa-search"></i> &nbsp;    
+          <input type="search" placeholder="Search" aria-label="Search"  name="filter" [(ngModel)]="filter">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit" [routerLink]="['/filter', 'fil/ '+filter]">Search</button>
+        </form>
+      </span>
       <div>
-        <span>        
-          <form class="form-inline my-2 my-lg-0" >
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"  name="filter" [(ngModel)]="filter">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit" [routerLink]="['/filter', 'fil/ '+filter]">Search</button>
-            </form>
-          </span>
-
-        <span class="head-icon">
+       <!---<span class="head-icon">
           <i class="fas fa-search"></i>
-        </span>        
+        </span> -->       
         <span class="head-icon">
           <i class="fas fa-shopping-bag"></i>
         </span>
         <span class="head-icon">
           <i class="fas fa-user-circle"></i>
         </span>
-        <span class="head-icon">
-            
+        <span class="head-icon">           
             <a (click)="logout()"><i class="fas fa-sign-out-alt"></i></a>
           </span>
       </div>
@@ -73,8 +72,8 @@
         <h4></h4>
         <form>
         <h2>Nos meubles</h2>
-          Ou Choisissez de 
-          <select class="form-control" aria-label="Default select example" required #ucategory="ngModel" id="category"
+          Ou Choisissez de filtrer par catégorie:
+          <select  aria-label="Default select example" required #ucategory="ngModel" id="category"
               placeholder="Select Category" name="category" [(ngModel)]="category">
             <option *ngFor="let c of categories" [value]="c.name">{{c.name}}</option>
           </select>
