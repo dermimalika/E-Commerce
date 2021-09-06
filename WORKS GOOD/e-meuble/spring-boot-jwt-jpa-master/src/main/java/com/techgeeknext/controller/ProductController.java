@@ -1,9 +1,13 @@
 package com.techgeeknext.controller;
 
 import com.techgeeknext.dao.ProductRepository;
+import com.techgeeknext.dao.StoreRepository;
 import com.techgeeknext.entities.Product;
 import com.techgeeknext.service.FileUploadUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -11,7 +15,6 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
-import java.util.Random;
 
 
 @RestController
@@ -21,6 +24,10 @@ public class ProductController {
 
     private byte[] bytes;
     private String fileNameInController;
+
+    @Autowired
+    private StoreRepository storeRespository;
+
 
     @Autowired
     private ProductRepository productRepository;
@@ -48,7 +55,6 @@ public class ProductController {
         product.setArch(false);
         Product savedProduct = productRepository.save(product);
     }
-
     @CrossOrigin(origins = "http://localhost:4200")
     @PostMapping("/update/{id}")
     public Product updateProduct(@PathVariable("id") Long id,@RequestBody Product product)throws IOException  {

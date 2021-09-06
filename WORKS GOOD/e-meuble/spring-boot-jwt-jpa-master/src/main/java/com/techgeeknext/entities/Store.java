@@ -6,13 +6,15 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
-import net.minidev.json.annotate.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 @Entity
 @Data @AllArgsConstructor@NoArgsConstructor
-@Table(uniqueConstraints= @UniqueConstraint(columnNames={"nom"}))
 public class Store {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -33,9 +35,6 @@ public class Store {
 
     @OneToOne(mappedBy = "store")
     private Admin admin;
-
-
-
 
     public Long getIdStore() {
         return idStore;
@@ -85,6 +84,7 @@ public class Store {
     public void setAdmin(Admin admin) {
         this.admin = admin;
     }
+
 
 
 
