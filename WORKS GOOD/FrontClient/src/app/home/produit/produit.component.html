@@ -82,7 +82,8 @@
                                     <br/>
                                     <h6>Quantity :</h6>
                                     <!-- Input Order -->
-                                    <input type="number" default>&nbsp; <button class="btn btn-danger" style="background-color: #76323F;">BUY NOW</button>&nbsp; <button class="btn btn-primary" style="background-color: #C09F80;">ADD TO CART</button> 
+                                    <input type="number" default="1" [(ngModel)]="quantity"
+                                    name="quantity">&nbsp; <button class="btn btn-danger" style="background-color: #76323F;">BUY NOW</button>&nbsp; <button class="btn btn-primary" (click)="addPanier()" style="background-color: #C09F80;">ADD TO CART</button> 
 
                                     <br/>
                                     <!--/ End Input Order -->

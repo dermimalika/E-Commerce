@@ -15,6 +15,8 @@ import { ProduitComponent } from './home/produit/produit.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ProfileService } from './services/profile.service';
 import { ProduitService } from './services/produit.service';
+import { CommandeComponent } from './commande/commande.component';
+import { CommandeService } from './services/commande.service';
 import { FilteringComponent } from './home/filtering/filtering.component';
 
 
@@ -27,6 +29,7 @@ import { FilteringComponent } from './home/filtering/filtering.component';
     ProduitComponent,
     ProfileComponent,
     FilteringComponent,
+    CommandeComponent,
   
   ],
   imports: [
@@ -41,7 +44,8 @@ import { FilteringComponent } from './home/filtering/filtering.component';
   ],
   providers: [AuthenticationService,
     ProfileService,
-    ProduitService,],
+    ProduitService,
+    CommandeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

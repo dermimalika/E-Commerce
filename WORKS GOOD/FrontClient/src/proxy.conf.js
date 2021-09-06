@@ -3,12 +3,14 @@ const PROXY_CONFIG = [
     {
         context: [
             "/auth/**",
-            "/users/**"
+            "/users/**",
+            "/order/**",
+            "/panier/**",
             
-
         ],
         target: "http://localhost:7777",
         secure: false,
+        changeOrigin: true,
         logLevel: "debug"
     }
 ]

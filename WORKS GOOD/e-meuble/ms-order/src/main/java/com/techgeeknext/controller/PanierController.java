@@ -65,8 +65,8 @@ public class PanierController {
         return new ResponseEntity<ApiResponse>(new ApiResponse(true,"Product has been updates"),HttpStatus.OK);
     }
 
-    @DeleteMapping("/delete/{panierItemId")
-    public ResponseEntity<ApiResponse> deletePanierItem(@PathVariable("panierItemId") int panierItemId,@RequestParam("user_id") Long user_id) throws PanierItemNotExistException {
+    @DeleteMapping("/delete")
+    public ResponseEntity<ApiResponse> deletePanierItem(@RequestParam("id")int panierItemId,@RequestParam("user_id") Long user_id) throws PanierItemNotExistException {
         panierService.deletePanierItem(panierItemId,user_id);
         return new ResponseEntity<ApiResponse>(new ApiResponse(true,"Item has been removed"), HttpStatus.OK);
 
