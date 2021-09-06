@@ -1,7 +1,8 @@
 
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AuthenticationService } from 'src/app/services/authentication.service';
+import { CommandeService } from 'src/app/services/commande.service';
 import { ProduitService } from 'src/app/services/produit.service';
 import { ProfileService } from 'src/app/services/profile.service';
 
@@ -27,7 +28,7 @@ export class ProduitComponent implements OnInit {
   pageSize = 3;
   pageSizes = [3, 6, 9];
 
-
+  quantity="1"
 
   urlImag='../../../assets/images/avatars/'
 
@@ -46,6 +47,8 @@ export class ProduitComponent implements OnInit {
   constructor(private route: ActivatedRoute,
     private produitService: ProduitService,
     private profileService: ProfileService ,
+    private commandeService:CommandeService,
+    private router: Router,
     private auth: AuthenticationService,) {
 
   }
@@ -156,15 +159,22 @@ export class ProduitComponent implements OnInit {
     });
   }
 
-
 //====================================================================================================
-  profile() {
-
+//==================== Panier
+  addPanier(){
+    let body={
+      productId:this.id,
+      quantity:this.quantity
+    };
+    this.commandeService.addPanier(body).subscribe(
+      (data:any)=>{
+        this.router.navigate(['commande']);
+      })
   }
+//====================================================================================================
 
   logout() {
     this.auth.logOut();
-    
   }
 
 }

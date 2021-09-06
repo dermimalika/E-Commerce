@@ -3,5 +3,10 @@
         "target": "http://localhost:7777",
         "secure": false,
         "logLevel": "debug"
+    },
+    "/order/*": {
+        "target": "http://localhost:7777",
+        "secure": false,
+        "logLevel": "debug"
     }
 }

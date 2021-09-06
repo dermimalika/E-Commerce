@@ -17,6 +17,11 @@
     <link rel="stylesheet" href="/assets/css/jquery-ui.min.css" type="text/css">
 
     <link rel="stylesheet" href="/assets/css/style.css">
+
+    <style>
+    input[type=number]::-webkit-inner-spin-button {
+        opacity: 1;
+      }</style>
 </head>
   <!-- header -->
   <header class="header">
@@ -78,7 +83,35 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
+
+                                    <tr *ngFor="let p of products">
+                                        <td class="shoping__cart__item">
+                                            <img [src]="urlImagP + p.product.file_url" alt="product image">
+                                            <h5>{{p.product.name}}</h5>
+                                        </td>
+                                        <td class="shoping__cart__price">
+                                            {{p.product.price}}
+                                        </td>
+                                        <td class="shoping__cart__quantity">
+                                            <div class="quantity">
+                                                <div class="pro-qty">
+                                                    <input type="number" min="1" max="{{p.product.quantity}}" placeholder="{{p.quantity}}">
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="shoping__cart__total">
+                                            ${{p.product.price * p.quantity}}
+                                        </td>
+                                        <td class="shoping__cart__item__close" >
+                                            
+                                            <button type="button" class="close" aria-label="Close" (click)="deleteProdPanier(p.id)" >
+                                                <span aria-hidden="true">×</span>
+                                              </button>
+                                        </td>
+                                    </tr>
+
+
+                                <!-- <tr>
                                     <td class="shoping__cart__item">
                                         <img src="img/cart/cart-1.jpg" alt="product image">
                                         <h5>product1</h5>
@@ -143,7 +176,7 @@
                                     <td class="shoping__cart__item__close">
                                         <span class="icon_close"></span>
                                     </td>
-                                </tr>
+                                </tr> -->
                             </tbody>
                         </table>
                     </div>
@@ -172,10 +205,10 @@
                     <div class="shoping__checkout">
                         <h5>Cart Total</h5>
                         <ul>
-                            <li>Subtotal <span>$454.98</span></li>
-                            <li>Total <span>$454.98</span></li>
+                            <li>Subtotal <span>{{totalCost}}</span></li>
+                            <li>Total <span>{{totalCost}}</span></li>
                         </ul>
-                        <a href="#" class="primary-btn btnn">PROCEED TO CHECKOUT</a>
+                        <a class="primary-btn btnn" (click)="addOrder()">PROCEED TO CHECKOUT</a>
                     </div>
                 </div>
             </div>
