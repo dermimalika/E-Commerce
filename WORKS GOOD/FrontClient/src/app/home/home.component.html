@@ -22,17 +22,19 @@
       <a href="index.html" class="brand-name">
         <img class="logo" src="assets/images/logo.png">
       </a>
-      <div>
-        <span>        
-          <form class="form-inline my-2 my-lg-0" >
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"  name="filter" [(ngModel)]="filter">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit" [routerLink]="['/filter', 'fil/ '+filter]">Search</button>
-            </form>
-          </span>
+      <span class="head-icon">
+        <form>
 
-        <span class="head-icon">
+          <input style="margin-left: 185px;" type="search" placeholder="Search" aria-label="Search" name="filter" [(ngModel)]="filter">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit"
+            [routerLink]="['/filter', 'fil/ '+filter]">Search<i style="margin-left: 5px;"
+              class="fas fa-search"></i></button>
+        </form>
+      </span>
+      <div>
+        <!---<span class="head-icon">
           <i class="fas fa-search"></i>
-        </span>        
+        </span> -->
         <span class="head-icon">
           <i class="fas fa-shopping-bag"></i>
         </span>
@@ -40,9 +42,8 @@
           <i class="fas fa-user-circle"></i>
         </span>
         <span class="head-icon">
-            
-            <a (click)="logout()"><i class="fas fa-sign-out-alt"></i></a>
-          </span>
+          <a (click)="logout()"><i class="fas fa-sign-out-alt"></i></a>
+        </span>
       </div>
     </div>
 
@@ -52,7 +53,7 @@
           welcome to E-Meuble
         </h1>
         <p class="text">
-          Choisissez votre meuble en ligne, en toutes couleurs, types,  et beaucoup plus ...
+          Choisissez votre meuble en ligne, en toutes couleurs, types, et beaucoup plus ...
         </p>
         <button type="button" class="btn">
           shop now
@@ -68,39 +69,42 @@
 
   <!-- trending product -->
   <section class="trend">
-    <div class="container">
+    <div class="container" style="margin-left: -65px;">
       <div class="title">
         <h4></h4>
         <form>
-        <h2>Nos meubles</h2>
-          Ou Choisissez de 
-          <select class="form-control" aria-label="Default select example" required #ucategory="ngModel" id="category"
-              placeholder="Select Category" name="category" [(ngModel)]="category">
-            <option *ngFor="let c of categories" [value]="c.name">{{c.name}}</option>
+          <h2>Nos meubles</h2>
+          Ou Choisissez de filtrer par catégorie:
+          <select aria-label="Default select example" required #ucategory="ngModel" id="category"
+            placeholder="Select Category" name="category" [(ngModel)]="category">
+            <option class="cat" *ngFor="let c of categories" [value]="c.name">{{c.name}}</option>
           </select>
           <span class="head-icon">
-            <a [routerLink]="['/filter', category]"><i class="fas fa-search" ></i></a>
+            <a [routerLink]="['/filter', category]"><i class="fas fa-search searche2"></i></a>
           </span>
         </form>
       </div>
-      
-      <div class="trend-grid">
+
+      <div class="trend-grid ">
         <!-- item -->
-        <div class="trend-item" *ngFor="let p of products | paginate : { itemsPerPage: pageSize, currentPage: page, totalItems: count}">
-        <img [src]="urlImagP + p.file_url" class="card-img-top" alt="product image">
-        <div class="trend-item-content">
-        <h4><a [routerLink]="['/produit', p.id]" tabindex="0">{{p.name}}</a></h4>
-        <p class="card-text">{{p.description}}</p>
-        <h5>{{p.price}}.00$</h5>
+        <div class="trend-item"
+          *ngFor="let p of products | paginate : { itemsPerPage: pageSize, currentPage: page, totalItems: count}">
+          <img id="zoomIn" [src]="urlImagP + p.file_url" class="card-img-top" alt="product image"
+            style="-webkit-transition:all 0.4s">
+          <div class="trend-item-content">
+            <h4 class="product-title"><a [routerLink]="['/produit', p.id]" tabindex="0">{{p.name}}</a></h4>
+            <p class="card-text">{{p.description}}</p>
+            <h5 class="price">{{p.price}}.00$</h5>
+          </div>
         </div>
-        </div>
-         <!-- end of item -->
-        
+        <!-- end of item -->
+
 
       </div>
     </div>
     <div class="col-md-12">
-    <pagination-controls class="pagination" previousLabel="Prev" nextLabel="Next" [responsive]="true" (pageChange)="handlePageChange($event)"></pagination-controls>
+      <pagination-controls style="background: #ad3939;" class="pagination" previousLabel="Prev" nextLabel="Next"
+        [responsive]="true" (pageChange)="handlePageChange($event)"></pagination-controls>
     </div>
   </section>
   <!-- end of trending product -->
@@ -154,7 +158,7 @@
         </div>
       </div>
       <!-- end of item -->
-      
+
       <!-- item -->
       <div class="featured-item">
         <div class="featured-item-img">
@@ -207,6 +211,7 @@
     </div>
   </section>
   <!-- end of newsletter-->
+
 
   <!-- footer -->
   <footer class="footer container">
@@ -262,7 +267,9 @@
       </ul>
     </div>
   </footer>
+
   <!-- end of footer -->
+
 </body>
 
 </html>

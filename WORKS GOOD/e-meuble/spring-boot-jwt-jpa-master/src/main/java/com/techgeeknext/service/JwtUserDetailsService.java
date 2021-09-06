@@ -1,8 +1,10 @@
 package com.techgeeknext.service;
 
+import com.techgeeknext.dao.AdminDao;
 import com.techgeeknext.entities.Admin;
 import com.techgeeknext.entities.Role;
 import com.techgeeknext.model.UserDto;
+import com.techgeeknext.repository.StoreRespository;
 import com.techgeeknext.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -20,6 +22,14 @@ public class JwtUserDetailsService implements UserDetailsService {
 
 	@Autowired
 	private PasswordEncoder bcryptEncoder;
+
+	@Autowired
+	private StoreRespository storeRespository;
+
+	@Autowired
+	private AdminDao adminDao;
+
+
 
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
