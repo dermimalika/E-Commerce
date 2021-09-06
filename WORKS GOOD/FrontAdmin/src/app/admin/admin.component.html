@@ -17,6 +17,7 @@
         <th mat-header-cell *matHeaderCellDef> Username </th>
         <td mat-cell *matCellDef="let admin"> <b *ngIf="!admin.arch">{{admin.username}}</b> </td>
       </ng-container>
+      
 
       <ng-container matColumnDef="delete">
         <th mat-header-cell *matHeaderCellDef> Action </th>

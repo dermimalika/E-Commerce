@@ -1,17 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product details</title>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
- <!-- Font awesome -->
- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
- integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
- crossorigin="anonymous" />
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product details</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <!-- Font awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+    integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+    crossorigin="anonymous" />
 
 </head>
+
 <body>
   <!-- header -->
   <header class="header">
@@ -22,7 +25,7 @@
       <div>
         <span class="head-icon">
           <i class="fas fa-search"></i>
-        </span>        
+        </span>
         <span class="head-icon">
           <i class="fas fa-shopping-bag"></i>
         </span>
@@ -30,134 +33,131 @@
           <i class="fas fa-user-circle"></i>
         </span>
         <span class="head-icon">
-            
-            <a (click)="logout()"><i class="fas fa-sign-out-alt"></i></a>
-          </span>
+
+          <a (click)="logout()"><i class="fas fa-sign-out-alt"></i></a>
+        </span>
       </div>
     </div>
 
-   
+
   </header>
-<!-- end of header -->
-
-<br/>
-<br/>
-<!-- Shop Single -->
-<section class="shop single section" style="background: #f9f9f9;">
+  <!-- end of header -->
+  <!-- Shop Single -->
+  <section class="shop single section" style="background: #f9f9f9;">
     <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <div class="row">
-                    <div class="col-lg-6 col-12">
-                        <!-- Product Slider -->
-                        <div class="product-gallery">
-                            <!-- Images slider -->
-                            <div class="flexslider-thumbnails">
-                                <img [src]="urlImagP + produit.file_url" height="400" width="400">
-                            </div>
-                            <!-- End Images slider -->
-                        </div>
-                        <!-- End Product slider -->
-                    </div>
-                    <div class="col-lg-6 col-12">
-                        <div class="product-des">
-                            <!-- Description -->
-                            <div class="short">
-                                <br/>
-                                <br/>
-                                <h3 class="price"><span class="discount">{{produit.name}} | ${{produit.price}}</span> </h3>
-                                <br/>
-                                <p class="description">{{produit.description}}</p>
-                                <br/>
-                                <br/>
-                                <p class="description"><b> Weight: </b>  {{produit.weight}} Kg</p>
-                                <p class="cat"><b> Category: </b>  <a href="#">{{produit.category}}</a></p>
-                                <p class="availability"><b> Availability: </b> {{produit.quantity}} Products In Stock</p>
-                            </div>
-                            <!--/ End Description -->
-                            <!-- Product Buy -->
-                            <div class="product-buy">
-                                <div class="quantity">
-                                    <br/>
-                                    <br/>
-                                    <h6>Quantity :</h6>
-                                    <!-- Input Order -->
-                                    <input type="number" default>&nbsp; <button class="btn btn-danger" style="background-color: #76323F;">BUY NOW</button>&nbsp; <button class="btn btn-primary" style="background-color: #C09F80;">ADD TO CART</button> 
-
-                                    <br/>
-                                    <!--/ End Input Order -->
-                                </div>
-                               
-                            
-                            </div>
-                            <!--/ End Product Buy -->
-                        </div>
-                    </div>
+      <div class="row">
+        <div class="col-12">
+          <div class="row">
+            <div class="col-lg-6 col-12">
+              <!-- Product Slider -->
+              <div class="product-gallery">
+                <!-- Images slider -->
+                <div class="flexslider-thumbnails">
+                  <img [src]="urlImagP + produit.file_url" height="400" width="400">
                 </div>
-                <br/>
+                <!-- End Images slider -->
+              </div>
+              <!-- End Product slider -->
+            </div>
+            <div class="col-lg-6 col-12">
+              <div class="product-des">
+                <!-- Description -->
+                <div class="short">
+                  <br />
+                  <br />
+                  <h3 class="price"><span class="discount">{{produit.name}} | ${{produit.price}}</span> </h3>
+                  <br />
+                  <p class="description">{{produit.description}}</p>
+                  <br />
+                  <br />
+                  <p class="description"><b class="b"> Weight: </b> {{produit.weight}} Kg</p>
+                  <p class="cat"><b class="b"> Category: </b> <a href="#">{{produit.category}}</a></p>
+                  <p class="availability"><b class="b"> Availability: </b> {{produit.quantity}} Products In Stock</p>
+                </div>
+                <!--/ End Description -->
+                <!-- Product Buy -->
+                <div class="product-buy">
+                  <div class="quantity">
+                    <br />
+                    <br />
+                    <h6>Quantity :</h6>
+                    <!-- Input Order -->
+                    <input type="number" class="qty" default>&nbsp; <button class="buy"
+                      style=" text-align: center;">BUY
+                      NOW</button>&nbsp; <button class=" add">ADD TO CART</button>
 
-                <div class="container">
-                    <div class="be-comment-block">
-                        <h3>Comments </h3>
-                        <br/>
-                        <div *ngFor="let c of comments.Comments| paginate: {itemsPerPage: pageSize, currentPage: page, totalItems: count }" class="be-comment">
-                            <div class="be-img-comment">	
-                                <a href="blog-detail-2.html">
-                                    <img [src]="urlImag + c.avatarClient" id="icon" alt="User Icon" />
-                                </a>
-                            </div>
-                            <div  class="be-comment-content">
-                                
-                                    <span class="be-comment-name">
-                                        <a href="blog-detail-2.html">{{c.nomClient}}</a>
-                                        </span>
-                                    <span class="be-comment-time">
-                                        <i class="fa fa-clock-o"></i>
-                                        May 27, 2015 at 3:14am
-                                    </span>
-                    
-                                <p class="be-comment-text">
-                                    {{c.comment}}
-                                </p>
-                            </div>
-                        </div>
-                        
-                        <div class="col-md-12">
-                            <pagination-controls
-                                previousLabel="Prev"
-                                nextLabel="Next"
-                                [responsive]="true"
-                                (pageChange)="handlePageChange($event)"
-                            ></pagination-controls>
-                        </div>
-                        <br/>
-                        <br/>
-                        <h4>ADD A COMMENT</h4>
-                        <form class="form-block">
-                            <div class="row">
-                                <div class="col-xs-12 col-sm-6">
-                                    <div class="form-group fl_icon">
-                                        <div class="icon"><i class="fa fa-comment"></i></div>
-                                        <div class="form-group">
-                                            <textarea class="form-input" required="" placeholder="Your text"></textarea>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xs-12 col-sm-6 fl_icon">
-                                    <div class="form-group fl_icon">
-                                        <button class="btn btn-primary" style="background-color: #76323F;"> Submit</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
+                    <br />
+                    <!--/ End Input Order -->
+                  </div>
 
+
+                </div>
+                <!--/ End Product Buy -->
+              </div>
+            </div>
+          </div>
+          <br />
+
+          <div class="container">
+            <div class="be-comment-block">
+              <h3>Comments </h3>
+              <br />
+              <div
+                *ngFor="let c of comments.Comments| paginate: {itemsPerPage: pageSize, currentPage: page, totalItems: count }"
+                class="be-comment">
+                <div class="be-img-comment">
+                  <a href="blog-detail-2.html">
+                    <img [src]="urlImag + c.avatarClient" id="icon" alt="User Icon" />
+                  </a>
+                </div>
+                <div class="be-comment-content">
+
+                  <span class="be-comment-name">
+                    <a href="blog-detail-2.html">{{c.nomClient}}</a>
+                  </span>
+                  <span class="be-comment-time">
+                    <i class="fa fa-clock-o"></i>
+                    May 27, 2015 at 3:14am
+                  </span>
+
+                  <p class="be-comment-text">
+                    {{c.comment}}
+                  </p>
+                </div>
+              </div>
+
+              <div class="col-md-12">
+                <pagination-controls previousLabel="Prev" nextLabel="Next" [responsive]="true"
+                  (pageChange)="handlePageChange($event)"></pagination-controls>
+              </div>
+              <br />
+              <br />
+              <h4>ADD A COMMENT</h4>
+              <form class="form-block">
+                <div class="row">
+                  <div class="col-xs-12 col-sm-6">
+                    <div class="form-group fl_icon">
+                      <div class="icon"><i class="fa fa-comment"></i></div>
+                      <div class="form-group">
+                        <textarea class="form-input" required="" placeholder="Your text"></textarea>
+                      </div>
                     </div>
+                  </div>
+                  <div class="col-xs-12 col-sm-6 fl_icon">
+                    <div class="form-group fl_icon">
+                      <button class="buy"> Submit</button>
                     </div>
-                                             
-                            </div>
-                        </div>
-                    </div>
-</section>
+                  </div>
+                </div>
+              </form>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- footer -->
   <footer class="footer container">
@@ -215,5 +215,6 @@
   </footer>
   <!-- end of footer -->
 </body>
+
 </html>
 <!--/ End Shop Single -->

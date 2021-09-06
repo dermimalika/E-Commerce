@@ -44,4 +44,6 @@ public interface AdminDao extends JpaRepository<Admin,Long> {
     void updatePSW(@Param("psw") String psw,@Param("mail") String mail);
 
 
+    Admin findByStoreIdStore(Long id);
+
 }
