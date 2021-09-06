@@ -142,14 +142,112 @@
                         <textarea class="form-input" required="" placeholder="Your text"></textarea>
                       </div>
                     </div>
-                  </div>
-                  <div class="col-xs-12 col-sm-6 fl_icon">
-                    <div class="form-group fl_icon">
-                      <button class="buy"> Submit</button>
+
+                    <div class="col-lg-6 col-12">
+                        <div class="product-des">
+                            <!-- Description -->
+                            <div class="short">
+                                <br/>
+                                <br/>
+                                <h3 class="price"><span class="discount">{{produit.name}} | ${{produit.price}}</span> </h3>
+                                <br/>
+                                <p class="description">{{produit.description}}</p>
+                                <br/>
+                                <br/>
+                                <p class="description"><b> Weight: </b>  {{produit.weight}} Kg</p>
+                                <p class="cat"><b> Category: </b>  <a href="#">{{produit.category}}</a></p>
+                                <p class="availability"><b> Availability: </b> {{produit.quantity}} Products In Stock</p>
+                            </div>
+                            <!--/ End Description -->
+                            <!-- Product Buy -->
+                            <div class="product-buy">
+                                <div class="quantity">
+                                    <br/>
+                                    <br/>
+                                    <h6>Quantity :</h6>
+                                    <!-- Input Order -->
+                                    <input type="number" default="1" [(ngModel)]="quantity"
+                                    name="quantity">&nbsp; <button class="btn btn-danger" style="background-color: #76323F;">BUY NOW</button>&nbsp; <button class="btn btn-primary" (click)="addPanier()" style="background-color: #C09F80;">ADD TO CART</button> 
+
+                                    <br/>
+                                    <!--/ End Input Order -->
+                                </div>
+                               
+                            
+                            </div>
+                            <!--/ End Product Buy -->
+                        </div>
+
                     </div>
                   </div>
                 </div>
-              </form>
+
+                <br/>
+
+                <div class="container">
+                    <div class="be-comment-block">
+                        <h3>Comments </h3>
+                        <br/>
+                        <div *ngFor="let c of comments.Comments| paginate: {itemsPerPage: pageSize, currentPage: page, totalItems: count }" class="be-comment">
+                            <div class="be-img-comment">	
+                                <a href="blog-detail-2.html">
+                                    <img [src]="urlImag + c.avatarClient" id="icon" alt="User Icon" />
+                                </a>
+                            </div>
+                            <div  class="be-comment-content">
+                                
+                                    <span class="be-comment-name">
+                                        <a href="blog-detail-2.html">{{c.nomClient}}</a>
+                                        </span>
+                                    <span class="be-comment-time">
+                                        <i class="fa fa-clock-o"></i>
+                                        May 27, 2015 at 3:14am
+                                    </span>
+                    
+                                <p class="be-comment-text">
+                                    {{c.comment}}
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-12">
+                            <pagination-controls
+                                previousLabel="Prev"
+                                nextLabel="Next"
+                                [responsive]="true"
+                                (pageChange)="handlePageChange($event)"
+                            ></pagination-controls>
+                        </div>
+                        <br/>
+                        <br/>
+                        <h4>ADD A COMMENT</h4>
+
+
+                        <form class="form-block" (submit)="addComment()">
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-6">
+                                    <div class="form-group fl_icon">
+                                        <div class="icon"><i class="fa fa-comment"></i></div>
+                                        <div class="form-group">
+                                          <input type="text" id="subject" class="fadeIn second" placeholder="Subject Of FeedBack" [(ngModel)]="subject"
+                                          name="subject" required>
+                                           
+                                        </div>
+                                        <div class="form-group">
+                                          
+                                            <textarea class="form-input" name="message" rows="6" [(ngModel)]="message"
+                                                                    placeholder=""></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-6 fl_icon">
+                                    <div class="form-group fl_icon">
+                                        <button class="btn btn-primary" style="background-color: #76323F;"> Submit</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+
 
             </div>
           </div>

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { AuthenticationService } from '../services/authentication.service';
+import { CommandeService } from '../services/commande.service';
 import { ProduitService } from '../services/produit.service';
 import { ProfileService } from '../services/profile.service';
 
@@ -36,6 +37,7 @@ export class HomeComponent implements OnInit {
  constructor(private toastr: ToastrService,
     private produitService: ProduitService,
     private profileService: ProfileService,
+    private commandeService:CommandeService,
     private auth: AuthenticationService,
     private route:Router) { }
 
