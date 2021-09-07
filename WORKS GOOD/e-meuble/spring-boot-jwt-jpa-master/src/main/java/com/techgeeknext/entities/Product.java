@@ -1,15 +1,24 @@
 package com.techgeeknext.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 
 @Entity
 @Data
-@JsonIgnoreProperties(value = {"hibernateLazyInitializer","handler"})
+@AllArgsConstructor
+@NoArgsConstructor
 public class Product {
 
     @Id
@@ -48,10 +57,12 @@ public class Product {
     @Column(name = "description")
     private String description;
 
-
-
     @Column (columnDefinition = "boolean default false ")
     private Boolean arch;
+
+    @Column
+    private Long id_store;
+
 
     public Long getId() {
         return id;
@@ -115,5 +126,29 @@ public class Product {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getFileUrl() {
+        return fileUrl;
+    }
+
+    public void setFileUrl(String fileUrl) {
+        this.fileUrl = fileUrl;
+    }
+
+    public Boolean getArch() {
+        return arch;
+    }
+
+    public void setArch(Boolean arch) {
+        this.arch = arch;
+    }
+
+    public Long getId_store() {
+        return id_store;
+    }
+
+    public void setId_store(Long id_store) {
+        this.id_store = id_store;
     }
 }

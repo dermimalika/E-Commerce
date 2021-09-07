@@ -40,4 +40,5 @@ public interface StoreRepository extends JpaRepository<Store,Long> {
     @Query("update Store s set s.arch=false where s.idStore=:id")
     void restoreStore(@Param("id") Long id);
 
+    Store findByIdStore(Long id_store);
 }
