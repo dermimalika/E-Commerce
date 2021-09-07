@@ -9,8 +9,15 @@ public class UserDto {
     private String name;
     private Role role;
     private Boolean arch;
+    private Long store;
 
+    public void setIdStore(Long idStore) {
+        this.store = idStore;
+    }
 
+    public Long getIdStore() {
+        return store;
+    }
 
     public String getUsername() {
         return username;

@@ -26,6 +26,12 @@
       <input type="password" class="form-control" id="password" required [(ngModel)]="user.password" name="password">
     </div>
 
+    <label for="Store">Store</label>
+    <select class="form-control" aria-label="Default select example" required #ucategory="ngModel" id="category"
+      placeholder="Select Store" name="store" [(ngModel)]="store">
+      <option *ngFor="let s of stores" [value]="s.idStore">{{s.nom}}</option>
+    </select>
+
     <button style="width: 398px;" type="submit" class="btn btn-danger btndel">Submit</button>
   </form>
 </div>
