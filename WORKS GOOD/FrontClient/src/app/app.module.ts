@@ -18,6 +18,7 @@ import { ProduitService } from './services/produit.service';
 import { CommandeComponent } from './commande/commande.component';
 import { CommandeService } from './services/commande.service';
 import { FilteringComponent } from './home/filtering/filtering.component';
+import { DeliveryComponent } from './delivery/delivery.component';
 
 
 
@@ -30,6 +31,7 @@ import { FilteringComponent } from './home/filtering/filtering.component';
     ProfileComponent,
     FilteringComponent,
     CommandeComponent,
+    DeliveryComponent,
   
   ],
   imports: [
