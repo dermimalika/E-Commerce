@@ -50,7 +50,7 @@ public class ProductController {
     @CrossOrigin(origins = "http://localhost:4200")
     @PostMapping(value= "/add")
     public void createProduct(@RequestBody Product product) throws IOException {
-        System.out.println("in add prodcts ");
+        System.out.println("in add prodcts idstore :"+product.getId_store());
         System.out.println(product.getFileUrl());
         product.setArch(false);
         Product savedProduct = productRepository.save(product);
