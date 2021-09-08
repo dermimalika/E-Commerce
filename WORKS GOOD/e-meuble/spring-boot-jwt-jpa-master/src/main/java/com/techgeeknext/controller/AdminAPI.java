@@ -33,8 +33,8 @@ public class AdminAPI {
         }
     //Afficher All Admins
     @CrossOrigin(origins = "http://localhost:4200")
-    @GetMapping("/username/{username}")
-    public Admin getAdmin(@PathVariable("username") String username )
+    @GetMapping("/username")
+    public Admin getAdmin( @RequestParam("mail") String username )
     {return adminDao.findAdminByUsername(username);}
 
     //Afficher All Admins

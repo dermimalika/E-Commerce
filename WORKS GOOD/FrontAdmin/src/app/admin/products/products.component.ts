@@ -17,6 +17,7 @@ export class ProductsComponent implements OnInit {
   selectedProduct: Product;
   action: string;
   super: any;
+  idAdmin: any;
 
   constructor(private httpClientService: HttpClientService,
     private activedRoute: ActivatedRoute,
@@ -24,9 +25,18 @@ export class ProductsComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit() {
+    this.idAdmin=JSON.parse(sessionStorage.getItem('admin')).idStore;
     this.refreshData();
     this.super=this.authService.isRoleSuper();
 
+  }
+  testAdmin(id_store){
+    if(id_store !=this.idAdmin){
+      return true
+    }
+    if (id_store==this.idAdmin){
+      return false
+    }
   }
 
   refreshData() {
@@ -58,14 +68,12 @@ export class ProductsComponent implements OnInit {
       const product2 = new Product();
       product2.id = product.id;
       product2.name = product.name;
-      product2.retrievedImage = 'data:image/jpeg;base64,' + product.picByte;
       product2.category = product.category;
       product2.price = product.price;
       product2.quantity = product.quantity;
       product2.weight = product.weight;
       product2.fileUrlImagePath=product.fileUrlImagePath;
       product2.description = product.description;
-      product2.picByte = product.picByte;
       this.products.push(product2);
     }
   }

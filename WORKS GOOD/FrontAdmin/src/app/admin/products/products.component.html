@@ -20,7 +20,7 @@
           </thead>
           <tbody>
             <tr *ngFor="let product of products1">
-              <div *ngIf="product.arch; else elseBlock"></div>
+              <div *ngIf="product.arch || testAdmin(product.id_store) ; else elseBlock"></div>
               <ng-template #elseBlock>
                 <td>{{product.id}}</td>
                 <td>{{product.category}}</td>

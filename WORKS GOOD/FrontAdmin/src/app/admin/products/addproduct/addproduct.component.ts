@@ -102,9 +102,12 @@ export class AddproductComponent implements OnInit {
           
       if(cond){
         this.product.fileUrl=nameImage;
+        this.product.id_store=JSON.parse(sessionStorage.getItem("admin")).idStore;
+        console.log("product avant add :",this.product);
+        
         this.httpClient.post(this.urlBack+'products/add',this.product).subscribe() ;
 
-        this.router.navigate(['admin', 'products']);
+        //this.router.navigate(['admin', 'products']);
       }
     }
   }
