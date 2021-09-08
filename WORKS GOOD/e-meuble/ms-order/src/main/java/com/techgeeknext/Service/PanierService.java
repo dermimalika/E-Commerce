@@ -32,6 +32,7 @@ public class PanierService {
 
     public void addToPanier(AddToPanierDto addToPanierDto, Product product,User user){
         Panier panier = new Panier(product, addToPanierDto.getQuantity(),user);
+
         panierRepository.save(panier);
     }
 

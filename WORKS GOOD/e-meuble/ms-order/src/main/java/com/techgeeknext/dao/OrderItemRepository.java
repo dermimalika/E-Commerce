@@ -10,4 +10,5 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 @RepositoryRestResource
 @EnableJpaRepositories
 public interface OrderItemRepository extends JpaRepository<OrderItem,Integer> {
+
 }

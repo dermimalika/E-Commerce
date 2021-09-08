@@ -3,6 +3,7 @@ package com.techgeeknext.Service;
 import com.netflix.discovery.converters.Auto;
 import com.techgeeknext.Exceptions.OrderNotFoundException;
 import com.techgeeknext.dao.OrderRepository;
+import com.techgeeknext.dao.ProductRepository;
 import com.techgeeknext.dto.Order.OrderItemsDto;
 import com.techgeeknext.dto.Order.PlaceOrderDto;
 import com.techgeeknext.dto.Panier.PanierDto;
@@ -26,9 +27,12 @@ public class OrderService {
     private OrderRepository orderRepository;
     @Autowired
     OrderItemsService orderItemsService;
+    @Autowired
+    ProductRepository productRepository;
 
     public Order saveOrder(PlaceOrderDto orderDto, User user){
         Order order=getOrderFromDto(orderDto,user);
+
         return orderRepository.save(order);
     }
 
@@ -65,6 +69,7 @@ public class OrderService {
                     panierItemDto.getQuantity(),
                     panierItemDto.getProduct().getPrice());
             orderItemsService.addOrderedProducts(orderItem);
+
         }
         panierService.deleteUserPanierItems(user);
         }
