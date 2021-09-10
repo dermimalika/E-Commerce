@@ -31,7 +31,6 @@ public class OrderItem {
     @Column(name = "price")
     private @NotNull double price;
 
-
     @Column(name = "created_date")
     private Date createdDate;
 

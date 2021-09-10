@@ -31,6 +31,10 @@ public class Order {
     @Column(name = "total_price")
     private Double totalPrice;
 
+    @Enumerated(value = EnumType.STRING)
+    @Column(name = "deliveryEtat")
+    private DeliveryEtat deliveryEtat = DeliveryEtat.nothing;
+
 
     @ManyToOne()
     @JsonIgnore
@@ -87,5 +91,12 @@ public class Order {
         this.user = user;
     }
 
+    public DeliveryEtat getDeliveryEtat() {
+        return deliveryEtat;
+    }
+
+    public void setDeliveryEtat(DeliveryEtat deliveryEtat) {
+        this.deliveryEtat = deliveryEtat;
+    }
 }
 

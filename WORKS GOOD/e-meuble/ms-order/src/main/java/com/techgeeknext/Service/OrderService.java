@@ -73,5 +73,11 @@ public class OrderService {
         }
         panierService.deleteUserPanierItems(user);
         }
+
+
+
+
+
+
     }
 
