@@ -4,7 +4,6 @@ import { Router } from '@angular/router';
 import { HttpErrorResponse } from "@angular/common/http";
 import { NgForm } from "@angular/forms";
 import {Admin} from "../Admin";
-import { StoreService } from "../service/store.service";
 
 @Component({
   selector: "app-add-admin",
@@ -15,28 +14,11 @@ export class AddAdminComponent implements OnInit {
   user: Admin = new Admin();
   submitted = false;
   list:any=[]
-  stores:any=[]
-  store:any
 
   constructor(private httpClientService: HttpClientService,
-    private storeService: StoreService,
     private router: Router) {}
 
-  ngOnInit() {
-    this.getStores();
-  }
-
-//Get Stores 
-  //===========> Get Categories
-  getStores() {
-    this.storeService.getAll().subscribe((data: any)=>{
-      this.stores=data;
-      console.log("in constructor in content-list :",this.stores);
-      console.log("categories in add product ",this.stores[0].name);
-    });
-  }
-  //============================
-
+  ngOnInit() {}
 
   addAdmin(){
     console.log("Add new Admin");
@@ -57,7 +39,7 @@ export class AddAdminComponent implements OnInit {
     }
     else{
       //ADD
-    this.httpClientService.createAdmin({name:this.user.name,password:this.user.password,store:this.store,phone:this.user.phone,username:this.user.username})
+    this.httpClientService.createAdmin({name:this.user.name,password:this.user.password,phone:this.user.phone,username:this.user.username})
     .subscribe((data:any)=>{
       if(data){
           // this.toastr.success('A New Admin Added','New Admin',{ timeOut: 5000})

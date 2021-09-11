@@ -138,11 +138,13 @@ export class RecycleComponent implements OnInit {
         const product2 = new Product();
         product2.id = product.id;
         product2.name = product.name;
+        product2.retrievedImage = 'data:image/jpeg;base64,' + product.picByte;
         product2.category = product.category;
         product2.price = product.price;
         product2.quantity = product.quantity;
         product2.weight = product.weight;
         product2.description = product.description;
+        product2.picByte = product.picByte;
         this.products.push(product2);
       }
 

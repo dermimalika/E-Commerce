@@ -1,7 +1,3 @@
-.mat-toolbar.mat-primary {
-    background: #8E1B1B;
-    color: #fff;
-}
 
 .mat-button{
      text-decoration: none;
@@ -34,21 +30,7 @@ a:active{
             white-space: nowrap;
         }
 
-        .mat-toolbar.mat-primary[_ngcontent-ltc-c115] {
-            background: #8E1B1B;
-            color: #fff;
-            width: 215px;
-        }
-
-        .mat-toolbar.mat-primary {
-            background: #8E1B1B;
-            color: #fff;
-            width: 225px;
-            display: inline-block;
-            height: 594px;
-            /* top: 43px; */
-        }
-
+      
 
 
         .mat-toolbar-row[_ngcontent-wfc-c115],
@@ -65,10 +47,8 @@ a:active{
         .title {
             font-size: 30px;
             font-size: 30px;
-            /* padding: 18px; */
-           
-    margin-left: 22px;
-    margin-top: 11px;
+      margin-top: 0px;
+    margin-left: 21px;
 
         }
 
@@ -77,15 +57,13 @@ a:active{
             font-size: 18px;
         }
 
-        .mat-toolbar.mat-primary[_ngcontent-ors-c115],
-        .navv {
-            background: #8E1B1B;
-            color: #fff;
-            width: 269px;
-            display: inline-block;
-            height: 594px;
-            margin-left: -292px;
-        }
+
+.mat-toolbar.mat-primary {
+       background: #8e1b1b;
+    color: #fff;
+    height: 597px;
+    box-shadow: 4px -2px 8px #868686;
+}
 
         #sidebar {
             min-width: 270px;
@@ -102,8 +80,8 @@ a:active{
 
         .nav-link {
             font-size: 18px;
-            margin-left: 28px;
-            margin-top: 15px;
+           margin-left: 12px;
+            margin-top: 23px;
             
         }
 
@@ -193,4 +171,78 @@ div {
     margin-top: -12px;
     font: 500 20px/32px Roboto, " Helvetica Neue", sans-serif;
     color: #ffffff;
+}
+
+/* The side navigation menu */
+.sidebar {
+  margin: 0;
+  padding: 0;
+  width: 200px;
+  background-color: #f1f1f1;
+  position: fixed;
+  height: 100%;
+  overflow: auto;
+  
+}
+
+/* Sidebar links */
+.sidebar a {
+  display: block;
+  color: black;
+  padding: 16px;
+  text-decoration: none;
+}
+
+/* Active/current link */
+.sidebar a.active {
+  background-color: #04AA6D;
+  color: white;
+}
+
+/* Links on mouse-over */
+.sidebar a:hover:not(.active) {
+  background-color: #555;
+  color: white;
+}
+
+/* Page content. The value of the margin-left property should match the value of the sidebar's width property */
+div.content {
+  margin-left: 200px;
+  padding: 1px 16px;
+  height: 1000px;
+}
+
+/* On screens that are less than 700px wide, make the sidebar into a topbar */
+@media screen and (max-width: 700px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+  .sidebar a {float: left;}
+  div.content {margin-left: 0;}
+}
+
+/* On screens that are less than 400px, display the bar vertically, instead of horizontally */
+@media screen and (max-width: 400px) {
+  .sidebar a {
+    text-align: center;
+    float: none;
+  }
+}
+
+#sidebar{
+    
+    box-shadow: 4px -2px 8px #868686;
+}
+
+#sticky-sidebar {
+position: fixed;
+    max-width: 25%;
+    left: -16px;
+}
+
+.mat-toolbar.mat-primary:active {
+  
+    color: beige;
 }

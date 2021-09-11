@@ -1,7 +1,7 @@
 .body{    
     position: relative;
     left: 312px;
-    top: -534px;
+ top: 60px;
 }
 .div2{
     position: relative;
@@ -28,8 +28,8 @@
 
 .div2 {
     position: relative;
-    left: 464px;
-    top: -205px;
+    left: 600px;
+    top: -145px;
 }
 h2{
 
@@ -54,7 +54,7 @@ h2{
    border: 1px solid#8E1B1B;
 }
 .div1{
-margin-left: 40px;
+margin-left: 150px;
 }
 
 .btnadd{
@@ -106,11 +106,11 @@ margin-left: 40px;
 }
 
 .stores {
-      width: 74%;
+   width: 74%;
     position: relative;
     left: 24%;
     height: -300px;
-    top: -460px;
+    top: 200px;
     overflow: scroll;
 }
 

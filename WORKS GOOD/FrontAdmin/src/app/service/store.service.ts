@@ -30,7 +30,6 @@ export class StoreService {
     create(data: any): Observable<any> {
       data={
         nom:data.name,
-        description:data.description,
 
       }
       return this.http.post(this.urlBack + "addStore", data)

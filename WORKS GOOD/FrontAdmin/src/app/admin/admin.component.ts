@@ -18,6 +18,7 @@ export class AdminComponent implements OnInit {
   name: String = "";   //  | Form Attribute
   phone: String = "";   //  | Form Attribute
   username: String = "";   //  | Form Attribute
+
   idUpd = 0;
 
   constructor(

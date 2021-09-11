@@ -1,23 +1,22 @@
- .adminsliste {
-              background: #fff;
+.adminsliste {
+     background: #fff;
     width: 75%;
     position: relative;
-    top: -532px;
-    left: 288px;
+     top: 50px;
+    left: 360px;
             }
-            .updateadmins{
-              width: 75%;
+.updateadmins{
+   width: 75%;
     position: relative;
-    top: -532px;
-  left: 135px;  
+   top: -346px;
+    left: 139px;
             }
 
-  .updateadmins[_ngcontent-rtb-c99] {
-    width: 77%;
+  .updateadmins {
+     width: 77%;
     position: relative;
-    top: -995px;
+    top: -467px;
     left: 135px;
-    height: 400px;
 }
 .updateSto {
    top: -264px;

@@ -3,7 +3,7 @@
 <div class="wrapper d-flex align-items-stretch">
 
   <div id="content" class="p-4 p-md-5 pt-5">
-    <div class="main-content content2">
+    <div class="main-content ">
       <div *ngIf="mode=='list'">
         <div class="container-fluid">
           <div class="row">
@@ -11,7 +11,6 @@
               <div class="card card-plain">
                 <div class="card-header card-header-danger">
                   <h4 class="card-title mt-0"> Table of stores</h4>
-                  <p class="card-category"> Here is a subtitle for this table</p>
                 </div>
                 <div class="card-body">
                   <div class="table-responsive">
@@ -73,7 +72,6 @@
                       <input class="form-control" type="name" [(ngModel)]="name" name="name" aria-describedby="nameHelp"
                         id="name" placeholder="Name">
                     </div>
-                    
                   </div>
                 </div>
                 <button type="submit" class="btn btn-success btnadd">Add</button>

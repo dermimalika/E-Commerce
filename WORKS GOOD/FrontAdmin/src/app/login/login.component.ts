@@ -33,7 +33,6 @@ export class LoginComponent implements OnInit {
     (this.loginservice.authenticate(this.username, this.password).subscribe(
       (data:any) => {
         this.loginservice.isSuper();
-        this.loginservice.setSessionsvars(this.username);
         this.router.navigate(['']);
         this.invalidLogin = false
       },

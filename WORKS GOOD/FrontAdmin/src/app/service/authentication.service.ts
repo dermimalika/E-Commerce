@@ -40,23 +40,6 @@ export class AuthenticationService {
         })
       );
   }
-  setSessionsvars(username){
-    const headers= new HttpHeaders()
-  .set('content-type', 'application/json')
-  .set('Access-Control-Allow-Origin', '*');
-
-    return this.httpClient.get(this.urlBack+'admins/username?mail='+username,{headers}).subscribe((user:any)=> {
-      console.log("service authentication get user details :",user);
-      let admin={
-        id:user.id,
-        idStore:user.store.idStore,
-        name:user.name,
-        email:user.username
-      }
-      sessionStorage.setItem("admin",JSON.stringify(admin))
-    })
-    
-  }
 
   forgotpsw(data:any): Observable<any>  {
     //return this.httpClient.post(this.urlBack+"admins/forgotpsw",data);

@@ -14,7 +14,7 @@ a{
   .content2 {
                 width: 83%;
                 position: relative;
-                top: -538px;
+                   top: 105px;
                 left: 235px;
                 box-shadow: 0px 5px 5px -3px rgb(0 0 0 / 20%), 0px 8px 10px 1px rgb(0 0 0 / 14%), 0px 3px 14px 2px rgb(0 0 0 / 12%);
             }
@@ -24,14 +24,14 @@ a{
     position: relative;
     display: flex;
     flex-direction: column;
-    min-width: 0;
+    width:70%;
     word-wrap: break-word;
     background-color: #fff;
     background-clip: border-box;
     border: 1px solid rgba(0,0,0,.125);
     border-radius: .25rem;
-    left: 1px;
-    top: 16px;
+       left: 350px;
+    top: 6px;
 }
 .updateSto{
      top: -463px;

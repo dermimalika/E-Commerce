@@ -1,30 +1,29 @@
-<div class="wrapper d-flex align-items-stretch">
-    <nav id="sidebar">
+<nav id="sidebar">
 
-    </nav>
+</nav>
 
-    <div *ngIf="super=='SUPER'">
+<!-- <div *ngIf="super=='SUPER'">
 
 
         <mat-toolbar class="navv" *ngIf="isLoggedIn()" color="primary">
             <mat-toolbar-row>
                 <span class="title" *ngIf="isLoggedIn()"><a mat-button href="https://www.techgeeknext.com"
-                        style="font-size: larger;">E-Meuble
+                        style="font-size: larger;">
+                        <img src="assets/images/E-meuble.png" style="width: 200px;height: 200px;margin-left: -13px;">
                         <span class="dash">
-                            <h3 style="font-family: 'Tourney', cursive;
-">Admin Dashborad </h3>
+                            <h3 style="font-family: 'Tourney', cursive;margin-left: -59px;">Admin Dashborad </h3>
                         </span>
                     </a></span>
 
                 <span *ngIf="isLoggedIn()" class="example-fill-remaining-space"></span>
                 <span *ngIf="isLoggedIn()" class="align-center"></span>
                 <span *ngIf="isLoggedIn()" class="example-spacer"></span>
-                <!--- <a mat-button *ngIf="!isLoggedIn()" routerLink="/login" class="nav-link">Login</a>-->
+            
                 <span class="example-fill-remaining-space"></span>
                 <span class="align-center"></span>
                 <span class="example-spacer"></span>
 
-                <a class="socondtitle" style=" margin-top: 215px;" mat-button *ngIf="isLoggedIn()" routerLink="/store"
+                <a class="socondtitle" style=" margin-top: 30px;" mat-button *ngIf="isLoggedIn()" routerLink="/store"
                     class="nav-link">
                     <i class="fa fa-eye" aria-hidden="true"> </i> View
                     stores</a>
@@ -33,10 +32,10 @@
                     Add New Admin</a>
                 <a class="socondtitle" mat-button *ngIf="isLoggedIn()" routerLink="/" class="nav-link">
                     <i class="fa fa-eye" aria-hidden="true"></i> View Admins</a>
-                    <a class="socondtitle" mat-button *ngIf="isLoggedIn()" routerLink="/recycle" class="nav-link">
-                        <i class="fa fa-eye" aria-hidden="true"></i> Recycle</a>
+                <a class="socondtitle" mat-button *ngIf="isLoggedIn()" routerLink="/recycle" class="nav-link">
+                    <i class="fa fa-eye" aria-hidden="true"></i> Recycle</a>
 
-                <a class="socondtitle" style="margin-top: 60px;" mat-button *ngIf="isLoggedIn()" routerLink="/logout"
+                <a class="socondtitle" style="margin-top: 18px;" mat-button *ngIf="isLoggedIn()" routerLink="/logout"
                     (click)="super=''" class="nav-link"><i class="fas fa-sign-out-alt"></i> LogOut</a>
             </mat-toolbar-row>
         </mat-toolbar>
@@ -46,16 +45,16 @@
         <mat-toolbar *ngIf="isLoggedIn()" color="primary">
             <mat-toolbar-row>
                 <span class="title" *ngIf="isLoggedIn()"><a mat-button href="https://www.techgeeknext.com"
-                        style="font-size: larger;">E-Meuble
+                        style="font-size: larger;">
+                        <img src="assets/images/E-meuble.png" style="width: 200px;height: 200px;margin-left: -13px;">
                         <span class="dash">
-                            <h3 style="font-family: 'Tourney', cursive;
-                ">Admin Dashborad </h3>
+                            <h3 style="font-family: 'Tourney', cursive;margin-left: -59px;">Admin Dashborad </h3>
                         </span>
                     </a></span>
                 <span *ngIf="isLoggedIn()" class="example-fill-remaining-space"></span>
                 <span *ngIf="isLoggedIn()" class="align-center"></span>
                 <span *ngIf="isLoggedIn()" class="example-spacer"></span>
-                <!--- <a mat-button *ngIf="!isLoggedIn()" routerLink="/login" class="nav-link">Login</a>-->
+                
                 <span class="example-fill-remaining-space"></span>
                 <span class="align-center"></span>
                 <span class="example-spacer"></span>
@@ -65,12 +64,96 @@
                 <a mat-button *ngIf="isLoggedIn()" routerLink="/admin/products" class="nav-link">
                     <i class="fa fa-eye" aria-hidden="true"> </i> View
                     Products</a>
-                    <a mat-button *ngIf="isLoggedIn()" routerLink="/recycle"  class="nav-link">
-                        <i class="fas fa-sign-out-alt"></i> Recycle</a>
+                <a mat-button *ngIf="isLoggedIn()" routerLink="/recycle" class="nav-link">
+                    <i class="fa fa-eye" aria-hidden="true"> </i> Recycle</a>
                 <a mat-button *ngIf="isLoggedIn()" routerLink="/logout" (click)="super=''" class="nav-link">
                     <i class="fas fa-sign-out-alt"></i> LogOut</a>
             </mat-toolbar-row>
         </mat-toolbar>
-    </div>
+    </div> -->
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css" rel="stylesheet" />
+<div class="container">
+    <div class="row">
+        <div class="col-xs-4">
+            <div class="col-xs-12" id="sticky-sidebar">
+                <div *ngIf="super=='SUPER'">
 
+
+                    <mat-toolbar class="navv" *ngIf="isLoggedIn()" color="primary">
+                        <mat-toolbar-row>
+                            <span class="title" *ngIf="isLoggedIn()"><a mat-button href="https://www.techgeeknext.com"
+                                    style="font-size: larger;">
+                                    <img src="assets/images/E-meuble.png"
+                                        style="width: 200px;height: 200px;margin-left: -13px;">
+                                    <span class="dash">
+                                        <h3 style="font-family: 'Tourney', cursive;margin-left: -59px;">Admin Dashborad
+                                        </h3>
+                                    </span>
+                                </a></span>
+
+                            <span *ngIf="isLoggedIn()" class="example-fill-remaining-space"></span>
+                            <span *ngIf="isLoggedIn()" class="align-center"></span>
+                            <span *ngIf="isLoggedIn()" class="example-spacer"></span>
+
+                            <span class="example-fill-remaining-space"></span>
+                            <span class="align-center"></span>
+                            <span class="example-spacer"></span>
+
+                            <a class="socondtitle" style=" margin-top: 23px;" mat-button *ngIf="isLoggedIn()"
+                                routerLink="/store" class="nav-link">
+                                <i class="fa fa-eye" aria-hidden="true"> </i> View
+                                stores</a>
+                            <a class="socondtitle" mat-button *ngIf="isLoggedIn()" routerLink="/addadmin"
+                                class="nav-link">
+                                <i class="fa fa-plus-square" aria-hidden="true"></i>
+                                Add New Admin</a>
+                            <a class="socondtitle" mat-button *ngIf="isLoggedIn()" routerLink="/" class="nav-link">
+                                <i class="fa fa-eye" aria-hidden="true"></i> View Admins</a>
+                            <a class="socondtitle" mat-button *ngIf="isLoggedIn()" routerLink="/recycle"
+                                class="nav-link">
+                                <i class="fa fa-eye" aria-hidden="true"></i> Recycle</a>
+
+                            <a class="socondtitle" style="margin-top: 18px;" mat-button *ngIf="isLoggedIn()"
+                                routerLink="/logout" (click)="super=''" class="nav-link"><i
+                                    class="fas fa-sign-out-alt"></i> LogOut</a>
+                        </mat-toolbar-row>
+                    </mat-toolbar>
+                </div>
+
+                <div *ngIf="super=='NORMAL'">
+                    <mat-toolbar *ngIf="isLoggedIn()" color="primary">
+                        <mat-toolbar-row>
+                            <span class="title" *ngIf="isLoggedIn()"><a mat-button href="https://www.techgeeknext.com"
+                                    style="font-size: larger;">
+                                    <img src="assets/images/E-meuble.png"
+                                        style="width: 200px;height: 200px;margin-left: -13px;">
+                                    <span class="dash">
+                                        <h3 style="font-family: 'Tourney', cursive;margin-left: -59px;">Admin Dashborad
+                                        </h3>
+                                    </span>
+                                </a></span>
+                            <span *ngIf="isLoggedIn()" class="example-fill-remaining-space"></span>
+                            <span *ngIf="isLoggedIn()" class="align-center"></span>
+                            <span *ngIf="isLoggedIn()" class="example-spacer"></span>
+
+                            <span class="example-fill-remaining-space"></span>
+                            <span class="align-center"></span>
+                            <span class="example-spacer"></span>
+                            <a mat-button *ngIf="isLoggedIn()" routerLink="/admin/categorys" class="nav-link">
+                                <i class="fa fa-eye" aria-hidden="true"> </i> View
+                                Categories</a>
+                            <a mat-button *ngIf="isLoggedIn()" routerLink="/admin/products" class="nav-link">
+                                <i class="fa fa-eye" aria-hidden="true"> </i> View
+                                Products</a>
+                            <a mat-button *ngIf="isLoggedIn()" routerLink="/recycle" class="nav-link">
+                                <i class="fa fa-eye" aria-hidden="true"> </i> Recycle</a>
+                            <a mat-button *ngIf="isLoggedIn()" routerLink="/logout" (click)="super=''" class="nav-link">
+                                <i class="fas fa-sign-out-alt"></i> LogOut</a>
+                        </mat-toolbar-row>
+                    </mat-toolbar>
+                </div>
+            </div>
+        </div>
+        
+    </div>
 </div>

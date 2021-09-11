@@ -38,9 +38,7 @@ export class HttpClientService {
     return this.httpClient.delete(this.urlBack+"admins/delAdmin" + "/" +id);
   }
   // Add Admin
-  public createAdmin(user : any): Observable<any> {
-    console.log("id store in service:",user.store);
-    
+  public createAdmin(user : Object): Observable<Object> {
     return this.httpClient.post(this.urlBack+"register",user);
     }
       //UPDATE ADMIN

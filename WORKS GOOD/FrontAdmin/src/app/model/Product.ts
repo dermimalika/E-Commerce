@@ -3,10 +3,11 @@ export class Product {
     name: string;
     category: string;
     price: number;
+    picByte: string;
+    retrievedImage: string;
     fileUrl: string;
     fileUrlImagePath: string;
     quantity;
     weight;
     description;
-    id_store;
 }
