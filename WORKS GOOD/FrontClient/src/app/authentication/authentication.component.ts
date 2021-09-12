@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { AuthenticationService } from '../services/authentication.service';
 
 @Component({
@@ -29,6 +30,7 @@ export class AuthenticationComponent implements OnInit {
 
   @Input() error: string | null="";
   constructor(private router: Router,
+    private toastr: ToastrService,
     private auth: AuthenticationService,) { 
       this.mode="login"
     }
@@ -63,6 +65,7 @@ export class AuthenticationComponent implements OnInit {
     this.auth.register(client).subscribe((data: any)=>{
       if(data){
         //this.auth.sendMail(this.email,"register");
+        this.toastr.success('Register Sucess !', 'Now Just Login,And Enjoy !');
         this.mode='login';
       }
     });
@@ -72,8 +75,12 @@ export class AuthenticationComponent implements OnInit {
     this.auth.forgotpsw({email:this.mail,password:"aaa"}).subscribe((data: any)=>{
       if(data){
         console.log("Data From forgot PSW :",data);
+        this.toastr.success('Forgot Password !', 'Email has been checked !');
 //        window.location.reload();
         this.mode='reset';
+      }
+      else{
+        this.toastr.error('Forgot Password !', 'Try Again '); 
       }
     });
   }
@@ -82,7 +89,11 @@ export class AuthenticationComponent implements OnInit {
     this.auth.resetpsw({password:this.psw,email:this.mail}).subscribe((data: any)=>{
       if(data){
         this.auth.sendMail(this.mail,"reset");
+        this.toastr.success('Reset Password !', 'Email Has been Send !');
         this.mode='login';
+      }
+      else{
+        this.toastr.error('Reset Password  !', 'Try Again '); 
       }
     });
   }
