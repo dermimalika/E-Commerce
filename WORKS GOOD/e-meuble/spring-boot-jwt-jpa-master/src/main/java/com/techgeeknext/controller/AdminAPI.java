@@ -4,6 +4,8 @@ package com.techgeeknext.controller;
 import com.techgeeknext.config.ResetPSW;
 import com.techgeeknext.dao.AdminDao;
 import com.techgeeknext.entities.Admin;
+import com.techgeeknext.model.Order;
+import com.techgeeknext.proxy.OrderProxy;
 import com.techgeeknext.service.AdminService;
 import com.techgeeknext.service.JwtUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +20,9 @@ import java.util.List;
 public class AdminAPI {
     @Autowired
     AdminDao adminDao;
+
+    @Autowired
+    OrderProxy orderProxy;
 
     @Autowired
     private JwtUserDetailsService userDetailsService;
@@ -103,6 +108,11 @@ public class AdminAPI {
         adminDao.restoreAdmin(id);
         return adminDao.findAll(); }
 
+
+        @GetMapping("allOrders")
+    public List<Order> getOrders(){
+        return orderProxy.getAllOrders();
+        }
 
 
 

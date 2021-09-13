@@ -4,6 +4,7 @@ package com.techgeeknext.controller;
 import com.techgeeknext.Exceptions.OrderNotFoundException;
 import com.techgeeknext.Exceptions.ProductNotExistException;
 import com.techgeeknext.Service.OrderService;
+import com.techgeeknext.dao.OrderRepository;
 import com.techgeeknext.dao.UserRepository;
 import com.techgeeknext.dto.ApiResponse;
 import com.techgeeknext.entities.Order;
@@ -23,6 +24,8 @@ public class  OrderController {
     private OrderService orderService;
     @Autowired
     private UserRepository userRepository;
+    @Autowired
+    private OrderRepository orderRepository;
 
     @PostMapping("/add")
     public Order placeOrder(@RequestParam("user_id") Long user_id) throws ProductNotExistException {
@@ -53,5 +56,8 @@ public class  OrderController {
             return new ResponseEntity<>(e.getMessage(),HttpStatus.NOT_FOUND);
         }
     }
+
+    @GetMapping("/all")
+    public List<Order> getAllOrders() {return orderRepository.findAll();}
 }
 
