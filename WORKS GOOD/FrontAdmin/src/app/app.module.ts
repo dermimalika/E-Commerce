@@ -9,6 +9,7 @@ import { AuthGuard2Service } from './service/auth-guard2.service';
 import { AuthenticationService } from './service/authentication.service';
 import { AppComponent } from './app.component';
 
+import { ToastrModule } from 'ngx-toastr';
 import { LoginComponent } from './login/login.component';
 import { LogoutComponent } from './logout/logout.component';
 import { BasicAuthHtppInterceptorService } from './service/basic-auth-interceptor.service';
@@ -54,6 +55,7 @@ import { UpdProductComponent } from './admin/products/upd-product/upd-product.co
     BrowserModule,
     MaterialModule,
     AppRoutingModule,
+    ToastrModule.forRoot(),
     BrowserAnimationsModule,
     HttpClientModule,
     FormsModule,

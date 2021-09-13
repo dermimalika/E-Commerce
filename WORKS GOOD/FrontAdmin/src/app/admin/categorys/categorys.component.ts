@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Category } from '../../model/Category';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClientService } from 'src/app/service/httpclient.service';
+import { ToastrService } from 'ngx-toastr';
 
 
 
@@ -18,6 +19,7 @@ export class CategorysComponent implements OnInit {
 
   constructor(private httpClientService: HttpClientService,
     private router: Router,
+    private toastr: ToastrService,
     private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {

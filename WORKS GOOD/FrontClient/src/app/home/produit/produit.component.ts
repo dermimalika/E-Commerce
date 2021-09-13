@@ -1,6 +1,8 @@
 
-import { Component, OnInit } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+import { Component, Inject, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { CommandeService } from 'src/app/services/commande.service';
 import { ProduitService } from 'src/app/services/produit.service';
@@ -48,8 +50,10 @@ export class ProduitComponent implements OnInit {
     private produitService: ProduitService,
     private profileService: ProfileService ,
     private commandeService:CommandeService,
+    private toastr: ToastrService,
     private router: Router,
-    private auth: AuthenticationService,) {
+    private auth: AuthenticationService,
+    @Inject(DOCUMENT) private document: Document) {
 
   }
 
@@ -134,18 +138,38 @@ export class ProduitComponent implements OnInit {
     console.log("request in com");
 
     this.produitService.addComments(this.id,request).subscribe(data=>{
-      window.location.reload;
+      if( data){
+        this.toastr.success('Add Comment!', 'The Comment has been added successfuly'); 
+        this.document.location.reload();
+      }
+      else{
+        this.toastr.error('Add Comment!', 'Try Again '); 
+      }
+
     });
 
   }
   updComment(){
-    this.produitService.updateComments(this.id,"id Comment");
-    window.location.reload;
+    this.produitService.updateComments(this.id,"id Comment").subscribe(data=>{
+      if( data){
+        this.toastr.success('Update Comment!', 'The Comment has been pdated successfuly'); 
+        this.document.location.reload();
+      }
+      else{
+        this.toastr.error('Update Comment!', 'Try Again '); 
+      }
+    });
   }
 
   deleteComment(idComment :any){
     this.produitService.deleteComment(this.id,idComment).subscribe(data=>{
-      window.location.reload;
+      if( data){
+        this.toastr.success('Delete Comment!', 'The Comment has been deleted successfuly'); 
+        this.document.location.reload();
+      }
+      else{
+        this.toastr.error('Delete Comment!', 'Try Again '); 
+      }
     });
 
   }
@@ -168,13 +192,22 @@ export class ProduitComponent implements OnInit {
     };
     this.commandeService.addPanier(body).subscribe(
       (data:any)=>{
-        this.router.navigate(['commande']);
+        if( data){
+          this.toastr.success('Add Panier!', 'The Product has been added successfuly'); 
+          this.router.navigate(['commande']);
+        }
+        else{
+          this.toastr.error('Add Panier!', 'Try Again '); 
+        }
+        
       })
   }
 //====================================================================================================
 
   logout() {
     this.auth.logOut();
+    this.toastr.success('Logout Sucess !', 'Come back Soon !');
+    this.router.navigate(['login']);
   }
 
 }

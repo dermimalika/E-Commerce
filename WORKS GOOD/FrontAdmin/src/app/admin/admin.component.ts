@@ -3,6 +3,7 @@ import { HttpClientService } from "../service/httpclient.service";
 import { AuthenticationService } from "../service/authentication.service";
 import { Admin } from "../Admin";
 import { DOCUMENT } from "@angular/common";
+import { ToastrService } from "ngx-toastr";
 
 
 @Component({
@@ -24,6 +25,7 @@ export class AdminComponent implements OnInit {
   constructor(
     private httpClientService: HttpClientService,
     @Inject(DOCUMENT) private document: Document,
+    private toastr: ToastrService,
     private authService: AuthenticationService) { }
 
   ngOnInit() {
@@ -52,8 +54,12 @@ export class AdminComponent implements OnInit {
       return this.httpClientService.archAdmin(id).subscribe(data => {
         if (data) {
           console.log("Archiver fct : ");
+          this.toastr.success('Delete Admin!', 'Admin has been moved to recycle bin'); 
           this.getAdmins();
           this.document.location.reload();
+        }
+        else{
+          this.toastr.error('Delete Admin!', 'Try Again '); 
         }
       })
     }
@@ -73,7 +79,7 @@ export class AdminComponent implements OnInit {
     this.httpClientService.updateAdmin(this.idUpd, { name: this.name, phone: this.phone, username: this.username })
       .subscribe((data: any) => {
         if (data) {
-          // this.toastr.success('A New Admin Added','New Admin',{ timeOut: 5000})
+          this.toastr.success('Admin Update','Admin has been updated',{ timeOut: 5000})
           this.getAdmins();
           console.log("Update store ");
 
@@ -82,7 +88,7 @@ export class AdminComponent implements OnInit {
           this.document.location.reload();
 
         } else {
-          // this.toastr.error(data['msg'],'Error',{ timeOut: 3000})   
+           this.toastr.error(data['msg'],'Error',{ timeOut: 3000})   
           console.log("there is an error in updating ");
 
         }

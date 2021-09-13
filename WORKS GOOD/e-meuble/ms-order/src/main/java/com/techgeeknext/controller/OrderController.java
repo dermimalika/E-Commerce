@@ -25,11 +25,11 @@ public class  OrderController {
     private UserRepository userRepository;
 
     @PostMapping("/add")
-    public ResponseEntity<ApiResponse> placeOrder(@RequestParam("user_id") Long user_id) throws ProductNotExistException {
+    public Order placeOrder(@RequestParam("user_id") Long user_id) throws ProductNotExistException {
         System.out.println("In order Add ");
         User user = userRepository.getById(user_id);
-        orderService.placeOrder(user);
-        return new ResponseEntity<ApiResponse>(new ApiResponse(true,"Order has been placed"), HttpStatus.CREATED);
+
+        return orderService.placeOrder(user);
     }
 
     @GetMapping("/getOrders")

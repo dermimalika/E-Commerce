@@ -3,6 +3,7 @@ import { AuthenticationService } from '../services/authentication.service';
 import { Router } from '@angular/router';
 import { CommandeService } from '../services/commande.service';
 import { DOCUMENT } from '@angular/common';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-commande',
@@ -21,6 +22,7 @@ export class CommandeComponent implements OnInit {
   /////////////////////////////////////////////////////////////////////////////////////  
 
   constructor(private auth: AuthenticationService,
+    private toastr: ToastrService,
     private commandeService:CommandeService,
     private route:Router,
     @Inject(DOCUMENT) private document: Document) { }
@@ -46,7 +48,11 @@ export class CommandeComponent implements OnInit {
   deleteProdPanier(id:any){
     this.commandeService.deletePanier(id).subscribe((data:any)=>{
       if( data){
+        this.toastr.success('Delete Product!', 'The Product has been deleted successfuly'); 
         this.document.location.reload();
+      }
+      else{
+        this.toastr.error('Delete Product!', 'Try Again '); 
       }
 
     })
@@ -54,13 +60,15 @@ export class CommandeComponent implements OnInit {
 
   addOrder(){
     this.commandeService.addOrder().subscribe((data:any)=>{
-       this.route.navigate(['/'])
+       console.log("id Order in commande :",data.id);
+       this.route.navigate(['/delivery/'+data.id])
       
     })
   }
 
   logout(){ 
     this.auth.logOut();
+    this.toastr.success('Logout Sucess !', 'Come back Soon !');
     this.route.navigate(['login']);
   }
 

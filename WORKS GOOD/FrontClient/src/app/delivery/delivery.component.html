@@ -85,7 +85,9 @@
                                   <h6>Deliver to: </h6><input type="txt">
                                   <br/>
                                   <br/>
-                                  <a class="primary-btn btnn">Choose Delivery</a> <!--Ajoute ici la methode post de addDelivery-->
+                                  <a class="primary-btn btnn" href="/commande">Back</a>
+                                  <a class="primary-btn btnn" (click)="skipDelivery()">Purchase without Delivery</a>
+                                  <a class="primary-btn btnn" (click)="deliveryOrder()">Choose Delivery</a> <!--Ajoute ici la methode post de addDelivery-->
                                 </td>
                               </tr>
                             </tbody>

@@ -17,7 +17,7 @@ const routes: Routes = [
   { path: 'profile/:id', component: ProfileComponent,canActivate:[AuthGuardGuard] },
   { path: 'filter/:category', component:FilteringComponent,canActivate:[AuthGuardGuard]},
   { path: 'commande', component: CommandeComponent },
-  { path:'delivery',component:DeliveryComponent},
+  { path:'delivery/:idOrder',component:DeliveryComponent},
 ];
 //,canActivate:[AuthGuardGuard]
 

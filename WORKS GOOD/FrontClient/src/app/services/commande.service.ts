@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { Observable } from 'rxjs';
 
 
@@ -8,7 +9,8 @@ import { Observable } from 'rxjs';
 })
 export class CommandeService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,
+    private toastr: ToastrService,) { }
 
   getPanier(){
     let token = sessionStorage.getItem("clienttoken");
@@ -43,5 +45,10 @@ export class CommandeService {
     let token = sessionStorage.getItem("clienttoken");
     let client = sessionStorage.getItem("client");
     return this.http.post("order/add?user_id="+JSON.parse(client!).id,{client}, {headers: new HttpHeaders().set('Authorization', token!)});
+  }
+
+  deliveryOrder(idOrder:any){
+    let token = sessionStorage.getItem("clienttoken");
+    return this.http.post("order/addDelivery?order_id="+idOrder,idOrder, {headers: new HttpHeaders().set('Authorization', token!)});
   }
 }
