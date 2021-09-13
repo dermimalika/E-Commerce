@@ -1,4 +1,11 @@
 /*----------------product-----------------------*/
+.ngx-pagination .current {
+    padding: 0.1875rem 0.625rem;
+    background: #d05d68;
+    color: #fefefe;
+    cursor: default;
+}
+
 .card{
   width: 165px;
     height: 167px;
@@ -140,5 +147,10 @@
  .cat:hover{
      background: #ad3939;
  }   
-
+ .ngx-pagination .current {
+    padding: 0.1875rem 0.625rem;
+    background: #d05d68;
+    color: #fefefe;
+    cursor: default;
+}
 

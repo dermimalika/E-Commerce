@@ -5,7 +5,9 @@
       <div class="card">
         <div class="card-body">
           <div class="d-flex flex-column align-items-center text-center">
-            <img src="..\..\assets\images\avatars\man1.png" alt="Admin" class="rounded-circle p-1 bg-primary"
+            <img src="..\..\assets\images\avatars\man1.png" alt="Admin" class="rounded-circle p-1 bg-primary" style="position: relative;
+                left: 240px;
+            top: 13px;"
               width="110">
             <div *ngIf="mode=='profile'">
               <h5>FirstName : {{profile.firstName}}</h5>
@@ -83,8 +85,12 @@
               </div>
             </select>
 
-            <button class="fadeIn fourth btnup" value="Log In" (click)="updateProfile()">Update</button>
-            <button (click)="mode='profile'" class="back"><a >Back</a></button>
+            <button style="    position: relative;
+            top: 22px;
+            left: -80px;" class="fadeIn fourth btnup" value="Log In" (click)="updateProfile()">Update</button>
+            <button style="position: relative;
+            top: 22px;
+            left: -70px;" (click)="mode='profile'" class="back"><a >Back</a></button>
           </form>
 
         </div>

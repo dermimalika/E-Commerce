@@ -51,7 +51,6 @@ a:active{
     margin-left: 21px;
 
         }
-
         mat-button {
             margin-left: 12px;
             font-size: 18px;
@@ -59,9 +58,9 @@ a:active{
 
 
 .mat-toolbar.mat-primary {
-       background: #8e1b1b;
+    background: #8e1b1b;
     color: #fff;
-    height: 597px;
+    height: 762px;
     box-shadow: 4px -2px 8px #868686;
 }
 
@@ -80,10 +79,11 @@ a:active{
 
         .nav-link {
             font-size: 18px;
-           margin-left: 12px;
-            margin-top: 23px;
-            
+            margin-left: 12px;
+            margin-top: 30px;
         }
+            
+
 
         i {
             font-size: 23px;
@@ -237,8 +237,8 @@ div.content {
 }
 
 #sticky-sidebar {
-position: fixed;
-    max-width: 25%;
+    position: fixed;
+    max-width: 23%;
     left: -16px;
 }
 

@@ -286,12 +286,14 @@ html {
     -webkit-animation-delay: 0.8s;
     -moz-animation-delay: 0.8s;
     animation-delay: 0.8s;
+    margin-left: 175px;
   }
   
   .fadeIn.fourth {
     -webkit-animation-delay: 1s;
     -moz-animation-delay: 1s;
     animation-delay: 1s;
+    margin-left: 175px;
   }
   
   /* Simple CSS3 Fade-in Animation */
@@ -335,6 +337,7 @@ body{
 }
 .card {
     position: relative;
+    margin-left: 68px;
     display: flex;
     flex-direction: column;
     min-width: 0;
@@ -354,17 +357,20 @@ body{
 }
 /* line separator */
    .aSeparator {
-   
-  border-top: 1px solid #f1f1f1;
-    height: 1px;
-    /* margin: 12px 49px; */
-    margin: 12px -80px;
+    border-top: 1px solid #e4e1e1;
+    height: 0px;
+    margin: 12px -74px;
+    width: 560px;
+    margin-left: 10px;
    }
 
    h5{
-         text-align: start;
-    margin-left: -68px;
-    margin-top: 8px;
+    text-align: start;
+    margin-top: 10px;
+    top: 15px;
+    position: relative;
+    left: 26px;
+    font-size: 18px;
    }
 
    button{
@@ -390,16 +396,16 @@ button:hover{
 }
 
 #formContent {
-    border-radius: 10px 10px 10px 10px;
-    background: #fff;
-    padding: 30px;
-    width: 90%;
-    max-width: 450px;
-    position: relative;
-    padding: 0px;
-    box-shadow: 0 30px 60px 0 rgb(0 0 0 / 30%);
-    text-align: center;
-    top: -179px;
+  border-radius: 10px 10px 10px 10px;
+  background: #fff;
+  padding: 30px;
+  max-width: 585px;
+  position: relative;
+  padding: 0px;
+  box-shadow: 0 30px 60px 0 rgb(0 0 0 / 30%);
+  text-align: center;
+  top: -130px;
+  left: -63px;
 }
 
 .back{
@@ -430,28 +436,28 @@ background: #fff;
 }
 
 .select1{
-
-    position: relative;
-    
-    top: -35px;
-    left: 120px;
-    width: 128px;
+  position: relative;
+  top: -27px;
+  left: 10px;
+  /* width: 100px; */
+  width: 130px;
 }
 .gend{
-      display: block;
-    margin-bottom: .5rem;
-    margin-left: -309px;
-    margin-top: 8px;
+  display: block;
+  margin-bottom: .5rem;
+  margin-left: -419px;
+  margin-top: 16px;
 }
 .avat{  
-        position: relative;
-    top: 17px;
-    x: ;
-    left: -122px;
+  position: relative;
+  top: 17px;
+  x: ;
+  left: -214px;
   }
 .select2{
-    position: relative;
-    top: -68px;
-    left: 121px;
-    width: 127px;
+  position: relative;
+  top: 15px;
+  left: -168px;
+  margin-bottom: 50px;
+  width: 130px;
 }

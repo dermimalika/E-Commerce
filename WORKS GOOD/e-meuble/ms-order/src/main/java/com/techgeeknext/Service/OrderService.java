@@ -10,6 +10,7 @@ import com.techgeeknext.dto.Panier.PanierDto;
 import com.techgeeknext.dto.Panier.PanierItemDto;
 import com.techgeeknext.entities.Order;
 import com.techgeeknext.entities.OrderItem;
+import com.techgeeknext.entities.Product;
 import com.techgeeknext.entities.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -55,6 +56,7 @@ public class OrderService {
     }
 
     public void placeOrder(User user){
+        Product product = new Product();
         PanierDto panierDto = panierService.listPanierItems(user);
         PlaceOrderDto placeOrderDto = new PlaceOrderDto();
         placeOrderDto.setUser(user);
@@ -66,15 +68,18 @@ public class OrderService {
             OrderItem orderItem = new OrderItem(
                     newOrder,
                     panierItemDto.getProduct(),
-                    panierItemDto.getQuantity(),
+                    panierItemDto.getQuantity() ,
                     panierItemDto.getProduct().getPrice());
+
             orderItemsService.addOrderedProducts(orderItem);
+            panierItemDto.getProduct().setQuantity(panierItemDto.getProduct().getQuantity() - panierItemDto.getQuantity());
+         //   product.setQuantity(panierItemDto.getProduct().getQuantity() - panierItemDto.getQuantity());
+            productRepository.save(panierItemDto.getProduct());
+
 
         }
         panierService.deleteUserPanierItems(user);
         }
-
-
 
 
 
