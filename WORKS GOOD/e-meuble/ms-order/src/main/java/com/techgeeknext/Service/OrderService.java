@@ -1,10 +1,8 @@
 package com.techgeeknext.Service;
 
-import com.netflix.discovery.converters.Auto;
 import com.techgeeknext.Exceptions.OrderNotFoundException;
 import com.techgeeknext.dao.OrderRepository;
 import com.techgeeknext.dao.ProductRepository;
-import com.techgeeknext.dto.Order.OrderItemsDto;
 import com.techgeeknext.dto.Order.PlaceOrderDto;
 import com.techgeeknext.dto.Panier.PanierDto;
 import com.techgeeknext.dto.Panier.PanierItemDto;
@@ -55,8 +53,8 @@ public class OrderService {
 
     }
 
-    public void placeOrder(User user){
-        Product product = new Product();
+
+    public Order placeOrder(User user){
         PanierDto panierDto = panierService.listPanierItems(user);
         PlaceOrderDto placeOrderDto = new PlaceOrderDto();
         placeOrderDto.setUser(user);
@@ -79,6 +77,7 @@ public class OrderService {
 
         }
         panierService.deleteUserPanierItems(user);
+        return newOrder;
         }
 
 

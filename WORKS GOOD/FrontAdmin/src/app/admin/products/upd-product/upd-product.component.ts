@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { Product } from 'src/app/model/Product';
 import { AuthenticationService } from 'src/app/service/authentication.service';
 import { HttpClientService } from 'src/app/service/httpclient.service';
@@ -27,6 +28,7 @@ export class UpdProductComponent implements OnInit {
     private httpClientService: HttpClientService,
     private router: Router,
     private uploadService: ImageUploadService,
+    private toastr: ToastrService,
     private authService:AuthenticationService,
     private activedRoute: ActivatedRoute) { }
 
@@ -113,9 +115,16 @@ export class UpdProductComponent implements OnInit {
     //Send Product to Back
     this.httpClientService.updateProduct(this.product.id,this.product).subscribe(
       (product)=>{
-
-        this.router.navigate(['admin','products'])
+        if( product){
+          this.toastr.success('Update Product!', 'Product has been updated successfuly'); 
+          this.router.navigate(['admin','products'])
+        }
+        else{
+          this.toastr.error('Update Product!', 'Try Again '); 
+        }
+        
       }
+      
     )
   }
   }

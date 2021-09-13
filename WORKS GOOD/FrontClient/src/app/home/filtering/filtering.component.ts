@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from '../../services/authentication.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProduitService } from 'src/app/services/produit.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-filtering',
@@ -34,6 +35,7 @@ export class FilteringComponent implements OnInit {
   constructor(
     private produitService: ProduitService,
     private auth: AuthenticationService,
+    private toastr: ToastrService,
     private route:Router,
     private activeRoute: ActivatedRoute,) { }
 
@@ -159,6 +161,7 @@ export class FilteringComponent implements OnInit {
 
   logout(){ 
     this.auth.logOut();
+    this.toastr.success('Logout Sucess !', 'Come back Soon !');
     this.route.navigate(['login']);
   }
 

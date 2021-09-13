@@ -121,6 +121,7 @@ export class HomeComponent implements OnInit {
 
   logout(){ 
     this.auth.logOut();
+    this.toastr.success('Logout Sucess !', 'Come back Soon !');
     this.route.navigate(['login']);
   }
 

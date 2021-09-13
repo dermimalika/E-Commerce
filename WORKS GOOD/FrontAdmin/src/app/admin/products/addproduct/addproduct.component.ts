@@ -7,6 +7,7 @@ import { HttpEventType, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { ImageUploadService } from 'src/app/service/image-upload.service';
 import { environment } from 'src/environments/environment';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -40,6 +41,7 @@ export class AddproductComponent implements OnInit {
   constructor(private httpClientService: HttpClientService,
     private uploadService: ImageUploadService,
     private activedRoute: ActivatedRoute,
+    private toastr: ToastrService,
     private router: Router,
     private httpClient: HttpClient) { }
 
@@ -102,9 +104,18 @@ export class AddproductComponent implements OnInit {
           
       if(cond){
         this.product.fileUrl=nameImage;
-        this.httpClient.post(this.urlBack+'products/add',this.product).subscribe() ;
+        this.httpClient.post(this.urlBack+'products/add',this.product).subscribe(
+          (data:any) => {
+            if( data){
+              this.toastr.success('Add Product!', 'Product has been added successfuly'); 
+              this.router.navigate(['admin', 'products']);
+            }
+            else{
+              this.toastr.error('Add Product!', 'Try Again '); 
+            }
+        }) ;
 
-        this.router.navigate(['admin', 'products']);
+        
       }
     }
   }

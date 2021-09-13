@@ -2,21 +2,17 @@ package com.techgeeknext.controller;
 
 
 import com.techgeeknext.Service.OrderService;
-import com.techgeeknext.dao.DeliveryRepository;
 import com.techgeeknext.dao.OrderRepository;
 import com.techgeeknext.entities.DeliveryEtat;
 import com.techgeeknext.entities.Order;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Optional;
-
 @RestController
 @RequestMapping("/order")
 public class DeliveryCotroller {
 
-    @Autowired
-    DeliveryRepository deliveryRepository;
+
     @Autowired
     OrderRepository orderRepository;
 

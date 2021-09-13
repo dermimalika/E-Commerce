@@ -61,12 +61,18 @@ export class ProfileComponent implements OnInit {
     
 
     this.profileService.update(client,this.id).subscribe((data: any)=>{
-      this.profile=data;
-      console.log("update :\n",this.profile);
-      this.toastr.success('Update Profile!', 'Your Profile Has been Updated Succesfully ');
-      this.mode='profile';
-      window.location.reload();
 
+
+      if( data){
+        this.profile=data;
+        console.log("update :\n",this.profile);
+        this.toastr.success('Update Profile!', 'Your Profile Has been Updated Succesfully ');
+        this.mode='profile';
+        window.location.reload();
+      }
+      else{
+        this.toastr.error('Update Profile!', 'Try Again '); 
+      }
     });
   }
 

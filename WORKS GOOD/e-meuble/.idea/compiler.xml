@@ -12,8 +12,8 @@
         <module name="ms-registry" />
         <module name="AdminManager (1)" />
         <module name="ms-client" />
-        <module name="ms-order" />
         <module name="ms-gateway" />
+        <module name="ms-order" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
