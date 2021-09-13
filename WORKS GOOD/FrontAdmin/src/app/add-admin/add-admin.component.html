@@ -27,7 +27,10 @@
     </div>
 
     <label for="Store">Store</label>
-    <select class="form-control" aria-label="Default select example" required #ucategory="ngModel" id="category"
+    <select class="form-control" aria-label="Default select example" required #ucategory="ngModel" id="category" style="    width: 65%;
+    position: relative;
+    left: 53px;
+    top: -31px;"
       placeholder="Select Store" name="store" [(ngModel)]="store">
       <option *ngFor="let s of stores" [value]="s.idStore">{{s.nom}}</option>
     </select>
