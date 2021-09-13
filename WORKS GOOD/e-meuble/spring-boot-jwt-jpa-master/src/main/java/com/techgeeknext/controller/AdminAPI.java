@@ -5,6 +5,7 @@ import com.techgeeknext.config.ResetPSW;
 import com.techgeeknext.dao.AdminDao;
 import com.techgeeknext.entities.Admin;
 import com.techgeeknext.model.Order;
+import com.techgeeknext.proxy.DeliveryEtatProxy;
 import com.techgeeknext.proxy.OrderProxy;
 import com.techgeeknext.service.AdminService;
 import com.techgeeknext.service.JwtUserDetailsService;
@@ -23,6 +24,9 @@ public class AdminAPI {
 
     @Autowired
     OrderProxy orderProxy;
+
+    @Autowired
+    DeliveryEtatProxy deliveryEtatProxy;
 
     @Autowired
     private JwtUserDetailsService userDetailsService;
@@ -110,10 +114,21 @@ public class AdminAPI {
 
 
         @GetMapping("allOrders")
-    public List<Order> getOrders(){
+        public List<Order> getOrders(){
         return orderProxy.getAllOrders();
         }
 
+        @PostMapping("/noDelivery")
+        public void noDelivery(@RequestParam Integer order_id)
+        {
+         deliveryEtatProxy.noDelivery(order_id);
+        }
+
+        @PostMapping("/delivered")
+        public void delivered(@RequestParam Integer order_id)
+        {
+            deliveryEtatProxy.delivered(order_id);
+        }
 
 
     }
