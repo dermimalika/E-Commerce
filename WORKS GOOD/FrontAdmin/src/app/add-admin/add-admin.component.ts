@@ -5,6 +5,7 @@ import { HttpErrorResponse } from "@angular/common/http";
 import { NgForm } from "@angular/forms";
 import {Admin} from "../Admin";
 import { StoreService } from "../service/store.service";
+import { ToastrService } from "ngx-toastr";
 
 @Component({
   selector: "app-add-admin",
@@ -20,6 +21,7 @@ export class AddAdminComponent implements OnInit {
 
   constructor(private httpClientService: HttpClientService,
     private storeService: StoreService,
+    private toastr: ToastrService,
     private router: Router) {}
 
   ngOnInit() {
@@ -58,11 +60,11 @@ export class AddAdminComponent implements OnInit {
     this.httpClientService.createAdmin({name:this.user.name,password:this.user.password,store:this.store,phone:this.user.phone,username:this.user.username})
     .subscribe((data:any)=>{
       if(data){
-          // this.toastr.success('A New Admin Added','New Admin',{ timeOut: 5000})
+          this.toastr.success('A New Admin Added','New Admin',{ timeOut: 5000})
           this.router.navigate(['/']);
           
       }else{
-        // this.toastr.error(data['msg'],'Error',{ timeOut: 3000})   
+        this.toastr.error(data['msg'],'Error',{ timeOut: 3000})   
         console.log("there is an error in adding ");
       }
     });

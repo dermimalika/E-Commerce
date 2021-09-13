@@ -1,6 +1,7 @@
 import { DOCUMENT } from '@angular/common';
 import { Component, Inject, OnInit } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 import { Product } from '../model/Product';
 import { AuthenticationService } from '../service/authentication.service';
 import { HttpClientService } from '../service/httpclient.service';
@@ -23,6 +24,7 @@ export class RecycleComponent implements OnInit {
   constructor(private storeService: StoreService,
     private httpClientService: HttpClientService,
     @Inject(DOCUMENT) private document: Document,
+    private toastr: ToastrService,
     private authService:AuthenticationService,) { }
 
   ngOnInit(): void {
@@ -47,9 +49,15 @@ export class RecycleComponent implements OnInit {
     //->Restore Store
     restoreStore(id:any){
       return this.storeService.restoreStore(id).subscribe((data:any)=>{
-        this.getStores();
-        this.mode="main";
-        this.document.location.reload();
+        if( data){
+          this.toastr.success('Restore Store!', 'Store has been restored successfuly'); 
+          this.getStores();
+          this.mode="main";
+          this.document.location.reload();
+        }
+        else{
+          this.toastr.error('Restore Store!', 'Try Again '); 
+        }
       })
     }
     //================
@@ -61,14 +69,12 @@ export class RecycleComponent implements OnInit {
         return this.storeService.delete(id)
         .subscribe((data:any)=>{
           if(data){
-              // this.toastr.success('An admin Has been deleted','Delete Admin',{ timeOut: 5000})
-              console.log("Admin Deleted ");
+             this.toastr.success('Delete Store!', 'Store has been deleted successfuly'); 
               this.getStores();
               this.document.location.reload();
               
           }else{
-            // this.toastr.error(data['msg'],'Error',{ timeOut: 3000})   
-            console.log("there is an error in deleting");
+            this.toastr.error('Delete Store!', 'Try Again ');  
             
           }
         })
@@ -99,9 +105,15 @@ export class RecycleComponent implements OnInit {
     //->Restore Admin
       restoreAdmin(id:any){
         return this.httpClientService.restoreAdmin(id).subscribe((data:any)=>{
-          this.getAdmins();
-          this.mode="main";
-          this.document.location.reload();
+          if( data){
+            this.toastr.success('Restore Admin!', 'Admin has been restored successfuly'); 
+            this.getAdmins();
+            this.mode="main";
+            this.document.location.reload();
+          }
+          else{
+            this.toastr.error('Admin restore!', 'Try Again '); 
+          }
         })
               }
     //================
@@ -110,9 +122,12 @@ export class RecycleComponent implements OnInit {
       if(confirm("Are you sure ?")){
         return this.httpClientService.deleteAdmin(id).subscribe(data => {
           if(data){
-            console.log("Delete fct : ");
+            this.toastr.success('Delete Admin!', 'Admin has been deleted successfuly'); 
             this.getAdmins();
             this.document.location.reload();
+          }
+          else{
+            this.toastr.error('Delete Admin!', 'Try Again '); 
           }
         })
       }
@@ -157,9 +172,15 @@ export class RecycleComponent implements OnInit {
     //->Restore Product
       restoreProduct(id:any){
         return this.httpClientService.restoreProduct(id).subscribe((data:any)=>{
+          if( data){
+            this.toastr.success('Restore Product!', 'Product has been restored successfuly'); 
           // this.getProducts();
           this.mode="main";
           this.document.location.reload();
+          }
+          else{
+            this.toastr.error('Restore Product!', 'Try Again '); 
+          }
         })
               }
     //================
@@ -168,9 +189,12 @@ export class RecycleComponent implements OnInit {
       if(confirm("Are you sure ?")){
         return this.httpClientService.deleteProduct(id).subscribe(data => {
           if(data){
-            console.log("Delete fct : ");
+            this.toastr.success('Delete Product!', 'Product has been deleted successfuly'); 
             // this.getProducts();
             this.document.location.reload();
+          }
+          else{
+            this.toastr.error('Delete Product!', 'Try Again '); 
           }
         })
       }
@@ -197,17 +221,29 @@ export class RecycleComponent implements OnInit {
           // this.getCategories();
           this.mode="main";
           this.document.location.reload();
+          if( data){
+            this.toastr.success('Restore Category!', 'Category has been restored successfuly'); 
+          // this.getCategories();
+          this.mode="main";
+          this.document.location.reload();
+          }
+          else{
+            this.toastr.error('Restore Category!', 'Try Again '); 
+          }
         })
               }
     //================
-    //-> Delete Admin
+    //-> Delete Category
     delCategory(id: any) {
       if(confirm("Are you sure ?")){
         return this.httpClientService.deleteCategory(id).subscribe(data => {
           if(data){
-            console.log("Delete fct : ");
+            this.toastr.success('Delete Category!', 'Category has been deleted successfuly');
             // this.getCategories();
             this.document.location.reload();
+          }
+          else{
+            this.toastr.error('Delete Category!', 'Try Again '); 
           }
         })
       }

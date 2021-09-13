@@ -2,6 +2,7 @@ import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { Category } from '../../../model/Category';
 import { Router } from '@angular/router';
 import { HttpClientService } from 'src/app/service/httpclient.service';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -19,6 +20,7 @@ export class AddcategoryComponent implements OnInit {
 
 
   constructor(private httpClientService: HttpClientService,
+    private toastr: ToastrService,
     private router: Router) { }
 
   ngOnInit() {
@@ -27,8 +29,15 @@ export class AddcategoryComponent implements OnInit {
   addCategory() {
     this.httpClientService.addCategory(this.category).subscribe(
       (category) => {
-        this.userAddedEvent.emit();
-        this.router.navigate(['admin', 'categorys']);
+
+        if( category){
+          this.toastr.success('Add Category!', 'Category has been added successfuly'); 
+          this.userAddedEvent.emit();
+          this.router.navigate(['admin', 'categorys']);
+        }
+        else{
+          this.toastr.error('Add Category!', 'Try Again '); 
+        }
       }
     );
   }

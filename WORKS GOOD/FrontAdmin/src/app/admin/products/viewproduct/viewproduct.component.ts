@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClientService } from 'src/app/service/httpclient.service';
 import { environment } from 'src/environments/environment';
 import { ImageUploadService } from 'src/app/service/image-upload.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-viewproduct',
@@ -25,6 +26,7 @@ export class ViewproductComponent implements OnInit {
 
   constructor(
     private httpClientService: HttpClientService,
+    private toastr: ToastrService,
     private router: Router,
     private uploadService: ImageUploadService,
   ) {}
@@ -39,8 +41,15 @@ export class ViewproductComponent implements OnInit {
   deleteProduct() {
     this.httpClientService.archProduit(this.product.id).subscribe(
       (product) => {
-        this.bookDeletedEvent.emit();
-        this.router.navigate(['admin', 'products']);
+
+        if( product){
+          this.toastr.success('Delete Product!', 'Product has been deleted successfuly'); 
+          this.bookDeletedEvent.emit();
+          this.router.navigate(['admin', 'products']);
+        }
+        else{
+          this.toastr.error('Delete Product!', 'Try Again '); 
+        }
       }
     );
   }

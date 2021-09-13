@@ -1,5 +1,6 @@
 import { DOCUMENT } from '@angular/common';
 import { Component, Inject, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { StoreService } from '../service/store.service';
 
 @Component({
@@ -18,6 +19,7 @@ export class StoreComponent implements OnInit {
 
   constructor(
     private storeService: StoreService,
+    private toastr: ToastrService,
     @Inject(DOCUMENT) private document: Document
   ) { }
 
@@ -52,7 +54,7 @@ export class StoreComponent implements OnInit {
     this.storeService.create({name:this.name})
     .subscribe((data:any)=>{
       if(data){
-          // this.toastr.success('A New Admin Added','New Admin',{ timeOut: 5000})
+          this.toastr.success('Add Store!', 'The Store has been added successfuly'); 
           this.getStores();
           console.log("new store ");
           
@@ -61,7 +63,7 @@ export class StoreComponent implements OnInit {
           this.document.location.reload();
           
       }else{
-        // this.toastr.error(data['msg'],'Error',{ timeOut: 3000})   
+        this.toastr.error('Add Store!', 'Try Again ');  
         console.log("there is an error in adding ");
       }
     });
@@ -77,7 +79,7 @@ export class StoreComponent implements OnInit {
     this.storeService.update(this.idUpd,{name:this.name})
     .subscribe((data:any)=>{
       if(data){
-          // this.toastr.success('A New Admin Added','New Admin',{ timeOut: 5000})
+         this.toastr.success('Update Store!', 'The Store has been updated successfuly'); 
           this.getStores();
           console.log("Update store ");
           
@@ -86,7 +88,7 @@ export class StoreComponent implements OnInit {
           this.document.location.reload();
           
       }else{
-        // this.toastr.error(data['msg'],'Error',{ timeOut: 3000})   
+        this.toastr.error('Update Store!', 'Try Again '); 
         console.log("there is an error in updating ");
         
       }
@@ -101,13 +103,13 @@ export class StoreComponent implements OnInit {
       return this.storeService.archStore(id)
       .subscribe((data:any)=>{
         if(data){
-            // this.toastr.success('An admin Has been deleted','Delete Admin',{ timeOut: 5000})
+          this.toastr.success('Delete Store!', 'The Store has been added in recycle bin'); // this.toastr.success('An admin Has been deleted','Delete Admin',{ timeOut: 5000})
             console.log("Admin Deleted ");
             this.getStores();
             this.document.location.reload();
             
         }else{
-          // this.toastr.error(data['msg'],'Error',{ timeOut: 3000})   
+          this.toastr.error('Delete Store!', 'Try Again ');    
           console.log("there is an error in deleting");
           
         }
