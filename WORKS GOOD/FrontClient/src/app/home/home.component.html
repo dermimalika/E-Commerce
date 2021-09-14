@@ -52,12 +52,9 @@
         <h1 class="head-title">
           welcome to E-Meuble
         </h1>
-        <p class="text">
-          Choisissez votre meuble en ligne, en toutes couleurs, types, et beaucoup plus ...
-        </p>
-        <button type="button" class="btn">
-          shop now
-        </button>
+        <h4 style="color: brown;">
+          Choose your furniture online<br/> in all colors, types, and much more ...        </h4>
+     
       </div>
 
       <div class="head-body-img">
@@ -73,8 +70,8 @@
       <div class="title">
         <h4></h4>
         <form>
-          <h2>Nos meubles</h2>
-          Ou Choisissez de filtrer par catégorie:
+          <h2>Our Products</h2>
+          Or Choose to filter by category:
           <select aria-label="Default select example" required #ucategory="ngModel" id="category"
             placeholder="Select Category" name="category" [(ngModel)]="category">
             <option class="cat" *ngFor="let c of categories" [value]="c.name">{{c.name}}</option>

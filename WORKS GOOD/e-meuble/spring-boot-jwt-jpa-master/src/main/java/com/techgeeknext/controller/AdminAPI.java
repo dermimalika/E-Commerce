@@ -124,7 +124,9 @@ public class AdminAPI {
          deliveryEtatProxy.noDelivery(order_id);
         }
 
-        @PostMapping("/delivered")
+        @PostMapping("/" +
+                "" +
+                "")
         public void delivered(@RequestParam Integer order_id)
         {
             deliveryEtatProxy.delivered(order_id);
