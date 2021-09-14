@@ -5,7 +5,7 @@
       <div class="card">
         <div class="card-body">
           <div class="d-flex flex-column align-items-center text-center">
-            <img src="..\..\assets\images\avatars\man1.png" alt="Admin" class="rounded-circle p-1 bg-primary" style="position: relative;
+            <img [src]="urlImag + profile.avatar" alt="Admin" class="rounded-circle p-1 bg-primary" style="position: relative;
                 left: 240px;
             top: 13px;"
               width="110">
@@ -46,18 +46,25 @@
 
           <!-- Register Form -->
           <form>
+            <h5>FirstName </h5>
             <input type="text" id="firstName" class="fadeIn second" placeholder={{profile.firstName}}
               [(ngModel)]="firstName" name="firstName" required>
+              <h5>LastName </h5>
             <input type="text" id="lastName" class="fadeIn second" placeholder={{profile.lastName}}
               [(ngModel)]="lastName" name="lastName" required>
+              <h5>Username </h5>
             <input type="text" id="username" class="fadeIn second" placeholder={{profile.username}}
               [(ngModel)]="usename" name="usename" required>
+              <h5>Phone : </h5>
             <input type="number" id="phone" class="fadeIn second" placeholder={{profile.phone}} [(ngModel)]="phone"
               name="phone" required>
+              <h5>Email </h5>
             <input type="text" id="register" class="fadeIn second" placeholder={{profile.email}} [(ngModel)]="email"
               name="email" required>
+              <h5>Adr </h5>
             <input type="text" id="adr" class="fadeIn second" placeholder={{profile.adr}} [(ngModel)]="adr" name="adr"
               required>
+              <h5>Avatar </h5>
             <input type="text" id="avatar" class="fadeIn second" placeholder={{profile.avatar}} [(ngModel)]="avatar"
               name="avatar" required>
             <label class="gend" for="select1">Gender:</label>
@@ -69,10 +76,10 @@
         
               <span style="    position: relative;left: -88px;
               top: 22px;">
-                <img style="width: 60px;padding: 2px;"  class="usericon" src="..\..\assets\images\avatars\man1.png" id="icon" alt="User Icon" />
-                <img style="width: 60px;" class="usericon" src="..\..\assets\images\avatars\man2.png" id="icon" alt="User Icon" />
-                <img style="width: 60px;" class="usericon" src="..\..\assets\images\avatars\woman1.png" id="icon" alt="User Icon" />
-                <img style="width: 60px;" class="usericon" src="..\..\assets\images\avatars\woman2.png" id="icon" alt="User Icon" />
+                <img style="width: 60px;padding: 2px;"  class="usericon" (click)="avatar='man1.png'" src="..\..\assets\images\avatars\man1.png" id="icon" alt="User Icon" />
+                <img style="width: 60px;" class="usericon" (click)="avatar='man2.png'" src="..\..\assets\images\avatars\man2.png" id="icon" alt="User Icon" />
+                <img style="width: 60px;" class="usericon" (click)="avatar='woman1.png'" src="..\..\assets\images\avatars\woman1.png" id="icon" alt="User Icon" />
+                <img style="width: 60px;" class="usericon" (click)="avatar='woman2.png'" src="..\..\assets\images\avatars\woman2.png" id="icon" alt="User Icon" />
               </span>
          
 

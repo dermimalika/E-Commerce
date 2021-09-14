@@ -14,7 +14,7 @@ export class ProfileComponent implements OnInit {
   id:any
   profile:any=[]
   
-  urlImag='../../../../FrontAdmin/src/assets/images/'
+  urlImag='../../../assets/images/avatars/'
 
   mode:string='profile'
   //------- Register Var
@@ -48,14 +48,14 @@ export class ProfileComponent implements OnInit {
   updateProfile(){
 
     let client={
-      email:this.email,
-      firstName:this.firstName,
-      lastName:this.lastName,
-      phone:this.phone,
-      username:this.usename,
-      adr:this.adr,
-      genre:this.genre,
-      avatar:this.avatar
+      email:this.email || this.profile.email,
+      firstName:this.firstName || this.profile.firstName,
+      lastName:this.lastName || this.profile.lastName, 
+      phone:this.phone || this.profile.phone,
+      username:this.usename || this.profile.username,
+      adr:this.adr || this.profile.adr,
+      genre:this.genre || this.profile.genre,
+      avatar:this.avatar || this.profile.avatar
     }
     console.log("update Profile Service",client);
     
@@ -66,12 +66,16 @@ export class ProfileComponent implements OnInit {
       if( data){
         this.profile=data;
         console.log("update :\n",this.profile);
-        this.toastr.success('Update Profile!', 'Your Profile Has been Updated Succesfully ');
+        this.toastr.success('Update Profile!', 'Your Profile Has been Updated Succesfully ',{
+          timeOut: 10000,
+        });
         this.mode='profile';
         window.location.reload();
       }
       else{
-        this.toastr.error('Update Profile!', 'Try Again '); 
+        this.toastr.error('Update Profile!', 'Try Again ',{
+          timeOut: 10000,
+        }); 
       }
     });
   }

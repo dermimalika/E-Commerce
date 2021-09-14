@@ -71,6 +71,7 @@ public class UserService {
             existingUser.setPhone(userUpdate.getPhone());
             existingUser.setAdr(userUpdate.getAdr());
             existingUser.setGenre(userUpdate.getGenre());
+            existingUser.setAvatar(userUpdate.getAvatar());
 
             User updatedUser= userRepository.save(existingUser);
 
