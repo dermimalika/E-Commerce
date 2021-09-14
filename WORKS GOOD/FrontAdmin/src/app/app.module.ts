@@ -30,6 +30,7 @@ import { ViewproductComponent } from './admin/products/viewproduct/viewproduct.c
 import { RecycleComponent } from './recycle/recycle.component';
 import {  ImageUploadService } from './service/image-upload.service';
 import { UpdProductComponent } from './admin/products/upd-product/upd-product.component';
+import { OrderComponent } from './admin/order/order.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { UpdProductComponent } from './admin/products/upd-product/upd-product.co
     ViewproductComponent,
     StoreComponent,
     RecycleComponent,
-    UpdProductComponent
+    UpdProductComponent,
+    OrderComponent
   ],
   imports: [
     BrowserModule,

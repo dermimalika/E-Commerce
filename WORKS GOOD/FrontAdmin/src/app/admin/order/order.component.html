@@ -1,0 +1,41 @@
+<table mat-table [dataSource]="orders" class="mat-elevation-z7 adminsliste">
+
+    <div class="emp">
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef> ID </th>
+        <td mat-cell *matCellDef="let order"> <b>{{order.id}}</b> </td>
+      </ng-container>
+
+
+      <ng-container matColumnDef="createdDate">
+        <th mat-header-cell *matHeaderCellDef> createdDate </th>
+        <td mat-cell *matCellDef="let order"> <b>{{order.createdDate}}</b> </td>
+      </ng-container>
+      <ng-container matColumnDef="totalPrice">
+        <th mat-header-cell *matHeaderCellDef> totalPrice </th>
+        <td mat-cell *matCellDef="let order"> <b>{{order.totalPrice}}</b> </td>
+      </ng-container>
+
+      <ng-container matColumnDef="deliveryEtat">
+        <th mat-header-cell *matHeaderCellDef> deliveryEtat </th>
+        <td mat-cell *matCellDef="let order"> <b>{{order.deliveryEtat}}</b> </td>
+      </ng-container>
+      <ng-container matColumnDef="selfdelivery">
+        <th mat-header-cell *matHeaderCellDef> Action </th>
+        <td mat-cell *matCellDef="let order"><button *ngIf="order.deliveryEtat=='nothing' "
+            class="btn btn-danger btndel" (click)="noDelivery(order.id)">Self Delivered</button> </td>
+      </ng-container>
+
+      <ng-container matColumnDef="welldelivered">
+        <th mat-header-cell *matHeaderCellDef> UPDATE </th>
+        <td mat-cell *matCellDef="let order"><button  class="btnblue" *ngIf="order.deliveryEtat=='deliveryInWay'"
+            (click)="delivered(order.id)"> Well delivered</button>
+        </td>
+
+      </ng-container>
+    </div>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+  </table>

@@ -11,6 +11,7 @@ import { CategorysComponent } from './admin/categorys/categorys.component';
 import { ProductsComponent } from './admin/products/products.component';
 import { RecycleComponent } from './recycle/recycle.component';
 import { UpdProductComponent } from './admin/products/upd-product/upd-product.component';
+import { OrderComponent } from './admin/order/order.component';
 
 const routes: Routes = [
   { path: '', component: AdminComponent,canActivate:[AuthGardService] },
@@ -20,6 +21,7 @@ const routes: Routes = [
   { path: 'logout', component: LogoutComponent,canActivate:[AuthGardService] },
   { path: 'admin/categorys', component: CategorysComponent,canActivate:[AuthGardService] },
   { path: 'admin/products', component: ProductsComponent,canActivate:[AuthGardService] },
+  { path: 'admin/orders', component: OrderComponent,canActivate:[AuthGardService] },
   { path: 'recycle', component: RecycleComponent,canActivate:[AuthGardService] },
   { path: 'updproduct/:id', component: UpdProductComponent,canActivate:[AuthGardService] },
 

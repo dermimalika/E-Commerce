@@ -130,4 +130,17 @@ export class HttpClientService {
   }
   //======
   //================================================================================
+  //========================> Orders
+  //get orders
+  getOrders(){
+    return this.httpClient.get(this.urlBack+"admins/allOrders");
+  }
+
+  noDelivery(idOrder: any){
+    return this.httpClient.post(this.urlBack+"admins/noDelivery",idOrder);
+  }
+  delivered(idOrder: any){  
+    return this.httpClient.post(this.urlBack+"admins/delivered",idOrder);
+  }
+  //================================================================================
 }
