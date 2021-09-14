@@ -9,6 +9,6 @@ and EDGE microservices:<br/>
   .Ms-Registry</br>
   .Ms-Gateway</br>
   
-![ms dg](https://user-images.githubusercontent.com/48280218/131379071-993224a2-343b-45d6-b95a-eb6915844fb7.png)
+![finalMS](https://user-images.githubusercontent.com/48280218/133247248-bdbc00e0-d761-4777-a53b-f5157120853e.png)
 
 	
