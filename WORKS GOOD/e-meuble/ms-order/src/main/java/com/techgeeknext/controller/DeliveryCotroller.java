@@ -27,12 +27,13 @@ public class DeliveryCotroller {
 
 
     @PostMapping("/addDelivery")
-    public void addDelivery(@RequestParam  Integer order_id){
+    public Order addDelivery(@RequestParam  Integer order_id){
 
         Order order = orderService.getOrder(order_id);
         order.setTotalPrice(order.getTotalPrice()+700);
         order.setDeliveryEtat(DeliveryEtat.deliveryInWay);
         orderRepository.save(order);
+        return order;
     }
 
     @PostMapping("/noDelivery")

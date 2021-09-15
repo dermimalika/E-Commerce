@@ -118,18 +118,22 @@ public class AdminAPI {
         return orderProxy.getAllOrders();
         }
 
+    @CrossOrigin(origins = "http://localhost:4200")
         @PostMapping("/noDelivery")
-        public void noDelivery(@RequestParam Integer order_id)
+        public boolean noDelivery(@RequestBody  Integer order_id)
         {
-         deliveryEtatProxy.noDelivery(order_id);
+            System.out.println("we are here in noDelivery fct "+order_id);
+            deliveryEtatProxy.noDelivery(order_id);
+            return true;
         }
 
-        @PostMapping("/" +
-                "" +
-                "")
-        public void delivered(@RequestParam Integer order_id)
+    @CrossOrigin(origins = "http://localhost:4200")
+        @PostMapping("/delivered")
+        public boolean delivered(@RequestBody  Integer order_id)
         {
+            System.out.println("we are here in delivered fct "+order_id);
             deliveryEtatProxy.delivered(order_id);
+            return true;
         }
 
 
