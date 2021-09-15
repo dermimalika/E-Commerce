@@ -12,12 +12,12 @@ import{DeliveryComponent} from './delivery/delivery.component';
 
 const routes: Routes = [
   { path: 'login', component: AuthenticationComponent },
-  { path: '', component: HomeComponent,canActivate:[AuthGuardGuard] },
-  { path: 'produit/:id', component: ProduitComponent,canActivate:[AuthGuardGuard] },
+  { path: '', component: HomeComponent },
+  { path: 'produit/:id', component: ProduitComponent },
   { path: 'profile/:id', component: ProfileComponent,canActivate:[AuthGuardGuard] },
-  { path: 'filter/:category', component:FilteringComponent,canActivate:[AuthGuardGuard]},
-  { path: 'commande', component: CommandeComponent },
-  { path:'delivery/:idOrder',component:DeliveryComponent},
+  { path: 'filter/:category', component:FilteringComponent},
+  { path: 'commande', component: CommandeComponent,canActivate:[AuthGuardGuard] },
+  { path:'delivery/:idOrder',component:DeliveryComponent,canActivate:[AuthGuardGuard]},
 ];
 //,canActivate:[AuthGuardGuard]
 
