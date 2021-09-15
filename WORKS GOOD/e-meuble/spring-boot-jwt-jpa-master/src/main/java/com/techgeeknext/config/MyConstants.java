@@ -6,7 +6,7 @@ public class MyConstants {
     public static final String MY_EMAIL = "dermimalika@gmail.com";
 
     // Replace password!!
-    public static final String MY_PASSWORD = "ismail/-=22";
+    public static final String MY_PASSWORD = "ucandoitkika33";
 
     // Text Admin Email!
     public static final String Admin_EMAIL = "Welcome! Now You Have an account in our Web APP";
