@@ -27,13 +27,34 @@
     left: 179px;
     height: 555px;
 }
+.btnprod{
+    display: inline-block;
+    font-weight: 400;
+    color: #fff;
+    background-color: #76323F;
+    text-align: center;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: #76323F;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+.btnprod:hover{
+    cursor: pointer;
+}
 .btnadd{
     width: 125px;
 }
 .btnback {
     width: 125px;
     color: white;
-    background-color: #3445b4;
+    background-color: #76323F;
 }
 
 .btnadd:hover{
@@ -56,14 +77,14 @@
     display: inline-block;
     font-weight: 400;
     color: #fff;
-    background-color: #3445b4;
+    background-color: #76323F;
     text-align: center;
     vertical-align: middle;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    border: #3445b4;
+    border: #76323F;
     padding: .375rem .75rem;
     font-size: 1rem;
     line-height: 1.5;
@@ -73,8 +94,8 @@
 
 .btnblue:hover {
    background-color: #fff;
-   color: #3445b4;
-   border: 1px solid #3445b4;
+   color: #76323F;
+   border: 1px solid #76323F;
  
 }
 

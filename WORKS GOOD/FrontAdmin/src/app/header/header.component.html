@@ -81,13 +81,12 @@
 
                     <mat-toolbar class="navv" *ngIf="isLoggedIn()" color="primary">
                         <mat-toolbar-row>
-                            <span class="title" *ngIf="isLoggedIn()"><a mat-button href="https://www.techgeeknext.com"
+                            <span class="title" *ngIf="isLoggedIn()"><a mat-button href="#"
                                     style="font-size: larger;">
                                     <img src="assets/images/E-meuble.png"
                                         style="width: 200px;height: 200px;margin-left: 12px;">
                                     <span class="dash">
-                                        <h3 style="font-family: 'Tourney', cursive;margin-left: -32px;">Admin Dashborad
-                                        </h3>
+                                     
                                     </span>
                                 </a></span>
 
@@ -101,17 +100,17 @@
 
                             <a class="socondtitle" style=" margin-top: 23px;" mat-button *ngIf="isLoggedIn()"
                                 routerLink="/store" class="nav-link">
-                                <i class="fa fa-eye" aria-hidden="true"> </i> View
-                                stores</a>
+                                <i class="fas fa-store" aria-hidden="true"> </i> 
+                                Stores</a>
                             <a class="socondtitle" mat-button *ngIf="isLoggedIn()" routerLink="/addadmin"
                                 class="nav-link">
-                                <i class="fa fa-plus-square" aria-hidden="true"></i>
+                                <i class="fas fa-plus-square" aria-hidden="true"></i>
                                 Add New Admin</a>
                             <a class="socondtitle" mat-button *ngIf="isLoggedIn()" routerLink="/" class="nav-link">
-                                <i class="fa fa-eye" aria-hidden="true"></i> View Admins</a>
+                                <i class="fas fa-user" aria-hidden="true"></i>  Admins</a>
                             <a class="socondtitle" mat-button *ngIf="isLoggedIn()" routerLink="/recycle"
                                 class="nav-link">
-                                <i class="fa fa-eye" aria-hidden="true"></i> Recycle</a>
+                                <i class="fas fa-recycle" aria-hidden="true"></i> Recycle</a>
 
                             <a class="socondtitle" style="margin-top: 18px;" mat-button *ngIf="isLoggedIn()"
                                 routerLink="/logout" (click)="super=''" class="nav-link"><i
@@ -123,13 +122,12 @@
                 <div *ngIf="super=='NORMAL'">
                     <mat-toolbar *ngIf="isLoggedIn()" color="primary">
                         <mat-toolbar-row>
-                            <span class="title" *ngIf="isLoggedIn()"><a mat-button href="https://www.techgeeknext.com"
+                            <span class="title" *ngIf="isLoggedIn()"><a mat-button href="#"
                                     style="font-size: larger;">
                                     <img src="assets/images/E-meuble.png"
                                         style="width: 200px;height: 200px;margin-left: 12px;">
                                     <span class="dash">
-                                        <h3 style="font-family: 'Tourney', cursive;margin-left: -32px;">Admin Dashborad
-                                        </h3>
+                                       
                                     </span>
                                 </a></span>
                             <span *ngIf="isLoggedIn()" class="example-fill-remaining-space"></span>
@@ -140,13 +138,13 @@
                             <span class="align-center"></span>
                             <span class="example-spacer"></span>
                             <a mat-button *ngIf="isLoggedIn()" routerLink="/admin/categorys" class="nav-link">
-                                <i class="fa fa-eye" aria-hidden="true"> </i> View
+                                <i class="fas fa-th-list" aria-hidden="true"> </i> 
                                 Categories</a>
                             <a mat-button *ngIf="isLoggedIn()" routerLink="/admin/products" class="nav-link">
-                                <i class="fa fa-eye" aria-hidden="true"> </i> View
+                                <i class="fas fa-couch" aria-hidden="true"> </i> 
                                 Products</a>
                             <a mat-button *ngIf="isLoggedIn()" routerLink="/recycle" class="nav-link">
-                                <i class="fa fa-eye" aria-hidden="true"> </i> Recycle</a>
+                                <i class="fas fa-recycle" aria-hidden="true"> </i> Recycle</a>
                             <a mat-button *ngIf="isLoggedIn()" routerLink="/logout" (click)="super=''" class="nav-link">
                                 <i class="fas fa-sign-out-alt"></i> LogOut</a>
                         </mat-toolbar-row>

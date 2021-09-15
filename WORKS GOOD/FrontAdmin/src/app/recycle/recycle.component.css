@@ -51,8 +51,8 @@ h2{
    
 }
 .btnback:hover {
-   background-color: #fff;
-   border: 1px solid#8E1B1B;
+   border: 1px solid white;
+   cursor: pointer;
 }
 .div1{
 margin-left: 150px;
