@@ -7,6 +7,7 @@ import { AuthenticationService } from 'src/app/services/authentication.service';
 import { CommandeService } from 'src/app/services/commande.service';
 import { ProduitService } from 'src/app/services/produit.service';
 import { ProfileService } from 'src/app/services/profile.service';
+import { AuthGuardGuard } from 'src/app/services/auth-guard.guard';
 
 
 @Component({
@@ -136,29 +137,40 @@ export class ProduitComponent implements OnInit {
   addComment(){
     let request="Subject :"+this.subject+"\n"+this.message;
     console.log("request in com");
-
-    this.produitService.addComments(this.id,request).subscribe(data=>{
-      if( data){
-        this.toastr.success('Add Comment!', 'The Comment has been added successfuly'); 
-        this.document.location.reload();
-      }
-      else{
-        this.toastr.error('Add Comment!', 'Try Again '); 
-      }
-
-    });
+    if (this.auth.isClientLoggedIn()){
+      this.produitService.addComments(this.id,request).subscribe(data=>{
+        if( data){
+          this.toastr.success('Add Comment!', 'The Comment has been added successfuly'); 
+          this.document.location.reload();
+        }
+        else{
+          this.toastr.error('Add Comment!', 'Try Again '); 
+        }
+      });
+    }
+    else{
+      this.toastr.error('Log In!', 'U need to Log In to continue'); 
+      this.router.navigate(['login']);
+    }
 
   }
   updComment(){
-    this.produitService.updateComments(this.id,"id Comment").subscribe(data=>{
-      if( data){
-        this.toastr.success('Update Comment!', 'The Comment has been pdated successfuly'); 
-        this.document.location.reload();
-      }
-      else{
-        this.toastr.error('Update Comment!', 'Try Again '); 
-      }
-    });
+
+    if (this.auth.isClientLoggedIn()){
+      this.produitService.updateComments(this.id,"id Comment").subscribe(data=>{
+        if( data){
+          this.toastr.success('Update Comment!', 'The Comment has been pdated successfuly'); 
+          this.document.location.reload();
+        }
+        else{
+          this.toastr.error('Update Comment!', 'Try Again '); 
+        }
+      });
+    }
+    else{
+      this.toastr.error('Log In!', 'U need to Log In to continue'); 
+      this.router.navigate(['login']);
+    }
   }
 
   deleteComment(idComment :any){
@@ -190,17 +202,23 @@ export class ProduitComponent implements OnInit {
       productId:this.id,
       quantity:this.quantity
     };
-    this.commandeService.addPanier(body).subscribe(
-      (data:any)=>{
-        if( data){
-          this.toastr.success('Add Panier!', 'The Product has been added successfuly'); 
-          this.router.navigate(['commande']);
-        }
-        else{
-          this.toastr.error('Add Panier!', 'Try Again '); 
-        }
-        
-      })
+    if (this.auth.isClientLoggedIn()){
+      this.commandeService.addPanier(body).subscribe(
+        (data:any)=>{
+          if( data){
+            this.toastr.success('Add Panier!', 'The Product has been added successfuly'); 
+            this.router.navigate(['commande']);
+          }
+          else{
+            this.toastr.error('Add Panier!', 'Try Again '); 
+          }
+          
+        })
+    }
+    else{
+      this.toastr.error('Log In!', 'U need to Log In to continue'); 
+      this.router.navigate(['login']);
+    }
   }
 //====================================================================================================
 
