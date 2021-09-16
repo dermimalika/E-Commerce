@@ -140,9 +140,16 @@
                             <a mat-button *ngIf="isLoggedIn()" routerLink="/admin/categorys" class="nav-link">
                                 <i class="fas fa-th-list" aria-hidden="true"> </i> 
                                 Categories</a>
+
                             <a mat-button *ngIf="isLoggedIn()" routerLink="/admin/products" class="nav-link">
                                 <i class="fas fa-couch" aria-hidden="true"> </i> 
                                 Products</a>
+
+                            <a mat-button *ngIf="isLoggedIn()" routerLink="/admin/orders" class="nav-link">
+                                    <i class="fas fa-shopping-cart" aria-hidden="true"> </i> 
+                                    Orders</a>
+
+
                             <a mat-button *ngIf="isLoggedIn()" routerLink="/recycle" class="nav-link">
                                 <i class="fas fa-recycle" aria-hidden="true"> </i> Recycle</a>
                             <a mat-button *ngIf="isLoggedIn()" routerLink="/logout" (click)="super=''" class="nav-link">
