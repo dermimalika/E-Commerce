@@ -22,7 +22,7 @@ export class ProduitService {
       console.log("params in produit service products getall :",params);
       console.log("params in produit service Products getall attribut pages:",params.page);
   
-      return this.http.get("users/products?page="+params.page, {params,headers: new HttpHeaders().set('Authorization', token!)});
+      return this.http.get("users/products?page="+params.page, {params});
     }
 
   //for Products Filter with Category
@@ -31,7 +31,7 @@ export class ProduitService {
       console.log("params in produit service products getallCategory :",params);
       console.log("params in produit service Products getallCategory attribut category:",params.category);
       
-      return this.http.get("users/products/cat?page="+params.page, {params,headers: new HttpHeaders().set('Authorization', token!)});
+      return this.http.get("users/products/cat?page="+params.page, {params});
     }
   //for Products Filter with Key Word
     getAllProductFilter(params: any): Observable<any> {
@@ -39,19 +39,19 @@ export class ProduitService {
       console.log("params in produit service products getallCategory :",params);
       console.log("params in produit service Products getallFilter attribut filter:",params.filter);
       
-    return this.http.get("users/products/search?page="+params.page, {params,headers: new HttpHeaders().set('Authorization', token!)});
+    return this.http.get("users/products/search?page="+params.page, {params});
   }  
     
   getProduit(id:any){
     let token = sessionStorage.getItem("clienttoken");
-    return this.http.get("users/produit/"+id, {headers: new HttpHeaders().set('Authorization', token!)});
+    return this.http.get("users/produit/"+id);
   }
   //=======================================================================>
   //============>  Category
    // Get All categories
    getCategorys() {
     let token = sessionStorage.getItem("clienttoken");
-    return this.http.get('users/getCategorys', {headers: new HttpHeaders().set('Authorization', token!)});
+    return this.http.get('users/getCategorys');
   }
   //=======================================================================>
     //==========>  Comments
@@ -68,7 +68,7 @@ export class ProduitService {
   getComments(id: any){
     ///users/products/
     let token = sessionStorage.getItem("clienttoken");
-    return this.http.get("users/products/"+id+"/comments", {headers: new HttpHeaders().set('Authorization', token!)});
+    return this.http.get("users/products/"+id+"/comments",{headers: new HttpHeaders().set('Authorization', token!)});
   }
 
   addComments(id: any,data:any){

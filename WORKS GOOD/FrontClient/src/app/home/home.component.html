@@ -25,9 +25,9 @@
       <span class="head-icon">
         <form>
 
-          <input style="margin-left: 185px;" type="search" placeholder="Search" aria-label="Search" name="filter" [(ngModel)]="filter">
+          <input style="margin-left: 185px;border-radius: 40px;height: 40px;opacity:0.7;" type="search" placeholder="&nbsp;&nbsp; Search..." aria-label="Search" name="filter" [(ngModel)]="filter">
           <button class="btn btn-outline-success my-2 my-sm-0" type="submit"
-            [routerLink]="['/filter', 'fil/ '+filter]">Search<i style="margin-left: 5px;"
+            [routerLink]="['/filter', 'fil/ '+filter]"><i style="margin-right: 120px;"
               class="fas fa-search"></i></button>
         </form>
       </span>
@@ -36,10 +36,11 @@
           <i class="fas fa-search"></i>
         </span> -->
         <span class="head-icon">
-          <i class="fas fa-shopping-bag"></i>
+         <a href="/commande" style="text-decoration:none;color: white;"> <i class="fas fa-shopping-bag"></i></a>
         </span>
         <span class="head-icon">
-          <i class="fas fa-user-circle"></i>
+          <a href="/profile/:id" style="text-decoration:none;color: white;"> <i class="fas fa-user-circle"></i></a>
+
         </span>
         <span class="head-icon">
           <a (click)="logout()"><i class="fas fa-sign-out-alt"></i></a>
@@ -52,7 +53,7 @@
         <h1 class="head-title">
           welcome to E-Meuble
         </h1>
-        <h4 style="color: brown;">
+        <h4 style="color: #76323F;">
           Choose your furniture online<br/> in all colors, types, and much more ...        </h4>
      
       </div>
