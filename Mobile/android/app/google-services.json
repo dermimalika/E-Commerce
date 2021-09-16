@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "357663870008",
+    "project_id": "e-meuble-b4f78",
+    "storage_bucket": "e-meuble-b4f78.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:357663870008:android:f79f31e6a51300a5c9aacd",
+        "android_client_info": {
+          "package_name": "com.example.e_commerce"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "357663870008-1pm64072uitmbgqkji9u545s7ldajeq4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDjiMwOB3NUVFCUfysaZzp6uUHdPigQbOU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "357663870008-1pm64072uitmbgqkji9u545s7ldajeq4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
