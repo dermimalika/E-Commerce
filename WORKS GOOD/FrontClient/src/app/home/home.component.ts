@@ -116,7 +116,15 @@ export class HomeComponent implements OnInit {
 //====================================================================================================
 
   profile(){
-    
+    if (this.auth.isClientLoggedIn()){
+      let client = sessionStorage.getItem("client");
+      this.route.navigate(['profile/'+JSON.parse(client!).id]);
+    }
+    else{
+      this.toastr.error('Log In!', 'U need to Log In to continue'); 
+      this.route.navigate(['login']);
+    }
+
   }
 
   logout(){ 
