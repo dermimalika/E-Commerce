@@ -148,7 +148,7 @@ public class UserController {
             List<Product>Products= new ArrayList<>();
             Pageable paging  = PageRequest.of(page,size);
             Page<Product> pagecats;
-            pagecats = productRepository.findByNameContaining(filter,paging);
+            pagecats = productRepository.findByDescriptionContaining(filter,paging);
             Products = pagecats.getContent();
             Map<String,Object> response = new HashMap<>();
             response.put("ProductsFilterKeyWord", Products);
