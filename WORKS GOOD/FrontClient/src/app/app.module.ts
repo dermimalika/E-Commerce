@@ -19,6 +19,7 @@ import { CommandeComponent } from './commande/commande.component';
 import { CommandeService } from './services/commande.service';
 import { FilteringComponent } from './home/filtering/filtering.component';
 import { DeliveryComponent } from './delivery/delivery.component';
+import { Err404Component } from './err404/err404.component';
 
 
 
@@ -32,6 +33,7 @@ import { DeliveryComponent } from './delivery/delivery.component';
     FilteringComponent,
     CommandeComponent,
     DeliveryComponent,
+    Err404Component,
   
   ],
   imports: [

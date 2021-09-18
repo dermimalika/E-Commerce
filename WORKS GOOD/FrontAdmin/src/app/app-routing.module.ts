@@ -12,6 +12,7 @@ import { ProductsComponent } from './admin/products/products.component';
 import { RecycleComponent } from './recycle/recycle.component';
 import { UpdProductComponent } from './admin/products/upd-product/upd-product.component';
 import { OrderComponent } from './admin/order/order.component';
+import { Err404Component} from './err404/err404.component';
 
 const routes: Routes = [
   { path: '', component: AdminComponent,canActivate:[AuthGardService] },
@@ -24,6 +25,7 @@ const routes: Routes = [
   { path: 'admin/orders', component: OrderComponent,canActivate:[AuthGardService] },
   { path: 'recycle', component: RecycleComponent,canActivate:[AuthGardService] },
   { path: 'updproduct/:id', component: UpdProductComponent,canActivate:[AuthGardService] },
+  { path: '**', component: Err404Component },
 
 ];
 

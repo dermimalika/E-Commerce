@@ -31,6 +31,7 @@ import { RecycleComponent } from './recycle/recycle.component';
 import {  ImageUploadService } from './service/image-upload.service';
 import { UpdProductComponent } from './admin/products/upd-product/upd-product.component';
 import { OrderComponent } from './admin/order/order.component';
+import { Err404Component} from './err404/err404.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { OrderComponent } from './admin/order/order.component';
     StoreComponent,
     RecycleComponent,
     UpdProductComponent,
-    OrderComponent
+    OrderComponent,
+    Err404Component
   ],
   imports: [
     BrowserModule,

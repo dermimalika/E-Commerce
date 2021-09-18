@@ -8,6 +8,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { FilteringComponent } from './home/filtering/filtering.component';
 import { CommandeComponent } from './commande/commande.component'; 
 import{DeliveryComponent} from './delivery/delivery.component';
+import { Err404Component } from './err404/err404.component';
 
 
 const routes: Routes = [
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path: 'filter/:category', component:FilteringComponent},
   { path: 'commande', component: CommandeComponent,canActivate:[AuthGuardGuard] },
   { path:'delivery/:idOrder',component:DeliveryComponent,canActivate:[AuthGuardGuard]},
+  { path: '**', component:Err404Component},
 ];
 //,canActivate:[AuthGuardGuard]
 
